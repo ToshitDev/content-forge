@@ -73,7 +73,7 @@ Scaffold only. Agent implementations are not written yet.
 ## Roadmap
 
 - [x] Phase 1 — Setup: repo, prompt templates, API working
-- [ ] Phase 2 — BaseAgent with retry logic + first working agent
+- [x] Phase 2 — BaseAgent with retry logic + first working agent
 - [ ] Phase 3 — Clean JSON outputs from every agent + tests
 - [ ] Phase 4 — Chain all 5 agents into one pipeline
 - [ ] Phase 5 — Streamlit UI so it's usable without a terminal
