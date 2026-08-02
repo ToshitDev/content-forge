@@ -1,0 +1,17 @@
+# Secrets — never commit real API keys
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
