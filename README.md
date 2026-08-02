@@ -72,11 +72,12 @@ Scaffold only. Agent implementations are not written yet.
 
 ## Roadmap
 
-- [x] Project scaffold
-- [ ] `BaseAgent` + output dataclasses
-- [ ] The five agents, one at a time
-- [ ] Pipeline orchestration
-- [ ] Streamlit UI
-- [ ] Test suite
+- [x] Phase 1 — Setup: repo, prompt templates, API working
+- [ ] Phase 2 — BaseAgent with retry logic + first working agent
+- [ ] Phase 3 — Clean JSON outputs from every agent + tests
+- [ ] Phase 4 — Chain all 5 agents into one pipeline
+- [ ] Phase 5 — Streamlit UI so it's usable without a terminal
+- [ ] Phase 6 — Clean up, docs, maybe deploy it
+- [ ] Phase 7 — Track quality scores over time and analyze them
 
-Building this in phases and committing as I go partly to learn properly, partly so the history shows the actual process.
+Building this in phases and committing as I go, so the history shows how it actually came together.
