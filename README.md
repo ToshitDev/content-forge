@@ -78,3 +78,5 @@ Scaffold only. Agent implementations are not written yet.
 - [ ] Pipeline orchestration
 - [ ] Streamlit UI
 - [ ] Test suite
+
+Building this in phases and committing as I go partly to learn properly, partly so the history shows the actual process.
