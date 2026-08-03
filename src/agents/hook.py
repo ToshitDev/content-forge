@@ -1,6 +1,7 @@
 """HookAgent: generates and ranks hook lines for a chosen content idea."""
 
 from src.agents.base import BaseAgent
+from src.models import HookOutput
 
 
 class HookAgent(BaseAgent):
@@ -21,5 +22,7 @@ if __name__ == "__main__":
     }
 
     agent = HookAgent()
-    result = agent.run(sample_inputs)
-    print(result)
+    result = HookOutput.from_dict(agent.run_parsed(sample_inputs))
+
+    print(f"Winning hook: {result.winner.text}")
+    print(f"Why it wins:  {result.winner.reasoning}")
