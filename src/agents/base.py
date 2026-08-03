@@ -23,6 +23,13 @@ PLACEHOLDER_PATTERN = re.compile(r"\[([A-Z][A-Z_]*)\]")
 # Matches a whole string wrapped in ```json ... ``` or plain ``` ... ``` fences.
 FENCE_PATTERN = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?```$", re.DOTALL)
 
+# Bracket tokens that appear in prompt templates as literal instructions to
+# the model (e.g. script.txt tells Claude to mark pacing with [PAUSE] and
+# [CUT] in its own output) rather than as fill-in placeholders for us. They
+# have the same [ALL_CAPS] shape as real placeholders, so they can't be told
+# apart by pattern alone — we just know these specific ones aren't ours.
+NON_PLACEHOLDER_TOKENS = {"PAUSE", "CUT"}
+
 # Errors worth retrying: the request itself was fine, the API was just busy.
 RETRYABLE_ERRORS = (anthropic.RateLimitError, anthropic.InternalServerError)
 RETRY_DELAYS = (1, 2, 4)  # seconds, one entry per retry attempt
@@ -123,7 +130,8 @@ class BaseAgent:
 
         filled = PLACEHOLDER_PATTERN.sub(substitute, template)
 
-        remaining = list(dict.fromkeys(PLACEHOLDER_PATTERN.findall(filled)))
+        found = dict.fromkeys(PLACEHOLDER_PATTERN.findall(filled))
+        remaining = [name for name in found if name not in NON_PLACEHOLDER_TOKENS]
         if remaining:
             missing = ", ".join(f"[{name}]" for name in remaining)
             example_key = remaining[0].lower()
