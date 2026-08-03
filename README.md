@@ -74,7 +74,7 @@ Scaffold only. Agent implementations are not written yet.
 
 - [x] Phase 1 — Setup: repo, prompt templates, API working
 - [x] Phase 2 — BaseAgent with retry logic + first working agent
-- [ ] Phase 3 — Clean JSON outputs from every agent + tests
+- [x] Phase 3 — Clean JSON outputs from every agent + tests
 - [ ] Phase 4 — Chain all 5 agents into one pipeline
 - [ ] Phase 5 — Streamlit UI so it's usable without a terminal
 - [ ] Phase 6 — Clean up, docs, maybe deploy it
