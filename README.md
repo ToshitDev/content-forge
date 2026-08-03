@@ -77,7 +77,11 @@ Scaffold only. Agent implementations are not written yet.
 - [x] Phase 3 — Clean JSON outputs from every agent + tests
 - [x] Phase 4 — Chain all 5 agents into one pipeline
 - [ ] Phase 5 — Streamlit UI so it's usable without a terminal
-- [ ] Phase 6 — Clean up, docs, maybe deploy it
-- [ ] Phase 7 — Track quality scores over time and analyze them
+- [ ] Phase 6 — CI: tests, lint, and type checks on every push
+- [ ] Phase 7 — Response caching so repeat runs cost nothing
+- [ ] Phase 8 — Parallelize independent stages, measure speedup
+- [ ] Phase 9 — Client-side rate limiting + proper logging
+- [ ] Phase 10 — SQLite run history + score analytics
+- [ ] Phase 11 — Docker + final docs → v1.0.0
 
-Building this in phases and committing as I go, so the history shows how it actually came together.
+Building this in phases and committing as I go, so the history shows how it actually came together. The plan grew mid-project once the basics worked. The later phases harden it into something closer to production software.
