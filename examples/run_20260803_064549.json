@@ -1,0 +1,249 @@
+{
+  "timestamp": "20260803_064549",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there\nI always plan too much and then feel behind by Wednesday\ndoes anyone actually stick to a study schedule or is it a scam\nI redo my planner every week instead of actually studying",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Study plans fall apart mid-week (by Tuesday/Wednesday)",
+        "Phone distraction during study sessions",
+        "Over-planning instead of executing",
+        "Uncertainty about whether structured schedules actually work",
+        "Spending more time organizing/replanning than studying"
+      ],
+      "ideas": [
+        {
+          "idea": "\"Why your Sunday plan dies by Tuesday\" - carousel breaking down the specific day when motivation tanks and what actually changes",
+          "pain_point": "Study plans fall apart mid-week (by Tuesday/Wednesday)",
+          "unique_angle": "Instead of 'how to stay consistent,' diagnose the exact moment plans fail"
+        },
+        {
+          "idea": "Reel: showing phone-off study session with real timestamps - how long you actually focus without reaching",
+          "pain_point": "Study plans fall apart mid-week (by Tuesday/Wednesday)",
+          "unique_angle": "Show the time you actually gain, not just the principle of phone-free studying"
+        },
+        {
+          "idea": "\"Phone right there\" checklist - specific physical barriers ranked by effort vs. effectiveness",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Acknowledge it's always there; focus on practical micro-barriers instead of willpower"
+        },
+        {
+          "idea": "Reel: POV - your phone during your study session (filmed from phone's perspective)",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Flip the perspective to make the distraction pattern visible and slightly absurd"
+        },
+        {
+          "idea": "\"The planning trap\" - side-by-side comparison of a realistic 3-day plan vs. the 10-subject weekly epic",
+          "pain_point": "Over-planning instead of executing",
+          "unique_angle": "Show what actually works for procrastinators, not aspirational planners"
+        },
+        {
+          "idea": "Poll series: \"Is your schedule a study tool or a to-do list where you procrastinate?\"",
+          "pain_point": "Over-planning instead of executing",
+          "unique_angle": "Name the thing people don't admit - that planning itself becomes the procrastination"
+        },
+        {
+          "idea": "Caption: \"Nobody sticks to their schedule. Here's what people who pass do instead\" - interview/quote format",
+          "pain_point": "Uncertainty about whether structured schedules actually work",
+          "unique_angle": "Validate the doubt directly instead of selling the schedule myth"
+        },
+        {
+          "idea": "Reel: time-lapse of someone re-doing their planner vs. time-lapse of someone using yesterday's plan + 1 task",
+          "pain_point": "Uncertainty about whether structured schedules actually work",
+          "unique_angle": "Show the difference in actual output, not just methodology"
+        },
+        {
+          "idea": "\"You're not behind, you're just redecorating\" - breakdown of how much time replanning costs per week",
+          "pain_point": "Spending more time organizing/replanning than studying",
+          "unique_angle": "Quantify the cost of the planner-redesign cycle"
+        },
+        {
+          "idea": "Carousel: 5 signs your planner became a procrastination tool (with honest admissions for each)",
+          "pain_point": "Spending more time organizing/replanning than studying",
+          "unique_angle": "Call out the specific behaviors that feel productive but aren't"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "\"Why your Sunday plan dies by Tuesday\" - carousel breaking down the specific day when motivation tanks and what actually changes",
+          "reason": "Directly mirrors language from audience ('quit by Tuesday'), diagnoses the real moment of failure, and positions brand as understanding the pattern not selling false solutions"
+        },
+        {
+          "idea": "Caption: \"Nobody sticks to their schedule. Here's what people who pass do instead\" - interview/quote format",
+          "reason": "Addresses the biggest doubt directly ('is this a scam?'), validates procrastinator skepticism, and creates permission to try something different"
+        },
+        {
+          "idea": "\"You're not behind, you're just redecorating\" - breakdown of how much time replanning costs per week",
+          "reason": "Highest emotional resonance (shame to insight shift), targets the specific loop described by multiple audience members, gives concrete data they can measure"
+        }
+      ],
+      "missing_info": [
+        "What study methods/tools are audience members actually using or considering?",
+        "Do procrastinators prefer short-term (daily) vs. long-term (weekly) planning structures?",
+        "Specific subjects or exam types causing the most plan-abandonment",
+        "Whether audience has tried accountability partners, external structures, or app-based systems"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your Sunday plan doesn't fail on Sunday. It dies here.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Tuesday is when your motivation just... vanishes. Here's why.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "You know exactly which day you'll quit. (Spoiler: it's not Monday.)",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of students' plans don't make it past day three.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your Sunday productivity system is already broken. You just don't know it yet.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "That Sunday plan? Same one that failed last week.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You're not lazy. Tuesday just hits different.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Stop pretending Sunday's the day it all changes.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: your biggest enemy isn't procrastination. It's Wednesday.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Imagine planning for the day you actually quit. Weird flex.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your Sunday plan doesn't fail on Sunday. It dies here.",
+        "reasoning": "Creates immediate intrigue (what day?) while naming the exact pain point this audience lives: making plans that collapse mid-week. The setup-payoff structure mirrors their own experience, making them *need* to swipe to see which day gets called out. Procrastinators recognize themselves instantly."
+      },
+      "runner_up": {
+        "text": "You know exactly which day you'll quit. (Spoiler: it's not Monday.)",
+        "reasoning": "Slightly safer while maintaining curiosity and self-awareness humor. Works well if the winner feels too blunt for the feed's vibe, and the parenthetical adds personality without sacrificing clarity."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n[ON-SCREEN TEXT: \"Your Sunday plan doesn't fail on Sunday.\"]\nVoiceover: It dies here.\n[PAUSE]\n\n[PROBLEM - 3-7 sec]\n[CUT to you looking at phone]\nVoiceover: You map out your whole week. Perfect schedule. But by Tuesday you're already off the rails.\n[ON-SCREEN TEXT: \"Why?\"]\nBecause you planned like you're a robot.\n[PAUSE]\n\n[VALUE - 7-15 sec]\n[CUT to writing/planning footage]\nVoiceover: Here's what actually works: One anchor task per day. Not ten. One.\nThen you time-block the rest backwards from there.\n[ON-SCREEN TEXT: \"1 anchor = actual progress\"]\nIt sounds simple because it is. And that's why it sticks.\n[PAUSE]\n\n[CUT to direct address]\nVoiceover: Stop planning like a perfectionist. Start planning like someone who actually finishes stuff.\n[PAUSE]\n\n[CTA - 15-17 sec]\n[ON-SCREEN TEXT: \"Follow for the full system\"]\nVoiceover: Follow for the full system that fixes this.\n[CUT to call-to-action screen]",
+      "word_count": 127,
+      "viewer_takeaway": "One anchor task per day beats a perfect Sunday plan that falls apart by Tuesday. Following reveals the complete time-blocking system."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows chaotic phone calendar with 10+ tasks, right side shows clean notepad with single task circled. Bold text overlay: 'Your Sunday plan dies here'",
+        "Close-up of hand crossing off one task on paper with satisfaction, blurred phone with overloaded calendar in background. Text: 'Stop planning like a robot'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "Your Sunday plan doesn't fail on Sunday.",
+          "visual_direction": "First frame: direct camera look, casual setting (desk/couch). Slight head tilt. On-screen text appears in bold, modern sans-serif font. Background slightly out of focus."
+        },
+        {
+          "position": "2-3 sec (HOOK END)",
+          "on_screen_text": "It dies here.",
+          "visual_direction": "Pause on face, serious but not dramatic expression. Deliver voiceover line with comedic timing."
+        },
+        {
+          "position": "3-5 sec (PROBLEM START)",
+          "on_screen_text": "Why?",
+          "visual_direction": "Cut to POV shot: hand holding phone, scrolling through color-coded calendar app showing 8-10 tasks across the week. Multiple overlapping notifications visible."
+        },
+        {
+          "position": "5-7 sec (PROBLEM DEEPENS)",
+          "on_screen_text": "Because you planned like you're a robot.",
+          "visual_direction": "Cut back to direct address. Shrug gesture. Slight eye roll or knowing smirk. Keep energy casual."
+        },
+        {
+          "position": "7-10 sec (VALUE - ANCHOR CONCEPT)",
+          "on_screen_text": "1 anchor = actual progress",
+          "visual_direction": "Cut to flat-lay desk shot: hand writing/circling ONE task on paper with pen. Minimalist aesthetic. Clean workspace. Text appears in striking color (contrasting with background)."
+        },
+        {
+          "position": "10-13 sec (VALUE - TIME BLOCK)",
+          "on_screen_text": "Time-block backwards from there.",
+          "visual_direction": "Animation or b-roll of hand sketching time blocks on planner/calendar. Show visual hierarchy: one large box (anchor), then smaller blocks around it. Clean, organized motion."
+        },
+        {
+          "position": "13-15 sec (VALUE - DIRECT ADDRESS)",
+          "on_screen_text": "Stop planning like a perfectionist.",
+          "visual_direction": "Cut back to camera. Direct eye contact. Pointed gesture or hand motion for emphasis. Energy shifts to slightly more confident/instructional tone."
+        },
+        {
+          "position": "15-17 sec (CTA)",
+          "on_screen_text": "Follow for the full system",
+          "visual_direction": "Cut to lower-third call-to-action screen with arrow pointing to 'Follow' button. Simple, clean design matching brand aesthetic. Hold for 2 seconds. Optional: quick flash of previous 'anchor' visual as background."
+        }
+      ],
+      "assets_needed": [
+        "Phone with calendar app (multiple color-coded tasks visible)",
+        "Notepad/planner with pen",
+        "Clean desk setup/workspace",
+        "Flat-lay overhead camera angle capability",
+        "Animation software (for time-block visualization) OR b-roll of hand-drawn calendar sections",
+        "Direct-to-camera footage (well-lit, casual setting)",
+        "On-screen text graphics (bold sans-serif, 2-3 accent colors max)",
+        "CTA template graphic (follow button design)",
+        "Optional: split-screen footage for before/after comparison shots"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook + problem identified by 3 sec; 'one anchor task' concept lands clearly but takes until 7 sec to articulate the actual mechanism.",
+        "retention": "Problem-to-solution arc keeps attention, but the 'time-block backwards' instruction needs visual reinforcement or viewers mentally check out at 10 sec.",
+        "save_potential": "Core framework (anchor task + time-blocking) is actionable enough to save; viewers can implement immediately without the 'full system,' which weakens urgency.",
+        "shareability": "Relatable hook, but lacks the 'wow' or laughable-honest moment that makes college students tag friends; feels educational rather than meme-adjacent.",
+        "audience_fit": "Directly addresses procrastinator pain (Sunday plans failing by Tuesday); speaks to their failure pattern, not just productivity theory.",
+        "cta_strength": "Clear ask (follow), but 'follow for the full system' implies gatekeeping content they already partially received, reducing friction incentive."
+      },
+      "weaknesses": [
+        {
+          "issue": "The core value prop gets diluted: viewers learn the entire system (1 anchor + time-block) in the post, making 'follow for the full system' feel dishonest or redundant.",
+          "fix": "Restructure CTA to highlight what *isn't* shown: 'Follow for: templates, the weekly audit that kills Sunday failure, + the exact hour-by-hour system.' Or front-load mystery: Cut the time-blocking explanation entirely and end at 'Here's the one thing that works\u2014follow to see how to structure it.'"
+        },
+        {
+          "issue": "Shareability is weak because the hook lands emotionally but the solution lacks a punchy, quotable moment; 'Stop planning like a perfectionist' is decent but not meme-ready for college audience.",
+          "fix": "Replace '...like a perfectionist' line with something more self-aware and shareable: 'Stop planning like you're gonna become a different person Tuesday morning. You won't.' Or: 'Your Sunday self and Tuesday self aren't the same person. Plan for Tuesday self.'"
+        },
+        {
+          "issue": "Time-blocking explanation at 10-13 sec is abstract without strong visual; hand-sketching or animation alone doesn't show *why* backwards time-blocking solves the robot-planning problem.",
+          "fix": "Add voiceover logic during the time-block visual: 'You start with the task that actually matters. Then you build your day around protecting that time. Not the other way around.' Emphasize the decision hierarchy, not just the visual layout."
+        }
+      ],
+      "captions": [
+        "Your Sunday plan doesn't fail on Sunday\u2014it dies the moment you plan like you won't change by Tuesday. Here's the one rule that actually sticks: 1 anchor task. Everything else bends around it. Follow for the full system + the weekly audit that keeps you on track when motivation tanks.",
+        "Sunday plans hit different when you stop treating yourself like a robot. The anchor task method sounds simple because it is\u2014but it's why people actually finish their week instead of rage-quit by Wednesday. Follow for the templates, the mistake-proof time-blocking setup, and the exact system that fixes this."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong hook and audience fit, but the CTA promise is undercut by delivering the core system in-video, and the shareability is dulled by a non-quotable solution moment\u2014reframe the gatekeeping and punch up the behavioral insight to unlock higher engagement."
+    }
+  }
+}
