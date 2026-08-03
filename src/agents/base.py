@@ -4,6 +4,7 @@ Loads a prompt template, fills in its placeholders from a dict of inputs,
 and calls the Anthropic API with retry logic for transient failures.
 """
 
+import json
 import os
 import re
 import time
@@ -18,6 +19,9 @@ PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 
 # Placeholders look like [NICHE], [BRAND_VOICE] — all caps, optional underscores.
 PLACEHOLDER_PATTERN = re.compile(r"\[([A-Z][A-Z_]*)\]")
+
+# Matches a whole string wrapped in ```json ... ``` or plain ``` ... ``` fences.
+FENCE_PATTERN = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?```$", re.DOTALL)
 
 # Errors worth retrying: the request itself was fine, the API was just busy.
 RETRYABLE_ERRORS = (anthropic.RateLimitError, anthropic.InternalServerError)
@@ -70,6 +74,35 @@ class BaseAgent:
         template = self._load_template()
         prompt = self._fill_template(template, inputs)
         return self._call_with_retry(prompt)
+
+    def run_parsed(self, inputs: dict) -> dict:
+        """Run the agent and parse its reply as JSON in one step.
+
+        Equivalent to `self.parse_json(self.run(inputs))`.
+        """
+        raw = self.run(inputs)
+        return self.parse_json(raw)
+
+    def parse_json(self, raw: str) -> dict:
+        """Parse a JSON object out of a raw model response.
+
+        Strips a leading/trailing markdown code fence (```json or plain
+        ```), if present, then parses what's left as JSON.
+
+        Raises:
+            ValueError: If the text still isn't valid JSON after stripping
+                fences. The message includes the first 500 characters of
+                the raw response, so you can see what the model actually
+                sent back.
+        """
+        cleaned = _strip_code_fence(raw)
+        try:
+            return json.loads(cleaned)
+        except json.JSONDecodeError as error:
+            raise ValueError(
+                f"Could not parse JSON from '{self.prompt_name}' response: {error}. "
+                f"Raw response (first 500 chars): {raw[:500]!r}"
+            ) from error
 
     def _load_template(self) -> str:
         """Read the raw prompt template for this agent."""
@@ -125,6 +158,13 @@ class BaseAgent:
             messages=[{"role": "user", "content": prompt}],
         )
         return "".join(block.text for block in response.content if block.type == "text")
+
+
+def _strip_code_fence(raw: str) -> str:
+    """Remove a leading/trailing ``` or ```json markdown fence, if present."""
+    text = raw.strip()
+    match = FENCE_PATTERN.match(text)
+    return match.group(1).strip() if match else text
 
 
 def _get_api_key() -> str:
