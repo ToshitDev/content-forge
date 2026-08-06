@@ -6,9 +6,10 @@ raises a clear error if a required key is missing.
 """
 
 from dataclasses import dataclass
+from typing import Any
 
 
-def _require(d: dict, key: str, context: str):
+def _require(d: dict[str, Any], key: str, context: str) -> Any:
     """Fetch d[key], raising a clear ValueError if it's missing."""
     if key not in d:
         raise ValueError(f"{context}: missing required key '{key}' in {d!r}")
@@ -24,7 +25,7 @@ class Idea:
     unique_angle: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Idea":
+    def from_dict(cls, d: dict[str, Any]) -> "Idea":
         return cls(
             idea=_require(d, "idea", "Idea"),
             pain_point=_require(d, "pain_point", "Idea"),
@@ -40,7 +41,7 @@ class TopPick:
     reason: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "TopPick":
+    def from_dict(cls, d: dict[str, Any]) -> "TopPick":
         return cls(
             idea=_require(d, "idea", "TopPick"),
             reason=_require(d, "reason", "TopPick"),
@@ -57,7 +58,7 @@ class ResearchOutput:
     missing_info: list[str]
 
     @classmethod
-    def from_dict(cls, d: dict) -> "ResearchOutput":
+    def from_dict(cls, d: dict[str, Any]) -> "ResearchOutput":
         return cls(
             pain_points=_require(d, "pain_points", "ResearchOutput"),
             ideas=[Idea.from_dict(i) for i in _require(d, "ideas", "ResearchOutput")],
@@ -76,7 +77,7 @@ class HookOption:
     type: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "HookOption":
+    def from_dict(cls, d: dict[str, Any]) -> "HookOption":
         return cls(
             text=_require(d, "text", "HookOption"),
             type=_require(d, "type", "HookOption"),
@@ -91,7 +92,7 @@ class HookChoice:
     reasoning: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "HookChoice":
+    def from_dict(cls, d: dict[str, Any]) -> "HookChoice":
         return cls(
             text=_require(d, "text", "HookChoice"),
             reasoning=_require(d, "reasoning", "HookChoice"),
@@ -107,7 +108,7 @@ class HookOutput:
     runner_up: HookChoice
 
     @classmethod
-    def from_dict(cls, d: dict) -> "HookOutput":
+    def from_dict(cls, d: dict[str, Any]) -> "HookOutput":
         return cls(
             hooks=[HookOption.from_dict(h) for h in _require(d, "hooks", "HookOutput")],
             winner=HookChoice.from_dict(_require(d, "winner", "HookOutput")),
@@ -124,7 +125,7 @@ class ScriptOutput:
     viewer_takeaway: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "ScriptOutput":
+    def from_dict(cls, d: dict[str, Any]) -> "ScriptOutput":
         return cls(
             script=_require(d, "script", "ScriptOutput"),
             word_count=_require(d, "word_count", "ScriptOutput"),
@@ -141,7 +142,7 @@ class FramePlanItem:
     visual_direction: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "FramePlanItem":
+    def from_dict(cls, d: dict[str, Any]) -> "FramePlanItem":
         return cls(
             position=_require(d, "position", "FramePlanItem"),
             on_screen_text=_require(d, "on_screen_text", "FramePlanItem"),
@@ -158,7 +159,7 @@ class VisualOutput:
     assets_needed: list[str]
 
     @classmethod
-    def from_dict(cls, d: dict) -> "VisualOutput":
+    def from_dict(cls, d: dict[str, Any]) -> "VisualOutput":
         return cls(
             cover_options=_require(d, "cover_options", "VisualOutput"),
             frame_plan=[
@@ -180,7 +181,7 @@ class Scores:
     cta_strength: int
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Scores":
+    def from_dict(cls, d: dict[str, Any]) -> "Scores":
         return cls(
             clarity=_require(d, "clarity", "Scores"),
             retention=_require(d, "retention", "Scores"),
@@ -199,7 +200,7 @@ class Weakness:
     fix: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "Weakness":
+    def from_dict(cls, d: dict[str, Any]) -> "Weakness":
         return cls(
             issue=_require(d, "issue", "Weakness"),
             fix=_require(d, "fix", "Weakness"),
@@ -211,14 +212,14 @@ class GrowthReview:
     """Parsed output of the Growth Agent."""
 
     scores: Scores
-    justifications: dict
+    justifications: dict[str, str]
     weaknesses: list[Weakness]
     captions: list[str]
     final_call: str
     final_call_reason: str
 
     @classmethod
-    def from_dict(cls, d: dict) -> "GrowthReview":
+    def from_dict(cls, d: dict[str, Any]) -> "GrowthReview":
         return cls(
             scores=Scores.from_dict(_require(d, "scores", "GrowthReview")),
             justifications=_require(d, "justifications", "GrowthReview"),

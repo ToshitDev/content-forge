@@ -1,10 +1,13 @@
 """Runs the full 5-agent content pipeline: Research → Hook → Script → Visual → Growth."""
 
 import json
+from collections.abc import Callable
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any, Protocol, Self, TypeVar
 
+from src.agents.base import BaseAgent
 from src.agents.growth import GrowthAgent
 from src.agents.hook import HookAgent
 from src.agents.research import ResearchAgent
@@ -15,8 +18,28 @@ from src.models import GrowthReview, HookOutput, ResearchOutput, ScriptOutput, V
 EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "examples"
 TOTAL_STEPS = 5
 
+# Called after each step as on_progress(step_num, total_steps, agent_name).
+ProgressCallback = Callable[[int, int, str], None]
 
-def run_pipeline(profile: dict, research_material: str, on_progress=None) -> dict:
+class _FromDict(Protocol):
+    """Anything with a from_dict(cls, d) classmethod — every output dataclass."""
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> Self: ...
+
+
+# Ties _run_step's output_cls argument to its return type, so e.g. passing
+# ResearchOutput makes the call site's result infer as ResearchOutput, not
+# a vague Any that would let a typo like `.top_pick` pass mypy silently.
+# Bound to _FromDict so mypy also knows output_cls.from_dict(...) is valid.
+T = TypeVar("T", bound=_FromDict)
+
+
+def run_pipeline(
+    profile: dict[str, str],
+    research_material: str,
+    on_progress: ProgressCallback | None = None,
+) -> dict[str, Any]:
     """Run the full content pipeline end to end and save the result.
 
     Args:
@@ -124,7 +147,14 @@ def run_pipeline(profile: dict, research_material: str, on_progress=None) -> dic
     return outputs
 
 
-def _run_step(step_num: int, name: str, agent, inputs: dict, output_cls, on_progress=None):
+def _run_step(
+    step_num: int,
+    name: str,
+    agent: BaseAgent,
+    inputs: dict[str, Any],
+    output_cls: type[T],
+    on_progress: ProgressCallback | None = None,
+) -> T:
     """Run one pipeline step, parse its result, and report progress.
 
     Prints a progress line unconditionally (CLI usage relies on this),
@@ -156,7 +186,7 @@ def _format_visual_plan(visual: VisualOutput) -> str:
     return "\n".join(lines)
 
 
-def _save_run(profile: dict, research_material: str, outputs: dict) -> Path:
+def _save_run(profile: dict[str, str], research_material: str, outputs: dict[str, Any]) -> Path:
     """Save a full pipeline run as JSON to examples/run_<timestamp>.json."""
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     record = {
@@ -181,14 +211,12 @@ if __name__ == "__main__":
         "brand_voice": "casual, direct, slightly funny",
         "cta": "follow for the full system",
     }
-    sample_research_material = "\n".join(
-        [
-            "I make a timetable every Sunday and quit by Tuesday",
-            "how do you study when your phone is right there",
-            "I always plan too much and then feel behind by Wednesday",
-            "does anyone actually stick to a study schedule or is it a scam",
-            "I redo my planner every week instead of actually studying",
-        ]
+    sample_research_material = (
+        "I make a timetable every Sunday and quit by Tuesday\n"
+        "how do you study when your phone is right there\n"
+        "I always plan too much and then feel behind by Wednesday\n"
+        "does anyone actually stick to a study schedule or is it a scam\n"
+        "I redo my planner every week instead of actually studying"
     )
 
     result = run_pipeline(sample_profile, sample_research_material)

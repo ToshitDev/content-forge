@@ -9,6 +9,7 @@ import os
 import re
 import time
 from pathlib import Path
+from typing import Any
 
 import anthropic
 from dotenv import load_dotenv
@@ -51,7 +52,7 @@ class BaseAgent:
         prompt_name: str,
         model: str = "claude-haiku-4-5-20251001",
         max_tokens: int = 4000,
-    ):
+    ) -> None:
         """Set up the agent and fail fast if the API key isn't configured.
 
         Args:
@@ -67,7 +68,7 @@ class BaseAgent:
         # so the SDK's built-in retries don't quietly stack on top of ours.
         self.client = anthropic.Anthropic(api_key=_get_api_key(), max_retries=0)
 
-    def run(self, inputs: dict) -> str:
+    def run(self, inputs: dict[str, Any]) -> str:
         """Fill the prompt template with `inputs` and return Claude's reply.
 
         Args:
@@ -86,7 +87,7 @@ class BaseAgent:
         prompt = self._fill_template(template, inputs)
         return self._call_with_retry(prompt)
 
-    def run_parsed(self, inputs: dict) -> dict:
+    def run_parsed(self, inputs: dict[str, Any]) -> dict[str, Any]:
         """Run the agent and parse its reply as JSON in one step.
 
         Equivalent to `self.parse_json(self.run(inputs))`.
@@ -94,7 +95,7 @@ class BaseAgent:
         raw = self.run(inputs)
         return self.parse_json(raw)
 
-    def parse_json(self, raw: str) -> dict:
+    def parse_json(self, raw: str) -> dict[str, Any]:
         """Parse a JSON object out of a raw model response.
 
         Strips a leading/trailing markdown code fence (```json or plain
@@ -120,7 +121,7 @@ class BaseAgent:
         path = PROMPTS_DIR / f"{self.prompt_name}.txt"
         return path.read_text()
 
-    def _fill_template(self, template: str, inputs: dict) -> str:
+    def _fill_template(self, template: str, inputs: dict[str, Any]) -> str:
         """Replace [PLACEHOLDER] tokens with values from `inputs`.
 
         A placeholder [FOO] is replaced by inputs["foo"] (lowercased key).
@@ -160,6 +161,12 @@ class BaseAgent:
                 return self._call_api(prompt)
             except RETRYABLE_ERRORS as error:
                 last_error = error
+        # delays always has at least one entry (the leading 0), so the loop
+        # ran at least once; reaching here means every attempt raised, so
+        # last_error is always set. The assert makes that invariant explicit
+        # for both mypy (narrows Exception | None -> Exception) and anyone
+        # reading this later, instead of leaving it as an implicit "trust me".
+        assert last_error is not None
         raise last_error
 
     def _call_api(self, prompt: str) -> str:
@@ -203,7 +210,7 @@ def _get_api_key() -> str:
     """Read ANTHROPIC_API_KEY from the environment, failing with a clear message."""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        raise EnvironmentError(
+        raise OSError(
             "ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key."
         )
     return api_key
