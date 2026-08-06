@@ -1,0 +1,8 @@
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.12"
+# streamlit and anthropic ship without (or with incomplete) type stubs —
+# without this, every import of either raises an unresolvable error.
+ignore_missing_imports = true
