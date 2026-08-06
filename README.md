@@ -100,6 +100,4 @@ hardening it — CI, caching, and concurrency are next.
 - [ ] Phase 10 — SQLite run history + score analytics
 - [ ] Phase 11 — Docker + final docs → v1.0.0
 
-Building this in phases and committing as I go, so the history shows how it
-actually came together. The plan grew mid-project once the basics worked. The
-later phases harden it into something closer to production software.
+Building this in phases and committing as I go, so the history shows how it actually came together. The plan grew mid-project once the basics worked. The later phases harden it into something closer to production software.
