@@ -16,7 +16,7 @@ EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "examples"
 TOTAL_STEPS = 5
 
 
-def run_pipeline(profile: dict, research_material: str) -> dict:
+def run_pipeline(profile: dict, research_material: str, on_progress=None) -> dict:
     """Run the full content pipeline end to end and save the result.
 
     Args:
@@ -24,10 +24,14 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "audience", "platform", "format", "brand_voice", and "cta".
         research_material: Raw audience material (comments, questions,
             notes) for the Research Agent to work from.
+        on_progress: Optional callback invoked after each step completes,
+            as on_progress(step_num, total_steps, agent_name). Lets a UI
+            (or anything else) report progress; CLI usage can ignore it —
+            the step still prints, same as before.
 
     Returns:
         A dict with keys "research", "hook", "script", "visual", "growth",
-        each holding the corresponding parsed output object.
+        and "saved_path" (where the run's JSON record was written).
     """
     research = _run_step(
         1,
@@ -41,6 +45,7 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "research_material": research_material,
         },
         ResearchOutput,
+        on_progress,
     )
 
     chosen_idea = research.top_picks[0].idea
@@ -56,6 +61,7 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "chosen_idea": chosen_idea,
         },
         HookOutput,
+        on_progress,
     )
 
     script = _run_step(
@@ -72,6 +78,7 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "winning_hook": hook.winner.text,
         },
         ScriptOutput,
+        on_progress,
     )
 
     visual = _run_step(
@@ -85,6 +92,7 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "script": script.script,
         },
         VisualOutput,
+        on_progress,
     )
 
     growth = _run_step(
@@ -101,6 +109,7 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
             "visual_plan": _format_visual_plan(visual),
         },
         GrowthReview,
+        on_progress,
     )
 
     outputs = {
@@ -110,12 +119,16 @@ def run_pipeline(profile: dict, research_material: str) -> dict:
         "visual": visual,
         "growth": growth,
     }
-    _save_run(profile, research_material, outputs)
+    saved_path = _save_run(profile, research_material, outputs)
+    outputs["saved_path"] = str(saved_path)
     return outputs
 
 
-def _run_step(step_num: int, name: str, agent, inputs: dict, output_cls):
-    """Run one pipeline step, parse its result, and print a progress line.
+def _run_step(step_num: int, name: str, agent, inputs: dict, output_cls, on_progress=None):
+    """Run one pipeline step, parse its result, and report progress.
+
+    Prints a progress line unconditionally (CLI usage relies on this),
+    then also calls on_progress(step_num, TOTAL_STEPS, name) if given.
 
     Raises:
         RuntimeError: If the API call or parsing fails, naming which
@@ -127,6 +140,8 @@ def _run_step(step_num: int, name: str, agent, inputs: dict, output_cls):
     except Exception as error:
         raise RuntimeError(f"{name} agent failed: {error}") from error
     print(f"[{step_num}/{TOTAL_STEPS}] {name} agent... done")
+    if on_progress:
+        on_progress(step_num, TOTAL_STEPS, name)
     return result
 
 
