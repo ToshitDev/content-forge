@@ -95,7 +95,7 @@ hardening it. CI, caching, and concurrency are next.
 - [x] Phase 3: Clean JSON outputs from every agent + tests
 - [x] Phase 4: Chain all 5 agents into one pipeline
 - [x] Phase 5: Streamlit UI so it's usable without a terminal
-- [ ] Phase 6: CI with tests, lint, and type checks on every push
+- [x] Phase 6: CI with tests, lint, and type checks on every push
 - [ ] Phase 7: Response caching so repeat runs cost nothing
 - [ ] Phase 8: Parallelize independent stages, measure speedup
 - [ ] Phase 9: Client-side rate limiting + proper logging
