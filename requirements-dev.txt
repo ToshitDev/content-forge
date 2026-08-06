@@ -1,0 +1,5 @@
+# Dev-only tooling — linting and type checking. Never needed to run the
+# app itself, so it's kept out of requirements.txt.
+-r requirements.txt
+ruff
+mypy
