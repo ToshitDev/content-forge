@@ -1,0 +1,276 @@
+{
+  "timestamp": "20260806_171422",
+  "profile": {
+    "niche": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "audience": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more"
+  },
+  "research_material": "\"I sit 9 hours a day, my back is destroyed, where do I even start\"\n\"tried following gym youtubers but everything needs equipment I don't have\"\n\"I get home at 8pm, cooking + workout + sleep is impossible, something has to go\"\n\"do 10 minute workouts actually do anything or is that cope\"\n\"started monday, stopped thursday, every single month, why am I like this\"",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Chronic back pain from prolonged sitting with no idea how to address it",
+        "Lack of equipment at home makes following standard workout content feel inaccessible",
+        "Severe time scarcity\u2014competing priorities (cooking, sleep, work) make fitting in workouts feel impossible",
+        "Skepticism about whether short workouts (10 min) are actually effective or just false hope",
+        "Chronic motivation failure\u2014starting strong then quitting within days, repeating monthly"
+      ],
+      "ideas": [
+        {
+          "idea": "Before/After back pain posts: Show desk workers doing 3-minute posture fixes at their desk (no equipment, during work breaks)",
+          "pain_point": "Chronic back pain from prolonged sitting with no idea how to address it",
+          "unique_angle": "Positioning relief as something that happens *during* work, not after, removing the time objection"
+        },
+        {
+          "idea": "Carousel: 'Back pain? Here's what your office chair is actually doing to you' + 5 bodyweight fixes you can do right now",
+          "pain_point": "Chronic back pain from prolonged sitting with no idea how to address it",
+          "unique_angle": "Diagnosing the problem first (desk work) before offering the solution, building credibility"
+        },
+        {
+          "idea": "Reel series: 'I don't have dumbbells, so I used...' (water bottles, stairs, couch, door frame, etc.) showing common household items as workout tools",
+          "pain_point": "Lack of equipment at home makes following standard workout content feel inaccessible",
+          "unique_angle": "Flipping the narrative from 'you need equipment' to 'your home is already a gym'"
+        },
+        {
+          "idea": "Post: 'Equipment-free workouts for people who said no to home gyms' with honest why (space, cost, commitment anxiety)",
+          "pain_point": "Lack of equipment at home makes following standard workout content feel inaccessible",
+          "unique_angle": "Acknowledging the objection directly rather than pretending equipment doesn't matter"
+        },
+        {
+          "idea": "Reel: 'What I actually do when I get home at 8pm' showing a realistic 7-minute workout that fits between dinner and bed",
+          "pain_point": "Severe time scarcity\u2014competing priorities (cooking, sleep, work) make fitting in workouts feel impossible",
+          "unique_angle": "Showing a real schedule conflict and solving it, not pretending people have free time"
+        },
+        {
+          "idea": "Carousel: 'Cooking dinner + workout = impossible? Try this' (meal-prep ideas that free up evening time + micro-workouts that fit the new schedule)",
+          "pain_point": "Severe time scarcity\u2014competing priorities (cooking, sleep, work) make fitting in workouts feel impossible",
+          "unique_angle": "Treating the root cause (time management) not just the symptom (short workouts)"
+        },
+        {
+          "idea": "Post with real data/case study: 'Do 10-minute workouts work? Here's what actually matters' addressing the question directly without hype",
+          "pain_point": "Skepticism about whether short workouts (10 min) are actually effective or just false hope",
+          "unique_angle": "Validating the skepticism instead of overselling, building trust through honesty"
+        },
+        {
+          "idea": "Reel: '10 minutes every day vs. zero minutes' showing the compound effect of consistency over time (weekly/monthly)",
+          "pain_point": "Skepticism about whether short workouts (10 min) are actually effective or just false hope",
+          "unique_angle": "Reframing the debate from 'is 10 min enough?' to 'is 10 min better than nothing?' (yes)"
+        },
+        {
+          "idea": "Series: 'Why you quit by Thursday' breakdown\u2014identifying the real reasons (boredom, unrealistic expectations, wrong time of day) with fixes for each",
+          "pain_point": "Chronic motivation failure\u2014starting strong then quitting within days, repeating monthly",
+          "unique_angle": "Treating motivation failure as a design problem (wrong workout structure) not a willpower problem"
+        },
+        {
+          "idea": "Caption post: 'The Monday myth' explaining why starting on Monday fails, plus a framework for starting mid-week or anytime",
+          "pain_point": "Chronic motivation failure\u2014starting strong then quitting within days, repeating monthly",
+          "unique_angle": "Debunking the Monday restart cycle that keeps people trapped in the quit-restart loop"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Reel: 'What I actually do when I get home at 8pm' showing a realistic 7-minute workout that fits between dinner and bed",
+          "reason": "Directly addresses the highest-friction pain point (time scarcity) with proof it's solvable. Most relatable and shareable for the target audience."
+        },
+        {
+          "idea": "Series: 'Why you quit by Thursday' breakdown\u2014identifying the real reasons (boredom, unrealistic expectations, wrong time of day) with fixes for each",
+          "reason": "Targets the recurring failure pattern that keeps people stuck. Shifts tone from motivation-shaming to problem-solving, building loyalty."
+        },
+        {
+          "idea": "Reel series: 'I don't have dumbbells, so I used...' (water bottles, stairs, couch, door frame, etc.) showing common household items as workout tools",
+          "reason": "Removes the equipment barrier with creative examples. Highly practical and encourages sharing (people will tag what they used)."
+        }
+      ],
+      "missing_info": [
+        "Whether audience has tried any specific workout types (strength, cardio, stretching) or if pain/failure is universal across all approaches",
+        "What time of day works best for this audience (morning vs. evening vs. lunch break)",
+        "Whether the 'quit by Thursday' pattern is tied to specific workout length, intensity, or type",
+        "Competitor content that IS resonating (to avoid accidentally copying what's already working)"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Most people think 8pm is too late. Here's what I do instead.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "You don't need an hour at the gym. Seven minutes changes everything.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "That tired excuse? Seven minutes just killed it.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Everyone says they're too busy. Watch what busy actually looks like.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Skip the gym guilt. This is what actually works.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Too exhausted after work? This changes your entire mindset.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Forget the 'no time' story. I'm about to prove it wrong.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Your 8pm is wasted potential. Here's the fix.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Nobody talks about the real workout that fits between dinner and bed.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Stop waiting for the perfect moment. Seven minutes is tonight.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "You don't need an hour at the gym. Seven minutes changes everything.",
+        "reasoning": "This hook directly dismantles the core barrier for your audience\u2014time and gym access\u2014while making a bold, credible promise. For busy office workers, 'seven minutes' is specific and believable, not hype. It positions the reel as a solution to their actual constraint, not motivation fluff."
+      },
+      "runner_up": {
+        "text": "That tired excuse? Seven minutes just killed it.",
+        "reasoning": "Calls out the pain point directly with attitude that matches your casual voice. It's provocative enough to stop scrolls but safe because it's relatable rather than preachy. Works well if you want to lead with empathy-meets-accountability."
+      }
+    },
+    "script": {
+      "script": "[ON-SCREEN TEXT: You don't need an hour at the gym]\n\n[HOOK - 0-3 sec]\nYou don't need an hour at the gym. Seven minutes changes everything.\n\n[PAUSE]\n\n[PROBLEM - 3-6 sec]\nYou're stuck at a desk. No time. No energy. Gyms feel impossible.\n\n[CUT]\n\n[VALUE - 6-25 sec]\nHere's what seven minutes does:\n\n[ON-SCREEN TEXT: Desk job killer workout]\n\nThirty seconds of burpees \u2014 your heart's pumping.\n\n[PAUSE]\n\nThirty seconds rest.\n\nThen jump squats. Push-ups. Mountain climbers. Repeat.\n\n[ON-SCREEN TEXT: No equipment. No gym. Done before your next meeting.]\n\nYou'll feel stronger. More alert. Actually awake.\n\n[CUT]\n\n[CTA - 25-30 sec]\nDo this three times a week. You'll notice the difference.\n\n[PAUSE]\n\nFollow for more seven-minute workouts that actually fit your life.",
+      "word_count": 98,
+      "viewer_takeaway": "Seven minutes of simple, no-equipment exercises can replace a full gym session and fit into a busy office worker's schedule with real, noticeable results."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows person slumped at desk, right side shows same person mid-burpee with energy/motion blur. Bold text overlay: '7 MIN > 1 HOUR'",
+        "Close-up of person's face looking tired at desk, with a pulsing heart-rate graphic and timer counting down from 7:00 overlaid. Text: 'Your desk job needs this'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "You don't need an hour at the gym",
+          "visual_direction": "Person sitting slouched at desk, looking tired. Slow zoom on face. Graphic appears: red 'X' over gym/clock icon."
+        },
+        {
+          "position": "1-2 sec",
+          "on_screen_text": "Seven minutes changes everything",
+          "visual_direction": "Cut to same person standing up with sudden energy. Bold gold text pops on screen. Quick beat of upbeat music spike."
+        },
+        {
+          "position": "3-6 sec (PROBLEM)",
+          "on_screen_text": "Stuck at desk. No time. No energy.",
+          "visual_direction": "Quick cuts: clock ticking, person rubbing tired eyes, empty chair in office. Muted/grayed-out color grade."
+        },
+        {
+          "position": "6 sec",
+          "on_screen_text": "Desk job killer workout",
+          "visual_direction": "Cut to bright, energetic setting (home/office corner). Person in workout position. Color grade returns to vibrant. Upbeat music starts."
+        },
+        {
+          "position": "6-9 sec (VALUE - Burpees)",
+          "on_screen_text": "30 sec burpees",
+          "visual_direction": "Full-body shot of person performing burpees at fast pace. Show 3-4 reps. Close-up on movement. Heart-rate graphic pulses on bottom."
+        },
+        {
+          "position": "9-12 sec (Rest + Transition)",
+          "on_screen_text": "30 sec rest",
+          "visual_direction": "Person breathing, shaking out arms. Timer on screen counts down. Motivational visual: energy meter filling."
+        },
+        {
+          "position": "12-15 sec (Jump Squats)",
+          "on_screen_text": "Jump squats",
+          "visual_direction": "Quick clips of explosive jump squat reps. Show legs driving, landing soft. Dynamic camera angle (slightly tilted/active)."
+        },
+        {
+          "position": "15-18 sec (Push-ups)",
+          "on_screen_text": "Push-ups",
+          "visual_direction": "Close angle on push-ups. Show full range of motion. Cut between different angles to keep energy high."
+        },
+        {
+          "position": "18-21 sec (Mountain Climbers)",
+          "on_screen_text": "Mountain climbers. Repeat.",
+          "visual_direction": "Fast-paced mountain climber footage. Quick cuts between wide shot and close-up. Visual indicator (circle) shows 'repeat' animation."
+        },
+        {
+          "position": "21-25 sec (Benefits)",
+          "on_screen_text": "No equipment. No gym. Done.",
+          "visual_direction": "Person finishing, slightly breathless, looking refreshed/energized. Transition back to desk/office setting. Show person looking alert/awake at computer."
+        },
+        {
+          "position": "25-27 sec (CTA - First Part)",
+          "on_screen_text": "Do this 3x per week",
+          "visual_direction": "Calendar graphic showing three workout days marked. Person looks noticeably stronger/more confident. Quick before/after energy visual."
+        },
+        {
+          "position": "27-30 sec (CTA - Follow)",
+          "on_screen_text": "Follow for 7-min workouts",
+          "visual_direction": "Direct-to-camera or person pointing at camera with confident smile. Instagram follow button animation pops on screen. Upbeat music peaks."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: person at desk looking tired (close-up on face, wide shot of office)",
+        "B-roll: person performing burpees (3-4 reps, multiple angles)",
+        "B-roll: person performing jump squats (dynamic angles, full body visible)",
+        "B-roll: person performing push-ups (side angle, close-up)",
+        "B-roll: person performing mountain climbers (fast pace, multiple angles)",
+        "B-roll: person looking refreshed/alert after workout (desk setting transition)",
+        "Graphics: timer/countdown (7:00, 0:30 rest segments)",
+        "Graphics: heart-rate pulse animation",
+        "Graphics: red X over gym/clock icons",
+        "Graphics: energy meter filling animation",
+        "Graphics: repeat/circle indicator",
+        "Graphics: calendar with 3 marked days",
+        "Graphics: Instagram follow button animation",
+        "On-screen text templates: casual, bold, gold/white color",
+        "Music: upbeat, high-energy track (start muted, build during hook, peak at CTA)",
+        "Optional: subtle whoosh/transition sound effects between exercises"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately with a direct comparison (7 min vs 1 hour) and the problem statement reinforces why this matters to the target audience.",
+        "retention": "Energy shift from tired desk worker to movement keeps attention, but the middle section (exercise descriptions) relies heavily on b-roll pacing rather than narrative tension.",
+        "save_potential": "Specific, actionable workout with no barriers to entry (no equipment, no gym) makes this highly bookmarkable for repeat reference.",
+        "shareability": "Relatable pain point and time-efficient solution, but lacks a bold/surprising angle that makes people want to tag someone ('this is us').",
+        "audience_fit": "Desk fatigue, time scarcity, and lack of gym access are directly addressed; the 3x/week cadence matches realistic office worker capacity.",
+        "cta_strength": "Follow request is low-friction but passive; no urgency, exclusivity, or outcome promise attached to the follow action itself."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA is generic and doesn't reinforce the benefit of following\u2014it's a soft ask with no reason to act now.",
+          "fix": "Replace 'Follow for more seven-minute workouts' with 'Follow for daily desk-killer workouts (takes less time than your coffee break)' or 'Follow for the workout series proven to beat desk fatigue by week 2.'"
+        },
+        {
+          "issue": "Shareability underperforms because there's no social proof or identity element that makes viewers want to tag a friend or validate themselves.",
+          "fix": "Add a line at 27-28 sec: 'Tag someone who's been saying they're too busy for the gym' or insert a subtle on-screen text at 21 sec: 'Your coworkers are already doing this' to create social proof and tagging incentive."
+        },
+        {
+          "issue": "Retention dips mid-video (6-21 sec) because the exercise montage is repetitive motion without narrative progression or motivation reinforcement.",
+          "fix": "Rewrite the value section to include a micro-payoff: 'Thirty seconds of burpees\u2014your brain clears. Thirty seconds rest. Jump squats\u2014your legs fire back to life. Push-ups. Mountain climbers. Seven minutes. You go from desk-dead to actually awake.' This adds emotional arc instead of just listing moves."
+        }
+      ],
+      "captions": [
+        "Your desk job is killing your energy. Seven minutes fixes it. This workout takes less time than a meeting\u2014no gym, no excuses, just results. Do this 3x this week and tell me you don't feel different. Follow for more workouts that actually fit your life. \ud83d\udd25",
+        "Can't make it to the gym? Neither can most of us. But seven minutes at your desk (or in your room) changes everything. Burpees. Jump squats. Push-ups. Mountain climbers. Repeat. No equipment. All energy. Try it three times this week\u2014your afternoon self will thank you. Follow for the workouts busy people actually do."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong product-market fit and clear value, but CTA lacks urgency and mid-video retention sags due to exercise-listing monotony; rewrite the value section for emotional progression and attach a specific outcome or social hook to the follow request."
+    }
+  }
+}

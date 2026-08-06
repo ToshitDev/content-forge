@@ -170,15 +170,16 @@ def main() -> None:
     render_header()
     research_material, profile = render_inputs()
 
-    if st.button("Run pipeline", type="primary"):
-        if validate_inputs(profile, research_material):
-            outputs = run_with_progress(profile, research_material)
-            if outputs is not None:
-                st.session_state["outputs"] = outputs
-            else:
-                # A failed run shouldn't leave a stale, mismatched result
-                # from a previous successful run sitting on the page.
-                st.session_state.pop("outputs", None)
+    if st.button("Run pipeline", type="primary") and validate_inputs(
+        profile, research_material
+    ):
+        outputs = run_with_progress(profile, research_material)
+        if outputs is not None:
+            st.session_state["outputs"] = outputs
+        else:
+            # A failed run shouldn't leave a stale, mismatched result
+            # from a previous successful run sitting on the page.
+            st.session_state.pop("outputs", None)
 
     if "outputs" in st.session_state:
         render_results(st.session_state["outputs"])

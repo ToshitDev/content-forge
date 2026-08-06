@@ -1,0 +1,273 @@
+{
+  "timestamp": "20260806_172736",
+  "profile": {
+    "niche": "Personal finance basics for young professionals in their first job who feel broke despite earning",
+    "audience": "Personal finance basics for young professionals in their first job who feel broke despite earning",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more"
+  },
+  "research_material": "\"I earn 45k a month and still have nothing left by the 20th, where does it even go\"\n\"every finance guy on instagram says invest but I don't even have an emergency fund\"\n\"my parents never taught me money stuff and I'm too embarrassed to ask now\"\n\"tried budgeting apps, used them for 6 days, never opened again\"\n\"is it normal to feel anxious every time I check my bank balance\"",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Money disappears without knowing where it goes (lack of visibility into spending)",
+        "Feeling broke despite earning good income (income-expense gap confusion)",
+        "Shame and knowledge gaps around money basics (financial literacy vacuum)",
+        "Failed attempts at using financial tools (friction with existing solutions)",
+        "Anxiety and emotional distress when checking finances (money-related stress)"
+      ],
+      "ideas": [
+        {
+          "idea": "Series: 'Where did my 45k go?' - tracking one follower's actual spending for a month, breaking down every category visually",
+          "pain_point": "Money disappears without knowing where it goes",
+          "unique_angle": "Angle nobody's covering: showing the unsexy reality of small daily purchases adding up, not just highlighting one big expense"
+        },
+        {
+          "idea": "Interactive carousel: 'Name that expense' - guess which spending category eats up the most money, reveal actual percentages from listener submissions",
+          "pain_point": "Money disappears without knowing where it goes",
+          "unique_angle": "Angle nobody's covering: using peer data to help people see themselves in others' blindspots, not lecturing from authority"
+        },
+        {
+          "idea": "Reels: 'The broke-on-45k diagnosis' - showing 3-4 common money patterns that create the illusion of being broke while earning well",
+          "pain_point": "Feeling broke despite earning good income",
+          "unique_angle": "Angle nobody's covering: validating that high income doesn't equal financial security, naming the real culprits without shame"
+        },
+        {
+          "idea": "Caption-heavy post: 'Your parents didn't teach you this, and that's okay' - answering the 5 most basic money questions new earners are embarrassed to ask",
+          "pain_point": "Shame and knowledge gaps around money basics",
+          "unique_angle": "Angle nobody's covering: explicitly acknowledging the shame component and normalizing not knowing, not just answering the questions"
+        },
+        {
+          "idea": "Story-format explainer: 'Why budgeting apps failed you (it's not you)' - naming friction points in tracking tools and what works instead for busy professionals",
+          "pain_point": "Failed attempts at using financial tools",
+          "unique_angle": "Angle nobody's covering: blaming the tool, not the user, and offering alternatives that acknowledge real-life friction"
+        },
+        {
+          "idea": "Poll + breakdown post: 'Do you get anxious checking your bank balance?' - normalizing the feeling and explaining the psychology behind it",
+          "pain_point": "Anxiety and emotional distress when checking finances",
+          "unique_angle": "Angle nobody's covering: treating money anxiety as legitimate emotional data, not a character flaw to overcome"
+        },
+        {
+          "idea": "Quick-hit carousel: 'Money basics nobody explained' - 7-10 foundational concepts (net vs gross, emergency fund size, what counts as debt) explained in plain language",
+          "pain_point": "Shame and knowledge gaps around money basics",
+          "unique_angle": "Angle nobody's covering: using conversational tone to demystify jargon, assuming zero prior knowledge without condescension"
+        },
+        {
+          "idea": "Reel: 'Why you can't just 'invest' yet' - addressing the gap between what finance influencers say and where someone with 0 emergency fund actually needs to start",
+          "pain_point": "Feeling broke despite earning good income",
+          "unique_angle": "Angle nobody's covering: giving permission to not follow influencer advice, creating a realistic roadmap for someone in crisis mode"
+        },
+        {
+          "idea": "Video testimonial-style post: 'How I stopped the money anxiety spiral' - one person's before/after of getting visibility into spending and the emotional shift that came with it",
+          "pain_point": "Anxiety and emotional distress when checking finances",
+          "unique_angle": "Angle nobody's covering: showing that anxiety often stems from avoidance and invisibility, not actual numbers, and how facing it changes the feeling"
+        },
+        {
+          "idea": "Interactive guide post: 'The 10-minute money reset' - a replacement for abandoned budgeting apps: one simple monthly practice that takes minutes, not daily tracking",
+          "pain_point": "Failed attempts at using financial tools",
+          "unique_angle": "Angle nobody's covering: designing for how busy young professionals actually live (sporadic, not obsessive) instead of forcing daily habits"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Series: 'Where did my 45k go?' - tracking one follower's actual spending for a month, breaking down every category visually",
+          "reason": "Directly mirrors the #1 question asked, uses specificity from audience, creates ongoing series potential, and avoids abstract advice"
+        },
+        {
+          "idea": "Caption-heavy post: 'Your parents didn't teach you this, and that's okay' - answering the 5 most basic money questions new earners are embarrassed to ask",
+          "reason": "Addresses shame directly (emotional blocker), provides immediate utility, removes barrier to engagement, creates safe space for follow-up questions"
+        },
+        {
+          "idea": "Reel: 'Why you can't just 'invest' yet' - addressing the gap between what finance influencers say and where someone with 0 emergency fund actually needs to start",
+          "reason": "Resolves cognitive dissonance (earning well but broke + being told to invest), gives permission to ignore noise, positions brand as realistic not idealistic"
+        }
+      ],
+      "missing_info": [
+        "What does 'nothing left by the 20th' actually mean - are they spending it, or is it going to debt payments/fixed costs?",
+        "Which budgeting apps were tried, and what caused abandonment (too complex, too many categories, required daily input)?",
+        "What are the actual monthly fixed costs (rent, transport, subscriptions) for this income bracket?",
+        "Are there specific spending categories where the audience suspects leaks (food, apps, subscriptions, social spending)?",
+        "What would 'success' look like to this audience (emergency fund size, monthly savings target, peace of mind metric)?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "She made $45k. Where did it actually go?",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Your paycheck disappears faster than you think. Here's proof.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "We tracked every dollar. The results are brutal.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "You're not broke. Your money just has a secret life.",
+          "type": "bold claim"
+        },
+        {
+          "text": "Earning 45k but feeling broke? This explains everything.",
+          "type": "bold claim"
+        },
+        {
+          "text": "Nobody talks about where your first real paycheck goes.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "Making good money but still anxious about bills?",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "That \"I should have more\" feeling has a name.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "Stop scrolling. This is literally your bank account breakdown.",
+          "type": "pattern interrupt"
+        },
+        {
+          "text": "Swipe for the spending category that shocked us most.",
+          "type": "pattern interrupt"
+        }
+      ],
+      "winner": {
+        "text": "She made $45k. Where did it actually go?",
+        "reasoning": "This hook directly mirrors the audience's exact experience\u2014they ARE that person earning decent money but unable to locate it. The simple question format feels personal and accusatory enough to stop scrolls, while the specificity of $45k (a relatable first-job salary) signals immediate relevance over generic money content."
+      },
+      "runner_up": {
+        "text": "You're not broke. Your money just has a secret life.",
+        "reasoning": "Validates the audience's confusion while reframing it as a solvable mystery rather than personal failure. Less direct than the winner but safer for those who find the first hook too confrontational\u2014still drives curiosity without judgment."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n[ON-SCREEN TEXT: She made $45k. Where did it actually go?]\n[PAUSE]\n\n[PROBLEM - 3-8 sec]\nYou land your first real job. $45k salary sounds solid. But by month three? You're checking your account like... where'd it all go?\n[CUT]\nYou're not bad with money. You're just not tracking it.\n\n[VALUE - 8-20 sec]\nHere's what actually happens:\nTaxes take ~$8k right off the top. Rent, utilities, groceries? Another $15-18k. Phone, insurance, subscriptions you forgot about? $2-3k.\n[PAUSE]\nYou've got maybe $10-12k left to actually spend freely.\n[CUT]\n[ON-SCREEN TEXT: Most people don't know this breakdown. That's why they feel broke.]\n\nThe fix? Track where your money ACTUALLY goes for one month. You'll stop being surprised and start being intentional.\n\n[CTA - 20-22 sec]\nFollow for the real numbers nobody talks about.\n[PAUSE]\nLet's go.",
+      "word_count": 152,
+      "viewer_takeaway": "Understanding where a $45k salary actually goes after taxes and fixed expenses, plus the simple tracking habit that fixes the \"broke despite earning\" feeling."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows '$45k' in bold green text with confused face reaction; right side shows empty wallet with red 'X'. High contrast, punchy typography.",
+        "Close-up of phone screen showing bank account with '$0.00' balance, thumb scrolling up in frustration. Text overlay: '$45k. Gone.' in white bold sans-serif."
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "She made $45k. Where did it go?",
+          "visual_direction": "Full-screen bold white text on dark background. Quick zoom-in effect. Freeze for 1.5 sec, then PAUSE (black screen 0.5 sec)."
+        },
+        {
+          "position": "3-5 sec (PROBLEM setup)",
+          "on_screen_text": "Your first real job hits different",
+          "visual_direction": "B-roll: young professional at desk on first day, opening paycheck email, smiling. Upbeat music cue."
+        },
+        {
+          "position": "5-8 sec (PROBLEM tension)",
+          "on_screen_text": "Month 3: Where'd it all go?",
+          "visual_direction": "Quick cuts: scrolling bank app (red number), confused face reaction shot, shaking head. Music shifts to minor key."
+        },
+        {
+          "position": "8-10 sec (PROBLEM reframe)",
+          "on_screen_text": "You're not bad with money.",
+          "visual_direction": "On-screen text only. Reassuring tone. Soft background blur."
+        },
+        {
+          "position": "10-12 sec (PROBLEM conclusion)",
+          "on_screen_text": "You're just not tracking it.",
+          "visual_direction": "Text + split-screen: left = crumpled receipts, right = blank notepad. Slight zoom."
+        },
+        {
+          "position": "12-15 sec (VALUE - taxes)",
+          "on_screen_text": "Taxes: ~$8k gone",
+          "visual_direction": "Animated graphic showing money disappearing. Red arrow downward. Calculator visuals."
+        },
+        {
+          "position": "15-18 sec (VALUE - fixed costs)",
+          "on_screen_text": "Rent, utilities, food: $15-18k",
+          "visual_direction": "Icons appear: house, lightbulb, grocery bag. Money counter ticking down."
+        },
+        {
+          "position": "18-20 sec (VALUE - hidden costs)",
+          "on_screen_text": "Phone, insurance, subscriptions: $2-3k",
+          "visual_direction": "Rapid flashing app icons (Spotify, Apple, phone bill). Money shrinking visual."
+        },
+        {
+          "position": "20-21 sec (VALUE - reveal)",
+          "on_screen_text": "Left to spend freely: $10-12k",
+          "visual_direction": "Single number highlighted in green on black. Pause 1 sec. Smaller than expected visual impact."
+        },
+        {
+          "position": "21-22 sec (VALUE - insight on-screen text)",
+          "on_screen_text": "Most people don't know this.",
+          "visual_direction": "Full-screen statement text. Neutral background."
+        },
+        {
+          "position": "22-25 sec (CTA - solution)",
+          "on_screen_text": "Track 1 month. See the truth.",
+          "visual_direction": "Creator speaking to camera (close-up). Confident direct tone. Hand gesture toward camera."
+        },
+        {
+          "position": "25-27 sec (CTA - call-out)",
+          "on_screen_text": "Follow for real numbers.",
+          "visual_direction": "Text overlay with follow button animation. Creator nods. Upbeat music spike."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: young professional at desk, opening email paycheck",
+        "B-roll: scrolling banking app (generic mock-up)",
+        "B-roll: confused/frustrated reaction shot (creator or actor)",
+        "B-roll: scattered receipts, crumpled paper",
+        "B-roll: blank notepad or notebook",
+        "Graphics: animated money counter/calculator",
+        "Icons: house, lightbulb, grocery bag, phone, insurance, streaming apps",
+        "Graphics: red downward arrows, money shrinking/disappearing effects",
+        "Creator talking-head close-up (2-3 sec, confident delivery)",
+        "Font pack: bold sans-serif for on-screen text (white, green accents)",
+        "Music: upbeat intro \u2192 minor key problem section \u2192 upbeat resolve for CTA",
+        "Sound effects: cash register ding (taxes), whoosh (money leaving), positive chime (insight reveal)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook + problem statement lands instantly; $45k breakdown is concrete and immediately resonates.",
+        "retention": "Tax/rent/subscription breakdowns keep momentum, but the 'track for one month' solution feels generic\u2014needs visceral payoff.",
+        "save_potential": "Numbers are specific, relatable, and viewers will recognize themselves; high likelihood of bookmark for reference.",
+        "shareability": "Frustration hook is universal among first-jobbers, but lacks a surprising twist or meme-able moment that drives organic shares.",
+        "audience_fit": "Directly mirrors stated pain point (broke despite earning); avoids condescension; speaks to exact demographic anxiety.",
+        "cta_strength": "Follow ask is clear but weak\u2014no urgency, no exclusivity, no reason to act now vs. later."
+      },
+      "weaknesses": [
+        {
+          "issue": "Solution is advice-heavy but action-light: 'Track for one month' is vague and requires friction (starting a spreadsheet, habit-building). Young professionals are action-averse when overwhelmed.",
+          "fix": "Replace 'Track 1 month. See the truth.' with 'Download my free breakdown template\u2014see exactly where YOUR $45k goes in 60 seconds.' Then offer link in bio or story sticker. Removes barrier; creates micro-CTA."
+        },
+        {
+          "issue": "Missing the emotional payoff moment: Post diagnoses the problem but doesn't show the relief/empowerment of knowing. Ends on scarcity ($10-12k left) rather than possibility.",
+          "fix": "Add 5-second segment after value reveal: 'Once you see it? You control it. That $10-12k isn't trapped\u2014it's yours to grow.' Quick cut to creator nodding confidently. Shifts tone from anxiety \u2192 agency."
+        },
+        {
+          "issue": "CTA 'Follow for more' is passive and doesn't differentiate: every finance account says this. No hook for *why* follow this creator specifically.",
+          "fix": "Replace with: 'Follow for the actual math nobody teaches you in school\u2014no fluff, just numbers that stick.' Adds specificity and reinforces niche (education gap angle)."
+        }
+      ],
+      "captions": [
+        "Your first paycheck hit different. $45k felt like freedom until month 3. Here's where it actually went\u2014and why you didn't see it coming. The fix? Stop being surprised and start being intentional. Track one month. Everything changes. Download my free breakdown (link in bio) and see exactly where YOUR $45k goes. Let's fix this together. \ud83e\uddf5",
+        "$45k salary. Months later: broke. Sound familiar? Taxes, rent, subscriptions\u2014the math nobody teaches you. I broke down the real numbers so you don't have to figure it out the hard way. Follow for the breakdown nobody talks about. Save this. Share it with someone grinding their first job. \ud83d\udc9a"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Hook, clarity, and audience fit are strong, but the solution is too vague and the CTA lacks urgency\u2014add a tangible micro-offer (free template, calculator link) and reframe the ending from scarcity to control to unlock both retention and actual conversion."
+    }
+  }
+}
