@@ -1,5 +1,7 @@
 # ContentForge
 
+![CI](https://github.com/ToshitDev/content-forge/actions/workflows/ci.yml/badge.svg)
+
 A 5-agent LLM pipeline that turns real audience input into a ready-to-post piece
 of social media content, and scores its own output for quality before you publish.
 
