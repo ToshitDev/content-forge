@@ -36,6 +36,27 @@ def test_parse_json_with_plain_fence(agent):
     assert agent.parse_json(raw) == {"a": 1}
 
 
+def test_parse_json_fenced_truncated_no_closing_fence(agent):
+    """A response cut off mid-stream (opening fence, no closing fence) still
+    gets its leading fence stripped, instead of failing to parse at char 0.
+
+    This is the actual bug: a truncated response can leave a complete,
+    valid JSON body with the opening ```json fence still glued to the
+    front and no closing ``` ever written.
+    """
+    raw = '```json\n{"a": 1, "b": 2}'
+    assert agent.parse_json(raw) == {"a": 1, "b": 2}
+
+
+def test_parse_json_strips_leading_and_trailing_fences_independently(agent):
+    """Leading and trailing fences are stripped independently of each other."""
+    # Trailing fence only — no opening fence present.
+    assert agent.parse_json('{"a": 1}\n```') == {"a": 1}
+    # Leading fence only — no closing fence present (same shape as the
+    # truncation case above, just without the "json" language tag).
+    assert agent.parse_json('```\n{"a": 1}') == {"a": 1}
+
+
 def test_parse_json_malformed_raises_with_raw_text(agent):
     """Malformed JSON raises ValueError whose message includes the raw text."""
     raw = "this is not json at all"

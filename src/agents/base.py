@@ -20,8 +20,12 @@ PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 # Placeholders look like [NICHE], [BRAND_VOICE] — all caps, optional underscores.
 PLACEHOLDER_PATTERN = re.compile(r"\[([A-Z][A-Z_]*)\]")
 
-# Matches a whole string wrapped in ```json ... ``` or plain ``` ... ``` fences.
-FENCE_PATTERN = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?```$", re.DOTALL)
+# A leading ```json or ``` fence line, and a trailing ``` fence line.
+# Matched and stripped independently — a response cut off by max_tokens
+# can have the opening fence but never reach the closing one, and the two
+# markers shouldn't depend on each other being present.
+LEADING_FENCE_PATTERN = re.compile(r"^```(?:json)?[ \t]*\r?\n")
+TRAILING_FENCE_PATTERN = re.compile(r"\r?\n?```\s*$")
 
 # Bracket tokens that appear in prompt templates as literal instructions to
 # the model (e.g. script.txt tells Claude to mark pacing with [PAUSE] and
@@ -46,7 +50,7 @@ class BaseAgent:
         self,
         prompt_name: str,
         model: str = "claude-haiku-4-5-20251001",
-        max_tokens: int = 1500,
+        max_tokens: int = 4000,
     ):
         """Set up the agent and fail fast if the API key isn't configured.
 
@@ -159,20 +163,40 @@ class BaseAgent:
         raise last_error
 
     def _call_api(self, prompt: str) -> str:
-        """Send one request to the Anthropic API and return the text reply."""
+        """Send one request to the Anthropic API and return the text reply.
+
+        Raises:
+            ValueError: If the response was cut off by hitting max_tokens.
+                A truncated response usually isn't valid JSON, so this is
+                raised here with a clear cause instead of surfacing later
+                as a confusing json.JSONDecodeError.
+        """
         response = self.client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": prompt}],
         )
+        if response.stop_reason == "max_tokens":
+            raise ValueError(
+                f"Response from '{self.prompt_name}' was truncated (hit "
+                f"max_tokens={self.max_tokens}). Increase max_tokens or "
+                f"shorten the prompt."
+            )
         return "".join(block.text for block in response.content if block.type == "text")
 
 
 def _strip_code_fence(raw: str) -> str:
-    """Remove a leading/trailing ``` or ```json markdown fence, if present."""
+    """Remove a leading ```/```json line and a trailing ``` line, if present.
+
+    The two are stripped independently, so a truncated response — opening
+    fence present, closing fence never written because max_tokens cut the
+    reply off first — still gets its leading fence removed instead of
+    silently staying untouched.
+    """
     text = raw.strip()
-    match = FENCE_PATTERN.match(text)
-    return match.group(1).strip() if match else text
+    text = LEADING_FENCE_PATTERN.sub("", text, count=1)
+    text = TRAILING_FENCE_PATTERN.sub("", text, count=1)
+    return text.strip()
 
 
 def _get_api_key() -> str:
