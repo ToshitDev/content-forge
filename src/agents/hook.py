@@ -7,9 +7,16 @@ from src.models import HookOutput
 class HookAgent(BaseAgent):
     """Runs the Hook Agent prompt (src/prompts/hook.txt)."""
 
-    def __init__(self, model: str = "claude-haiku-4-5-20251001", max_tokens: int = 4000) -> None:
+    def __init__(
+        self,
+        model: str = "claude-haiku-4-5-20251001",
+        max_tokens: int = 4000,
+        use_cache: bool = True,
+    ) -> None:
         """Create a HookAgent bound to the "hook" prompt template."""
-        super().__init__(prompt_name="hook", model=model, max_tokens=max_tokens)
+        super().__init__(
+            prompt_name="hook", model=model, max_tokens=max_tokens, use_cache=use_cache
+        )
 
 
 if __name__ == "__main__":

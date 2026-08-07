@@ -39,6 +39,7 @@ def run_pipeline(
     profile: dict[str, str],
     research_material: str,
     on_progress: ProgressCallback | None = None,
+    use_cache: bool = True,
 ) -> dict[str, Any]:
     """Run the full content pipeline end to end and save the result.
 
@@ -51,6 +52,8 @@ def run_pipeline(
             as on_progress(step_num, total_steps, agent_name). Lets a UI
             (or anything else) report progress; CLI usage can ignore it —
             the step still prints, same as before.
+        use_cache: Passed to every agent. False forces every step to call
+            the API fresh instead of reusing a cached identical prompt.
 
     Returns:
         A dict with keys "research", "hook", "script", "visual", "growth",
@@ -59,7 +62,7 @@ def run_pipeline(
     research = _run_step(
         1,
         "Research",
-        ResearchAgent(),
+        ResearchAgent(use_cache=use_cache),
         {
             "niche": profile["niche"],
             "audience": profile["audience"],
@@ -75,7 +78,7 @@ def run_pipeline(
     hook = _run_step(
         2,
         "Hook",
-        HookAgent(),
+        HookAgent(use_cache=use_cache),
         {
             "niche": profile["niche"],
             "audience": profile["audience"],
@@ -90,7 +93,7 @@ def run_pipeline(
     script = _run_step(
         3,
         "Script",
-        ScriptAgent(),
+        ScriptAgent(use_cache=use_cache),
         {
             "niche": profile["niche"],
             "audience": profile["audience"],
@@ -107,7 +110,7 @@ def run_pipeline(
     visual = _run_step(
         4,
         "Visual",
-        VisualAgent(),
+        VisualAgent(use_cache=use_cache),
         {
             "platform": profile["platform"],
             "format": profile["format"],
@@ -121,7 +124,7 @@ def run_pipeline(
     growth = _run_step(
         5,
         "Growth",
-        GrowthAgent(),
+        GrowthAgent(use_cache=use_cache),
         {
             "niche": profile["niche"],
             "audience": profile["audience"],
@@ -203,6 +206,16 @@ def _save_run(profile: dict[str, str], research_material: str, outputs: dict[str
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run the pipeline with sample data.")
+    parser.add_argument(
+        "--no-cache",
+        action="store_true",
+        help="Bypass the response cache and call the API fresh for every step.",
+    )
+    args = parser.parse_args()
+
     sample_profile = {
         "niche": "student productivity",
         "audience": "college students who procrastinate",
@@ -219,7 +232,7 @@ if __name__ == "__main__":
         "I redo my planner every week instead of actually studying"
     )
 
-    result = run_pipeline(sample_profile, sample_research_material)
+    result = run_pipeline(sample_profile, sample_research_material, use_cache=not args.no_cache)
 
     growth = result["growth"]
     print("\n=== Growth scores ===")
