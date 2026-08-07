@@ -1,0 +1,249 @@
+{
+  "timestamp": "20260807_131130",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there\nI always plan too much and then feel behind by Wednesday\ndoes anyone actually stick to a study schedule or is it a scam\nI redo my planner every week instead of actually studying",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning falls apart by mid-week (loss of momentum/consistency)",
+        "Phone distraction during study sessions",
+        "Over-planning leads to feeling overwhelmed and behind",
+        "Skepticism that study schedules actually work in practice",
+        "Replanning/perfecting systems instead of doing the actual work"
+      ],
+      "ideas": [
+        {
+          "idea": "Carousel: 'Your Sunday timetable dies Tuesday\u2014here's why' breaking down the exact psychology of mid-week collapse",
+          "pain_point": "Planning falls apart by mid-week",
+          "unique_angle": "Addresses the specific Tuesday failure pattern instead of generic 'consistency tips'"
+        },
+        {
+          "idea": "Reel: Time-lapse of someone visibly struggling with phone next to desk, then showing one tactical fix (not motivation)",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Shows the actual temptation moment instead of preaching phone-free virtue"
+        },
+        {
+          "idea": "Carousel: 'You're planning for Tuesday but living Monday'\u2014showing how to right-size weekly plans based on honest capacity",
+          "pain_point": "Over-planning leads to feeling overwhelmed and behind",
+          "unique_angle": "Flips the script from 'plan more' to 'plan less but realistic'"
+        },
+        {
+          "idea": "Poll sticker series: 'Do study schedules work or are they just a vibe?' with honest follow-up showing when/how they actually matter",
+          "pain_point": "Skepticism that study schedules actually work",
+          "unique_angle": "Validates the skepticism first instead of trying to convince doubters"
+        },
+        {
+          "idea": "Reel: Side-by-side of 'perfecting planner' vs 'actually studying for 15 mins'\u2014calling out the productivity theater",
+          "pain_point": "Replanning/perfecting systems instead of doing actual work",
+          "unique_angle": "Names the self-sabotage behavior directly without shame"
+        },
+        {
+          "idea": "Caption post: 'If you remake your schedule every Sunday, try this instead'\u2014mini-framework that locks in plans to reduce the redo urge",
+          "pain_point": "Planning falls apart by mid-week",
+          "unique_angle": "Provides friction against the replanning habit itself"
+        },
+        {
+          "idea": "Reel: 'Phone right there' challenge\u2014showing 3 free/easy physical barriers college students can actually set up in dorms",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Solutions that don't require willpower or apps, just environment design"
+        },
+        {
+          "idea": "Story thread: Honest post showing a realistic weekly plan that fits procrastinator energy (shorter sessions, more flexible)",
+          "pain_point": "Over-planning leads to feeling overwhelmed and behind",
+          "unique_angle": "Models a plan designed *for* procrastinators, not against them"
+        },
+        {
+          "idea": "Infographic: 'Does a study schedule work?' with data points on when/why it helps vs. when it's performative",
+          "pain_point": "Skepticism that study schedules actually work",
+          "unique_angle": "Honest take on limitations instead of selling the dream"
+        },
+        {
+          "idea": "Reel: Time-lapse showing someone 'planning' for 30 mins vs. someone 'studying' for 15\u2014no words, just the contrast",
+          "pain_point": "Replanning/perfecting systems instead of doing actual work",
+          "unique_angle": "Uses video format to make the time waste visceral and funny"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Carousel: 'Your Sunday timetable dies Tuesday\u2014here's why' breaking down the exact psychology of mid-week collapse",
+          "reason": "Directly mirrors the most specific pain point in the data ('I make a timetable every Sunday and quit by Tuesday') and offers diagnosis before solution"
+        },
+        {
+          "idea": "Reel: Side-by-side of 'perfecting planner' vs 'actually studying for 15 mins'\u2014calling out the productivity theater",
+          "reason": "Addresses the meta-procrastination trap (planning instead of doing) that appears twice in the input, with high comedic/relatability potential for Instagram"
+        },
+        {
+          "idea": "Poll sticker series: 'Do study schedules work or are they just a vibe?' with honest follow-up showing when/how they actually matter",
+          "reason": "Engages the skepticism directly, validates audience doubt, and creates the conversation starter Instagram algo rewards while positioning brand as truth-teller"
+        }
+      ],
+      "missing_info": [
+        "What specific phone distractions are worst? (social apps, texts, other?)",
+        "How long do students typically plan for vs. actual study time?",
+        "What happens at the Tuesday mark\u2014is it motivation loss, schedule conflicts, or something else?",
+        "Have any followers tried specific anti-distraction methods that worked?",
+        "What does a 'realistic' study schedule look like for this audience (session length, frequency, flexibility)?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your Sunday plan hits different than your Tuesday self.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Why does Wednesday always feel like starting over?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "The psychology your planner won't tell you about.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Your timetable doesn't fail. Your brain chemistry does.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Sunday you and Tuesday you aren't the same person.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "That perfect schedule lasted exactly 36 hours, right?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You're not lazy. Your Sunday brain is just lying.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Every Monday you're unstoppable. By Wednesday you're a ghost.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: your schedule didn't fail, science did.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Stop blaming yourself. It's literally neurobiology, not discipline.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your Sunday plan hits different than your Tuesday self.",
+        "reasoning": "This hook mirrors the exact lived experience of procrastinating college students\u2014they *feel* the Monday-to-Tuesday shift viscerally but can't name it. The phrase 'hits different' is authentically Gen-Z casual and creates immediate recognition without being preachy. It's intrinsically relatable enough to stop scroll without needing to explain why they should care."
+      },
+      "runner_up": {
+        "text": "You're not lazy. Your Sunday brain is just lying.",
+        "reasoning": "Directly addresses the shame and self-blame that procrastinators carry while offering implicit permission to reframe the problem. Slightly safer because it centers on absolution rather than curiosity, making it broadly appealing even to less self-aware viewers."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Your Sunday plan hits different than your Tuesday self.\"\n[PAUSE]\n\n[PROBLEM - 3-8 sec]\n\"You map out this perfect week on Sunday. Tasks organized, time blocked, motivation is HIGH.\"\n[ON-SCREEN TEXT: Sunday You: Unstoppable]\n\"Then Tuesday hits and... who is that person? They're gone.\"\n[CUT]\n\n[VALUE - 8-20 sec]\n\"Here's what actually works: stop planning for Future You. Plan for Tired You.\"\n[PAUSE]\n\"Build buffers. Make tasks stupidly small. Use the 2-minute rule\u2014if it takes less than 2 minutes, do it NOW.\"\n[ON-SCREEN TEXT: 2-Min Rule = No Excuses]\n\"Tuesday You won't have motivation, but Tuesday You will have a system.\"\n[CUT]\n\n[CTA - 20-22 sec]\n\"Follow for the full system that actually survives past Wednesday.\"\n[PAUSE]\n[ON-SCREEN TEXT: Follow for more]",
+      "word_count": 138,
+      "viewer_takeaway": "Planning fails because we overestimate our future motivation. The 2-minute rule and buffer-building create a system that works for tired, unmotivated you\u2014not hypothetical ideal you."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows organized planner/calendar (bright, energetic); right side shows tired person in bed with pillow over head. Bold text overlay: 'Sunday You vs Tuesday You'",
+        "Close-up of someone's face looking confident and motivated (Sunday), then instantly switches to same person looking exhausted and confused (Tuesday). Text: 'The Plot Twist'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "Sunday You vs Tuesday You",
+          "visual_direction": "Split-screen comparison: left = person at desk with planner, energetic lighting, coffee in hand, smiling; right = same person disheveled in bed or slouched at desk looking lost. Quick cuts between them."
+        },
+        {
+          "position": "3-5 sec (PROBLEM setup)",
+          "on_screen_text": "Perfect Week Planned",
+          "visual_direction": "Close-up of digital calendar or planner being filled out with tasks, color-coded sections, satisfying time-blocking visuals. Upbeat energy."
+        },
+        {
+          "position": "5-8 sec (PROBLEM climax)",
+          "on_screen_text": "Sunday You: Unstoppable",
+          "visual_direction": "Person looking confident, pumped-up pose (fist bump, thumbs up). Quick transition to messy desk, person rubbing face in confusion. Text pops: 'Where did I go?'"
+        },
+        {
+          "position": "8-12 sec (VALUE - reframe)",
+          "on_screen_text": "Plan for Tired You",
+          "visual_direction": "Person yawning, stretching in bed, looking unmotivated. Text appears as voiceover delivers solution. Transition to visual of simplified task list on notepad (fewer items, bigger spacing)."
+        },
+        {
+          "position": "12-16 sec (VALUE - tactics)",
+          "on_screen_text": "2-Min Rule = No Excuses",
+          "visual_direction": "Montage of quick wins: person doing small tasks rapidly (2-3 sec clips each). Timer graphic appears showing '2:00'. Satisfying task-completion checkmarks on screen."
+        },
+        {
+          "position": "16-20 sec (VALUE - payoff)",
+          "on_screen_text": "System > Motivation",
+          "visual_direction": "Same person on Tuesday, now calm and executing. Showing them checking off tasks methodically, moving through day with ease. Show calendar/system working smoothly in background."
+        },
+        {
+          "position": "20-22 sec (CTA)",
+          "on_screen_text": "Follow for more",
+          "visual_direction": "Person gives knowing nod or slight smile at camera. Follow button animation pops up on screen. Soft background showing organized workspace/system."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: person at desk with planner/calendar (well-lit, motivational setup)",
+        "B-roll: same person in bed looking tired/unmotivated",
+        "B-roll: organized task list or notepad (close-up)",
+        "B-roll: person doing quick 2-minute tasks (multiple clips: making bed, washing dishes, responding to message, etc.)",
+        "B-roll: calendar or digital task-tracking system with checkmarks appearing",
+        "B-roll: person on Tuesday executing tasks calmly/confidently",
+        "Graphics: split-screen transition effect",
+        "Graphics: timer showing '2:00'",
+        "Graphics: checkmark animations",
+        "Graphics: text overlays (all listed above)",
+        "Graphics: follow button CTA animation",
+        "Optional: B-roll of messy desk/chaos (brief)",
+        "Optional: upbeat, casual background music (2-3 tracks for different sections)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with relatable contrast; problem-value structure is linear and easy to follow.",
+        "retention": "Strong opening with visual flip-flop keeps eyes moving, but value section (8-20s) risks feeling like generic productivity advice without differentiation.",
+        "save_potential": "Practical tactics (2-min rule, buffer-building) are immediately applicable; worth a save for reference.",
+        "shareability": "Relatability is high, but post doesn't create urgency or novelty\u2014feels familiar to existing productivity content.",
+        "audience_fit": "Procrastinating college students will viscerally recognize Sunday-vs-Tuesday gap; addresses their exact failure pattern.",
+        "cta_strength": "Follow-for-more is passive; no sense of what 'the system' is or why Tuesday will be different by following."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA is vague ('follow for the full system') without teasing what that system actually delivers or why Tuesday matters.",
+          "fix": "Rewrite to: 'Follow for the exact Tuesday checklist that survives past Wednesday\u2014no motivation required.' (Adds specificity and reinforces the differentiation.)"
+        },
+        {
+          "issue": "Value section (8-20s) delivers three tactics (buffers, small tasks, 2-min rule) but doesn't show *why* these beat Sunday planning\u2014feels like stacked tips instead of a unified philosophy.",
+          "fix": "Restructure: 'Stop fighting your Tuesday brain. Give it a system so simple motivation doesn't matter. The 2-minute rule? You do it NOW, not later. Buffers? Built in. Tasks? Stupidly small.' (Unifies tactics around the core idea: system replaces motivation.)"
+        },
+        {
+          "issue": "Visual climax at 16-20s (person calmly executing Tuesday) doesn't show the *contrast* with their panicked Sunday-self\u2014moment to anchor the win is underutilized.",
+          "fix": "Split-screen finale: left side = Tuesday person looking calm/composed executing tasks; right side = quick flash of chaotic Sunday-planner energy; text: 'Same person. Different system.' (Pays off the opening contrast and proves the method works.)"
+        }
+      ],
+      "captions": [
+        "Sunday You has a plan. Tuesday You has amnesia. \ud83d\udccb\u27a1\ufe0f\ud83d\ude34 The difference? Stop planning for Future You. Plan for Tired You. Build buffers. Use the 2-min rule. Let the system do the work motivation can't. Follow for the exact Tuesday playbook that actually survives past Wednesday.",
+        "Your perfect Sunday plan lasted until Tuesday lunch. \ud83d\ude05 Here's the fix: quit relying on motivation and build a system for your exhausted brain instead. The 2-min rule, micro-tasks, built-in buffers\u2014these aren't motivational tips, they're Tuesday armor. Follow for the system that wins when willpower dies."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong hook and audience fit, but CTA is too weak (no specificity on what follows delivers), value section stacks generic advice instead of unified philosophy, and visual payoff doesn't reinforce the Sunday-vs-Tuesday contrast\u2014fix these three and this becomes post-worthy."
+    }
+  }
+}
