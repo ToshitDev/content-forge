@@ -1,0 +1,253 @@
+{
+  "timestamp": "20260807_154211",
+  "profile": {
+    "niche": "personal finance for Gen Z",
+    "audience": "22-year-olds who just started their first job",
+    "platform": "TikTok",
+    "format": "reel",
+    "brand_voice": "blunt, a little sarcastic",
+    "cta": "save this before payday"
+  },
+  "research_material": "nobody taught me how to budget\nI'm always broke by the 15th and I don't know why",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Lack of foundational budgeting education/skills",
+        "Money disappears before mid-month with no visibility into where",
+        "No system or framework for tracking spending",
+        "Difficulty understanding personal spending patterns",
+        "Feeling helpless and confused about financial management"
+      ],
+      "ideas": [
+        {
+          "idea": "Show real bank statement audit where you go line-by-line through someone's first job transactions and find the $200+ leak (subscriptions, small purchases, etc.)",
+          "pain_point": "Money disappears before mid-month with no visibility into where",
+          "unique_angle": "Angle nobody's covering: Actually naming the specific culprits instead of vague 'cut back' advice"
+        },
+        {
+          "idea": "Simple 3-category budget framework designed specifically for entry-level salaries (needs/wants/flex fund) with real first-job salary numbers",
+          "pain_point": "Lack of foundational budgeting education/skills",
+          "unique_angle": "Angle nobody's covering: A system that assumes zero prior knowledge and uses only entry-level salary ranges"
+        },
+        {
+          "idea": "Day 1, Day 15, Day 30 check-in series showing what healthy spending should look like across a month, with running totals",
+          "pain_point": "Money disappears before mid-month with no visibility into where",
+          "unique_angle": "Angle nobody's covering: Normalizing the rhythm of paychecks and breaking the mystery of the 15th wall"
+        },
+        {
+          "idea": "Showing the exact steps to set up phone banking alerts for when spending hits certain thresholds (framed as 'bouncer at the club of your bank account')",
+          "pain_point": "No system or framework for tracking spending",
+          "unique_angle": "Angle nobody's covering: Treating automation as the primary tool instead of willpower"
+        },
+        {
+          "idea": "Categorize your own spending from last month game/challenge where you bucket every transaction and see where the pattern is, raw unfiltered reactions",
+          "pain_point": "Difficulty understanding personal spending patterns",
+          "unique_angle": "Angle nobody's covering: Making pattern recognition interactive and honest instead of prescriptive"
+        },
+        {
+          "idea": "Brutally honest 'why budgeting actually matters at 22' video addressing the shame/confusion feeling directly",
+          "pain_point": "Feeling helpless and confused about financial management",
+          "unique_angle": "Angle nobody's covering: Validating the confusion as normal instead of framing it as a personal failure"
+        },
+        {
+          "idea": "Side-by-side comparison: 'broke by the 15th' spending vs. 'makes it to payday' spending with minimal judgy commentary",
+          "pain_point": "Lack of foundational budgeting education/skills",
+          "unique_angle": "Angle nobody's covering: Showing tangible difference without making it preachy"
+        },
+        {
+          "idea": "Quick budget setup video: opening a separate savings account and setting up automatic transfer on payday (literally the minimum viable system)",
+          "pain_point": "No system or framework for tracking spending",
+          "unique_angle": "Angle nobody's covering: Admitting that a complex budget won't stick; showing the lazy alternative that works"
+        },
+        {
+          "idea": "Trend-style video: 'transactions that proved I had no idea where my money went' with audience comments validating the same experience",
+          "pain_point": "Money disappears before mid-month with no visibility into where",
+          "unique_angle": "Angle nobody's covering: Normalizing the experience as universal for this age group instead of an individual problem"
+        },
+        {
+          "idea": "Explainer: how one small behavior change (like disabling 1-click checkout) compounds into having money left on the 20th",
+          "pain_point": "Difficulty understanding personal spending patterns",
+          "unique_angle": "Angle nobody's covering: Connecting tiny behavioral shifts to actual outcomes with real math"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Show real bank statement audit where you go line-by-line through someone's first job transactions and find the $200+ leak (subscriptions, small purchases, etc.)",
+          "reason": "Directly solves the core mystery ('I don't know why') with concrete evidence; highly shareable and immediately actionable"
+        },
+        {
+          "idea": "Simple 3-category budget framework designed specifically for entry-level salaries (needs/wants/flex fund) with real first-job salary numbers",
+          "reason": "Fills the education gap ('nobody taught me'); specific to the audience's actual income level; gives them a usable template immediately"
+        },
+        {
+          "idea": "Brutally honest 'why budgeting actually matters at 22' video addressing the shame/confusion feeling directly",
+          "reason": "Audience is emotionally stuck; validating the feeling before teaching removes the barrier to action; aligns with sarcastic brand voice"
+        }
+      ],
+      "missing_info": [
+        "What is their actual first job salary range?",
+        "What specific apps or tools are they currently using (if any)?",
+        "What are the most common spending categories where money leaks (food delivery, subscriptions, shopping, etc.)?",
+        "Do they have savings already or are they starting from zero?",
+        "How many of them have heard budgeting advice before but it didn't stick (and why)?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your bank statement is bleeding $200/month and you have no idea.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "I found where your paycheck disappears every single month.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "That promotion money? Gone. Here's the audit.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "You're not bad with money. You're just subscribed to 12 things.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Real bank statement audit: watching someone's first job money vanish.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Your parents were right about one thing: you're wasteful.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Broke after payday? Let me show you exactly why.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Most 22-year-olds leak $250+ monthly. You're probably one of them.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Line-by-line bank statement audit reveals the brutal truth.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "You think you're saving. Your subscriptions disagree.",
+          "type": "pain_point_call_out"
+        }
+      ],
+      "winner": {
+        "text": "Your bank statement is bleeding $200/month and you have no idea.",
+        "reasoning": "This hits the exact pain point of someone who just got their first paycheck and doesn't yet understand cash leakage. The word 'bleeding' is visceral and urgent, making it immediately relatable\u2014they feel the money loss but can't articulate it. The 'no idea' part triggers the curiosity gap while the blunt tone matches the brand voice perfectly for Gen Z."
+      },
+      "runner_up": {
+        "text": "Broke after payday? Let me show you exactly why.",
+        "reasoning": "This works because it directly addresses the bewildering Gen Z experience of mysteriously being broke despite earning income. It's relatable, action-oriented, and promises a solution, making it safer while still maintaining edge."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec] [ON-SCREEN TEXT: Your bank statement is bleeding $200/month] Your bank statement is bleeding $200/month and you have no idea. [PAUSE] [CUT] [PROBLEM - 3-8 sec] That's subscriptions you forgot about. Apps you opened once. Gym memberships that haunt you. Small charges that feel invisible until you do the math. [ON-SCREEN TEXT: $15 \u00d7 12 = $180/year PER subscription] [CUT] [VALUE - 8-15 sec] Here's what actually works: [ON-SCREEN TEXT: AUDIT YOUR APPS] Go through your bank app right now. Screenshot every charge under $20. [ON-SCREEN TEXT: UNSUBSCRIBE] Cancel anything you haven't used in 30 days. Yes, actually cancel it. Don't just say you will. [ON-SCREEN TEXT: SET A RULE] New subscriptions only if you cancel an old one. One in, one out. That's it. [PAUSE] [ON-SCREEN TEXT: $200/month = $2,400/year] [CUT] [CTA - 15-17 sec] Save this before payday. Actually do it.",
+      "word_count": 126,
+      "viewer_takeaway": "Identify and eliminate forgotten subscriptions to reclaim $200+ monthly through a simple three-step audit system."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows a red-bleeding bank statement graphic, right side shows shocked person staring at phone. Bold white text overlay: '$200/month GONE' with a skull emoji",
+        "Close-up of a hand swiping through phone banking app, with red X marks appearing over subscription logos (Netflix, Spotify, Gym, etc.). Text: 'Your money is disappearing' in harsh sans-serif font"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "Your bank statement is bleeding $200/month",
+          "visual_direction": "Animated bank statement on black background with red liquid/blood effect dripping down. Zoom in on a '$200' figure highlighted in red. Quick cut to confused person's face."
+        },
+        {
+          "position": "3-5 sec (PROBLEM setup)",
+          "on_screen_text": "Subscriptions you forgot about",
+          "visual_direction": "Rapid montage of app icons (Netflix, Spotify, DoorDash, Peloton, etc.) with shake effect. Each icon gets a red 'X' or cancellation symbol overlaid."
+        },
+        {
+          "position": "5-8 sec (PROBLEM detail)",
+          "on_screen_text": "$15 \u00d7 12 = $180/year PER subscription",
+          "visual_direction": "Math animation: $15 icon bounces 12 times across screen, then transforms into '$180' in bold red text. Show a stack of money shrinking away."
+        },
+        {
+          "position": "8-10 sec (VALUE step 1)",
+          "on_screen_text": "AUDIT YOUR APPS \u2013 screenshot every charge under $20",
+          "visual_direction": "Hand holding phone, swiping through banking app. Screenshot camera click sound effect. Bank statement highlighted with yellow markers on small charges."
+        },
+        {
+          "position": "10-12 sec (VALUE step 2)",
+          "on_screen_text": "UNSUBSCRIBE \u2013 cancel if unused in 30 days",
+          "visual_direction": "Finger tapping 'Cancel Subscription' button with heavy emphasis. Red 'CANCELLED' stamp appears on screen. Satisfying click/delete sound effect."
+        },
+        {
+          "position": "12-15 sec (VALUE step 3)",
+          "on_screen_text": "SET A RULE \u2013 one in, one out",
+          "visual_direction": "Simple scale graphic: subscription icon removed from left side, new subscription added to right side, scale balances. Clean, minimalist design."
+        },
+        {
+          "position": "15-16 sec (IMPACT reminder)",
+          "on_screen_text": "$200/month = $2,400/year",
+          "visual_direction": "Large '$2,400' appears with money animation (bills/coins floating away). Dramatic beat. Cut to black."
+        },
+        {
+          "position": "16-17 sec (CTA)",
+          "on_screen_text": "Save this. Do it before payday.",
+          "visual_direction": "Text appears in aggressive sans-serif against black background. Quick flash of save/bookmark icon. Final frame: person nodding with determined expression."
+        }
+      ],
+      "assets_needed": [
+        "Bank statement graphic template (editable for red bleeding effect)",
+        "App icon set (Netflix, Spotify, DoorDash, Peloton, Gym, etc.)",
+        "Animated '$' symbols and math equations",
+        "Phone screen recordings (banking app, subscription cancellation flow)",
+        "Red X and cancellation stamp graphics",
+        "Scale/balance graphic animation",
+        "Money animation (floating bills/coins)",
+        "Shocked/determined person B-roll (close-ups of face reactions)",
+        "Hand animations (scrolling, tapping, swiping on phone)",
+        "Sound effects: click, cash register, stamp sound, satisfying 'delete' chime",
+        "Font: Bold sans-serif (system font acceptable \u2013 aim for aggressive/blunt feel)",
+        "Color palette: Black background, white/red text, yellow highlights"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 9
+      },
+      "justifications": {
+        "clarity": "Hook lands in 1 second with a specific, quantified problem ($200/month) that requires no context.",
+        "retention": "Problem-to-solution structure with visible progress (audit \u2192 unsubscribe \u2192 rule) keeps momentum, though middle lacks emotional spike.",
+        "save_potential": "$2,400/year visualization plus three actionable steps make this immediately bookmark-worthy for the target demo.",
+        "shareability": "Relatable frustration and shocking annual math ($2,400) drive shares, but lacks the surprise/humor twist that makes Gen Z tag friends.",
+        "audience_fit": "First-job earners bleed subscriptions; forgotten charges and $15/month pain points are core Gen Z financial anxiety.",
+        "cta_strength": "Direct, low-friction ask ('Save this before payday') + urgency tie (payday reference) works for audience that responds to deadline language."
+      },
+      "weaknesses": [
+        {
+          "issue": "No emotional peak in the middle\u2014transitions from problem shock to solution steps without a 'gut punch' moment that drives shares.",
+          "fix": "Add a 6-second interpolation between PROBLEM detail and VALUE step 1: 'If you do nothing, that's a car payment. A trip. Your first apartment deposit.' Paired with rapid cuts of aspirational imagery (car keys, beach, apartment keys) to reframe the money loss as opportunity cost, not just a number."
+        },
+        {
+          "issue": "Shareability gap: post solves the problem but doesn't give viewers a reason to tag a friend or send it to their group chat.",
+          "fix": "Rewrite CTA to 'Save this AND send it to the friend who has 7 subscriptions they forgot about.' Then add a 1-second frame of someone laughing/nodding with text overlay 'that's probably you.' Makes it social-first."
+        },
+        {
+          "issue": "The 'one in, one out' rule is clever but visually underexplained\u2014scale graphic alone won't land the behavior shift needed for actual adoption.",
+          "fix": "Expand VALUE step 3 from 3 seconds to 4 seconds with a concrete example: 'Want HBO Max? Cancel DoorDash. Want Peloton? Kill the gym app. Every subscription must earn its spot.' Pair with side-by-side before/after of phone home screens (cluttered vs. clean) to make the constraint feel like a win, not a restriction."
+        }
+      ],
+      "captions": [
+        "Your subscriptions are stealing $2,400/year and you don't even know their names. Here's how to get it back before payday hits. Save this. \ud83d\udd34",
+        "Bleeding $200/month to apps you forgot existed? Audit, cancel, set a rule. That's $2,400 back in your pocket. Save + send this to someone who needs to hear it."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "High clarity and audience fit, but shareability score dips because the post solves a problem without giving it social velocity\u2014add emotional reframe (opportunity cost) and friend-tagging mechanic to unlock natural distribution on TikTok."
+    }
+  }
+}

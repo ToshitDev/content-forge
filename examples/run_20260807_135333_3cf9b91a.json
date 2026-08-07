@@ -1,0 +1,254 @@
+{
+  "timestamp": "20260807_135333",
+  "profile": {
+    "niche": "personal finance for Gen Z",
+    "audience": "22-year-olds",
+    "platform": "TikTok",
+    "format": "reel",
+    "brand_voice": "blunt",
+    "cta": "save this"
+  },
+  "research_material": "I'm always broke by the 15th and I don't know why",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "No visibility into where money is actually going month-to-month",
+        "Spending accelerates mid-month without conscious awareness or control",
+        "Lack of a system to track or categorize daily expenses",
+        "No clear distinction between needs vs. wants in spending habits",
+        "Income doesn't feel like it's lasting until the next paycheck"
+      ],
+      "ideas": [
+        {
+          "idea": "Day-by-day expense breakdown: track every single purchase for 3 days and categorize it live on camera\u2014show where the 15th actually goes",
+          "pain_point": "No visibility into where money is actually going month-to-month",
+          "unique_angle": "Nobody's showing the brutal, real-time audit of small purchases adding up to broke-ness"
+        },
+        {
+          "idea": "The 'spending cliff' phenomenon: map out a typical Gen Z spending pattern across 30 days\u2014where does the spike happen and why",
+          "pain_point": "No visibility into where money is actually going month-to-month",
+          "unique_angle": "Most content shows budgets as flat lines; this shows the actual non-linear reality of how Gen Z spends"
+        },
+        {
+          "idea": "Mid-month spending intervention: real strategies for the 8th-14th when the urge to spend is highest\u2014what actually works",
+          "pain_point": "Spending accelerates mid-month without conscious awareness or control",
+          "unique_angle": "Content usually focuses on the beginning of the month; this targets the actual crisis moment"
+        },
+        {
+          "idea": "The 'spending autopsy': pick one person's broke-by-15th pattern and reverse-engineer every decision that led to it, with no judgment",
+          "pain_point": "Spending accelerates mid-month without conscious awareness or control",
+          "unique_angle": "Treats overspending like a solvable problem with root causes, not a character flaw"
+        },
+        {
+          "idea": "Expense tracking app comparison for Gen Z: test which one actually gets used (not which is 'best') and stick with it for a week",
+          "pain_point": "Lack of a system to track or categorize daily expenses",
+          "unique_angle": "Most reviews ignore adoption friction; this prioritizes real usability over features"
+        },
+        {
+          "idea": "The 5-minute daily check-in: show how to spend literally 5 minutes reviewing spending to catch the bleed early",
+          "pain_point": "Lack of a system to track or categorize daily expenses",
+          "unique_angle": "Systems that require hours of setup get abandoned; this targets minimal-effort tracking"
+        },
+        {
+          "idea": "Needs vs. wants showdown: take a broke-by-15th person's actual cart and categorize items together\u2014what's secretly a want disguised as a need",
+          "pain_point": "No clear distinction between needs vs. wants in spending habits",
+          "unique_angle": "Most content moralizes about needs vs. wants; this makes it a visual, collaborative diagnosis"
+        },
+        {
+          "idea": "The sneaky 'essentials' budget trap: why groceries, coffee, and 'emergencies' are eating up paychecks faster than people realize",
+          "pain_point": "No clear distinction between needs vs. wants in spending habits",
+          "unique_angle": "Targets the psychological blind spot where necessary-feeling purchases derail budgets"
+        },
+        {
+          "idea": "Paycheck math: break down take-home vs. typical Gen Z monthly expenses\u2014show the gap that leads to being broke by the 15th",
+          "pain_point": "Income doesn't feel like it's lasting until the next paycheck",
+          "unique_angle": "Validates that the problem might not be overspending\u2014it might be undereaming"
+        },
+        {
+          "idea": "The biweekly paycheck hack: strategies specifically for people paid every two weeks to stop the broke-by-15th cycle",
+          "pain_point": "Income doesn't feel like it's lasting until the next paycheck",
+          "unique_angle": "Most budgeting assumes monthly income; this addresses the actual Gen Z payment schedule reality"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Day-by-day expense breakdown: track every single purchase for 3 days and categorize it live on camera\u2014show where the 15th actually goes",
+          "reason": "Directly mirrors the audience's stated problem and creates urgency through real-time revelation; blunt voice fits the format"
+        },
+        {
+          "idea": "Mid-month spending intervention: real strategies for the 8th-14th when the urge to spend is highest\u2014what actually works",
+          "reason": "Targets the exact crisis moment the audience is experiencing; solutions-focused content converts engagement into behavior change"
+        },
+        {
+          "idea": "The 5-minute daily check-in: show how to spend literally 5 minutes reviewing spending to catch the bleed early",
+          "reason": "Removes friction that kills other systems; Gen Z will only adopt what doesn't feel like work"
+        }
+      ],
+      "missing_info": [
+        "Income level / paycheck frequency (weekly, biweekly, monthly?)",
+        "What categories of spending are driving the broke-by-15th (food, shopping, entertainment, transport?)",
+        "Whether this is a single person's problem or a pattern across multiple audience members",
+        "Whether they've tried budgeting/tracking before and what failed",
+        "Geographic location or cost-of-living context (impacts needs vs. wants line)"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "I tracked every dollar for 3 days. The results were ugly.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Your paycheck doesn't disappear. You're just not watching it.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Spent $47 on what? Here's where your money actually goes.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "You're broke by day 20 and you don't even know why.",
+          "type": "bold claim"
+        },
+        {
+          "text": "Most of you lose $300+ monthly on complete garbage purchases.",
+          "type": "bold claim"
+        },
+        {
+          "text": "You're stressed about money but refuse to look at your spending.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "DoorDash, subscriptions, impulse buys\u2014they're stealing your future.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "Your bank account is the problem. You're just in denial.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "Stop scrolling. I'm about to show you exactly why you're broke.",
+          "type": "pattern interrupt"
+        },
+        {
+          "text": "Forget budgets. Let me show you what actually happens in 72 hours.",
+          "type": "pattern interrupt"
+        }
+      ],
+      "winner": {
+        "text": "You're broke by day 20 and you don't even know why.",
+        "reasoning": "This hits the exact pain point 22-year-olds experience\u2014paycheck-to-broke cycles\u2014while the 'don't even know why' creates urgent curiosity. It's blunt enough to feel like a friend calling you out, which builds trust with Gen Z faster than softer approaches."
+      },
+      "runner_up": {
+        "text": "I tracked every dollar for 3 days. The results were ugly.",
+        "reasoning": "Safe but strong. It's relatable, non-accusatory, and the word 'ugly' is visceral enough to stop scrolls without feeling preachy. Good backup if the winner tests less aggressively."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"You're broke by day 20 and you don't even know why.\"\n[PAUSE]\n\n[PROBLEM - 3-8 sec]\n\"It's not the big purchases. It's the $6 coffee. The $15 food delivery. The random $20 Amazon clicks.\"\n[ON-SCREEN TEXT: \"$6 + $15 + $20 = $41 A DAY\"]\n[CUT]\n\"That's $1,200 a month disappearing into nothing.\"\n\n[VALUE - 8-15 sec]\n\"Here's what actually works: Track every single transaction for 3 days. Just write it down.\"\n[PAUSE]\n\"You'll see the pattern. Then cut the top 3 money drains. Done.\"\n[ON-SCREEN TEXT: \"3 days of tracking = hundreds saved\"]\n\n[CTA - 15-17 sec]\n\"Save this. Actually do it. Your future self will thank you.\"\n[PAUSE]\n\"Go.\"\n",
+      "word_count": 94,
+      "viewer_takeaway": "Micro-spending is the real budget killer, not big purchases. Three days of tracking reveals the problem; cutting top 3 drains solves it immediately."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows crumpled receipts/coffee cup, right side shows '$0' in bold red text with shocked face reaction",
+        "Close-up of hand holding empty wallet with '$1,200/month' stamped across in yellow warning text, blunt stare at camera"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "You're broke by day 20.",
+          "visual_direction": "Extreme close-up of face with frustrated/confused expression. Harsh lighting. Black background. Direct eye contact with camera."
+        },
+        {
+          "position": "3-5 sec (PROBLEM - coffee/delivery)",
+          "on_screen_text": "$6 coffee. $15 delivery.",
+          "visual_direction": "Quick cuts: coffee cup being sipped, food delivery notification ping, Amazon click. Fast transitions. Slightly desaturated color."
+        },
+        {
+          "position": "5-7 sec (PROBLEM - math)",
+          "on_screen_text": "$6 + $15 + $20 = $41/DAY",
+          "visual_direction": "Bold white text with red outline appears center screen. Numbers flash individually. Background shows swirling receipts or money disappearing effect."
+        },
+        {
+          "position": "7-8 sec (PROBLEM - monthly total)",
+          "on_screen_text": "$1,200/month. Gone.",
+          "visual_direction": "Large red text with strikethrough animation. Brief cut to empty bank account screenshot or wallet being emptied."
+        },
+        {
+          "position": "8-11 sec (VALUE - solution intro)",
+          "on_screen_text": "Track 3 days. Write it down.",
+          "visual_direction": "Split screen: left shows hand writing in notebook, right shows calendar with 3 days circled. Neutral/hopeful tone. Clean, clear lighting."
+        },
+        {
+          "position": "11-14 sec (VALUE - pattern reveal)",
+          "on_screen_text": "Cut top 3 money drains.",
+          "visual_direction": "Montage of 3 quick cuts: coffee eliminated (cup crossed out), delivery eliminated (notification deleted), Amazon closed (browser window shut). Each with satisfying visual effect."
+        },
+        {
+          "position": "14-15 sec (VALUE - result)",
+          "on_screen_text": "Hundreds saved instantly.",
+          "visual_direction": "Green upward arrow or money saved graphic appears. Bank account number ticking up. Slight smile/nod from talent."
+        },
+        {
+          "position": "15-17 sec (CTA)",
+          "on_screen_text": "Save this. Actually do it.",
+          "visual_direction": "Direct close-up of face again. Serious, blunt stare. Text appears bottom third in white. Final word 'Go.' appears as cut to black."
+        }
+      ],
+      "assets_needed": [
+        "Coffee cup (steaming, recognizable brand)",
+        "Food delivery app notification (phone screen)",
+        "Amazon product page (phone screen)",
+        "Receipt papers or financial statements",
+        "Blank notebook and pen",
+        "Calendar or planner",
+        "Empty wallet or bank account screenshot",
+        "Lighting: harsh key light, minimal fill (blunt aesthetic)",
+        "B-roll: money disappearing/swirling effect",
+        "B-roll: satisfied/determined facial expressions",
+        "Motion graphics: math calculations, checkmarks, strikethroughs",
+        "Color grading: desaturated problem section, neutral/clean value section",
+        "Font: bold sans-serif (blunt voice), all-caps for emphasis"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with relatable pain point, $1,200/month math is concrete and shocking, solution is three simple steps.",
+        "retention": "Problem section escalates (individual purchases \u2192 daily total \u2192 monthly total), creating momentum that pulls viewer through value section.",
+        "save_potential": "Three-day tracking is actionable and low-commitment, making it shareable as personal reminder; visual checkmarks and strikethroughs satisfy the save impulse.",
+        "shareability": "Highly relatable scenario but lacks the 'tag a friend who needs this' or controversial angle that drives organic shares among Gen Z.",
+        "audience_fit": "Speaks directly to income volatility and impulse spending patterns of 22-year-olds; math and shame framing match observed psychology of this cohort.",
+        "cta_strength": "Direct 'Save this' is low-friction and matches platform behavior, but 'Actually do it' adds unnecessary friction\u2014feels preachy rather than empowering."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA tone shifts from blunt/confident to slightly parental ('actually do it'), weakening urgency and creating hesitation.",
+          "fix": "Replace 'Save this. Actually do it.' with 'Save this and screenshot your 3-day total. Reply with the number.' This keeps blunt tone, adds micro-competition element native to Gen Z TikTok culture, and creates re-engagement vector."
+        },
+        {
+          "issue": "No social proof or identity angle\u2014missing chance to make saving feel like in-group behavior rather than isolated financial responsibility.",
+          "fix": "Insert between Value and CTA: 'Everyone who tracks 3 days cuts their spending by $300+. You will too.' This creates peer validation and raises stakes from individual to cohort-level challenge."
+        },
+        {
+          "issue": "Shareability underperforms because content is self-focused (your savings) rather than relational (send to friend spending money); hook says 'you' but call to action doesn't create friction that drives tagging.",
+          "fix": "Adjust CTA to: 'Save this. Send it to the friend in your group chat who's always broke by day 20.' This reframes as gift/intervention, dramatically increasing social pass-through without changing script."
+        }
+      ],
+      "captions": [
+        "you're leaving $1,200 on the table every month without even knowing. do the 3-day track. send this to whoever needs it \ud83d\udea8",
+        "coffee + delivery + amazon clicks = broke by day 20. track 3 days. that's literally it. save and actually try it"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Core concept, math, and audience fit are strong (8-9 range), but CTA lacks the social transmission layer that drives saves and shares on TikTok\u2014rewrite final 3 seconds to add peer validation or relational friction, then post."
+    }
+  }
+}

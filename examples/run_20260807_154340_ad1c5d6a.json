@@ -1,0 +1,268 @@
+{
+  "timestamp": "20260807_154340",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning systems fall apart mid-week (loss of momentum/consistency)",
+        "Phone distraction during study sessions",
+        "Lack of accountability or enforcement mechanism for plans",
+        "Difficulty translating time management into actual execution",
+        "Decision fatigue around when/how to study"
+      ],
+      "ideas": [
+        {
+          "idea": "\"Why Your Sunday Plan Dies by Tuesday\" \u2014 breakdown of the psychology behind mid-week plan abandonment and micro-fixes that actually stick",
+          "pain_point": "Planning systems fall apart mid-week",
+          "unique_angle": "Focuses on *why* it fails specifically mid-week, not just generic productivity tips"
+        },
+        {
+          "idea": "\"The 48-Hour Timetable\" \u2014 reframe planning as a 2-day rolling cycle instead of a full-week commitment to reduce overwhelm",
+          "pain_point": "Planning systems fall apart mid-week",
+          "unique_angle": "Solves the problem by shrinking the planning window, not extending willpower"
+        },
+        {
+          "idea": "\"Phone Locations That Actually Work\" \u2014 tested placement strategies (different room, specific drawer, etc.) ranked by how annoying they are to retrieve",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Acknowledges the phone won't disappear; focuses on friction instead of willpower"
+        },
+        {
+          "idea": "\"App Blockers vs. Physical Distance\" \u2014 direct comparison of which method college students actually use when they study, framed as a choose-your-own-adventure",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Gives permission to pick the laziest solution that works, not the 'best' one"
+        },
+        {
+          "idea": "\"Make Your Plan Peer-Visible\" \u2014 Instagram Stories format showing how to screenshot your timetable and share it to create passive accountability without nagging",
+          "pain_point": "Lack of accountability or enforcement mechanism",
+          "unique_angle": "Uses the platform itself as the accountability tool, not external apps"
+        },
+        {
+          "idea": "\"The Plan-Checking Ritual\" \u2014 one specific time per day to review/adjust timetable (e.g., morning coffee) to catch failure before Wednesday hits",
+          "pain_point": "Lack of accountability or enforcement mechanism",
+          "unique_angle": "Catches drift early instead of waiting for full collapse"
+        },
+        {
+          "idea": "\"From Timetable to Actual Study: The Missing Step\" \u2014 carousel breaking down what happens between 'I made a plan' and 'I'm actually studying' (setup, environment, transition ritual)",
+          "pain_point": "Difficulty translating time management into actual execution",
+          "unique_angle": "Identifies the hidden gap most productivity content ignores"
+        },
+        {
+          "idea": "\"Your First 5 Minutes Determines Everything\" \u2014 reframe execution as nailing just the *start* of a study block, not the whole thing",
+          "pain_point": "Difficulty translating time management into actual execution",
+          "unique_angle": "Lowers the barrier to entry by making the goal absurdly small"
+        },
+        {
+          "idea": "\"Study Block Roulette\" \u2014 pre-decide 3-4 study methods/locations ahead of time so you don't have to choose in the moment",
+          "pain_point": "Decision fatigue around when/how to study",
+          "unique_angle": "Removes choice entirely instead of improving decision-making"
+        },
+        {
+          "idea": "\"Copy This Timetable Template\" \u2014 post an actual simple template (not aspirational) with realistic study blocks and built-in flexibility for mid-week adjustments",
+          "pain_point": "Decision fatigue around when/how to study",
+          "unique_angle": "Gives a starting point so students don't build from blank slate"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "\"Why Your Sunday Plan Dies by Tuesday\" \u2014 breakdown of the psychology behind mid-week plan abandonment and micro-fixes that actually stick",
+          "reason": "Directly mirrors the audience's stated failure point; positions the account as someone who *gets* their specific struggle, not a generic productivity bot"
+        },
+        {
+          "idea": "\"Phone Locations That Actually Work\" \u2014 tested placement strategies ranked by how annoying they are to retrieve",
+          "reason": "Acknowledges the real constraint (phone is there) instead of pretending students will go cold turkey; casual, relatable tone matches brand voice"
+        },
+        {
+          "idea": "\"From Timetable to Actual Study: The Missing Step\" \u2014 carousel breaking down what happens between planning and execution",
+          "reason": "Speaks to the execution gap the audience is experiencing; high engagement potential on carousel format for Instagram"
+        }
+      ],
+      "missing_info": [
+        "What specific types of studying do they do (essays, problem sets, reading, memorization)?",
+        "What time of day do they naturally fail (mornings vs. evenings)?",
+        "Are they failing because plans are too ambitious or because of external interruptions?",
+        "What apps/tools have they already tried (if any)?",
+        "Do they study alone or in groups, and does that affect phone use?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your Sunday plan didn't fail. Your Tuesday brain did.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Why does every Monday motivation disappear by lunch Wednesday?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "The real reason your schedule dies mid-week (it's not laziness).",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of your plans fail the same day. Here's why.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your planner isn't the problem. Your brain's reward system is.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "You're not undisciplined. You're just planning wrong.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "That guilt on Wednesday? It's actually preventable.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Spent Sunday planning. Abandoned it by Tuesday 2pm. Sound familiar?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: your best study hack isn't motivation. It's friction.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Forget discipline. Three micro-fixes will actually make plans stick.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "You're not undisciplined. You're just planning wrong.",
+        "reasoning": "This hooks procrastinators by flipping their self-blame narrative\u2014they've internalized 'I'm lazy' as identity, so absolving them of shame while positioning the content as a solution creates immediate psychological buy-in. For this audience, shifting blame to method over character is the highest conversion trigger."
+      },
+      "runner_up": {
+        "text": "Your Sunday plan didn't fail. Your Tuesday brain did.",
+        "reasoning": "Strong curiosity gap that names their exact pain point (mid-week collapse) with enough mystery to scroll, plus the casual 'your Tuesday brain' phrasing mirrors how they actually talk about themselves."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\nYou're not undisciplined. You're just planning wrong.\n\n[PAUSE]\n\n[PROBLEM]\n\nYou think you need more willpower. More coffee. More guilt.\n\n[CUT]\n\nBut you're actually working against your own brain. You're breaking tasks into chunks too big, deadlines too vague, and you're starting from scratch every single time.\n\n[VALUE]\n\nHere's what actually works: break it into 15-minute blocks. Set a specific *micro-deadline* for each one\u2014not \"study for 2 hours,\" but \"read pages 1-5 by 2:47 PM.\"\n\n[ON-SCREEN TEXT: Time + specificity = no procrastination]\n\nThat's it. Your brain stops resisting when the finish line is visible.\n\n[CUT]\n\n[CTA]\n\nFollow for the full system. I'm dropping it this week.\n\n[PAUSE]",
+      "word_count": 102,
+      "viewer_takeaway": "Procrastination isn't a character flaw\u2014it's a planning problem. Specific, time-bound micro-tasks eliminate resistance."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows person stressed at desk with clock, right side shows same person calm with timer on phone. Bold text overlay: 'You're Not Undisciplined'",
+        "Close-up of phone timer showing specific time (2:47 PM) with hand tapping it. Overlay text: 'Planning Wrong? Try This'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "You're not undisciplined.",
+          "visual_direction": "First frame: person looking directly at camera with skeptical/knowing expression, clean desk background, slight head tilt. Text appears bold, sans-serif, white with subtle shadow."
+        },
+        {
+          "position": "3-4 sec (HOOK CONTINUED)",
+          "on_screen_text": "You're just planning wrong.",
+          "visual_direction": "Quick cut to same person nodding slightly. Text color shifts slightly or bounces. Casual, conversational tone."
+        },
+        {
+          "position": "4-7 sec (PROBLEM SETUP)",
+          "on_screen_text": "You think you need more willpower.",
+          "visual_direction": "B-roll montage: person drinking coffee, looking guilty, head in hands. Quick cuts (1-2 frames each). Slightly desaturated color grading."
+        },
+        {
+          "position": "7-10 sec (PROBLEM DEEPENS)",
+          "on_screen_text": "Breaking tasks too big. Deadlines too vague.",
+          "visual_direction": "Split-screen: left shows chaotic notes/to-do list, right shows person confused. Overlays of clock hands spinning. Quick, punchy cuts."
+        },
+        {
+          "position": "10-14 sec (VALUE - THE FIX)",
+          "on_screen_text": "Break it into 15-minute blocks.",
+          "visual_direction": "Close-up of phone/calendar app showing 15-min time blocks. Hand tapping screen. Visual should feel satisfying, organized. Bright, clean UI."
+        },
+        {
+          "position": "14-18 sec (VALUE - MICRO-DEADLINE)",
+          "on_screen_text": "Set a micro-deadline. Not '2 hours'\u2014'pages 1-5 by 2:47 PM.'",
+          "visual_direction": "Timer app or stopwatch showing specific time (2:47 PM). Person looking satisfied/relieved. Color shifts to warmer, more positive tone."
+        },
+        {
+          "position": "18-21 sec (KEY MESSAGE)",
+          "on_screen_text": "Time + specificity = no procrastination",
+          "visual_direction": "Bold equation appears on screen, large sans-serif font. Background shows person now working focused, in flow state. Subtle glow/highlight effect on text."
+        },
+        {
+          "position": "21-24 sec (PROOF/REINFORCEMENT)",
+          "on_screen_text": "Your brain stops resisting.",
+          "visual_direction": "Person working calmly, nodding in agreement. Satisfied expression. Visual should feel peaceful, productive. Soft lighting."
+        },
+        {
+          "position": "24-27 sec (CTA)",
+          "on_screen_text": "Follow for the full system.",
+          "visual_direction": "Direct-to-camera: person speaking, confident expression. Text overlaid on chest/shoulder area. 'Follow' icon can animate in corner."
+        },
+        {
+          "position": "27-30 sec (CTA CLOSE)",
+          "on_screen_text": "Dropping this week.",
+          "visual_direction": "Final frame: person winks or gives thumbs up, or slight smile. Fade to black or hold on final frame. 'Follow' CTA button locked to screen."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: person at desk looking stressed (multiple angles)",
+        "B-roll: person drinking coffee",
+        "B-roll: person with head in hands/frustrated",
+        "B-roll: messy notes/to-do lists",
+        "B-roll: person confused/lost expression",
+        "Phone screen recording: calendar/planner app showing 15-min blocks",
+        "Phone screen recording: timer/stopwatch app showing 2:47 PM",
+        "B-roll: person working focused/in flow state",
+        "B-roll: direct-to-camera person speaking (multiple takes for different script lines)",
+        "B-roll: person satisfied/nodding",
+        "B-roll: person winking or gesturing approval",
+        "Font assets: bold sans-serif (recommend: Montserrat, Inter, or similar)",
+        "Color grading: desaturated clips for 'problem' section, warmer/brighter for 'solution' section",
+        "Transition effects: quick cuts, subtle bounces on text",
+        "Music: upbeat but not overwhelming, slightly comedic tone",
+        "Overlay graphics: clock/timer imagery, equation graphics",
+        "Follow button/CTA template for Instagram specs"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook lands hard in first 3 seconds with direct contradiction that reframes procrastination as a systems problem, not a character flaw.",
+        "retention": "Problem-solution structure with specific micro-deadline example (2:47 PM) creates curiosity gap; viewers want to see full system.",
+        "save_potential": "Actionable, memorable framework (15-min blocks + specific times) is immediately implementable and screenshot-worthy for later reference.",
+        "shareability": "Speaks to universal college pain point with non-judgmental tone; relatable enough for friend-forwarding but not preachy.",
+        "audience_fit": "Directly targets procrastinators by invalidating guilt-based approaches and offering systems-thinking alternative they haven't tried.",
+        "cta_strength": "Low-friction follow for \"full system\" creates anticipation loop; specific timing (\"this week\") adds urgency without pressure."
+      },
+      "weaknesses": [
+        {
+          "issue": "The visual transition from problem (desaturated/stressed) to solution (warm/calm) may feel too abrupt at 10-14 sec mark, risking cognitive whiplash instead of relief.",
+          "fix": "Insert a 1-2 second bridge frame (10-11 sec) showing the *moment of realization*\u2014person stopping, taking breath, phone screen lighting up with timer app. Keep desaturated color but add single warm accent (phone glow). Rewrite: \"Wait. What if the problem isn't you? It's the plan.\" This eases the tonal shift."
+        },
+        {
+          "issue": "\"Micro-deadline\" terminology is introduced but never reinforced or named as a system component, making it feel like a one-off tactic rather than part of a larger framework followers will want to learn.",
+          "fix": "At 18-21 sec (key message frame), change text overlay from \"Time + specificity = no procrastination\" to \"The Micro-Deadline Method: Time + Specificity = Execution.\" Rewrite voiceover: \"This isn't motivation. This is a system. And it has a name: the Micro-Deadline Method.\" This primes followers to expect a named framework in the full post."
+        },
+        {
+          "issue": "CTA at 24-27 sec (\"Follow for the full system\") feels generic and doesn't differentiate from 1000 other productivity creators; no specific hook for *why* this system is different.",
+          "fix": "Replace with: \"Follow if you've ever failed a deadline that wasn't your fault. It was your plan's fault. I'm dropping the full system this week.\" Rewrite voiceover to acknowledge that followers will recognize themselves in this, creating micro-commitment before the ask."
+        }
+      ],
+      "captions": [
+        "You're not undisciplined. You're just planning wrong. Your brain doesn't resist tasks\u2014it resists *vague* tasks. Break it into 15-minute blocks. Set specific micro-deadlines (not \"2 hours\"\u2014\"pages 1-5 by 2:47 PM\"). Watch procrastination disappear. Follow for the full system dropping this week. #ProductivityHacks #StudentLife #NoMoreProcrastination",
+        "Procrastination isn't a discipline problem. It's a planning problem. You're breaking tasks too big and setting deadlines too vague. Your brain can't resist a specific finish line. Here's the fix: 15-minute blocks + micro-deadlines = execution. Follow for the full Micro-Deadline Method. Dropping this week. #College #Productivity #StudyTips"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Core concept and hook are strong and audience-fit is excellent, but the three structural gaps (abrupt tonal shift, unnamed system framework, generic CTA) weaken follow-through and make the post feel like a tease rather than a strategic preview\u2014fix these three points and this converts significantly higher."
+    }
+  }
+}

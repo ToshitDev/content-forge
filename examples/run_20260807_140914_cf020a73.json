@@ -1,0 +1,238 @@
+{
+  "timestamp": "20260807_140914",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning systems fail by mid-week (loss of momentum/accountability)",
+        "Phone distraction during study sessions",
+        "Lack of realistic study strategies that account for phone presence",
+        "Difficulty maintaining routines beyond initial setup",
+        "Unknown what 'actual studying' looks like when distractions are unavoidable"
+      ],
+      "ideas": [
+        {
+          "idea": "Post-mortem carousel: Why your Sunday timetable dies by Tuesday (breakdowns of common failure points + quick fixes)",
+          "pain_point": "Planning systems fail by mid-week",
+          "unique_angle": "Instead of 'how to plan better,' diagnose why the plan you already made isn't working"
+        },
+        {
+          "idea": "Micro-commitment reels: Replace 'stick to your schedule' with 48-hour check-ins (show what actually gets people past Tuesday)",
+          "pain_point": "Planning systems fail by mid-week",
+          "unique_angle": "Reframe the problem as a mid-week motivation crisis, not a planning crisis"
+        },
+        {
+          "idea": "Phone-on-desk study formats (Pomodoro variants, app blockers ranked, how long to actually block vs. when it backfires)",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Acknowledge the phone won't disappear\u2014teach studying *around* it instead"
+        },
+        {
+          "idea": "Honest reel: 'What I actually do when my phone is right there' (show a real study attempt with the phone present + what saved the session)",
+          "pain_point": "Lack of realistic study strategies that account for phone presence",
+          "unique_angle": "Normalize phone presence and show tactics that work *with* that reality"
+        },
+        {
+          "idea": "Weekly reset vs. daily micro-habits: Comparison post (why Sundays fail, what works Monday-Friday instead)",
+          "pain_point": "Difficulty maintaining routines beyond initial setup",
+          "unique_angle": "Challenge the 'weekly planning' culture directly as the root cause"
+        },
+        {
+          "idea": "5-min study session format guide (for when full Pomodoros feel fake; micro-study that counts)",
+          "pain_point": "Difficulty maintaining routines beyond initial setup",
+          "unique_angle": "Lower the bar so low that Tuesday maintenance becomes easy, not aspirational"
+        },
+        {
+          "idea": "Study session anatomy reel: Showing actual studying moment-by-moment (what it looks like, sounds like, feels like vs. the Instagram version)",
+          "pain_point": "Unknown what 'actual studying' looks like when distractions are unavoidable",
+          "unique_angle": "Demystify 'studying' by showing the messy, phone-interrupted reality"
+        },
+        {
+          "idea": "Poll series: 'What derails you first\u2014boredom, phone, or something else?' (crowdsource the actual blockers, then address top answers)",
+          "pain_point": "Unknown what 'actual studying' looks like when distractions are unavoidable",
+          "unique_angle": "Let the audience diagnose themselves; build solutions from what they identify"
+        },
+        {
+          "idea": "Timetable autopsy: Share a failed Sunday plan + what would've made it stick (transparent failure analysis)",
+          "pain_point": "Planning systems fail by mid-week",
+          "unique_angle": "Use failure as teaching content, not just success stories"
+        },
+        {
+          "idea": "Phone boundaries that don't require willpower (physical placement, app settings, study buddy systems tested by procrastinators)",
+          "pain_point": "Phone distraction during study sessions",
+          "unique_angle": "Shift from motivation/discipline to structural solutions that work even when you don't care"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Post-mortem carousel: Why your Sunday timetable dies by Tuesday",
+          "reason": "Directly mirrors the audience's exact failure point ('I make a timetable every Sunday and quit by Tuesday'). Diagnostic content builds trust. High engagement potential."
+        },
+        {
+          "idea": "Honest reel: 'What I actually do when my phone is right there'",
+          "reason": "Addresses the second pain point explicitly. Normalization + tactics combo is underserved in productivity content. Casual brand voice shines here."
+        },
+        {
+          "idea": "Weekly reset vs. daily micro-habits comparison post",
+          "reason": "Challenges the root assumption (Sunday planning) that's failing for this audience. Positions your brand as different from generic productivity advice."
+        }
+      ],
+      "missing_info": [
+        "How long do students typically stick to their timetables (exact days/weeks)?",
+        "What specific phone apps/activities distract most during study (social media, messages, games)?",
+        "Have they tried phone-blocking solutions before? What failed?",
+        "Do they have accountability partners, study groups, or study alone?",
+        "What subjects/work types are hardest to focus on with the phone nearby?",
+        "Is the Tuesday drop due to motivation loss, schedule conflict, or boredom?",
+        "What would constitute 'success' for this audience (realistic goal-setting)?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your Sunday plan lasted 36 hours. Here's what killed it.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "That color-coded timetable? It's already dead. You just don't know it yet.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Why your Tuesday self sabotages Sunday's promises every single week.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of college schedules fail within 72 hours. You're not broken.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your timetable isn't the problem. Your brain's reward system is.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "You make the perfect schedule then immediately ignore it. Sound familiar?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Sunday optimism, Tuesday chaos, Wednesday regret. The cycle repeats.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "That gorgeous Google Calendar you spent 2 hours designing? Dead.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: Your timetable didn't fail. Your system did.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Everyone's schedule dies by Tuesday. But your next one won't.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "You make the perfect schedule then immediately ignore it. Sound familiar?",
+        "reasoning": "This hook directly calls out the specific shame-to-recognition moment procrastinators experience\u2014they *know* they do this, making it instantly relatable. The conversational \"sound familiar\" creates parasocial agreement that hooks engagement, while the contradiction (perfect schedule + immediate failure) mirrors their exact pain point without seeming preachy."
+      },
+      "runner_up": {
+        "text": "Your Sunday plan lasted 36 hours. Here's what killed it.",
+        "reasoning": "Strong curiosity gap with specific time anchor (36 hours) that feels empirical enough to be credible while vague enough to pull clicks. The 'here's what killed it' positions the carousel as having real answers, appealing to procrastinators' desire for actual solutions."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"You make the perfect schedule then immediately ignore it. Sound familiar?\"\n[PAUSE 1 sec]\n\n[PROBLEM - 3-7 sec]\n\"Yeah, because schedules fail when they don't match how your brain actually works. You're not lazy\u2014you're just planning like a robot.\"\n[ON-SCREEN TEXT: \"your brain \u2260 a spreadsheet\"]\n[CUT]\n\n[VALUE - 7-15 sec]\n\"Here's what actually works: stop scheduling tasks. Schedule *energy*. Figure out when you're actually focused, build your real deadlines backward, then give yourself permission to work in chunks that don't suck.\"\n[ON-SCREEN TEXT: \"energy > time\"]\n[PAUSE 0.5 sec]\n\"That's literally it. No motivation required.\"\n[CUT]\n\n[CTA - 15-17 sec]\n\"Follow for the full system\u2014I'm breaking down exactly how to build a schedule you'll actually stick to.\"\n[ON-SCREEN TEXT: \"@[handle]\"]\n[PAUSE]",
+      "word_count": 126,
+      "viewer_takeaway": "Traditional schedules fail because they ignore your natural energy patterns. The fix is scheduling based on when you're actually focused, not clock time\u2014and it removes the willpower problem entirely."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows chaotic calendar with crossed-out tasks, right side shows person looking stressed at desk. Bold text overlay: 'your schedule is lying to you'",
+        "Close-up of hand dramatically crossing out items on a planner. Text overlay in bright color: 'stop doing this' with arrow pointing to the planner"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "you make perfect schedules then ignore them",
+          "visual_direction": "First frame: person sitting at desk looking at phone/calendar with skeptical expression. Quick cut to them ignoring planner on desk. Keep energy upbeat, slightly comedic"
+        },
+        {
+          "position": "3-7 sec (PROBLEM)",
+          "on_screen_text": "your brain \u2260 a spreadsheet",
+          "visual_direction": "Split screen or transition: left shows rigid spreadsheet/calendar app, right shows person's actual chaotic workflow. Show someone trying to force themselves to work. Slightly exaggerated/comedic tone"
+        },
+        {
+          "position": "7-12 sec (VALUE pt 1)",
+          "on_screen_text": "schedule energy not time",
+          "visual_direction": "Person looking relaxed/focused during their peak hours. Show visual representation of 'focused time' vs 'low energy time' (maybe with brightness/color shifts). Show someone building a schedule backwards on whiteboard or notes"
+        },
+        {
+          "position": "12-15 sec (VALUE pt 2)",
+          "on_screen_text": "work in chunks that don't suck",
+          "visual_direction": "Quick montage of person working in focused bursts with clear breaks. Show satisfaction/relief on their face. Natural, energetic pacing"
+        },
+        {
+          "position": "15-17 sec (CTA)",
+          "on_screen_text": "@[handle]",
+          "visual_direction": "Direct address to camera, slight lean-in or gesture toward handle text. Confident, casual tone. Text appears prominently on screen. Optional: quick flash of follow button or profile preview"
+        }
+      ],
+      "assets_needed": [
+        "Planner/calendar (physical or digital screen capture)",
+        "Laptop/phone showing scheduling apps",
+        "Person at desk (talent or actor)",
+        "Whiteboard + markers for backwards planning visual",
+        "Clock or timer graphics",
+        "Split screen/transition templates",
+        "Upbeat, casual background music (30-45 sec)",
+        "On-screen text animations (modern, sans-serif font)",
+        "b-roll: person working focused, person stressed, calendar crossing-outs",
+        "Brand logo/handle graphic for final frame"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with relatable question, problem identified by 3-sec mark ('your brain \u2260 spreadsheet' is concrete), but 'schedule energy' needs one more visual anchor to crystallize.",
+        "retention": "Problem-solution structure keeps attention, but value section (7-15s) is dense with three separate concepts competing for cognitive load\u2014risks losing viewers mid-message.",
+        "save_potential": "Core insight ('energy over time') is novel enough to bookmark, and backwards-planning detail gives actionable takeaway worth saving for later reference.",
+        "shareability": "Relatable pain point + comedic tone help, but lacks the 'wow' moment or surprising stat that makes people tag friends\u2014feels informative rather than conversation-starting.",
+        "audience_fit": "Directly addresses procrastinator's core failure (ignoring schedules) and reframes laziness as planning misalignment, matching target's self-perception perfectly.",
+        "cta_strength": "Clear ask ('follow for full system'), but no urgency or scarcity lever; 'full system' promises substance but doesn't explain why they can't get it elsewhere."
+      },
+      "weaknesses": [
+        {
+          "issue": "Middle section overloads three ideas ('energy over time' + 'backward deadlines' + 'work in chunks') in 8 seconds, forcing viewer to process faster than retention allows.",
+          "fix": "Split VALUE into two tiers: (7-11s) 'Stop scheduling tasks. Schedule when your brain actually works.' [Show energy curve visualization] (11-15s) 'Then work in focused chunks instead of 8-hour marathons\u2014that's it.' [Show 2-3 burst work sessions]. This sequences concepts instead of stacking them."
+        },
+        {
+          "issue": "CTA ('follow for the full system') lacks differentiation\u2014competitor accounts use identical language, so no reason to follow *this* account over others promising the same.",
+          "fix": "Rewrite CTA (15-17s): 'Follow\u2014I'm showing you the exact 3-step template I use with 200+ students who actually stick to their schedules.' [On-screen: '@[handle]' + subtle social proof]. Specificity (template + numbers) signals authority over vague 'system' promise."
+        },
+        {
+          "issue": "Shareability blocked by lack of pattern-interrupt or surprising insight\u2014video explains problem+solution competently but doesn't create 'aha' moment that makes someone tag a procrastinating friend.",
+          "fix": "Add micro-surprise at 9-sec mark: After 'schedule energy,' show quick cut of someone successfully working (satisfied expression) with text: 'This student went from 3 reschedules/week to 0 in 2 weeks.' [Pause 1s]. This social proof + contrast creates share trigger ('that could be me') without adding length."
+        }
+      ],
+      "captions": [
+        "your schedule isn't the problem. you are\u2014just kidding, your brain is. your brain \u2260 a spreadsheet. stop fighting it. swipe for the 3-step template that actually works \u2192",
+        "schedules fail because you're not lazy, you're just planning wrong. here's what i teach: energy beats time, backwards deadlines beat deadlines, and chunks beat marathons. follow for the full breakdown \u2192"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong hook and audience fit (8-9 range), but middle section cognitive overload and weak CTA differentiation need tightening before posting\u2014resequence value propositions and add social proof to unlock higher shareability (currently 6, should be 8+)."
+    }
+  }
+}

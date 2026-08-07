@@ -1,0 +1,245 @@
+{
+  "timestamp": "20260807_154126",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning systems fall apart within days (Sunday timetable abandoned by Tuesday)",
+        "Phone distraction while studying",
+        "Lack of accountability or follow-through on productivity systems",
+        "Difficulty maintaining routines beyond initial motivation",
+        "Study environment management (proximity to distractions)"
+      ],
+      "ideas": [
+        {
+          "idea": "Post-Tuesday Reality Check: Why your Sunday plan dies and what actually works instead",
+          "pain_point": "Planning systems fall apart within days",
+          "unique_angle": "Most productivity content ignores the 48-hour failure point\u2014we'd normalize it and show what contingency plans look like"
+        },
+        {
+          "idea": "The Micro-Timetable: 2-day study schedules instead of weekly (reload every 48 hours)",
+          "pain_point": "Planning systems fall apart within days",
+          "unique_angle": "Flips the framework entirely\u2014shorter cycles that match actual attention span instead of fighting it"
+        },
+        {
+          "idea": "Phone Physics: Visual breakdown of what actually happens in your brain when your phone is in arm's reach vs. another room",
+          "pain_point": "Phone distraction while studying",
+          "unique_angle": "Explains the science without being preachy, shows distance matters more than willpower"
+        },
+        {
+          "idea": "The Phone Hostage System: Tactical methods college students are already using to lock their phone away during study blocks",
+          "pain_point": "Phone distraction while studying",
+          "unique_angle": "User-generated tactics instead of generic 'delete apps' advice\u2014actual peer solutions"
+        },
+        {
+          "idea": "Accountability Theater vs. Real Accountability: Why telling yourself you'll follow a plan doesn't work, and what external systems do",
+          "pain_point": "Lack of accountability or follow-through on productivity systems",
+          "unique_angle": "Calls out the illusion of self-discipline without judgment, shows structural vs. motivational fixes"
+        },
+        {
+          "idea": "The 72-Hour Check-in: Simple weekly audit post (did the plan survive? what killed it?) with zero shame framing",
+          "pain_point": "Lack of accountability or follow-through on productivity systems",
+          "unique_angle": "Makes failure data visible and normal instead of hidden, treats it as debugging not weakness"
+        },
+        {
+          "idea": "Why Your Routine Breaks: Common collapse points mapped to specific days/weeks (week 1 dip, mid-semester burnout triggers)",
+          "pain_point": "Difficulty maintaining routines beyond initial motivation",
+          "unique_angle": "Predicts failure windows so students can brace for them instead of being blindsided"
+        },
+        {
+          "idea": "The Drift & Reset Protocol: Lightweight framework for restarting when routine inevitably breaks",
+          "pain_point": "Difficulty maintaining routines beyond initial motivation",
+          "unique_angle": "Assumes failure and designs recovery steps instead of pretending consistency is realistic"
+        },
+        {
+          "idea": "Study Space Hacks: Rearranging dorm/apartment to physically separate you from your phone (no fancy furniture required)",
+          "pain_point": "Study environment management",
+          "unique_angle": "Environmental design tip\u2014shaping space instead of relying on willpower alone"
+        },
+        {
+          "idea": "The 'Phone Graveyard': Show how different study spaces (library corner vs. dorm desk) change distraction likelihood with student examples",
+          "pain_point": "Study environment management",
+          "unique_angle": "Real location breakdowns tied to actual distraction risk, not just generic 'go to the library' advice"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "The Micro-Timetable: 2-day study schedules instead of weekly (reload every 48 hours)",
+          "reason": "Directly solves the expressed pain (quitting by Tuesday) by redesigning the system to match actual behavior instead of fighting it. Instantly actionable and reframes 'failure' as a feature."
+        },
+        {
+          "idea": "The Phone Hostage System: Tactical methods college students are already using to lock their phone away during study blocks",
+          "reason": "Directly addresses the second question with peer-sourced solutions rather than generic advice. High shareability and relatability for the procrastinator audience."
+        },
+        {
+          "idea": "Why Your Routine Breaks: Common collapse points mapped to specific days/weeks",
+          "reason": "Bridges both pain points by validating the experience and providing predictive framework. Positions the brand as understanding the actual struggle, not just selling productivity fantasy."
+        }
+      ],
+      "missing_info": [
+        "What specifically kills the timetable on Tuesday? (Overwhelm, boredom, unexpected events, unrealistic expectations?)",
+        "When studying with phone nearby, what apps/notifications are the biggest pull?",
+        "Have any of these students tried phone-blocking apps, physical separation, or other tactics? What worked/failed?",
+        "Are there specific study contexts mentioned? (Dorm, library, home, group settings?)",
+        "What's the semester timeline\u2014do they struggle equally in week 1 vs. midterms vs. finals?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your weekly planner is why you're still procrastinating.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "What if you only planned 2 days at a time?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "48 hours. That's all your brain can actually commit to.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Everyone's using weekly planners. You're about to switch.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Why your Sunday planning session fails by Wednesday (spoiler: scope).",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Micro-timetables hit different than your Notes app chaos.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Two days. Reload. Repeat. No 5-day guilt trips.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Students who study this way finish 3 days earlier.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your brain's procrastination deadline is shorter than you think.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Syllabus says weekly deadlines. Your focus span says 48 hours.",
+          "type": "pain_point_call_out"
+        }
+      ],
+      "winner": {
+        "text": "48 hours. That's all your brain can actually commit to.",
+        "reasoning": "This hook flips the script from a personal failure (procrastination) into a neuroscience fact, making procrastinators feel understood rather than blamed. College students recognize this as permission to work *with* their real attention span instead of fighting it, which is the core appeal of the micro-timetable concept."
+      },
+      "runner_up": {
+        "text": "Your weekly planner is why you're still procrastinating.",
+        "reasoning": "Direct pain-point call-out that names the enemy (their existing system) rather than their weakness. Safer because it doesn't require them to accept a cognitive limitation\u2014just swap tools. Still high-intent but slightly less psychologically sticky than the winner."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n[ON-SCREEN TEXT: 48 HOURS]\nYour brain can actually commit to 48 hours. That's it.\n\n[PAUSE]\n[CUT]\n\n[PROBLEM - 3-7 sec]\nYou're planning your entire semester like it's a Netflix series you'll binge. Spoiler: you won't.\n\n[CUT]\n\n[VALUE - 7-20 sec]\nHere's what actually works: break everything into 48-hour sprints. Not weekly. Not monthly. Two days.\n\n[PAUSE]\n\nWhy? Your brain stops lying to itself after 48 hours. You can't fake momentum. You either did the work or you didn't.\n\n[CUT]\n\nStart with ONE assignment. Pick the 48-hour window. Commit. Done.\n\n[PAUSE]\n\n[CTA - 20-23 sec]\n[ON-SCREEN TEXT: FOLLOW FOR THE FULL SYSTEM]\nFollow for the complete breakdown of how to actually stick to this.\n\n[CUT]",
+      "word_count": 87,
+      "viewer_takeaway": "Your procrastination problem isn't motivation\u2014it's planning horizon. Breaking tasks into 48-hour sprints makes deadlines real and removes the ability to self-deceive about progress."
+    },
+    "visual": {
+      "cover_options": [
+        "Bold red countdown timer showing '48' with a student looking stressed in the background, text overlay: '48 HOURS'",
+        "Split-screen: left side shows a chaotic semester calendar, right side shows a clean 48-hour sprint block, text overlay: 'FORGET EVERYTHING ELSE'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "48 HOURS",
+          "visual_direction": "Large bold red/white text center-screen. Quick cut to close-up of person's face looking determined. Subtle timer animation in corner counting down from 48:00."
+        },
+        {
+          "position": "3-7 sec (PROBLEM)",
+          "on_screen_text": "YOU'RE LYING TO YOURSELF",
+          "visual_direction": "Quick montage: person scrolling semester calendar, Netflix app opening, overwhelmed facial expressions. Fast cuts (0.5-1 sec each). High-energy, slightly chaotic B-roll."
+        },
+        {
+          "position": "7-15 sec (VALUE - Part 1)",
+          "on_screen_text": "BREAK IT INTO 48-HR SPRINTS",
+          "visual_direction": "Person at desk writing/planning on paper. Zoom in on notepad showing '48-HOUR WINDOW' written down. Clean, organized aesthetic. Slow, intentional pacing."
+        },
+        {
+          "position": "15-18 sec (VALUE - Part 2)",
+          "on_screen_text": "YOUR BRAIN CAN'T FAKE IT",
+          "visual_direction": "Person nodding, pointing at camera. Text appears as they speak. Cut to checkmark appearing on whiteboard/paper. Confident, matter-of-fact energy."
+        },
+        {
+          "position": "18-20 sec (VALUE - Part 3)",
+          "on_screen_text": "PICK ONE ASSIGNMENT",
+          "visual_direction": "Close-up of hand circling single task on list. Highlighter coming across assignment. Zoom out to show person looking relieved/satisfied."
+        },
+        {
+          "position": "20-23 sec (CTA)",
+          "on_screen_text": "FOLLOW FOR THE FULL SYSTEM",
+          "visual_direction": "Person looking directly at camera with slight smile. Follow icon animation appears on-screen. End frame freeze with both text lines visible simultaneously."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: student at desk planning/writing",
+        "B-roll: phone scrolling through calendar app",
+        "B-roll: Netflix app on phone/laptop",
+        "B-roll: stressed facial expressions (close-ups)",
+        "B-roll: hands writing on paper/whiteboard",
+        "B-roll: checkmarks appearing/writing task completion",
+        "B-roll: person pointing at camera (confident expression)",
+        "Stock footage or custom: timer animation (48:00 countdown)",
+        "Stock footage or custom: highlighter on paper",
+        "Graphics: '48 HOURS' title text (bold, red/white)",
+        "Graphics: follow icon animation",
+        "Props: notebook/planner, pen, highlighter, whiteboard",
+        "Music: upbeat, millennial-friendly, 120+ BPM track (problem section faster, value section slower)",
+        "Sound design: subtle timer ticks, pen scratches, text pop SFX"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with a specific number; the 48-hour concept is concrete and immediately graspable.",
+        "retention": "Problem section is relatable but fairly generic ('Netflix series'); value section needs stronger emotional payoff to keep scrollers past second 7.",
+        "save_potential": "Core insight (brain stops lying after 48 hours) is novel enough to bookmark; actionable first step elevates it beyond theory.",
+        "shareability": "Solves a real problem but lacks the 'wow' factor or humor that makes procrastinators tag friends; feels more educational than laugh-worthy.",
+        "audience_fit": "Directly addresses semester planning, Netflix procrastination, and momentum-faking\u2014all core pain points of your target audience.",
+        "cta_strength": "Follow request is clear and low-friction, but 'full system' is vague; no hint of what that system contains creates friction in the decision."
+      },
+      "weaknesses": [
+        {
+          "issue": "Value section lacks proof or result\u2014viewers hear '48-hour sprints work' but see no before/after or concrete outcome.",
+          "fix": "Add a quick stat or relatable result at 12-15 sec: 'People using 48-hour sprints go from 3 all-nighters a semester to zero' or 'One student went from D's to B's in 3 weeks.' Show result on-screen as text overlay while person nods."
+        },
+        {
+          "issue": "CTA is too vague ('full system')\u2014doesn't tell viewer what they're actually getting or why they should tap follow now instead of later.",
+          "fix": "Replace 'FOLLOW FOR THE FULL SYSTEM' with 'FOLLOW FOR: The exact 48-hr planner template + 3 ways your brain sabotages deadlines.' Specificity increases urgency."
+        },
+        {
+          "issue": "Problem section ('lying to yourself about Netflix binges') is relatable but undercuts emotional stakes\u2014needs one more layer to justify urgency.",
+          "fix": "Expand problem at 4-6 sec to: 'You're planning your whole semester like it's a Netflix series you'll binge. Meanwhile, you're already failing two classes by week 3.' Quick text overlay: 'FAILING BY WEEK 3.' Creates tension before solution appears."
+        }
+      ],
+      "captions": [
+        "Your brain stops lying after 48 hours. You either did the work or you didn't. Here's how to break your semester into sprints that actually stick \u2192 [FOLLOW] for the template + the 3 psychology tricks that kill procrastination.",
+        "Stop planning your semester like a Netflix binge. 48-hour sprints are how real students go from 3 all-nighters a semester to zero. Follow for the exact system\u2014including the planner template\u2014that works when willpower doesn't."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Core insight is strong and audience fit is excellent, but the value section needs a concrete proof point (stat, result, or psychological mechanism) and the CTA must move from 'full system' to specific deliverables to maximize follow conversion; these two fixes will lift retention and shareability from 6\u20137 to 8+."
+    }
+  }
+}

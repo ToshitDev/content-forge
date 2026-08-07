@@ -1,0 +1,256 @@
+{
+  "timestamp": "20260807_135337",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual",
+    "cta": "follow for more"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning systems don't stick beyond a few days",
+        "Loss of motivation mid-week",
+        "Gap between Sunday intention and Tuesday reality",
+        "Unclear why planning fails so quickly",
+        "Need for systems that survive past initial setup"
+      ],
+      "ideas": [
+        {
+          "idea": "Video series: 'Why your Sunday planner dies by Tuesday' \u2014 breaking down the actual hours when people abandon their systems",
+          "pain_point": "Unclear why planning fails so quickly",
+          "unique_angle": "Angle nobody's covering: showing the exact moment in the week (not just generic tips) when college students mentally check out"
+        },
+        {
+          "idea": "Carousel: 'The Tuesday Trap' \u2014 diagnosing whether it's scope creep, overambition, or decision fatigue killing their week",
+          "pain_point": "Gap between Sunday intention and Tuesday reality",
+          "unique_angle": "Angle nobody's covering: positioning Tuesday as the actual failure point to diagnose, not just 'try harder'"
+        },
+        {
+          "idea": "Reel: 'Micro-timetables instead' \u2014 showing how to plan for just 2 days at a time instead of a full week",
+          "pain_point": "Planning systems don't stick beyond a few days",
+          "unique_angle": "Angle nobody's covering: flipping the script to make short-term planning the feature, not a bug"
+        },
+        {
+          "idea": "Poll sticker series: 'When did your planner die?' \u2014 collecting data on what day/time people actually bail",
+          "pain_point": "Loss of motivation mid-week",
+          "unique_angle": "Angle nobody's covering: using audience engagement to map the real breakdown pattern (not assumed)"
+        },
+        {
+          "idea": "Story-driven post: Student shows their actual Sunday plan vs. Tuesday reality side-by-side (no judgment, relatable tone)",
+          "pain_point": "Gap between Sunday intention and Tuesday reality",
+          "unique_angle": "Angle nobody's covering: normalizing the gap instead of shaming it as failure"
+        },
+        {
+          "idea": "Quick tip: 'Timetable checkpoints' \u2014 what to review/adjust Monday evening to prevent Tuesday collapse",
+          "pain_point": "Planning systems don't stick beyond a few days",
+          "unique_angle": "Angle nobody's covering: proactive mid-week intervention before the system dies"
+        },
+        {
+          "idea": "Carousel: 'Why Tuesday kills momentum' \u2014 showing the actual schedule pressure of mid-week vs. fresh Sunday energy",
+          "pain_point": "Loss of motivation mid-week",
+          "unique_angle": "Angle nobody's covering: acknowledging structural week fatigue, not just personal discipline"
+        },
+        {
+          "idea": "Reel: 'The Sunday Setup Trap' \u2014 showing how over-planning on Sunday sets up failure for Tuesday",
+          "pain_point": "Need for systems that survive past initial setup",
+          "unique_angle": "Angle nobody's covering: the Sunday plan itself might be the problem, not the execution"
+        },
+        {
+          "idea": "Question sticker: 'What kills your planner first?' \u2014 open-ended to discover other failure patterns beyond Tuesday",
+          "pain_point": "Unclear why planning fails so quickly",
+          "unique_angle": "Angle nobody's covering: letting audience diagnose their own pattern (not prescribing one solution)"
+        },
+        {
+          "idea": "Infographic: 'Timetable lifespans' \u2014 showing what actually lasts (daily mini-plans vs. weekly overhauls) based on student feedback",
+          "pain_point": "Need for systems that survive past initial setup",
+          "unique_angle": "Angle nobody's covering: ranking planning formats by actual durability, not theory"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Video series: 'Why your Sunday planner dies by Tuesday' \u2014 breaking down the actual hours when people abandon their systems",
+          "reason": "Directly mirrors the audience's specific experience (Sunday\u2192Tuesday failure). Positions your brand as diagnostic, not prescriptive. Creates video series potential."
+        },
+        {
+          "idea": "Reel: 'Micro-timetables instead' \u2014 showing how to plan for just 2 days at a time instead of a full week",
+          "reason": "Reframes their pain (short planning lifespan) as a feature. Gives immediate actionable alternative. High engagement potential with Reels format."
+        },
+        {
+          "idea": "Carousel: 'Timetable lifespans' \u2014 showing what actually lasts (daily mini-plans vs. weekly overhauls) based on student feedback",
+          "reason": "Solves the 'need for systems that survive' pain point while gathering audience data. Educational and credible without inventing stats."
+        }
+      ],
+      "missing_info": [
+        "What replaced the timetable after Tuesday? (phone notes, no system, different app?)",
+        "Is this person alone in this pattern or speaking for others?",
+        "What specifically derails it \u2014 workload increase, losing the document, boredom, or external schedule changes?",
+        "Have they tried other planning tools or is timetabling their main attempt?",
+        "Is this a recurring weekly cycle or did they try once and stop?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your planner isn't broken. Tuesday 2pm is.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "We found the exact hour students quit planning.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Plot twist: your Sunday planner never stood a chance.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of college planners fail by day three.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your system didn't fail. You built it wrong.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "That planner you bought? Probably dead by now.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You're not lazy. Your planning method is broken.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Spent $40 on a planner that lasted 48 hours?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Everyone plans on Sunday. Nobody remembers Tuesday.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Your planner works great. For exactly two days.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your planner isn't broken. Tuesday 2pm is.",
+        "reasoning": "This hook reframes failure as a system problem, not personal failure\u2014deeply resonant for college students who already doubt themselves. The specificity of 'Tuesday 2pm' creates immediate curiosity while the short, punchy structure is native to how Gen Z scrolls Instagram."
+      },
+      "runner_up": {
+        "text": "You're not lazy. Your planning method is broken.",
+        "reasoning": "Directly challenges the shame narrative college students carry, making it psychologically safe to click. It's validating rather than judgmental, which aligns with building trust in a casual brand voice."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Your planner isn't broken. Tuesday 2pm is.\"\n[PAUSE]\n\n[PROBLEM - 3-8 sec]\n\"You've got the perfect system, right? Color-coded, time-blocked, everything scheduled.\"\n[CUT]\n\"But then you hit that 2pm slot and suddenly... nothing works.\"\n[ON-SCREEN TEXT: the energy dip]\n\n[VALUE - 8-18 sec]\n\"Here's the fix: stop fighting your biology.\"\n[PAUSE]\n\"That dead zone? It's real. Most students crash between 1-3pm.\"\n[CUT]\n\"So instead of forcing deep work, batch your admin tasks there. Emails, organizing, planning tomorrow.\"\n[ON-SCREEN TEXT: save your peak hours]\n\"Save your focused time for when your brain actually cooperates \u2014 usually 10-12am or 7-9pm.\"\n[PAUSE]\n\"One tweak. Way more done.\"\n\n[CTA - 18-20 sec]\n\"Follow for more timing hacks that actually stick.\"",
+      "word_count": 127,
+      "viewer_takeaway": "Understanding your natural energy rhythms and scheduling tasks accordingly is more effective than forcing a one-size-fits-all planner system."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows a student staring blankly at planner at 2pm, right side shows the same student energized working at 10am. Bold text overlay: 'Your planner isn't broken. Tuesday 2pm is.'",
+        "Close-up of a color-coded planner open to Tuesday with a red 'X' or 'dead zone' marking on the 2pm slot. Frustrated hand gesture nearby. Text: 'Stop fighting your biology.'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "Your planner isn't broken. Tuesday 2pm is.",
+          "visual_direction": "First frame: Split screen or close-up of planner showing 2pm slot. Student looking confused/frustrated at desk. Bold white sans-serif text centered. Casual bedroom or study setting. Quick zoom or text pop for emphasis."
+        },
+        {
+          "position": "3-5 sec (PROBLEM setup)",
+          "on_screen_text": "You've got the perfect system, right?",
+          "visual_direction": "Quick montage: color-coded pens, neat planner spreads, organized desk. Flat-lay or overhead shots. Bright, satisfying visuals. Upbeat energy."
+        },
+        {
+          "position": "5-8 sec (PROBLEM escalation)",
+          "on_screen_text": "the energy dip",
+          "visual_direction": "Cut to student hitting wall at 2pm. Desk shot, student staring blankly, head in hand. Dim lighting or color shift to cooler tones. Text appears in center. Slight slow-mo for comedic effect."
+        },
+        {
+          "position": "8-12 sec (VALUE - the fix)",
+          "on_screen_text": "Stop fighting your biology.",
+          "visual_direction": "Quick transition: bright, energetic footage. Student nodding or light bulb moment. Text pops on-screen in contrasting color. Could show biology/brain imagery or just confident student expression."
+        },
+        {
+          "position": "12-15 sec (VALUE - the insight)",
+          "on_screen_text": "Most students crash 1-3pm.",
+          "visual_direction": "Time-lapse or quick cuts showing clock progression. Subtle visual of energy graph dipping. Could show multiple students yawning/struggling at 1-3pm. Science-y but casual."
+        },
+        {
+          "position": "15-17 sec (VALUE - the solution)",
+          "on_screen_text": "save your peak hours",
+          "visual_direction": "Student doing admin tasks (typing emails, organizing notes) during afternoon slot\u2014looks calm, not stressed. Then cut to same student in focused deep work mode (10-12am or 7-9pm)\u2014energized, typing fast, highlighter in hand. Visual contrast: admin = chill, peak = flow."
+        },
+        {
+          "position": "17-19 sec (VALUE close)",
+          "on_screen_text": "One tweak. Way more done.",
+          "visual_direction": "Before/after split or quick montage: messy/incomplete work vs. completed tasks with checkmarks. Satisfying visual. Upbeat, celebratory tone."
+        },
+        {
+          "position": "19-20 sec (CTA)",
+          "on_screen_text": "Follow for more timing hacks.",
+          "visual_direction": "End frame: student smiling at camera or satisfied at desk. Follow button or call-to-action graphic appears on-screen. Could include subtle animation (pulse, glow). Text in bottom third or center. Keep it simple and direct."
+        }
+      ],
+      "assets_needed": [
+        "Planner/journal (color-coded, neat setup)",
+        "Colored pens and highlighters",
+        "Clock or timer showing 2pm",
+        "Desk setup (organized and messy versions)",
+        "Student talent (for on-camera moments: confused, energized, focused)",
+        "B-roll: typing on laptop, writing in planner, organizing papers",
+        "B-roll: morning study session (10-12am, bright lighting)",
+        "B-roll: evening study session (7-9pm, warm lighting)",
+        "B-roll: admin tasks (emails, note-organizing, low-stress activity)",
+        "B-roll: deep work/focused work (intense, energized)",
+        "Graphics: energy/focus graph line declining at 1-3pm",
+        "Transition effects (cuts, zooms, slow-mo)",
+        "On-screen text templates (bold, casual, readable sans-serif)",
+        "Color grading: bright/cool for problem, warm/energized for solution",
+        "Background music or subtle audio cue (upbeat, casual, relatable)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook is immediately specific and relatable; the 2pm anchor gives concrete context instead of vague productivity advice.",
+        "retention": "Problem-solution structure with visual comedy (frustrated student) and a lightbulb moment keeps pacing tight, though late-stage value density could deepen engagement.",
+        "save_potential": "Actionable, non-obvious insight (batch admin work during energy dips) is genuinely useful and distinct from generic time-blocking content.",
+        "shareability": "Relatability is high for target audience, but lacks emotional hook (humor, validation, or surprise) that drives saves/shares\u2014feels educational rather than viral.",
+        "audience_fit": "Directly addresses documented college student pain point (afternoon energy crashes, perfectionist planning anxiety); timing specificity (1-3pm, 10-12am) matches circadian science students trust.",
+        "cta_strength": "Follow-for-more CTA is clear but passive; no urgency, benefit, or micro-commitment (like 'save this') to drive immediate action or bookmark behavior."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA lacks specificity and urgency\u2014'follow for more timing hacks' feels transactional and doesn't tell viewers *why* they should follow now.",
+          "fix": "Replace final CTA line with: 'Follow for timing hacks that actually fit your brain\u2014not your planner' or 'Save this if your planner betrays you at 2pm every Tuesday' to add relatability and permission to save/revisit."
+        },
+        {
+          "issue": "Solution section (15-17 sec) shows admin work vs. deep work contrast but doesn't explain *why* batching admin tasks at 2pm is better than abandoning that slot entirely.",
+          "fix": "Add brief line after 'batch admin tasks there': 'You'll actually finish emails without the friction, and your brain won't waste energy fighting itself.' This bridges the gap between problem and payoff."
+        },
+        {
+          "issue": "Shareability is dampened by lack of surprise or emotional payoff\u2014script reads functional rather than satisfying; no celebratory moment or relatable aha-feeling for TikTok/Reels viral mechanics.",
+          "fix": "In the VALUE close section, replace 'One tweak. Way more done.' with: 'One tweak. Suddenly your 2pm isn't a dead zone\u2014it's your admin power hour.' Adds ownership/reframe language that feels like a personal win."
+        }
+      ],
+      "captions": [
+        "Your planner isn't broken. Tuesday 2pm is. Here's the fix: stop fighting your biology. Most students crash between 1-3pm, so batch your admin tasks there instead of forcing deep work. Save your peak focus for 10-12am or 7-9pm. One tiny change. Way more actually gets done. Follow for timing hacks that stick. \ud83e\udde0\u23f0",
+        "if your perfect planner system falls apart at 2pm, it's not you\u2014it's your circadian rhythm. don't fight it: use that energy dip for emails & organizing instead. save your best hours (10-12am, 7-9pm) for real work. follow for more timing hacks that actually work with your brain, not against it \ud83d\udcda"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong concept and excellent audience fit, but CTA is too weak and solution-to-payoff connection needs one more reinforcement line; fix top 2 weaknesses, tighten caption, then post."
+    }
+  }
+}

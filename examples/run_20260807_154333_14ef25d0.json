@@ -1,0 +1,239 @@
+{
+  "timestamp": "20260807_154333",
+  "profile": {
+    "niche": "home cooking for beginners",
+    "audience": "people who just moved out for the first time",
+    "platform": "Instagram",
+    "format": "carousel",
+    "brand_voice": "warm, encouraging, no jargon",
+    "cta": "save this for your next grocery run"
+  },
+  "research_material": "I don't know how to cook rice without a rice cooker\nevery recipe assumes I already know what a roux is",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Don't know how to cook rice without specialized equipment",
+        "Recipes assume prior cooking knowledge (like what a roux is)",
+        "Feeling lost when recipes use unexplained culinary terms",
+        "Lack of confidence in basic cooking techniques",
+        "Fear of failing at foundational cooking skills"
+      ],
+      "ideas": [
+        {
+          "idea": "Stovetop rice tutorial: show exact pot, water ratio, and timing with phone timer visible",
+          "pain_point": "Don't know how to cook rice without specialized equipment",
+          "unique_angle": "Angle nobody's covering: show the specific sounds/visual cues (when it stops simmering) so people know when it's done, not just time"
+        },
+        {
+          "idea": "Reusable 'rice troubleshooting' carousel: mushy vs crunchy vs watery, what caused it, how to fix next time",
+          "pain_point": "Don't know how to cook rice without specialized equipment",
+          "unique_angle": "Angle nobody's covering: normalize that the first batch failing is part of learning, not a personal failure"
+        },
+        {
+          "idea": "Roux explainer series: what it is (butter + flour paste), why it matters (thickens sauce), show it step-by-step in real time",
+          "pain_point": "Recipes assume prior cooking knowledge (like what a roux is)",
+          "unique_angle": "Angle nobody's covering: explain the 'why' behind the technique, not just the 'how,' so people understand it's not magic"
+        },
+        {
+          "idea": "Create a glossary graphic series: common recipe words (saut\u00e9, simmer, fold, dice) with 15-second video clips of each in action",
+          "pain_point": "Recipes assume prior cooking knowledge (like what a roux is)",
+          "unique_angle": "Angle nobody's covering: use actual food they're cooking in the clips, not abstract examples"
+        },
+        {
+          "idea": "Recipe annotation posts: take a real beginner recipe and add callout bubbles explaining every unfamiliar term inline",
+          "pain_point": "Feeling lost when recipes use unexplained culinary terms",
+          "unique_angle": "Angle nobody's covering: show the actual recipe text with overlays so people see how to decode recipes independently"
+        },
+        {
+          "idea": "Weekly 'I messed up my [dish]' confession post: show a failed attempt, explain what went wrong, and the exact fix",
+          "pain_point": "Feeling lost when recipes use unexplained culinary terms",
+          "unique_angle": "Angle nobody's covering: normalize that mistakes are the actual learning mechanism, tied to specific teachable moments"
+        },
+        {
+          "idea": "Technique breakdown series: pick one skill (boiling an egg, searing meat, chopping an onion) and film every micro-step with voiceover",
+          "pain_point": "Lack of confidence in basic cooking techniques",
+          "unique_angle": "Angle nobody's covering: show hand angles, knife grip, and common beginner hand positions that feel awkward but work"
+        },
+        {
+          "idea": "Before/after carousel: show a burnt pan and a perfectly cooked one side-by-side, explain exact heat level and timing differences",
+          "pain_point": "Lack of confidence in basic cooking techniques",
+          "unique_angle": "Angle nobody's covering: teach heat management as the core skill, not individual recipes"
+        },
+        {
+          "idea": "Monthly challenge post: 'This month, master [one basic skill]' with 3 simple recipes that use only that technique",
+          "pain_point": "Fear of failing at foundational cooking skills",
+          "unique_angle": "Angle nobody's covering: frame skill-building as repetition in a safe, low-stakes way with built-in community participation"
+        },
+        {
+          "idea": "Success story reels: film followers (or user-generated content) cooking their first rice/roux/whatever successfully with their reactions",
+          "pain_point": "Fear of failing at foundational cooking skills",
+          "unique_angle": "Angle nobody's covering: social proof from people who literally just moved out, not seasoned cooks"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Stovetop rice tutorial: show exact pot, water ratio, and timing with phone timer visible",
+          "reason": "Directly solves the most specific, actionable pain point mentioned. High rewatch value. Easy to film authentically."
+        },
+        {
+          "idea": "Roux explainer series: what it is (butter + flour paste), why it matters (thickens sauce), show it step-by-step in real time",
+          "reason": "Addresses the 'jargon barrier' explicitly called out in the input. Can be repurposed for 3+ follow-up posts. Builds trust by demystifying."
+        },
+        {
+          "idea": "Recipe annotation posts: take a real beginner recipe and add callout bubbles explaining every unfamiliar term inline",
+          "reason": "Teaches people to decode recipes independently. High engagement potential. Directly solves the root problem (recipes assume knowledge)."
+        }
+      ],
+      "missing_info": [
+        "What other foundational techniques are beginners struggling with beyond rice and roux?",
+        "Are people more afraid of wasting food/money or just feeling embarrassed?",
+        "Do they have access to basic equipment (pots, pans, knives) or is that also a barrier?",
+        "Which platforms/creators are they currently turning to when confused (and why those aren't working)?",
+        "What types of cuisines/meals are they most motivated to learn first?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Most people mess up rice. Here's exactly why.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Your phone timer is about to save dinner.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "What's the one thing nobody tells you about rice?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Perfect rice every single time. No exceptions.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Rice doesn't have to be scary or mushy.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Burnt rice? Crunchy rice? We're fixing this today.",
+          "type": "pain_point"
+        },
+        {
+          "text": "If your rice turned out bad, this is why.",
+          "type": "pain_point"
+        },
+        {
+          "text": "You've been eyeballing the water. Stop.",
+          "type": "pain_point"
+        },
+        {
+          "text": "Watch me make rice without touching it once.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "The pot matters more than you think.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "You've been eyeballing the water. Stop.",
+        "reasoning": "This directly calls out the exact mistake first-time cooks make, uses the warm 'you' voice, and creates immediate curiosity about the right method. For someone newly independent, it validates their struggle while positioning the video as the helpful solution they didn't know they needed."
+      },
+      "runner_up": {
+        "text": "Your phone timer is about to save dinner.",
+        "reasoning": "Relatable and encouraging without shame. Uses familiar tool (phone) to demystify cooking, appeals to beginners' desire for a safety net, and the word 'save' emotionally resonates with someone anxious about cooking for themselves."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\n[ON-SCREEN TEXT: You've been eyeballing the water. Stop.]\n\nVoiceover: Yeah, I see you standing in the pasta aisle wondering if you need to buy *another* thing.\n\n[PAUSE]\n\n[CUT]\n\n[PROBLEM]\n\nVoiceover: Here's the thing \u2014 tap water works just fine for cooking pasta, rice, and vegetables. You don't need fancy bottled water.\n\n[ON-SCREEN TEXT: Save your money.]\n\n[CUT]\n\n[VALUE]\n\nVoiceover: Use tap water. It's the same stuff that comes out of your kitchen sink. Same water restaurants use. Same water your parents used.\n\nThe only exception? If your tap water tastes *really* off, a cheap filter pitcher does the job.\n\n[ON-SCREEN TEXT: One less thing to buy.]\n\n[PAUSE]\n\n[CUT]\n\n[CTA]\n\nVoiceover: Save this for your next grocery run so you remember \u2014 skip the water aisle and put those dollars toward actual ingredients.\n\n[ON-SCREEN TEXT: You've got this.]",
+      "word_count": 128,
+      "viewer_takeaway": "Tap water is fine for cooking; bottled water is an unnecessary expense for new home cooks, freeing up budget for real groceries."
+    },
+    "visual": {
+      "cover_options": [
+        "Close-up of hand reaching toward bottled water on shelf with a gentle 'stop' gesture overlay; warm, natural lighting in grocery aisle",
+        "Split-screen: fancy bottled water box on left, simple tap water glass on right, with a checkmark on the tap water side"
+      ],
+      "frame_plan": [
+        {
+          "position": "Slide 1 (Hook/Cover)",
+          "on_screen_text": "You've been eyeballing the water. Stop.",
+          "visual_direction": "Wide shot of person in pasta aisle, hand hovering near bottled water shelf, soft natural grocery lighting, warm color grade"
+        },
+        {
+          "position": "Slide 2 (Problem Setup)",
+          "on_screen_text": "Tap water works just fine.",
+          "visual_direction": "Close-up of kitchen faucet with water running into a clear glass, clean and inviting, shot from above at 45 degrees"
+        },
+        {
+          "position": "Slide 3 (Value - Reassurance)",
+          "on_screen_text": "Same water restaurants use.",
+          "visual_direction": "Montage-style: pot of pasta cooking, rice in bowl, vegetables in boiling water \u2014 all with tap water, home kitchen setting"
+        },
+        {
+          "position": "Slide 4 (Value - Exception)",
+          "on_screen_text": "One less thing to buy.",
+          "visual_direction": "Flat-lay of simple water filter pitcher on counter next to kitchen items, minimalist styling, natural daylight"
+        },
+        {
+          "position": "Slide 5 (CTA/Final)",
+          "on_screen_text": "You've got this.",
+          "visual_direction": "Person at grocery store checkout with full cart, smiling, walking past the water aisle \u2014 empowered, confident body language"
+        }
+      ],
+      "assets_needed": [
+        "B-roll: grocery store pasta/water aisle (wide and close-up)",
+        "B-roll: kitchen faucet running into clear glass",
+        "B-roll: pot of boiling pasta water",
+        "B-roll: bowl of cooked rice",
+        "B-roll: vegetables boiling in pot",
+        "B-roll: water filter pitcher on kitchen counter",
+        "B-roll: person at grocery checkout walking past water aisle",
+        "Prop: bottled water box/bottles",
+        "Prop: clear drinking glass",
+        "Prop: simple filter pitcher",
+        "On-screen text graphics (5 variations, sans-serif, warm white/cream color, readable on all backgrounds)",
+        "Voiceover recording (warm, conversational tone, no music bed during script)",
+        "Background music (optional, subtle, instrumental, 10-15 sec loop for carousel pauses)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook + problem statement land instantly; 'tap water works' eliminates confusion in first 5 seconds.",
+        "retention": "Value section reassures but lacks a surprising angle\u2014permission to skip feels expected rather than rewarding.",
+        "save_potential": "Practical grocery-aisle trigger makes it bookmarkable, but the insight isn't novel enough to feel like essential reference material.",
+        "shareability": "Relatable scenario but lacks humor, controversy, or emotional punch that drives tagging friends or DM forwarding.",
+        "audience_fit": "Perfectly addresses first-time mover anxiety about 'doing it right'\u2014directly solves a real budget + confidence gap.",
+        "cta_strength": "Clear, specific, low-friction ask tied to a real moment (next grocery run); save-for-reference is natural for this niche."
+      },
+      "weaknesses": [
+        {
+          "issue": "Middle section (slides 2\u20134) lacks a compelling reason to stay\u2014reassurance alone doesn't generate scroll-stopping retention.",
+          "fix": "Add a small cost angle in voiceover: 'A case of bottled water? That's $5\u20138 a month. Over a year, that's money you could spend on actual ingredients like good olive oil or fresh herbs.' This quantifies the benefit and makes the choice feel financially smart, not just acceptable."
+        },
+        {
+          "issue": "Shareability is weak because the post doesn't create a 'that's me' moment\u2014it's advice, not validation or humor.",
+          "fix": "Rewrite hook voiceover: 'I used to stand in the pasta aisle thinking I was *supposed* to buy fancy water. Turns out, I was just broke and scared of doing it wrong.' This self-deprecating admission makes first-time movers feel seen and more likely to tag a friend moving out."
+        },
+        {
+          "issue": "The filter pitcher exception (slide 4) feels tacked on and dilutes the core message\u2014it introduces a product consideration when the whole point is to *avoid* unnecessary purchases.",
+          "fix": "Remove the filter pitcher slide or reposition it as a last-resort mention in voiceover only: 'If your tap water tastes genuinely bad\u2014like, undrinkable bad\u2014a cheap $10 filter pitcher is a one-time buy, not a weekly grocery habit.' Keep the visual focus on tap water confidence, not alternative purchases."
+        }
+      ],
+      "captions": [
+        "stop pretending you need fancy water for pasta. your tap is fine, your budget will thank you, and your next grocery trip just got cheaper. save this for the pasta aisle \ud83d\udc47",
+        "first time cooking for yourself? tap water works. seriously. skip the water aisle, spend those dollars on ingredients that actually matter. save this for your next grocery run \ud83d\udc9a"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong audience fit and clarity, but retention and shareability lag because it's advice without emotional hook\u2014weaving in relatable self-doubt and quantified savings will lift engagement and make it worth the production cost."
+    }
+  }
+}

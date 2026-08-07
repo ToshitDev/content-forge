@@ -1,0 +1,248 @@
+{
+  "timestamp": "20260807_154251",
+  "profile": {
+    "niche": "home cooking for beginners",
+    "audience": "people who just moved out for the first time",
+    "platform": "Instagram",
+    "format": "carousel",
+    "brand_voice": "warm, encouraging, no jargon",
+    "cta": "save this for your next grocery run"
+  },
+  "research_material": "I don't know how to cook rice without a rice cooker\nevery recipe assumes I already know what a roux is",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Don't know how to cook rice without specialized equipment",
+        "Recipes use unexplained cooking terms and assume prior knowledge",
+        "Feeling lost when foundational techniques aren't explained",
+        "Lack of confidence in basic kitchen skills",
+        "Need for jargon-free, beginner-friendly cooking guidance"
+      ],
+      "ideas": [
+        {
+          "idea": "Stovetop rice tutorial: step-by-step carousel showing rice in a regular pot with water ratios, timing, and how to tell when it's done",
+          "pain_point": "Don't know how to cook rice without specialized equipment",
+          "unique_angle": "Shows rice cooker owners they don't need it, gives renters/dorm students an instant win"
+        },
+        {
+          "idea": "Video series: 'Rice rescue' - common rice failures (mushy, crunchy, burnt) and how to fix them next time",
+          "pain_point": "Don't know how to cook rice without specialized equipment",
+          "unique_angle": "Normalizes failure and teaches troubleshooting instead of just the happy path"
+        },
+        {
+          "idea": "Graphics series: 'What's that word?' Breaking down 5 cooking terms (roux, saut\u00e9, simmer, fold, dice) with zero jargon and real photos",
+          "pain_point": "Recipes use unexplained cooking terms and assume prior knowledge",
+          "unique_angle": "Teaches terms through visual comparison, not definitions\u2014shows what simmering actually looks like vs boiling"
+        },
+        {
+          "idea": "Carousel: 'Recipe red flags for beginners'\u2014pointing out when a recipe skips steps and how to rewrite it in your head",
+          "pain_point": "Recipes use unexplained cooking terms and assume prior knowledge",
+          "unique_angle": "Empowers beginners to spot and fix bad recipes themselves, not just follow blindly"
+        },
+        {
+          "idea": "Reel: 'Before you make that recipe' checklist\u2014knife skills, heat control, and 3 skills every beginner should practice first",
+          "pain_point": "Feeling lost when foundational techniques aren't explained",
+          "unique_angle": "Maps out a learning order instead of throwing random recipes at beginners"
+        },
+        {
+          "idea": "Series: 'One technique, 3 dinners'\u2014teach one skill (e.g., how to brown meat) then show it in 3 totally different meals",
+          "pain_point": "Feeling lost when foundational techniques aren't explained",
+          "unique_angle": "Shows techniques are reusable building blocks, not one-off steps tied to one recipe"
+        },
+        {
+          "idea": "Testimonial-style post: 'My first cooking win'\u2014short stories from followers about a meal that made them feel proud (user-generated content angle)",
+          "pain_point": "Lack of confidence in basic kitchen skills",
+          "unique_angle": "Proof that beginners can succeed, using real people not polished food bloggers"
+        },
+        {
+          "idea": "Graphic: 'Your kitchen right now is enough'\u2014showing a meal made with just 3 pots, 2 pans, one knife, and a spoon",
+          "pain_point": "Lack of confidence in basic kitchen skills",
+          "unique_angle": "Removes gear anxiety by showing minimalist setup, normalizes not having much"
+        },
+        {
+          "idea": "Weekly post: 'No jargon recipe'\u2014take a trending/requested dish and rewrite it from scratch with zero assumed knowledge",
+          "pain_point": "Need for jargon-free, beginner-friendly cooking guidance",
+          "unique_angle": "Fills the gap where mainstream recipes assume too much\u2014a standing format differentiated by clarity"
+        },
+        {
+          "idea": "Comment template guide: 'Ask me the dumb question'\u2014post encouraging DMs with phrasings like 'What does it mean when...' to normalize confusion",
+          "pain_point": "Need for jargon-free, beginner-friendly cooking guidance",
+          "unique_angle": "Directly invites the questions followers are too embarrassed to ask, builds community"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Stovetop rice tutorial: step-by-step carousel showing rice in a regular pot with water ratios, timing, and how to tell when it's done",
+          "reason": "Directly solves the most common blocker mentioned; high rewatch/save value; proves beginners don't need gear"
+        },
+        {
+          "idea": "Graphics series: 'What's that word?' Breaking down 5 cooking terms (roux, saut\u00e9, simmer, fold, dice) with zero jargon and real photos",
+          "reason": "Addresses the second pain point explicitly; visual format performs well on Instagram; immediately useful and shareable"
+        },
+        {
+          "idea": "Weekly post: 'No jargon recipe'\u2014take a trending/requested dish and rewrite it from scratch with zero assumed knowledge",
+          "reason": "Scalable, differentiated format; builds a repeatable brand pillar; solves root cause (not the symptom) of recipe confusion"
+        }
+      ],
+      "missing_info": [
+        "How many audience members asked about rice vs other equipment gaps?",
+        "Which cooking terms come up most in recipes people are trying (besides roux)?",
+        "What meals are beginners trying to make? (Breakfast, dinner, snacks\u2014different confidence levels)",
+        "Do people feel stuck on technique or on ingredient shopping/budgeting?",
+        "Are followers using rice cookers because they have them, or because they're scared of stovetop?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your rice is mushy. Here's why (and how to fix it).",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Nobody tells you this one rice trick in college.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Stop buying minute rice. Your pot can do better.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "What happens if you peek at rice while cooking?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Burnt rice on the bottom? That's actually a sign.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "POV: you're about to nail rice on your first try.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Everyone overcomplicated rice until they saw this.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your first apartment dinner just got way easier.",
+          "type": "pain_point_call_out"
+        },
+        {
+          "text": "Rice ratio math nobody taught you (it's simple).",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Spoiler: it's not about the fancy rice cooker.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your rice is mushy. Here's why (and how to fix it).",
+        "reasoning": "This immediately validates their frustration (most beginners have failed at rice) while promising a solution they can act on. For someone who just moved out and is probably embarrassed about kitchen failures, this warm acknowledgment builds trust before the carousel even starts."
+      },
+      "runner_up": {
+        "text": "Your first apartment dinner just got way easier.",
+        "reasoning": "Directly speaks to their life stage and removes intimidation with a reassuring tone. Safe, on-brand, and specifically resonates with the 'just moved out' audience without requiring them to have already failed."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Your rice is mushy. Here's why (and how to fix it).\"\n[PAUSE]\n\n[PROBLEM]\n\"You're probably using too much water. Most beginners do\u2014it's the #1 reason rice turns into porridge.\"\n[ON-SCREEN TEXT: Too much water = mushy rice]\n[CUT]\n\n[VALUE]\n\"Here's the fix: use a 1-to-1 ratio. One cup of rice to one cup of water. Bring it to a boil, then lower the heat and cover it. Let it sit for 15 minutes without peeking.\"\n[ON-SCREEN TEXT: 1 cup rice : 1 cup water]\n[ON-SCREEN TEXT: Low heat + lid + 15 min]\n[PAUSE]\n\n\"That's it. You'll get fluffy, separate grains every time.\"\n[CUT]\n\n[CTA]\n\"Save this for your next grocery run\u2014and make rice that actually tastes like rice.\"",
+      "word_count": 118,
+      "viewer_takeaway": "Learn the exact water-to-rice ratio and simple steps to make perfectly fluffy rice instead of mushy rice."
+    },
+    "visual": {
+      "cover_options": [
+        "Close-up of a spoon breaking through mushy rice with bold text 'Your Rice Is Mushy' overlaid in warm sans-serif font",
+        "Split-screen: left side shows mushy rice in bowl, right side shows fluffy rice with checkmark, text 'Fix Mushy Rice' centered"
+      ],
+      "frame_plan": [
+        {
+          "position": "Slide 1 (Hook/Cover)",
+          "on_screen_text": "Your rice is mushy. Here's why.",
+          "visual_direction": "Close-up of spoon sinking into mushy rice; warm, kitchen lighting; text appears with gentle emphasis"
+        },
+        {
+          "position": "Slide 2 (Problem Identification)",
+          "on_screen_text": "Too much water = mushy rice",
+          "visual_direction": "Split view: measuring cup pouring excess water over rice on left; sad/concerned emoji or visual cue on right"
+        },
+        {
+          "position": "Slide 3 (Problem Explanation)",
+          "on_screen_text": "Beginners make this mistake most",
+          "visual_direction": "Hands holding an oversized water measuring cup next to standard rice cup; warm voiceover tone, relatable imagery"
+        },
+        {
+          "position": "Slide 4 (Solution - Ratio)",
+          "on_screen_text": "1 cup rice : 1 cup water",
+          "visual_direction": "Two measuring cups side-by-side with rice and water, clearly marked and equal; bright, clear lighting"
+        },
+        {
+          "position": "Slide 5 (Solution - Method)",
+          "on_screen_text": "Boil, lower heat, cover, wait 15 min",
+          "visual_direction": "Sequence of 4 small visuals: pot boiling \u2192 flame lowering \u2192 lid closing \u2192 timer at 15 minutes"
+        },
+        {
+          "position": "Slide 6 (Result/Benefit)",
+          "on_screen_text": "Fluffy, separate grains guaranteed",
+          "visual_direction": "Close-up of perfect, fluffy rice being fluffed with fork; warm golden lighting; satisfied expression or thumbs up"
+        },
+        {
+          "position": "Slide 7 (CTA/Final)",
+          "on_screen_text": "Save this. Make rice right.",
+          "visual_direction": "Hands saving post to phone/bookmark gesture; finished rice bowl in soft focus background; encouraging, warm tone"
+        }
+      ],
+      "assets_needed": [
+        "Mushy rice in bowl (close-up shot)",
+        "Two measuring cups (1 cup each) with rice and water",
+        "Pot on stovetop at boiling stage",
+        "Burner flame at low setting",
+        "Pot with lid being placed on top",
+        "Kitchen timer or clock showing 15 minutes",
+        "Fork fluffing perfect cooked rice",
+        "Final finished rice in serving bowl (warm, natural lighting)",
+        "Smartphone screen showing save/bookmark action",
+        "On-screen text graphics (warm sans-serif, cream/warm white on subtle background)",
+        "B-roll of hands throughout for continuity",
+        "Warm color grade/filter (golden hour vibes, no harsh lighting)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook + problem identified by 3 seconds; 1:1 ratio is concrete and instantly understandable.",
+        "retention": "Solution arrives quickly but no dramatic tension or before-after payoff to keep eyes locked past slide 3.",
+        "save_potential": "Practical, reusable formula with clear steps makes this a genuine reference post for beginners.",
+        "shareability": "Solves a relatable problem but lacks the 'wow' factor or humor that drives tagging friends in comments.",
+        "audience_fit": "First-time kitchen failure (mushy rice) is a documented beginner pain point; tone is warm and non-judgmental.",
+        "cta_strength": "Save request is natural and tied to use case; 'for your next grocery run' adds specificity without friction."
+      },
+      "weaknesses": [
+        {
+          "issue": "Retention dip mid-video: solution delivery is clean but lacks a hook moment to sustain engagement between problem statement and payoff.",
+          "fix": "Add a 1-second reaction moment on Slide 3\u2014rewrite to: 'The good news? It's a one-minute fix. One cup of rice. One cup of water. That's literally it.' This creates a mini surprise beat before the ratio reveal."
+        },
+        {
+          "issue": "Shareability is underutilized: the post solves a problem but doesn't give viewers a reason to tag someone or spark conversation.",
+          "fix": "Rewrite Slide 6 caption to: 'If your rice ever looks like this, you're doing it right. Tag someone who needs to see this.' This converts a solo learning moment into a social moment."
+        },
+        {
+          "issue": "Visual repetition risk: Slides 4\u20135 show measuring cups and stovetop sequences that may feel instructional-video generic rather than Instagram-native.",
+          "fix": "On Slide 5, instead of static burner flame imagery, use a quick POV hand-cam of someone actually lowering the flame\u2014adds motion energy and relatability over sterile demonstration visuals."
+        }
+      ],
+      "captions": [
+        "Your rice is mushy. Here's why\u2014and how to fix it in literally one minute. 1:1 ratio, low heat, 15 min, done. No more porridge. Save this before your next trip to the store. \ud83c\udf5a",
+        "If your rice looks like this, you're using too much water. The fix? 1 cup rice : 1 cup water. Boil. Lower heat. Cover. Walk away for 15 minutes. Fluffy rice guaranteed. Save this. \ud83d\udccc"
+      ],
+      "final_call": "POST",
+      "final_call_reason": "Core mechanics are solid (clarity 9, audience fit 9) with a practical, save-worthy formula; weaknesses are engagement-layer issues that won't tank performance but a 1-second reaction beat and tagability line would push it from good to strong."
+    }
+  }
+}

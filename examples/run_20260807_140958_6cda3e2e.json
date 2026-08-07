@@ -1,0 +1,266 @@
+{
+  "timestamp": "20260807_140958",
+  "profile": {
+    "niche": "personal finance for Gen Z",
+    "audience": "22-year-olds who just started their first job",
+    "platform": "TikTok",
+    "format": "reel",
+    "brand_voice": "blunt, a little sarcastic",
+    "cta": "save this before payday"
+  },
+  "research_material": "nobody taught me how to budget\nI'm always broke by the 15th and I don't know why",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Lack of basic budgeting education/skills",
+        "Money disappears without understanding where it goes",
+        "Running out of money mid-month",
+        "No system or framework to track spending",
+        "Feeling helpless about financial management"
+      ],
+      "ideas": [
+        {
+          "idea": "Day-in-the-life style video tracking every single transaction for 24 hours with reactions to where money actually went",
+          "pain_point": "Money disappears without understanding where it goes",
+          "unique_angle": "Angle nobody's covering: showing the emotional gut-punch of seeing small purchases add up in real-time instead of lecturing"
+        },
+        {
+          "idea": "Breaking down a typical first-job paycheck with actual numbers, showing deductions, then what's left for rent/food/fun/savings",
+          "pain_point": "Lack of basic budgeting education/skills",
+          "unique_angle": "Angle nobody's covering: the raw truth about how much money actually hits your account vs. what you thought you'd make"
+        },
+        {
+          "idea": "Reverse-engineering why someone is broke by the 15th using their own spending patterns (hypothetical but relatable)",
+          "pain_point": "Running out of money mid-month",
+          "unique_angle": "Angle nobody's covering: treating it like a detective case instead of blame, showing the specific habits that drain accounts fastest"
+        },
+        {
+          "idea": "Simple phone app or note-taking hack to log every expense in under 10 seconds (no complicated spreadsheets)",
+          "pain_point": "No system or framework to track spending",
+          "unique_angle": "Angle nobody's covering: making tracking friction-free enough that Gen Z will actually do it instead of abandoning it week one"
+        },
+        {
+          "idea": "Sarcastic comparison: 'what school taught you about money' vs. 'what actually matters on payday'",
+          "pain_point": "Lack of basic budgeting education/skills",
+          "unique_angle": "Angle nobody's covering: calling out the education gap directly with humor instead of pretending budgeting is something you should've already known"
+        },
+        {
+          "idea": "Weekly money check-in format where you look back at what you spent and assign it to categories (guilt-free, no judgment)",
+          "pain_point": "No system or framework to track spending",
+          "unique_angle": "Angle nobody's covering: framing categorization as reflection rather than restriction, making it feel sustainable long-term"
+        },
+        {
+          "idea": "The 'why you're broke by the 15th' formula broken into top 3 culprits (subscriptions, food delivery, cash purchases) with fixes",
+          "pain_point": "Running out of money mid-month",
+          "unique_angle": "Angle nobody's covering: identifying the actual leaks for first-jobbers specifically instead of generic advice for all ages"
+        },
+        {
+          "idea": "Showing what 'budgeting' actually means in Gen Z terms\u2014not deprivation, just knowing the rules of your own money",
+          "pain_point": "Feeling helpless about financial management",
+          "unique_angle": "Angle nobody's covering: reframing budgeting as empowerment/control rather than restriction, which resonates differently with this audience"
+        },
+        {
+          "idea": "Split-screen: spending without tracking vs. spending with tracking over one month (same person, same salary)",
+          "pain_point": "Money disappears without understanding where it goes",
+          "unique_angle": "Angle nobody's covering: showing the tangible difference awareness alone makes without requiring strict cuts"
+        },
+        {
+          "idea": "Q&A format answering the exact question 'Why am I always broke by the 15th?' with multiple real-world scenarios",
+          "pain_point": "Feeling helpless about financial management",
+          "unique_angle": "Angle nobody's covering: validating that this is common and fixable, then showing the actual root causes (not just 'spend less')"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Day-in-the-life style video tracking every single transaction for 24 hours with reactions to where money actually went",
+          "reason": "Direct match to the core pain point ('don't know why' money disappears). High engagement potential with real reactions. Blunt/sarcastic voice fits naturally here."
+        },
+        {
+          "idea": "The 'why you're broke by the 15th' formula broken into top 3 culprits (subscriptions, food delivery, cash purchases) with fixes",
+          "reason": "Directly answers the explicit question from the material. Specific to first-job context. Actionable and TikTok-friendly format. Addresses both the 'why' and the 'what to do.'"
+        }
+      ],
+      "missing_info": [
+        "What is this person's actual income/paycheck amount?",
+        "Where is the money actually going (food, subscriptions, transport, social spending)?",
+        "Do they have any existing budgeting tools or tracking methods they've tried?",
+        "Are they living with parents, renting, or in another situation (affects budget structure)?",
+        "What financial goals do they have beyond 'not being broke'?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "I tracked every dollar for 24 hours. The results were... painful.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Where did $200 go? Let's find out together.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "You have no idea where your money actually goes.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Your first paycheck is already gone. Here's proof.",
+          "type": "bold claim"
+        },
+        {
+          "text": "You're broke and don't even know why yet.",
+          "type": "bold claim"
+        },
+        {
+          "text": "That coffee addiction just bankrupted your entire week.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "Spoiler: your spending is worse than you think.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "POV: you're about to have an existential crisis.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "*watches my bank account in real-time* nope, nope, nope.",
+          "type": "pattern interrupt"
+        },
+        {
+          "text": "me: adulting. my wallet: say sike right now.",
+          "type": "pattern interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your first paycheck is already gone. Here's proof.",
+        "reasoning": "This hook directly targets the 'just started first job' demographic by referencing the specific moment they're in financially. The bold claim creates immediate urgency while the promise of 'proof' guarantees they'll watch to see if it applies to them."
+      },
+      "runner_up": {
+        "text": "You have no idea where your money actually goes.",
+        "reasoning": "Slightly softer but still effective\u2014activates the pain point of financial blindness that resonates with early-career Gen Z without feeling preachy. The 'you' creates direct accountability."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Your first paycheck is already gone. Here's proof.\"\n[ON-SCREEN TEXT: $2,500 paycheck]\n\n[PROBLEM - 3-8 sec]\n[CUT to rapid-fire list]\n\"Rent: $1,200. Gone.\nSubscriptions you forgot about: $47. Subscriptions you use once a month: $63. That coffee you buy every other day: $180. Eating out instead of cooking: $400.\"\n[PAUSE]\n\"You've got like $210 left. And rent's due in two weeks.\"\n\n[VALUE - 8-15 sec]\n\"Here's what actually works: Before your paycheck even hits your account, move 20% straight to savings. Not later. Not when you 'feel like it.' Automatically.\"\n[ON-SCREEN TEXT: $500 \u2192 SAVINGS ACCOUNT]\n\"Then\u2014and this matters\u2014track the subscriptions. You're probably paying for five things you don't use. Kill three of them. That's $150 back.\"\n[ON-SCREEN TEXT: +$150]\n\"Now you've got breathing room instead of panic.\"\n\n[CTA - 15-17 sec]\n\"Save this before payday. Seriously. Go set up that automatic transfer right now.\"\n[PAUSE]\n[ON-SCREEN TEXT: SET IT UP NOW]",
+      "word_count": 167,
+      "viewer_takeaway": "Automate 20% savings transfers and cut unused subscriptions to avoid living paycheck-to-paycheck."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows $2,500 in green, right side shows $0 in red with clock ticking. Bold text: 'Your Paycheck is GONE'",
+        "Close-up of empty wallet with calendar showing 'RENT DUE' circled. Text overlay: 'Proof Your Money Disappears'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "on_screen_text": "$2,500 paycheck",
+          "visual_direction": "Graphic of paycheck depositing into bank account, then rapidly draining. Fast-paced, high-energy editing. Slight red tint as money depletes."
+        },
+        {
+          "position": "3-5 sec (PROBLEM - Rent)",
+          "on_screen_text": "Rent: $1,200. Gone.",
+          "visual_direction": "Apartment/room visual with money flying out. Bold red text. Quick cash-out animation."
+        },
+        {
+          "position": "5-6 sec (PROBLEM - Subscriptions 1)",
+          "on_screen_text": "Subscriptions you forgot: $47",
+          "visual_direction": "Phone screen showing multiple app icons (Netflix, Spotify, etc.) with money draining. Sarcastic voiceover delivery."
+        },
+        {
+          "position": "6-7 sec (PROBLEM - Subscriptions 2)",
+          "on_screen_text": "Use once a month: $63",
+          "visual_direction": "Calendar showing one checkmark per month on app. Money tick animation disappearing."
+        },
+        {
+          "position": "7-8 sec (PROBLEM - Coffee)",
+          "on_screen_text": "Coffee every other day: $180",
+          "visual_direction": "Coffee cup close-up, multiplying across screen. Cash register sounds. Money counter graphic."
+        },
+        {
+          "position": "8-9 sec (PROBLEM - Food)",
+          "on_screen_text": "Eating out instead of cooking: $400",
+          "visual_direction": "Food delivery apps (UberEats, DoorDash icons) with stacks of money flying out. Quick cuts of restaurant meals."
+        },
+        {
+          "position": "9-10 sec (PROBLEM - Reality Check)",
+          "on_screen_text": "$210 left. Rent due in 2 weeks.",
+          "visual_direction": "Bold red number '$210' pulsing on screen. Calendar countdown timer. Worried face emoji or stressed expression reaction."
+        },
+        {
+          "position": "10-12 sec (VALUE - Automatic Savings)",
+          "on_screen_text": "$500 \u2192 SAVINGS ACCOUNT",
+          "visual_direction": "Money flowing into a separate 'SAVINGS' account icon. Green highlight. Automatic transfer animation (smooth, effortless movement)."
+        },
+        {
+          "position": "12-14 sec (VALUE - Kill Subscriptions)",
+          "on_screen_text": "+$150 from cancellations",
+          "visual_direction": "App icons being deleted/crossed out (3 of them). Money appearing as '+$150' in green. Satisfying 'delete' sound effect visual cue."
+        },
+        {
+          "position": "14-15 sec (VALUE - Breathing Room)",
+          "on_screen_text": "Breathing room instead of panic",
+          "visual_direction": "Person exhaling/relief expression. Money in account growing visually. Calm green aesthetic replacing red panic theme."
+        },
+        {
+          "position": "15-17 sec (CTA)",
+          "on_screen_text": "SET IT UP NOW",
+          "visual_direction": "Bold, blinking white text on contrasting background (dark or brand color). Phone screen showing banking app with auto-transfer setup. Finger tapping 'CONFIRM' button. Final frame holds 2 seconds."
+        }
+      ],
+      "assets_needed": [
+        "Bank account graphics/animations (money in/out)",
+        "Apartment/room stock footage",
+        "Phone screen showing subscription apps (Netflix, Spotify, Hulu, DoorDash, UberEats icons)",
+        "Coffee cup close-ups",
+        "Restaurant/food footage",
+        "Calendar graphics with countdown timer",
+        "Savings account icon animation",
+        "App deletion/X animation (for cancellations)",
+        "Banking app UI screenshots (auto-transfer screen)",
+        "Sound effects: cash register, notification ping, delete sound, swoosh transitions",
+        "Typography templates (bold sans-serif for on-screen text)",
+        "Color palette: red (problem), green (solution), white (CTA)",
+        "Emoji or reaction footage (optional: stressed face, relief expression)",
+        "Transition effects: fast cuts, wipes, scale animations"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with relatable pain point ($2,500 \u2192 $0) and visual split-screen makes the problem unmissable in opening seconds.",
+        "retention": "Problem sequence builds momentum through rapid-fire expenses that feel personally targeted, but lacks one surprising emotional beat mid-video to prevent scroll.",
+        "save_potential": "Three actionable, specific steps (20% auto-transfer, kill 3 subscriptions, net result) make this bookmark-worthy and immediately implementable.",
+        "shareability": "Relatable problem resonates but no viral hook or humorous angle\u2014feels more like advice than entertainment, limiting forward shares.",
+        "audience_fit": "Nails first-job anxiety, subscription overspend, and rent panic that 22-year-olds face; uses their actual apps and spending patterns.",
+        "cta_strength": "Clear and low-friction ('SET IT UP NOW'), but doesn't create urgency beyond payday timing; missing 'do this in 5 minutes' micro-deadline."
+      },
+      "weaknesses": [
+        {
+          "issue": "Mid-video momentum cliff: Problem section ends at 10 seconds with stress/panic, then solution feels separate rather than emotionally connected.",
+          "fix": "Rewrite the transition line from '$210 left. Rent due in 2 weeks.' to 'But here's the thing\u2014you don't have to do this again next month.' This bridges panic \u2192 hope and signals the solution directly addresses the fear just shown."
+        },
+        {
+          "issue": "Shareability gap: Content is advice-based, not entertainment-based; 22-year-olds share relatability + humor, not just utility.",
+          "fix": "Add one sarcastic line in the coffee section: 'Coffee every other day: $180. That's like... 180 reasons to make coffee at home.' Flip the tone from doom to slightly self-aware, making it feel less preachy."
+        },
+        {
+          "issue": "CTA urgency is soft: 'Save this before payday' is a reminder, not a reason to act NOW; payday could be weeks away.",
+          "fix": "Rewrite CTA line to: 'Set this up today\u2014your future paycheck depends on it.' And add on-screen text: 'Takes 3 minutes' to lower activation friction and create present-moment urgency, not future urgency."
+        }
+      ],
+      "captions": [
+        "your paycheck isn't yours yet \ud83d\udcb8 set this up before it's gone. save this.",
+        "broke after payday? here's why (and how to fix it in 3 steps). save this for your next deposit \ud83d\udd16"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong utility and audience fit (8.5/10 average), but needs emotional connective tissue between problem/solution, one humor beat for shareability, and harder CTA urgency to drive immediate action rather than bookmark-and-forget."
+    }
+  }
+}

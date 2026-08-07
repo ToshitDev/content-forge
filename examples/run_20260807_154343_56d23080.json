@@ -1,0 +1,282 @@
+{
+  "timestamp": "20260807_154343",
+  "profile": {
+    "niche": "personal finance for Gen Z",
+    "audience": "22-year-olds who just started their first job",
+    "platform": "TikTok",
+    "format": "reel",
+    "brand_voice": "blunt, a little sarcastic",
+    "cta": "save this before payday"
+  },
+  "research_material": "nobody taught me how to budget\nI'm always broke by the 15th and I don't know why",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Lack of foundational budgeting education/knowledge",
+        "Money disappears before mid-month with no visibility into where",
+        "No system in place to track spending",
+        "Inability to connect daily purchases to account depletion",
+        "Feeling helpless about financial management"
+      ],
+      "ideas": [
+        {
+          "idea": "Day-by-day breakdown: 'Here's where your $2,000 paycheck actually goes' with real spending categories from first-jobbers",
+          "pain_point": "Money disappears before mid-month with no visibility into where",
+          "unique_angle": "Angle nobody's covering: showing the actual, unglamorous micro-transactions that add up (coffee, apps, food) instead of lecturing about big expenses"
+        },
+        {
+          "idea": "Budget template walkthrough: 'I'll show you the one method I use so you're not always broke by the 15th'",
+          "pain_point": "Lack of foundational budgeting education/knowledge",
+          "unique_angle": "Angle nobody's covering: admitting most Gen Z never learned this in school and treating it like teaching a friend, not a lecture"
+        },
+        {
+          "idea": "Spending tracker challenge: 'Track every dollar for 3 days and watch yourself panic' (motivational framing)",
+          "pain_point": "No system in place to track spending",
+          "unique_angle": "Angle nobody's covering: using shock/self-awareness as the motivator rather than shame"
+        },
+        {
+          "idea": "'The $5 coffee rule explained': Why that daily habit is actually the problem (and what to do instead)",
+          "pain_point": "Inability to connect daily purchases to account depletion",
+          "unique_angle": "Angle nobody's covering: connecting small recurring purchases to specific mid-month broke moments with real math"
+        },
+        {
+          "idea": "Paycheck allocation in real-time: 'First week of work, here's what I split my check into before I could spend it'",
+          "pain_point": "Lack of foundational budgeting education/knowledge",
+          "unique_angle": "Angle nobody's covering: showing the psychological hack of moving money before you see it as spendable"
+        },
+        {
+          "idea": "'Why you're broke by the 15th' diagnostic: 3 spending patterns that tank first-jobbers",
+          "pain_point": "Money disappears before mid-month with no visibility into where",
+          "unique_angle": "Angle nobody's covering: naming specific patterns (subscriptions, social spending, impulse food) without being preachy"
+        },
+        {
+          "idea": "App vs. spreadsheet showdown: 'Honest review of tracking tools for people who hate admin'",
+          "pain_point": "No system in place to track spending",
+          "unique_angle": "Angle nobody's covering: acknowledging that forcing the 'wrong' system kills consistency and offering real alternatives"
+        },
+        {
+          "idea": "Live budget correction: 'I looked at my bank account at the 10th-day mark and here's what I cut'",
+          "pain_point": "Inability to connect daily purchases to account depletion",
+          "unique_angle": "Angle nobody's covering: showing mid-month course-correction as normal, not failure"
+        },
+        {
+          "idea": "'The 'why' behind budgeting': What actually changes when you know where your money goes",
+          "pain_point": "Feeling helpless about financial management",
+          "unique_angle": "Angle nobody's covering: framing budgeting as power/control, not restriction"
+        },
+        {
+          "idea": "Q&A: 'Your first-job money questions answered' (crowdsourcing the exact topics this audience is confused about)",
+          "pain_point": "Lack of foundational budgeting education/knowledge",
+          "unique_angle": "Angle nobody's covering: letting the audience's own confusion drive the content, not pre-assumed basics"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Day-by-day breakdown: 'Here's where your $2,000 paycheck actually goes' with real spending categories from first-jobbers",
+          "reason": "Directly addresses the core pain: 'I don't know why I'm broke.' Tangible, relatable, and sarcasm-friendly for TikTok format."
+        },
+        {
+          "idea": "'The $5 coffee rule explained': Why that daily habit is actually the problem (and what to do instead)",
+          "reason": "Connects the micro-transaction gap that's causing the 15th broke crisis. Blunt angle fits voice, highly shareable."
+        },
+        {
+          "idea": "Budget template walkthrough: 'I'll show you the one method I use so you're not always broke by the 15th'",
+          "reason": "Solves the 'nobody taught me' pain with a direct, non-preachy solution. Educational but fits sarcastic tone."
+        }
+      ],
+      "missing_info": [
+        "What income range does this audience actually have? (affects spending breakdown relevance)",
+        "Are there specific spending categories causing the 15th broke pattern? (subscriptions, food, social, other?)",
+        "Has the user tried any budgeting method before, or is this completely blank?",
+        "What's the geographic/cost-of-living context? (affects budget realism)"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your $2k paycheck disappears faster than you think. Here's exactly where.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Nobody tells you this about your first real paycheck breakdown.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Bet you have no idea where half your money actually goes.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of first-jobbers waste money on this one category. You?",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your paycheck gets decimated before you even see it hit.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "You thought you'd be rich with your first job salary. Wrong.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Why does your $2k paycheck feel like $500 by Friday?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "That guilt when your money's gone and you bought nothing.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Stop scrolling. Your $2k paycheck breakdown is actually insane.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Plot twist: taxes aren't even the worst part of payday.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your $2k paycheck disappears faster than you think. Here's exactly where.",
+        "reasoning": "This hook combines genuine curiosity gap (the mystery of where money goes) with immediate relevance\u2014$2k is the exact salary range 22-year-olds in entry-level jobs recognize. The sarcastic 'faster than you think' hits the pain point Gen Z actually feels, making it scroll-stopping without being clickbait-y."
+      },
+      "runner_up": {
+        "text": "Why does your $2k paycheck feel like $500 by Friday?",
+        "reasoning": "This pain point hook uses relatable hyperbole (a blunt Gen Z communication style) and creates instant emotional resonance. The specific timeframe 'by Friday' feels authentic to how first-jobbers experience money anxiety, making it a strong second choice."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\n[ON-SCREEN TEXT: \"WHERE YOUR $2K PAYCHECK GOES\"]\n\nYour $2k paycheck hits the account on Friday. By Wednesday, it's gone. And you have no idea where.\n\n[PAUSE]\n\n[PROBLEM - 3-8 sec]\n\n[ON-SCREEN TEXT: \"THE DAMAGE:\"]\n\nRent: $800. Groceries: $200. That's $1k already. Then your brain short-circuits. Uber Eats instead of cooking? $120. One \"quick\" shopping trip? $180. Coffee every morning? $80. That random subscription you forgot about? $15. Drinks with friends? $200.\n\n[CUT]\n\n[VALUE - 8-15 sec]\n\nHere's the blunt truth: you're not making a money problem\u2014you're making a *visibility* problem.\n\n[ON-SCREEN TEXT: \"3 MOVES:\"]\n\nOne: Track every single transaction for ONE week. Yeah, it sucks. But you'll see the leaks.\n\nTwo: Set up auto-transfers the DAY you get paid. Move $400 to savings before your brain says \"but what if I need it for brunch?\"\n\nThree: Delete your food delivery apps. Just one. You'll survive. And you'll keep like $80.\n\n[PAUSE]\n\n[CTA - 15-17 sec]\n\nThat's an extra $500 a month. Do the math. Save this before payday hits and you forget again.",
+      "word_count": 247,
+      "viewer_takeaway": "A clear breakdown of where money leaks on a $2k paycheck, plus three immediately actionable fixes\u2014track spending, automate savings, cut one subscription\u2014to keep an extra $500/month."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows '$2K' in green with upward arrow, right side shows '$0' in red with downward arrow. Bold white text overlay: 'WHERE IT ALL GOES' on dark background.",
+        "Close-up of phone screen showing bank balance dropping from $2000 to $0 across multiple transactions. Shocked face reaction in corner. Text: '$2K GONE IN 5 DAYS'"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-1 sec",
+          "on_screen_text": "WHERE YOUR $2K PAYCHECK GOES",
+          "visual_direction": "Full-screen text in bold white, centered. Dark background (black or dark grey). Camera zoom in slightly for emphasis."
+        },
+        {
+          "position": "1-3 sec",
+          "on_screen_text": "Friday hits. Wednesday? Gone.",
+          "visual_direction": "Split calendar view showing Friday (green checkmark, money landing) to Wednesday (red X, empty account). Quick cuts between the two days."
+        },
+        {
+          "position": "3-4 sec",
+          "on_screen_text": "THE DAMAGE:",
+          "visual_direction": "Bold red text appears with sharp sound effect. Dark background. Quick pause for impact."
+        },
+        {
+          "position": "4-5 sec",
+          "on_screen_text": "Rent $800. Groceries $200.",
+          "visual_direction": "Animated list appearing on-screen in white text. Subtle calculator or spreadsheet visual in background (blurred). Running total grows."
+        },
+        {
+          "position": "5-7 sec",
+          "on_screen_text": "Uber Eats, shopping, coffee...",
+          "visual_direction": "Quick cuts of: phone ordering food, shopping bags being dropped, coffee cup being handed over. Each with price tag popping up ($120, $180, $80). Rapid-fire editing."
+        },
+        {
+          "position": "7-8 sec",
+          "on_screen_text": "Random subscriptions. $15.",
+          "visual_direction": "Close-up of phone notifications showing subscription charges. Confused/frustrated facial expression reaction."
+        },
+        {
+          "position": "8-10 sec",
+          "on_screen_text": "You're not broke. You're BLIND.",
+          "visual_direction": "Person looking at phone confused, squinting. Text appears in sarcastic red. Cut to blank/empty wallet or account screen."
+        },
+        {
+          "position": "10-11 sec",
+          "on_screen_text": "3 MOVES:",
+          "visual_direction": "Large bold white text on dark background. Quick transition with subtle whoosh sound."
+        },
+        {
+          "position": "11-12 sec",
+          "on_screen_text": "ONE: Track every transaction.",
+          "visual_direction": "Hand writing in notebook or typing on phone. Close-up of transaction list appearing. Numbered '1' in corner."
+        },
+        {
+          "position": "12-13 sec",
+          "on_screen_text": "TWO: Auto-transfer $400 day one.",
+          "visual_direction": "Phone screen showing bank app, finger tapping 'auto-transfer' button. Money visually moving to savings account. Numbered '2' in corner."
+        },
+        {
+          "position": "13-14 sec",
+          "on_screen_text": "THREE: Delete food delivery apps.",
+          "visual_direction": "Phone screen showing Uber Eats/DoorDash being swiped off. App icons disappearing with satisfying animation. Numbered '3' in corner."
+        },
+        {
+          "position": "14-15 sec",
+          "on_screen_text": "Extra $500/month. Do the math.",
+          "visual_direction": "Calculator animation showing: $80 coffee + $120 delivery + $180 shopping + $100 misc = $500. Result in bold green."
+        },
+        {
+          "position": "15-17 sec",
+          "on_screen_text": "Save this. Do it before payday.",
+          "visual_direction": "Person bookmarking/saving video. Phone screen shows save icon highlighted. End with confident smirk or nod to camera. CTA text in white, bottom of screen."
+        }
+      ],
+      "assets_needed": [
+        "B-roll: phone screen showing bank balance updates",
+        "B-roll: calendar transitions (Friday to Wednesday)",
+        "B-roll: close-up of food delivery apps on phone",
+        "B-roll: coffee being handed over/purchased",
+        "B-roll: shopping bags",
+        "B-roll: person swiping apps off phone screen",
+        "B-roll: calculator or spreadsheet interface",
+        "B-roll: bank app interface (transfer screen)",
+        "B-roll: wallet opening to reveal empty interior",
+        "B-roll: notification badges on apps (subscription charges)",
+        "Stock footage: person with confused/frustrated expression",
+        "Stock footage: person confident/satisfied at end (for CTA)",
+        "Animated graphics: number counters ($0-$2000)",
+        "Animated graphics: transaction list populating",
+        "Animated graphics: percentage/chart breakdowns",
+        "Sound effects: cash register (negative), notification dings, whoosh transitions, calculator clicks",
+        "Font assets: Bold sans-serif for on-screen text (white, red, green options)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 9,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 8
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately with relatable problem ($2k gone by Wednesday), dollar amounts and specific leaks make the point concrete, not abstract.",
+        "retention": "Rapid cuts between problem/visuals and the satisfaction of seeing the 3-move solution creates forward momentum, but lacks emotional peak moments.",
+        "save_potential": "Specific, actionable moves + concrete math ($500/month result) make this highly bookmark-worthy for payday prep.",
+        "shareability": "Relatable pain point will resonate in group chats, but lacks the memetic angle or shock value that drives organic sharing.",
+        "audience_fit": "Directly mirrors Gen Z first-job cash flow anxiety (rent + impulsive spending), language and tone match the demographic precisely.",
+        "cta_strength": "Clear (save this) and timed well (before payday), but framed as accountability reminder rather than urgency driver."
+      },
+      "weaknesses": [
+        {
+          "issue": "The $500/month payoff feels disconnected from the moves\u2014no bridge showing how $80 coffee + $120 delivery actually equals $500 without adding new categories.",
+          "fix": "Rewrite 14-15 sec as: 'Delete delivery apps? $80. Stop impulse shopping? $180. Skip daily coffee? $60. Auto-save the rest. That's $500 you actually keep. Compounded over a year? $6k for literally changing three habits.'"
+        },
+        {
+          "issue": "Move Two (auto-transfer) lacks specificity\u2014$400 is arbitrary with no logic tied to the rent/essentials breakdown shown earlier.",
+          "fix": "Rewrite 12-13 sec as: 'TWO: Auto-transfer $600 day one. (That's rent plus buffer.) Move it before you see it. Your brain can't spend what it can't see.'"
+        },
+        {
+          "issue": "The 'delete one app' ask in Move Three feels weak\u2014real friction comes from having the app available, so deletion alone won't stop redownloading.",
+          "fix": "Rewrite 13-14 sec as: 'THREE: Delete the app AND block the website on your phone. One swipe to order is why you're broke. Make yourself wait 48 hours if you really want it\u2014spoiler: you won't.'"
+        }
+      ],
+      "captions": [
+        "your $2k paycheck hits friday. by wednesday? gone. here's the 3-move system to keep an extra $500 every month. save this before payday hits \ud83d\udea8",
+        "$2k disappears in 5 days and you don't even know why. track, automate, delete. that's it. save this for friday. your future self will thank you \ud83d\udcb0"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong clarity and audience fit, but the three moves lack internal logic consistency\u2014auto-transfer amount needs justification tied to expenses, and the $500 payoff calculation bridge is missing, making the promise feel hollow despite strong execution elsewhere."
+    }
+  }
+}
