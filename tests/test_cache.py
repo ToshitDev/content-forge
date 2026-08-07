@@ -4,9 +4,13 @@ Every test gets its own throwaway cache directory (via monkeypatching
 cache.CACHE_DIR to pytest's tmp_path), so nothing here ever touches the
 real cache/ directory. The last test uses unittest.mock to confirm a
 real BaseAgent.run() skips the API on a repeated identical call.
+BaseAgent.run() is async (see base.py's module docstring for why), so
+it's driven here with asyncio.run() and its API call mocked with
+AsyncMock rather than plain MagicMock.
 """
 
-from unittest.mock import MagicMock
+import asyncio
+from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
@@ -54,7 +58,7 @@ def test_base_agent_run_hits_cache_on_second_identical_call(monkeypatch):
     """A second run() with identical inputs is served from cache, not the API."""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key-not-real")
     agent = BaseAgent(prompt_name="hook")
-    agent.client.messages.create = MagicMock(return_value=_fake_api_response("cached reply"))
+    agent.client.messages.create = AsyncMock(return_value=_fake_api_response("cached reply"))
 
     inputs = {
         "niche": "student productivity",
@@ -64,8 +68,8 @@ def test_base_agent_run_hits_cache_on_second_identical_call(monkeypatch):
         "chosen_idea": "why timetables fail",
     }
 
-    first = agent.run(inputs)
-    second = agent.run(inputs)
+    first = asyncio.run(agent.run(inputs))
+    second = asyncio.run(agent.run(inputs))
 
     assert first == "cached reply"
     assert second == "cached reply"
