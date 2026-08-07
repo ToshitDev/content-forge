@@ -57,6 +57,47 @@ def test_parse_json_strips_leading_and_trailing_fences_independently(agent):
     assert agent.parse_json('```\n{"a": 1}') == {"a": 1}
 
 
+def test_parse_json_repairs_object_closed_as_array(agent):
+    """A `{...}` object closed with `]` instead of `}` is repaired and parsed.
+
+    Reproduced from a real Growth-agent failure: "justifications": {...}
+    was closed with a stray "]" instead of "}", immediately before the
+    sibling key "weaknesses": [...] — an array. The model appears to have
+    anticipated the wrong closer from what came right after.
+    """
+    raw = (
+        '{"justifications": {"clarity": "Good hook, lands fast."]'
+        ', "weaknesses": [{"issue": "CTA is vague", "fix": "Be specific"}]}'
+    )
+    result = agent.parse_json(raw)
+    assert result["justifications"]["clarity"] == "Good hook, lands fast."
+    assert result["weaknesses"] == [{"issue": "CTA is vague", "fix": "Be specific"}]
+
+
+def test_parse_json_repair_does_not_touch_brackets_inside_strings(agent):
+    """Bracket-shaped characters that are part of a string's actual content
+    are left alone — only structural, mismatched closers get fixed."""
+    raw = '{"caption": "Use the [PAUSE] marker, then {relax}.", "score": 5}'
+    result = agent.parse_json(raw)
+    assert result["caption"] == "Use the [PAUSE] marker, then {relax}."
+    assert result["score"] == 5
+
+
+def test_parse_json_handles_em_dash_and_smart_quotes_in_string_value(agent):
+    """Typographic punctuation (em dash, smart quotes) inside a JSON string
+    value parses as-is, unescaped — no repair needed.
+
+    None of these characters are the JSON string delimiter (") or a
+    control character, so they were never invalid JSON in the first
+    place. This guards against a plausible-sounding but incorrect
+    assumption that em dashes/smart quotes need escaping — if a future
+    change tried to "fix" this, this test would catch it.
+    """
+    raw = '{"caption": "Sunday you — organized. Tuesday you — “winging it.”"}'
+    result = agent.parse_json(raw)
+    assert result["caption"] == "Sunday you — organized. Tuesday you — “winging it.”"
+
+
 def test_parse_json_malformed_raises_with_raw_text(agent):
     """Malformed JSON raises ValueError whose message includes the raw text."""
     raw = "this is not json at all"
