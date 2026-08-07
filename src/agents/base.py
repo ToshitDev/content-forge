@@ -2,12 +2,18 @@
 
 Loads a prompt template, fills in its placeholders from a dict of inputs,
 and calls the Anthropic API with retry logic for transient failures.
+
+Uses AsyncAnthropic, so run()/run_parsed() are async. That's not for
+speed *within* one agent call — a single API call is a single API call
+either way — it's so that multiple independent pipeline runs (see
+pipeline.py's run_pipeline_batch) can have their API calls in flight at
+the same time via asyncio.gather, instead of one run blocking the next.
 """
 
+import asyncio
 import json
 import os
 import re
-import time
 from pathlib import Path
 from typing import Any
 
@@ -73,9 +79,9 @@ class BaseAgent:
         self.use_cache = use_cache
         # max_retries=0: our own _call_with_retry is the only retry logic,
         # so the SDK's built-in retries don't quietly stack on top of ours.
-        self.client = anthropic.Anthropic(api_key=_get_api_key(), max_retries=0)
+        self.client = anthropic.AsyncAnthropic(api_key=_get_api_key(), max_retries=0)
 
-    def run(self, inputs: dict[str, Any]) -> str:
+    async def run(self, inputs: dict[str, Any]) -> str:
         """Fill the prompt template with `inputs` and return Claude's reply.
 
         Args:
@@ -100,19 +106,19 @@ class BaseAgent:
                 print(f"[cache hit] {self.prompt_name}")
                 return cached
 
-        result = self._call_with_retry(prompt)
+        result = await self._call_with_retry(prompt)
 
         if self.use_cache:
             cache.set(key, result)
 
         return result
 
-    def run_parsed(self, inputs: dict[str, Any]) -> dict[str, Any]:
+    async def run_parsed(self, inputs: dict[str, Any]) -> dict[str, Any]:
         """Run the agent and parse its reply as JSON in one step.
 
-        Equivalent to `self.parse_json(self.run(inputs))`.
+        Equivalent to `self.parse_json(await self.run(inputs))`.
         """
-        raw = self.run(inputs)
+        raw = await self.run(inputs)
         return self.parse_json(raw)
 
     def parse_json(self, raw: str) -> dict[str, Any]:
@@ -152,6 +158,23 @@ class BaseAgent:
         A placeholder [FOO] is replaced by inputs["foo"] (lowercased key).
         Any placeholder with no matching key is left as-is, then reported
         as an error once every substitution has been attempted.
+
+        Missing-placeholder validation scans the ORIGINAL `template` text,
+        never the post-substitution `filled` text. That distinction is
+        the actual fix for a real bug: a substituted value can itself
+        contain bracket-shaped text — e.g. the Script agent's generated
+        output pasted into Visual's [SCRIPT] slot, where the model wrote
+        its own "[PROBLEM]"/"[VALUE]" section headers (the same habit
+        that produces the already-tolerated "[PAUSE]"/"[CUT]" markers).
+        Scanning `filled` treated that echoed text as unfilled
+        placeholders of *this* template and raised a false error, even
+        though "PROBLEM"/"VALUE" were never part of visual.txt's own
+        placeholder set. Scanning `template` only ever considers tokens
+        the template itself actually declares, so embedded dynamic
+        content can never masquerade as one of them — without having to
+        blanket-exclude words like "HOOK"/"CTA" that ARE legitimately
+        required elsewhere (growth.txt) and should still be caught if
+        truly missing.
         """
 
         def substitute(match: re.Match) -> str:
@@ -160,8 +183,12 @@ class BaseAgent:
 
         filled = PLACEHOLDER_PATTERN.sub(substitute, template)
 
-        found = dict.fromkeys(PLACEHOLDER_PATTERN.findall(filled))
-        remaining = [name for name in found if name not in NON_PLACEHOLDER_TOKENS]
+        original_tokens = dict.fromkeys(PLACEHOLDER_PATTERN.findall(template))
+        remaining = [
+            name
+            for name in original_tokens
+            if name.lower() not in inputs and name not in NON_PLACEHOLDER_TOKENS
+        ]
         if remaining:
             missing = ", ".join(f"[{name}]" for name in remaining)
             example_key = remaining[0].lower()
@@ -171,7 +198,7 @@ class BaseAgent:
             )
         return filled
 
-    def _call_with_retry(self, prompt: str) -> str:
+    async def _call_with_retry(self, prompt: str) -> str:
         """Call the Anthropic API, retrying on rate-limit/overload errors.
 
         Makes one initial attempt, then up to 3 retries with exponential
@@ -181,9 +208,9 @@ class BaseAgent:
         last_error: Exception | None = None
         for delay in delays:
             if delay:
-                time.sleep(delay)
+                await asyncio.sleep(delay)
             try:
-                return self._call_api(prompt)
+                return await self._call_api(prompt)
             except RETRYABLE_ERRORS as error:
                 last_error = error
         # delays always has at least one entry (the leading 0), so the loop
@@ -194,7 +221,7 @@ class BaseAgent:
         assert last_error is not None
         raise last_error
 
-    def _call_api(self, prompt: str) -> str:
+    async def _call_api(self, prompt: str) -> str:
         """Send one request to the Anthropic API and return the text reply.
 
         Raises:
@@ -203,7 +230,7 @@ class BaseAgent:
                 raised here with a clear cause instead of surfacing later
                 as a confusing json.JSONDecodeError.
         """
-        response = self.client.messages.create(
+        response = await self.client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": prompt}],
