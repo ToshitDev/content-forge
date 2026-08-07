@@ -14,6 +14,8 @@ from typing import Any
 import anthropic
 from dotenv import load_dotenv
 
+from src import cache
+
 load_dotenv()
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
@@ -52,6 +54,7 @@ class BaseAgent:
         prompt_name: str,
         model: str = "claude-haiku-4-5-20251001",
         max_tokens: int = 4000,
+        use_cache: bool = True,
     ) -> None:
         """Set up the agent and fail fast if the API key isn't configured.
 
@@ -60,10 +63,14 @@ class BaseAgent:
                 in src/prompts/.
             model: Anthropic model ID to call.
             max_tokens: Max tokens to generate per call.
+            use_cache: If True (default), reuse a cached response for an
+                identical filled prompt instead of calling the API again.
+                Set to False to force a fresh call every time.
         """
         self.prompt_name = prompt_name
         self.model = model
         self.max_tokens = max_tokens
+        self.use_cache = use_cache
         # max_retries=0: our own _call_with_retry is the only retry logic,
         # so the SDK's built-in retries don't quietly stack on top of ours.
         self.client = anthropic.Anthropic(api_key=_get_api_key(), max_retries=0)
@@ -85,7 +92,20 @@ class BaseAgent:
         """
         template = self._load_template()
         prompt = self._fill_template(template, inputs)
-        return self._call_with_retry(prompt)
+        key = cache.cache_key(prompt)
+
+        if self.use_cache:
+            cached = cache.get(key)
+            if cached is not None:
+                print(f"[cache hit] {self.prompt_name}")
+                return cached
+
+        result = self._call_with_retry(prompt)
+
+        if self.use_cache:
+            cache.set(key, result)
+
+        return result
 
     def run_parsed(self, inputs: dict[str, Any]) -> dict[str, Any]:
         """Run the agent and parse its reply as JSON in one step.
@@ -99,15 +119,20 @@ class BaseAgent:
         """Parse a JSON object out of a raw model response.
 
         Strips a leading/trailing markdown code fence (```json or plain
-        ```), if present, then parses what's left as JSON.
+        ```), if present, then repairs a mismatched bracket type — the
+        model occasionally closes a `{` with `]` or a `[` with `}`,
+        typically right before another array/object of the opposite
+        type — before parsing. The repair is a no-op on already-valid
+        JSON, so it's always applied rather than only on retry.
 
         Raises:
             ValueError: If the text still isn't valid JSON after stripping
-                fences. The message includes the first 500 characters of
-                the raw response, so you can see what the model actually
-                sent back.
+                fences and repairing bracket mismatches. The message
+                includes the first 500 characters of the raw response, so
+                you can see what the model actually sent back.
         """
         cleaned = _strip_code_fence(raw)
+        cleaned = _repair_mismatched_brackets(cleaned)
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError as error:
@@ -204,6 +229,52 @@ def _strip_code_fence(raw: str) -> str:
     text = LEADING_FENCE_PATTERN.sub("", text, count=1)
     text = TRAILING_FENCE_PATTERN.sub("", text, count=1)
     return text.strip()
+
+
+def _repair_mismatched_brackets(text: str) -> str:
+    """Fix a `{...}` closed with `]`, or a `[...]` closed with `}`.
+
+    Confirmed in production: the Growth agent occasionally closes
+    "justifications": {...} with a stray "]" instead of "}", most likely
+    because the very next key, "weaknesses": [...], is an array and the
+    model anticipates the wrong closer. Scans character by character,
+    tracking a stack of expected closing brackets; a mismatched closer is
+    swapped for the one the stack actually expects. Bracket characters
+    inside string literals (tracked via quote/escape state) are left
+    untouched, so this never rewrites bracket-shaped text that's part of
+    an actual string value.
+
+    A no-op on already-valid JSON — the mismatch check never fires if
+    every closer already matches its opener — so it's safe to run
+    unconditionally rather than only as a retry after a parse failure.
+    """
+    chars = list(text)
+    stack: list[str] = []  # each entry is the closer a still-open bracket expects
+    in_string = False
+    escaped = False
+
+    for i, ch in enumerate(chars):
+        if in_string:
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == '"':
+                in_string = False
+            continue
+
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            stack.append("}")
+        elif ch == "[":
+            stack.append("]")
+        elif ch in "}]" and stack:
+            if stack[-1] != ch:
+                chars[i] = stack[-1]
+            stack.pop()
+
+    return "".join(chars)
 
 
 def _get_api_key() -> str:

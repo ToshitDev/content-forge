@@ -21,12 +21,14 @@ def render_header() -> None:
     st.caption("Real audience input in, reviewed content package out")
 
 
-def render_inputs() -> tuple[str, dict]:
-    """Render the input form and return (research_material, profile).
+def render_inputs() -> tuple[str, dict, bool]:
+    """Render the input form and return (research_material, profile, use_cache).
 
     profile is built from the required topic/audience field plus the
     fine-tune expander's values (or their defaults) — everything
-    run_pipeline needs besides the research material itself.
+    run_pipeline needs besides the research material itself. use_cache
+    is a pipeline-level flag, not a template input, so it's returned
+    separately rather than folded into profile.
     """
     topic_audience = st.text_input("What's your content about, and who's it for?")
     research_material = st.text_area(
@@ -38,6 +40,12 @@ def render_inputs() -> tuple[str, dict]:
         content_format = st.selectbox("Format", FORMATS, index=0)
         brand_voice = st.text_input("Brand voice", value="casual and direct")
         cta = st.text_input("Call to action", value="follow for more")
+        use_cache = st.checkbox(
+            "Use cache",
+            value=True,
+            help="Reuse a cached response for an identical prompt instead of "
+            "calling the API again.",
+        )
 
     # The single "topic + audience" field feeds both template inputs — the
     # prompts ask for niche and audience separately, but one phrase covers
@@ -50,7 +58,7 @@ def render_inputs() -> tuple[str, dict]:
         "brand_voice": brand_voice,
         "cta": cta,
     }
-    return research_material, profile
+    return research_material, profile, use_cache
 
 
 def validate_inputs(profile: dict, research_material: str) -> bool:
@@ -65,7 +73,7 @@ def validate_inputs(profile: dict, research_material: str) -> bool:
     return ok
 
 
-def run_with_progress(profile: dict, research_material: str) -> dict | None:
+def run_with_progress(profile: dict, research_material: str, use_cache: bool) -> dict | None:
     """Run the pipeline inside a live status panel.
 
     Returns the outputs dict on success, or None if a step failed (the
@@ -77,7 +85,9 @@ def run_with_progress(profile: dict, research_material: str) -> dict | None:
             status.write(f"[{step_num}/{total}] {name} agent... done")
 
         try:
-            outputs = run_pipeline(profile, research_material, on_progress=on_progress)
+            outputs = run_pipeline(
+                profile, research_material, on_progress=on_progress, use_cache=use_cache
+            )
         except RuntimeError as error:
             status.update(label="Pipeline failed", state="error")
             st.error(str(error))
@@ -168,12 +178,12 @@ def render_results(outputs: dict) -> None:
 def main() -> None:
     """Wire up the page: header, inputs, run button, and persisted results."""
     render_header()
-    research_material, profile = render_inputs()
+    research_material, profile, use_cache = render_inputs()
 
     if st.button("Run pipeline", type="primary") and validate_inputs(
         profile, research_material
     ):
-        outputs = run_with_progress(profile, research_material)
+        outputs = run_with_progress(profile, research_material, use_cache)
         if outputs is not None:
             st.session_state["outputs"] = outputs
         else:
