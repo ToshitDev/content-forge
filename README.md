@@ -66,6 +66,28 @@ The real opportunity is running multiple independent pipeline runs at once.
 Benchmarked 3 separate jobs: 130.0s running one after another, 51.4s running
 concurrently with asyncio.gather. 2.53x speedup.
 
+## Reliability
+
+Every API call goes through a token-bucket rate limiter before it's sent,
+so the pipeline slows itself down proactively instead of waiting to get
+rejected. Exponential backoff remains as a safety net underneath it.
+
+All internal events (agent calls, cache hits and misses, retries) are
+logged with timestamps to logs/contentforge.log, not just printed to a
+terminal that disappears when you close it.
+
+## Analytics
+
+Every run logs to a local SQLite database alongside the JSON files. A small
+pandas script (scripts/analyze_history.py) reads it back for real analysis.
+
+Ran 5 varied pipeline calls across different niches. Average scores: clarity
+7.8, retention 7.0, save potential 8.0, shareability 6.4, audience fit 9.0,
+CTA strength 6.6. Average latency: 47.18s uncached vs 0.99s cached, about
+47x faster on a cache hit, measured from the database.
+
+![Score trends](docs/score_trends.png)
+
 ## Project layout
 
 ```
@@ -93,8 +115,9 @@ are never hardcoded or committed.
 
 ## Status
 
-Working end to end: five agents, full pipeline, Streamlit UI. Currently
-hardening it. CI, caching, and concurrency are next.
+Working end to end: five agents, full pipeline, Streamlit UI, CI, caching,
+concurrency, rate limiting, logging, and analytics. Only Docker and final
+polish remain before v1.0.0.
 
 ## Full run
 
@@ -110,8 +133,8 @@ hardening it. CI, caching, and concurrency are next.
 - [x] Phase 6: CI with tests, lint, and type checks on every push
 - [x] Phase 7: Response caching so repeat runs cost nothing
 - [x] Phase 8: Parallelize independent stages, measure speedup
-- [ ] Phase 9: Client-side rate limiting + proper logging
-- [ ] Phase 10: SQLite run history + score analytics
+- [x] Phase 9: Client-side rate limiting + proper logging
+- [x] Phase 10: SQLite run history + score analytics
 - [ ] Phase 11: Docker + final docs, then v1.0.0
 
 Building this in phases and committing as I go, so the history shows how it
