@@ -135,18 +135,28 @@ class ScriptOutput:
 
 @dataclass
 class FramePlanItem:
-    """One slide/frame in the visual plan."""
+    """One slide/frame in the visual plan.
+
+    on_screen_text is optional — a pure b-roll/demo beat can have no
+    text overlay at all, and the model sometimes omits the key entirely
+    (or sends "") for exactly that case rather than inventing text.
+    position and visual_direction stay required: every frame genuinely
+    needs both, regardless of whether it has on-screen text.
+    """
 
     position: str
-    on_screen_text: str
     visual_direction: str
+    on_screen_text: str = ""
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "FramePlanItem":
         return cls(
             position=_require(d, "position", "FramePlanItem"),
-            on_screen_text=_require(d, "on_screen_text", "FramePlanItem"),
             visual_direction=_require(d, "visual_direction", "FramePlanItem"),
+            # Safe .get() rather than _require(): missing entirely, or
+            # explicitly null, both collapse to "" — only a real string
+            # from the model is kept.
+            on_screen_text=d.get("on_screen_text") or "",
         )
 
 
