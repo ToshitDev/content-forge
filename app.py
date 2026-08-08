@@ -5,9 +5,13 @@ renders whatever it returns. No prompt text or API calls live here —
 all of that stays in src/agents/ and src/pipeline.py.
 """
 
+import asyncio
+
 import streamlit as st
 
+from src.agents.suggest import SuggestAgent
 from src.logging_config import configure_logging
+from src.models import SuggestOutput
 from src.pipeline import run_pipeline
 
 configure_logging()
@@ -24,6 +28,19 @@ def render_header() -> None:
     st.caption("Real audience input in, reviewed content package out")
 
 
+def fetch_suggested_comments(topic_audience: str) -> list[str]:
+    """Call the Suggest Agent and return its illustrative example comments.
+
+    Bridges the agent's async call into Streamlit's synchronous script
+    execution. Raises on any failure — the caller shows it via st.error.
+    """
+    agent = SuggestAgent()
+    raw = asyncio.run(
+        agent.run_parsed({"niche": topic_audience, "audience": topic_audience})
+    )
+    return SuggestOutput.from_dict(raw).suggestions
+
+
 def render_inputs() -> tuple[str, dict, bool]:
     """Render the input form and return (research_material, profile, use_cache).
 
@@ -34,8 +51,33 @@ def render_inputs() -> tuple[str, dict, bool]:
     separately rather than folded into profile.
     """
     topic_audience = st.text_input("What's your content about, and who's it for?")
+
+    # This has to run, and write to st.session_state["research_material"],
+    # before the text_area below is instantiated — Streamlit forbids setting
+    # a widget's session_state value after that widget already exists in
+    # the same script run.
+    suggest_clicked = st.button(
+        "Suggest example comments", disabled=not topic_audience.strip()
+    )
+    if suggest_clicked:
+        try:
+            suggestions = fetch_suggested_comments(topic_audience)
+            st.session_state["research_material"] = "\n".join(suggestions)
+            st.session_state["suggestions_active"] = True
+        except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
+            st.error(f"Couldn't generate example comments: {error}")
+
+    if st.session_state.get("suggestions_active"):
+        st.caption(
+            "Example comments below are AI-generated illustrations, not real "
+            "audience data. Edit them or replace with real comments before "
+            "running the pipeline."
+        )
+
     research_material = st.text_area(
-        "Paste real audience comments, DMs, or competitor posts", height=150
+        "Paste real audience comments, DMs, or competitor posts",
+        height=150,
+        key="research_material",
     )
 
     with st.expander("Fine-tune (optional)", expanded=False):
