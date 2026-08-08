@@ -240,3 +240,16 @@ class GrowthReview:
             final_call=_require(d, "final_call", "GrowthReview"),
             final_call_reason=_require(d, "final_call_reason", "GrowthReview"),
         )
+
+
+@dataclass
+class SuggestOutput:
+    """Parsed output of the Suggest Agent: illustrative example comments."""
+
+    suggestions: list[str]
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "SuggestOutput":
+        return cls(
+            suggestions=_require(d, "suggestions", "SuggestOutput"),
+        )
