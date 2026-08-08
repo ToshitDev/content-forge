@@ -4,7 +4,9 @@ Mocks BaseAgent._call_api (inherited by all 5 agent subclasses) so the
 real run_pipeline_batch() / run_pipeline_async() orchestration runs
 genuinely end to end — real chaining, real JSON parsing, real dataclass
 construction — with no network access. Also redirects EXAMPLES_DIR to a
-throwaway directory, since a real run writes a saved-run JSON file.
+throwaway directory (a real run writes a saved-run JSON file) and stubs
+out log_run (history.db logging is tested on its own in
+test_history.py, not here — this file is about batch orchestration).
 """
 
 import json
@@ -13,6 +15,7 @@ import pytest
 
 from src import pipeline
 from src.agents.base import BaseAgent
+from src.models import FramePlanItem, VisualOutput
 
 # One canned, schema-valid response per agent, keyed by agent.prompt_name.
 FAKE_RESPONSES = {
@@ -81,10 +84,15 @@ async def _fake_call_api(self: BaseAgent, prompt: str) -> str:
 
 @pytest.fixture(autouse=True)
 def mock_agents_and_isolate_examples(monkeypatch, tmp_path):
-    """No network calls, and saved-run JSON goes to a throwaway directory."""
+    """No network calls, saved-run JSON goes to a throwaway directory, and
+    history.db is never touched (log_run's default path is bound at
+    function-definition time, so patching DEFAULT_DB_PATH afterward
+    wouldn't redirect it — stubbing the function itself is the correct
+    way to isolate this)."""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key-not-real")
     monkeypatch.setattr(BaseAgent, "_call_api", _fake_call_api)
     monkeypatch.setattr(pipeline, "EXAMPLES_DIR", tmp_path)
+    monkeypatch.setattr(pipeline, "log_run", lambda *args, **kwargs: None)
 
 
 def _sample_job(niche: str) -> pipeline.PipelineJob:
@@ -127,3 +135,23 @@ def test_run_pipeline_batch_isolates_a_failing_job():
     assert "error" in results[1]
     assert "Research agent failed" in results[1]["error"]
     assert "error" not in results[2]
+
+
+def test_format_visual_plan_shows_no_text_overlay_for_empty_on_screen_text():
+    """A frame with no on_screen_text renders as an explicit "no text
+    overlay" note for the Growth agent, not a bare pair of empty quotes
+    that could read as a formatting glitch."""
+    visual = VisualOutput(
+        cover_options=["c1"],
+        frame_plan=[
+            FramePlanItem(position="opening", visual_direction="talking head", on_screen_text="Hi"),
+            FramePlanItem(position="middle", visual_direction="b-roll of desk setup"),
+        ],
+        assets_needed=["a1"],
+    )
+
+    formatted = pipeline._format_visual_plan(visual)
+
+    assert '- opening: "Hi" (talking head)' in formatted
+    assert "- middle: no text overlay (b-roll of desk setup)" in formatted
+    assert '""' not in formatted
