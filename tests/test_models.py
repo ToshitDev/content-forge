@@ -1,11 +1,11 @@
-"""Tests for src/models.py's dataclasses — currently just FramePlanItem.
+"""Tests for src/models.py's dataclasses — FramePlanItem and SuggestOutput.
 
 Pure data-shape tests: no network access or API key needed.
 """
 
 import pytest
 
-from src.models import FramePlanItem
+from src.models import FramePlanItem, SuggestOutput
 
 
 def test_frame_plan_item_missing_on_screen_text_defaults_to_empty_string():
@@ -56,3 +56,19 @@ def test_frame_plan_item_missing_visual_direction_still_raises():
 
     with pytest.raises(ValueError, match="visual_direction"):
         FramePlanItem.from_dict(data)
+
+
+def test_suggest_output_parses_valid_response():
+    """A well-formed {"suggestions": [...]} dict parses into the list as-is."""
+    data = {"suggestions": ["comment one", "comment two", "comment three"]}
+
+    result = SuggestOutput.from_dict(data)
+
+    assert result.suggestions == ["comment one", "comment two", "comment three"]
+
+
+def test_suggest_output_missing_suggestions_key_raises():
+    """suggestions is required — no default, since there's nothing sensible
+    to fall back to if the model didn't return any."""
+    with pytest.raises(ValueError, match="suggestions"):
+        SuggestOutput.from_dict({})
