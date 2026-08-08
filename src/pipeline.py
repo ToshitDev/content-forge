@@ -37,6 +37,8 @@ scripts/benchmark_concurrency.py for the measured speedup.
 import asyncio
 import json
 import logging
+import sqlite3
+import time
 import uuid
 from collections.abc import Callable
 from dataclasses import asdict
@@ -50,6 +52,7 @@ from src.agents.hook import HookAgent
 from src.agents.research import ResearchAgent
 from src.agents.script import ScriptAgent
 from src.agents.visual import VisualAgent
+from src.history import log_run
 from src.models import GrowthReview, HookOutput, ResearchOutput, ScriptOutput, VisualOutput
 
 logger = logging.getLogger(__name__)
@@ -106,8 +109,11 @@ async def run_pipeline_async(
 
     Returns:
         A dict with keys "research", "hook", "script", "visual", "growth",
-        and "saved_path" (where the run's JSON record was written).
+        "saved_path" (where the run's JSON record was written), and
+        "profile" (the profile dict this run was given).
     """
+    start_time = time.perf_counter()
+
     research = await _run_step(
         1,
         "Research",
@@ -196,6 +202,21 @@ async def run_pipeline_async(
     }
     saved_path = _save_run(profile, research_material, outputs)
     outputs["saved_path"] = str(saved_path)
+    outputs["profile"] = profile
+
+    latency_seconds = time.perf_counter() - start_time
+    try:
+        log_run(outputs, latency_seconds, use_cache)
+    except sqlite3.Error as error:
+        # History logging is analytics, not the actual deliverable — a
+        # DB-level hiccup (locked file, disk full, etc.) shouldn't cost
+        # the user a run that otherwise completed and is already saved
+        # to examples/. Deliberately NOT catching Exception broadly: a
+        # KeyError/AttributeError here would mean our own data
+        # extraction is broken, which is a real bug worth surfacing
+        # loudly, not something to paper over.
+        logger.error("Failed to log run to history.db: %s", error)
+
     return outputs
 
 
@@ -290,9 +311,12 @@ def _format_visual_plan(visual: VisualOutput) -> str:
     """Render a VisualOutput as readable text for the Growth Agent's prompt."""
     lines = ["Cover options: " + " | ".join(visual.cover_options)]
     for frame in visual.frame_plan:
-        lines.append(
-            f'- {frame.position}: "{frame.on_screen_text}" ({frame.visual_direction})'
-        )
+        # frame.on_screen_text can legitimately be "" (a pure b-roll/demo
+        # beat). Say so explicitly rather than rendering bare "" — an
+        # empty pair of quotes reads as a formatting glitch, not "no
+        # text overlay," and Growth is asked to judge clarity from this.
+        text = f'"{frame.on_screen_text}"' if frame.on_screen_text else "no text overlay"
+        lines.append(f"- {frame.position}: {text} ({frame.visual_direction})")
     lines.append("Assets needed: " + ", ".join(visual.assets_needed))
     return "\n".join(lines)
 
