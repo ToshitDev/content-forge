@@ -1,0 +1,18 @@
+# Keep the build context (and image) small, and keep secrets out of it.
+
+venv/
+.venv/
+.git/
+__pycache__/
+.pytest_cache/
+logs/
+history.db
+cache/
+examples/
+
+# Not in the original list, but important: without this, `COPY . .` in
+# the Dockerfile would bake .env's real API key straight into an image
+# layer — permanently, even if a later layer "deletes" the file — which
+# directly defeats the whole point of docker-compose's env_file
+# approach (injecting the key at *run* time instead of *build* time).
+.env
