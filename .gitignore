@@ -11,6 +11,8 @@ venv/
 
 # Tooling caches
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .streamlit/secrets.toml
 
 # Cached API responses (src/cache.py) — regenerable, not source
