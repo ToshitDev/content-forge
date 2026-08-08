@@ -1,0 +1,241 @@
+{
+  "timestamp": "20260808_165454",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday. How do you study when your phone is right there. Started monday stopped thursday every single month why am I like this. Tried the pomodoro thing forgot about it after 2 days. Everyone says just focus but nobody says how.",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Plans fall apart by mid-week (timetables abandoned by Tuesday)",
+        "Phone distraction makes studying impossible",
+        "Popular methods (Pomodoro, 'just focus') don't stick or lack implementation details",
+        "Recurring monthly failure pattern creates shame/frustration",
+        "Lack of concrete 'how-to' advice for staying focused"
+      ],
+      "ideas": [
+        {
+          "idea": "Post series: 'Why your Sunday timetable dies by Tuesday' \u2014 break down the exact hours when students quit and what actually happens those days",
+          "pain_point": "Plans fall apart by mid-week",
+          "unique_angle": "Most content celebrates planning; this diagnoses why plans fail instead of pushing more planning"
+        },
+        {
+          "idea": "Carousel: 'Phone strategies that actually work' \u2014 show specific physical/phone-placement tactics instead of generic 'willpower' advice",
+          "pain_point": "Phone distraction makes studying impossible",
+          "unique_angle": "Acknowledges phone won't go away; focuses on friction/distance instead of fighting phone addiction"
+        },
+        {
+          "idea": "Reel: Pomodoro failure montage + 2-minute explanation of why the standard version doesn't work for procrastinators",
+          "pain_point": "Popular methods don't stick or lack implementation details",
+          "unique_angle": "Validates why Pomodoro failed them instead of blaming the student"
+        },
+        {
+          "idea": "Story series: 'The Monday-Thursday cycle' \u2014 poll/ask followers to share their monthly pattern, normalize it, then crowdsource what breaks the loop",
+          "pain_point": "Recurring monthly failure pattern creates shame/frustration",
+          "unique_angle": "Treats the pattern as a shared data point, not a personal flaw"
+        },
+        {
+          "idea": "Post: Step-by-step 'How to actually focus' \u2014 replace vague advice with micro-steps (e.g., 'first: close 6 tabs, second: put phone in bag, third: set timer for 10 min')",
+          "pain_point": "Lack of concrete 'how-to' advice for staying focused",
+          "unique_angle": "Breaks down the invisible work nobody talks about; treats focus as a learnable skill with steps"
+        },
+        {
+          "idea": "Reel: 'Your phone placement matters more than your willpower' \u2014 show different setups (across room, in car, etc.) and their friction levels",
+          "pain_point": "Phone distraction makes studying impossible",
+          "unique_angle": "Reframes focus as an environmental problem, not a personal weakness"
+        },
+        {
+          "idea": "Post: 'Stop planning for perfection' \u2014 share a messy/partial timetable that actually gets followed vs. the Sunday masterpiece that dies by Tuesday",
+          "pain_point": "Plans fall apart by mid-week",
+          "unique_angle": "Advocates for lower-bar, realistic planning instead of rejecting planning altogether"
+        },
+        {
+          "idea": "Carousel: 'Why you quit Thursday' \u2014 map energy/motivation dips to specific days and offer micro-fixes for each (not a new plan)",
+          "pain_point": "Recurring monthly failure pattern creates shame/frustration",
+          "unique_angle": "Treats procrastination as predictable and hackable, not random weakness"
+        },
+        {
+          "idea": "Post: 'The 'how' nobody explains' \u2014 take one study method and show the full setup (space, phone, snacks, music, time block) instead of just the concept",
+          "pain_point": "Lack of concrete 'how-to' advice for staying focused",
+          "unique_angle": "Shares the unglamorous details that actually make methods work"
+        },
+        {
+          "idea": "Reel: 'Pomodoro, but make it work for you' \u2014 show 2\u20133 variations (5-min focus, 15-min focus, no break timer) and ask followers which one stuck",
+          "pain_point": "Popular methods don't stick or lack implementation details",
+          "unique_angle": "Treats the method as customizable, not one-size-fits-all"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Post: 'The Monday-Thursday cycle' \u2014 poll/ask followers to share their monthly pattern, normalize it, then crowdsource what breaks the loop",
+          "reason": "Directly addresses the shame + recurring pattern. Builds community and positions your brand as a listener, not a prescriber. High engagement potential."
+        },
+        {
+          "idea": "Reel: 'Your phone placement matters more than your willpower' \u2014 show different setups (across room, in car, etc.) and their friction levels",
+          "reason": "Tackles the #1 barrier (phone) with actionable, visual, replicable tactics. Casual tone fits format. Zero reliance on invented data."
+        },
+        {
+          "idea": "Carousel: 'Stop planning for perfection' \u2014 share a messy/partial timetable that actually gets followed vs. the Sunday masterpiece that dies by Tuesday",
+          "reason": "Validates their experience (timetable failure) and offers a counterintuitive fix. Highly relatable and directly actionable."
+        }
+      ],
+      "missing_info": [
+        "What study methods/tools have they tried beyond Pomodoro and timetables?",
+        "Do they study alone or in groups? Does environment matter?",
+        "What time of day/week do they *actually* focus best (if ever)?",
+        "Is the Monday-Thursday quit pattern tied to coursework deadlines or just motivation?",
+        "Have they tried accountability partners, apps, or external deadlines?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your productivity has a weekly schedule. Here's proof.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Why do you always crash on Friday? (We know why.)",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "There's a pattern to your chaos. Wanna see it?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Most college students follow the same broken rhythm.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "You're not lazy. Your brain's just predictably broken.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Monday energy? Thursday guilt? Friday surrender? That's the cycle.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Crushing it Mon-Wed, then ghosting your assignments. Sound familiar?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You probably procrastinate the exact same way every month.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: your productivity isn't random. It's formulaic.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Poll: Do you peak early or panic late? (No in-between.)",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Why do you always crash on Friday? (We know why.)",
+        "reasoning": "This hook hits the exact pain point college procrastinators live weekly\u2014the Friday collapse is universal and undeniable. The parenthetical creates immediate community (\"we know\") while the question format drives engagement through the poll, perfectly setting up the crowdsourcing angle."
+      },
+      "runner_up": {
+        "text": "You probably procrastinate the exact same way every month.",
+        "reasoning": "Directly calls out the behavior without judgment, makes them curious about their own pattern, and primes them to engage with the poll to either confirm or defend their cycle."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Why do you always crash on Friday?\"\n[PAUSE]\n\"We know why.\"\n\n[CUT]\n\n[PROBLEM - 3-8 sec]\n\"You spent Monday through Thursday saying 'I'll start tomorrow.' Tomorrow never came. So by Friday, you're running on cold coffee and delusion.\"\n[ON-SCREEN TEXT: \"The Procrastination Cycle\"]\n\n[CUT]\n\n[VALUE - 8-15 sec]\n\"Here's what actually works: Break your week into two-day sprints instead of one massive Monday-to-Friday panic.\"\n[ON-SCREEN TEXT: \"2-Day Sprints = Way Less Chaos\"]\n\"Monday-Tuesday block? Done. Wednesday-Thursday block? Done. Friday's actually free.\"\n[PAUSE]\n\"I know. Sounds too simple. It's not.\"\n\n[CUT]\n\n[CTA - 15-17 sec]\n\"Follow for the full system\u2014the exact sprints, the time blocks, everything.\"\n[ON-SCREEN TEXT: \"Follow for the full system\"]\n[PAUSE]\n\"Your Friday self will thank you.\"",
+      "word_count": 127,
+      "viewer_takeaway": "Procrastinators recognize their Friday burnout pattern and learn that a 2-day sprint system (not willpower) fixes the crash\u2014making them curious to follow for the complete breakdown."
+    },
+    "visual": {
+      "cover_options": [
+        "Split screen: left side shows person slumped over desk with cold coffee mug (Friday exhaustion), right side shows calendar with 'MONDAY' circled (fresh start). Bold text overlay: 'Why You Always Crash on Friday'",
+        "Close-up of empty coffee cup with clock showing 4:59 PM in background. Text overlay: 'Friday me vs. Monday me' with arrow pointing down to the cup."
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "First frame: speaker or on-camera talent looking directly at camera with slightly tired/knowing expression. Clean, minimal background (desk or workspace). Deliver line with natural pause, slightly raised eyebrow for comedic effect.",
+          "on_screen_text": "Why do you always crash on Friday?"
+        },
+        {
+          "position": "3 sec (PAUSE/CUT)",
+          "visual_direction": "Cut to speaker nodding or slight smirk. Quick 1-second beat to let message land. Keep energy calm but confident.",
+          "on_screen_text": "We know why."
+        },
+        {
+          "position": "3-8 sec (PROBLEM)",
+          "visual_direction": "B-roll montage: quick cuts of person saying 'I'll start tomorrow' (Monday clip), looking stressed (Tuesday/Wednesday), overwhelmed at desk (Thursday), completely burnt out (Friday). Show cold coffee mug prominently. Use text graphic overlays for days of week. Slightly desaturated color grading to match tired vibe.",
+          "on_screen_text": "The Procrastination Cycle"
+        },
+        {
+          "position": "8-15 sec (VALUE)",
+          "visual_direction": "Speaker back on camera, explaining with hand gestures. Switch to animated or text-based visual: show calendar with color blocks (Mon-Tue one color, Wed-Thu another, Fri highlighted). Then cut to b-roll of person looking calm and focused during a work session. Show clock/timer imagery for 'time blocks.' End with person relaxed on Friday (fresh coffee, smiling).",
+          "on_screen_text": "2-Day Sprints = Way Less Chaos"
+        },
+        {
+          "position": "13-15 sec (VALUE CALLBACK)",
+          "visual_direction": "Speaker delivers 'I know. Sounds too simple. It's not.' with knowing look directly to camera. Hold for emphasis. No additional text\u2014let the delivery carry it.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "15-17 sec (CTA)",
+          "visual_direction": "Speaker speaking with conviction. Graphic overlay appears with follow button/arrow pointing to profile. Text is bold, white, center-bottom of frame. End with speaker saying 'Your Friday self will thank you' with a wink or subtle smile. Final frame freezes for 0.5 sec.",
+          "on_screen_text": "Follow for the full system"
+        }
+      ],
+      "assets_needed": [
+        "On-camera talent (speaker, well-lit, clean workspace background)",
+        "Cold coffee mug (multiple shots: full, empty, in hand)",
+        "Calendar graphics (digital or printed, color-coded for blocks)",
+        "B-roll: person at desk looking stressed, person working focused, person relaxed on Friday",
+        "Clock/timer imagery (digital or analog close-ups)",
+        "Text animations: 'The Procrastination Cycle', '2-Day Sprints = Way Less Chaos', 'Follow for the full system'",
+        "Color grading: desaturated for Mon-Thu scenes, normalized/bright for Friday victory shot",
+        "Follow button graphic/CTA graphic for final frame",
+        "Background music: upbeat but not distracting (matches casual brand voice)",
+        "Optional: day-of-week text overlays (Mon, Tue, Wed, Thu, Fri) for B-roll transitions"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately with relatable question; problem is named by second 3 ('procrastination cycle'); solution (2-day sprints) is stated clearly at 8-sec mark.",
+        "retention": "Problem section (3-8 sec) uses vivid imagery (cold coffee, delusion) to keep attention, but value section shifts tone without building tension\u2014feels explanatory rather than compelling.",
+        "save_potential": "Core idea (sprint-based weekly structure) is concrete, actionable, and different enough from generic 'plan better' advice to warrant a follow.",
+        "shareability": "Relatable pain point and self-aware humor ('I know, sounds too simple') invite tags and forwards, but lack of surprising twist or bold claim limits viral potential.",
+        "audience_fit": "Directly addresses procrastination, Friday burnout, and 'I'll start tomorrow' mentality\u2014exact pain points of procrastinating college students.",
+        "cta_strength": "Follow is low-friction but vague; 'the full system' and 'exact sprints' imply substance, yet no preview of what differentiates this from other productivity accounts."
+      },
+      "weaknesses": [
+        {
+          "issue": "Value section (8-15 sec) becomes instructional/explanatory, losing the emotional momentum built in the problem section; viewer might thumb past during this slower beat.",
+          "fix": "Rewrite value section to maintain urgency: 'Here's the shift: Stop treating your week like one long sprint. Do Monday-Tuesday, crush it, reset Wednesday. Then Thursday-Friday is gravy. Your brain actually recovers between blocks.' Deliver faster, with energy, then hold the 'gravy' line for laugh beat."
+        },
+        {
+          "issue": "CTA ('Follow for the full system') is generic and doesn't differentiate\u2014every productivity account says this; no reason given for *why* this specific account is worth following.",
+          "fix": "Rewrite CTA: 'Follow for the exact sprint schedule, the time blocks, and the Friday-reset protocol I use with my students.' Adds credibility marker ('my students') and specificity ('Friday-reset protocol') instead of vague 'system.'"
+        },
+        {
+          "issue": "Missing micro-commitment before ask; no reason to believe follow will deliver on promise; 'sounds too simple' callback deflates rather than builds conviction.",
+          "fix": "Rewrite callback line: 'I get the skepticism. Everyone says this. But two-day blocks actually reprogram your brain's reward cycle\u2014your dopamine doesn't flatline until Friday.' Replaces self-doubt with confidence and a mechanism (dopamine, reward cycle) that justifies why it works."
+        }
+      ],
+      "captions": [
+        "Why do you always crash on Friday? \ud83e\uddca\u2615 Because Monday-Friday is too long to hold focus. Two-day sprints = two wins + actual Friday energy. Follow for the sprint blocks I use with my students (literally changes the game). Your Friday self is waiting.",
+        "The procrastination cycle is real: 'I'll start tomorrow' turns into cold coffee on Friday \ud83d\ude05 Here's what actually works\u2014split your week into two-day blocks instead of one panic sprint. Different approach, completely different result. Follow for the full system + exact time blocks. Don't crash this Friday."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong hook and audience fit (8-9 range), but value delivery and CTA lack specificity and momentum needed to convert follows; rewrite the three weakness sections and this moves to POST."
+    }
+  }
+}

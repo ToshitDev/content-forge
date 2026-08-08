@@ -1,0 +1,241 @@
+{
+  "timestamp": "20260808_165125",
+  "profile": {
+    "niche": "home workouts",
+    "audience": "busy office workers who cant make it to a gym",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I sit 9 hours a day my back is destroyed where do I even start. Tried following gym youtubers but everything needs equipment I dont have. I get home at 8pm cooking plus workout plus sleep is impossible. Do 10 minute workouts actually do anything or is that cope. Started monday stopped thursday every single month.",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Back pain from prolonged sitting (9+ hours daily)",
+        "Lack of equipment at home vs. gym-focused content",
+        "Severe time constraints (late arrival home, cooking, sleep priority)",
+        "Skepticism about effectiveness of short workouts (10 minutes)",
+        "Chronic consistency failure (starts Monday, quits by Thursday)"
+      ],
+      "ideas": [
+        {
+          "idea": "Desk-to-couch back relief series: 3-minute routines you can do at work without leaving your chair or looking weird",
+          "pain_point": "Back pain from prolonged sitting",
+          "unique_angle": "Positioned as damage control during the workday, not a 'real workout'"
+        },
+        {
+          "idea": "Before-bed spinal decompression routine (5 mins): floor stretches specifically for desk workers that help you sleep better",
+          "pain_point": "Back pain from prolonged sitting",
+          "unique_angle": "Frames movement as sleep improvement, not gym mentality"
+        },
+        {
+          "idea": "Equipment-free workout menu: show 15 different moves (bodyweight only) so people stop thinking 'I need dumbbells'",
+          "pain_point": "Lack of equipment at home",
+          "unique_angle": "Educational resource that deprograms gym-YouTube thinking"
+        },
+        {
+          "idea": "Furniture as equipment: use your couch, kitchen counter, stairs for resistance\u2014show exact modifications",
+          "pain_point": "Lack of equipment at home",
+          "unique_angle": "Reframes existing home items as tools, removes equipment anxiety"
+        },
+        {
+          "idea": "The 8pm reframe: 7-minute post-dinner mobility flow positioned as 'wind down' not 'cardio grind'",
+          "pain_point": "Severe time constraints (late arrival home)",
+          "unique_angle": "Acknowledges cooking happens first, movement fits after, not before"
+        },
+        {
+          "idea": "Micro-workout stacking: do 2-3 mins while coffee brews, 2 mins while shower heats up, etc. (shown as a week breakdown)",
+          "pain_point": "Severe time constraints (late arrival home)",
+          "unique_angle": "Doesn't ask for dedicated time block, just piggybacks on existing routines"
+        },
+        {
+          "idea": "The 10-minute truth: show real before/afters or measurable changes from consistent 10-min sessions over 8 weeks",
+          "pain_point": "Skepticism about effectiveness of short workouts",
+          "unique_angle": "Answers the 'is this cope' question directly with evidence, not motivational talk"
+        },
+        {
+          "idea": "Micro vs. macro breakdown: explain what 10 mins actually accomplishes (maintenance, mobility, energy) vs. what it doesn't (hypertrophy)",
+          "pain_point": "Skepticism about effectiveness of short workouts",
+          "unique_angle": "Sets realistic expectations instead of overselling, builds trust"
+        },
+        {
+          "idea": "The 4-day challenge: prove you can stick to workouts Mon-Thu by making them stupidly easy to start (literally 3 mins day 1)",
+          "pain_point": "Chronic consistency failure",
+          "unique_angle": "Names the exact failure pattern and designs specifically to break it"
+        },
+        {
+          "idea": "Quit-proof workout: design a 2-week onboarding where difficulty/time increases by 30 seconds per session to prevent Thursday burnout",
+          "pain_point": "Chronic consistency failure",
+          "unique_angle": "Uses progressive overload on time/difficulty to ease people past their failure point"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "The 4-day challenge: prove you can stick to workouts Mon-Thu by making them stupidly easy to start (literally 3 mins day 1)",
+          "reason": "Directly mirrors stated failure pattern and offers a concrete test. High engagement + solves the biggest behavioral blocker, not just physical pain."
+        },
+        {
+          "idea": "Desk-to-couch back relief series: 3-minute routines you can do at work without leaving your chair or looking weird",
+          "reason": "Addresses #1 pain point (back pain) where people are spending 9 hours. Most actionable immediately, zero barrier to entry."
+        },
+        {
+          "idea": "The 10-minute truth: show real before/afters or measurable changes from consistent 10-min sessions over 8 weeks",
+          "reason": "Kills the core skepticism ('is this cope') with evidence. Removes biggest psychological blocker to starting."
+        }
+      ],
+      "missing_info": [
+        "What specific back pain symptoms (lower, upper, sciatica, stiffness)?",
+        "Has audience tried any home workouts before, or only gym content?",
+        "Weekend availability\u2014can they do longer workouts Sat/Sun to enable weekday brevity?",
+        "What made them quit on Thursday specifically\u2014fatigue, boredom, life event, or just lost motivation?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "What if you could actually stick to a workout routine?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Day 1 is literally 3 minutes. Yes, that's it.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Most people quit by Wednesday. Here's how you won't.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "I built a 4-day challenge that actually works for office workers.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "This workout routine has a 92% completion rate. Here's why.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Tired of starting Monday and quitting by Friday?",
+          "type": "pain_point"
+        },
+        {
+          "text": "Your gym excuse just died. It's only 3 minutes.",
+          "type": "pain_point"
+        },
+        {
+          "text": "Between meetings, emails, and burnout? This is for you.",
+          "type": "pain_point"
+        },
+        {
+          "text": "Forget everything you know about starting a workout routine.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "A 4-day challenge that doesn't feel like punishment. Wild.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your gym excuse just died. It's only 3 minutes.",
+        "reasoning": "This hook directly validates the audience's biggest barrier (time/excuses) while the 3-minute revelation creates immediate curiosity. Busy office workers are primed to feel guilty about not working out, so this flips the script and makes them feel *clever* for recognizing the solution."
+      },
+      "runner_up": {
+        "text": "Day 1 is literally 3 minutes. Yes, that's it.",
+        "reasoning": "Safer because it's more straightforward and leads naturally into the reveal of the challenge structure. Less confrontational than the winner but still creates strong intrigue for an audience skeptical about fitting fitness into their day."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Your gym excuse just died. It's only 3 minutes.\"\n[PAUSE]\n\n[PROBLEM - 3-6 sec]\n\"I get it. You're slammed. No time to commute, change, shower again.\"\n[ON-SCREEN TEXT: \"Sound familiar?\"]\n[CUT]\n\n[VALUE - 6-18 sec]\n\"Three minutes. That's it.\"\n[PAUSE]\n\"No equipment. No sweat disaster before your 2pm call.\"\n[ON-SCREEN TEXT: \"Just proven moves\"]\n\"You hit chest, shoulders, and core in one round.\"\n[CUT]\n\"Do this 3-4 times a week, and you'll actually feel the difference.\"\n\n[CTA - 18-20 sec]\n\"Follow for the full system\u2014real workouts designed for people with actual jobs.\"\n[ON-SCREEN TEXT: \"Follow for more\"]",
+      "word_count": 87,
+      "viewer_takeaway": "A legitimate 3-minute workout exists that requires zero equipment and fits into an office worker's schedule without the gym friction."
+    },
+    "visual": {
+      "cover_options": [
+        "Close-up of phone showing '3 MIN' in bold white text, slight smirk or raised eyebrow visible in corner, gym equipment blurred in background",
+        "Split-screen: left side shows person stressed at desk (phone buzzing), right side shows same person mid-pushup with confidence, '3 MIN WORKOUT' overlaid in center"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "Cut to person making defeated/embarrassed face, shrug gesture. Bright, punchy energy. Text pops in with quick bounce animation.",
+          "on_screen_text": "Your gym excuse just died"
+        },
+        {
+          "position": "3-6 sec (PROBLEM)",
+          "visual_direction": "Quick montage of relatable chaos: person checking watch, commute traffic, gym bag gathering dust, pile of laundry. Fast cuts, slightly comedic tone. Text appears mid-sequence.",
+          "on_screen_text": "Sound familiar?"
+        },
+        {
+          "position": "6-9 sec (VALUE - setup)",
+          "visual_direction": "Person in athletic wear, minimal/clean background (home or office corner). Confident stance. Text appears as they're about to demo. No equipment visible yet.",
+          "on_screen_text": "Just proven moves"
+        },
+        {
+          "position": "9-14 sec (VALUE - demo)",
+          "visual_direction": "Quick, clear demonstration of chest/shoulder/core moves (e.g., pushups, pike planks, shoulder taps). 3-4 reps each, shot from angle that shows form clearly. No text\u2014let the movement speak.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "14-18 sec (VALUE - payoff)",
+          "visual_direction": "Quick cut to person post-workout (slight flush, confident expression) or transition to next day of work/life showing energy/composure. Upbeat music swell. Text reinforces frequency/outcome.",
+          "on_screen_text": "3-4x/week = real results"
+        },
+        {
+          "position": "18-20 sec (CTA)",
+          "visual_direction": "Person looks directly at camera, gives a knowing nod or subtle point gesture. Clean, direct eye contact. Text appears as overlay with follow button/icon highlighted. End frame lingers for 1 sec.",
+          "on_screen_text": "Follow for more"
+        }
+      ],
+      "assets_needed": [
+        "Phone or clock showing time/alarm",
+        "Footage of person at desk (stressed expression)",
+        "Traffic/commute b-roll or photo",
+        "Gym bag or workout clothes (unused)",
+        "Laundry pile or 'too busy' visual",
+        "Athlete/person in athletic wear, clean home/office space",
+        "Clear demo footage: pushups, pike planks, shoulder taps (multiple angles, good lighting)",
+        "Post-workout person (flush, energized expression)",
+        "Music track (upbeat, casual, modern\u2014no overly dramatic gym anthems)",
+        "Font/text animation style (bold, sans-serif, white with subtle shadow for readability)",
+        "Follow icon/CTA graphic asset"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately ('gym excuse just died') and 3-minute promise is unmissable, though 'no sweat disaster' could be crisper.",
+        "retention": "Problem montage holds attention through relatability, but demo section (9-14 sec) risks losing viewers if movement isn't visually compelling enough to justify staying.",
+        "save_potential": "Solves a real problem (time) with proof (3 moves shown), making it worth bookmarking for future reference despite modest novelty.",
+        "shareability": "Relatable pain points encourage tagging, but lacks surprise/humor hook that drives organic shares\u2014feels helpful rather than 'wow, must send this'.",
+        "audience_fit": "Directly addresses busy office workers with commute/timing objections and assures 'no shower before meetings'\u2014exceptionally tight alignment.",
+        "cta_strength": "Follow-only ask is low-friction and clear, but lacks scarcity/urgency\u2014'Follow for full system' doesn't explain why now vs. later."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA lacks urgency/specificity\u2014'Follow for the full system' is generic and doesn't create a reason to act immediately.",
+          "fix": "Change to: 'Follow now\u2014I'm dropping the full 12-week office-worker program tomorrow' or 'Follow to unlock the daily 3-min routine (office-tested, no equipment).' This adds scarcity and clarifies what they're getting."
+        },
+        {
+          "issue": "Demo section (9-14 sec) has no context\u2014viewers see moves but don't understand why these three target office workers specifically (desk posture, tight hip flexors, weak shoulders).",
+          "fix": "Add one line of on-screen text during demo: 'Fixes desk posture + desk fatigue' or place it before demo: 'These three hit the muscles your desk destroys.' Reframe moves as solutions, not just exercises."
+        },
+        {
+          "issue": "Payoff claim ('3-4x/week = real results') is vague\u2014'real results' is subjective; office workers may interpret as 'visible abs' (unrealistic in 3 min/day) and dismiss post-view.",
+          "fix": "Swap to: '3-4x/week = more energy, better posture, fewer 3pm crashes' or show on-screen text: 'Noticeable energy shift in 2 weeks.' Anchor expectation to what office workers actually want (energy, posture, no time loss)."
+        }
+      ],
+      "captions": [
+        "Your commute to the gym just became optional.\n\n3 minutes. No equipment. Chest, shoulders, core.\n\nDo this 3-4x/week and actually feel the difference\u2014no shower required before your 2pm call.\n\nFollow for the full office-worker system (starts tomorrow).",
+        "Busy \u2260 Broken fitness.\n\n3 minutes is all you need to hit the muscles your desk destroys.\n\nNo gym. No commute. No excuses left.\n\nFollow for the daily system designed for people with actual jobs."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong audience fit and clear value prop, but CTA lacks urgency, demo lacks context for office workers, and payoff claim needs grounding in realistic outcomes\u2014three reworks above fix all three and unlock shareability."
+    }
+  }
+}

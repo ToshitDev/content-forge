@@ -1,0 +1,260 @@
+{
+  "timestamp": "20260808_161913",
+  "profile": {
+    "niche": "student productivity",
+    "audience": "college students who procrastinate",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual, direct, slightly funny",
+    "cta": "follow for the full system"
+  },
+  "research_material": "I make a timetable every Sunday and quit by Tuesday\nhow do you study when your phone is right there\nI always plan too much and then feel behind by Wednesday\ndoes anyone actually stick to a study schedule or is it a scam\nI redo my planner every week instead of actually studying",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Planning/scheduling collapses mid-week (Tuesday-Wednesday slump)",
+        "Phone distraction makes studying impossible",
+        "Over-planning without execution (planner becomes procrastination tool)",
+        "Skepticism about whether study schedules actually work",
+        "Perfectionism loop: redoing systems instead of doing the work"
+      ],
+      "ideas": [
+        {
+          "idea": "Tuesday Breakdown: Why your Sunday plan dies by midweek + what actually sticks (micro-adjustments instead of total rewrites)",
+          "pain_point": "Planning/scheduling collapses mid-week",
+          "unique_angle": "Most advice assumes the plan fails because students are lazy\u2014actually naming the specific day the failure happens and treating it as a predictable pattern, not a character flaw"
+        },
+        {
+          "idea": "Reel: 'Day 1 vs Day 3 of my study schedule' (exaggerated comparison of effort invested in planning vs actual studying)",
+          "pain_point": "Planning/scheduling collapses mid-week",
+          "unique_angle": "Using humor to expose the emotional investment in the plan vs the reality of execution without shame"
+        },
+        {
+          "idea": "The Phone Proximity Problem: practical phone-away setups that don't require willpower (physical barriers, not motivation)",
+          "pain_point": "Phone distraction makes studying impossible",
+          "unique_angle": "Treating phone distraction as an environmental design problem, not a discipline problem"
+        },
+        {
+          "idea": "Carousel: 'Phone spots that actually worked' (student-submitted locations, not generic library advice)",
+          "pain_point": "Phone distraction makes studying impossible",
+          "unique_angle": "Crowdsourced real solutions from the audience instead of prescriptive expert tips"
+        },
+        {
+          "idea": "Poll/quiz: 'Is your planner a study tool or a procrastination tool?' + reframe planning as the enemy (not the solution)",
+          "pain_point": "Over-planning without execution",
+          "unique_angle": "Directly naming that planners can be avoidance behavior, validating the audience's suspicion instead of selling them more planning"
+        },
+        {
+          "idea": "Post: 'Your planner doesn't need a redesign, your schedule does' (distinguish between aesthetic tweaking and strategy tweaking)",
+          "pain_point": "Over-planning without execution",
+          "unique_angle": "Separating the emotional satisfaction of a pretty planner from actual productivity"
+        },
+        {
+          "idea": "Honest testimonial: 'I asked 20 students if they stick to schedules\u2014here's what they actually said' (no fluff, raw answers)",
+          "pain_point": "Skepticism about whether study schedules actually work",
+          "unique_angle": "Instead of defending scheduling, amplifying the doubt and showing nuanced truths from real students"
+        },
+        {
+          "idea": "Reel: Study schedule fails ranked (from 'lasted 3 days' to 'lasted 1 study session') with what they learned each time",
+          "pain_point": "Skepticism about whether study schedules actually work",
+          "unique_angle": "Reframing schedule failures as data points instead of personal failures"
+        },
+        {
+          "idea": "Video: Stop before you redesign\u2014ask yourself these 3 questions (interrupt the perfection loop before it starts)",
+          "pain_point": "Perfectionism loop: redoing systems instead of doing the work",
+          "unique_angle": "Teaching metacognition about the urge to redo vs do, not just time management"
+        },
+        {
+          "idea": "Caption-driven post: 'You're not messy, you're a systems tweaker' (normalize it, then give 1 tiny hack to start the work anyway)",
+          "pain_point": "Perfectionism loop: redoing systems instead of doing the work",
+          "unique_angle": "Validating the personality type while offering a minimal friction intervention"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Tuesday Breakdown: Why your Sunday plan dies by midweek + what actually sticks",
+          "reason": "Multiple audience members mentioned specific mid-week collapse (Tuesday, Wednesday)\u2014this is a pattern ready to be named and addressed. High relatability, directly actionable."
+        },
+        {
+          "idea": "Poll/quiz: 'Is your planner a study tool or a procrastination tool?' + reframe planning as the enemy",
+          "reason": "Directly validates the core doubt in the audience ('does anyone actually stick to a study schedule or is it a scam'). Engagement-driving format with permission to question the premise."
+        },
+        {
+          "idea": "The Phone Proximity Problem: practical phone-away setups that don't require willpower",
+          "reason": "Simplest, most universal pain point. Solutions-focused. Avoids the shame of 'just discipline yourself' narrative."
+        }
+      ],
+      "missing_info": [
+        "What kind of content format performs best on this audience's feed (video, carousel, text post, Reel)?",
+        "Do students prefer accountability/community angles or solo-study advice?",
+        "What's the actual follow-through rate on study schedules (how many days/weeks do they typically last)?",
+        "Are there specific subjects/classes where schedules work better than others?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your Sunday plan was perfect. Tuesday killed it.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "We tracked when your productivity actually dies. It's specific.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "You're not lazy. Your planning method just sucks.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "90% of college plans fail before Wednesday. Here's why.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Planning on Sunday is your first mistake. Period.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "That perfect Sunday plan? Dead by Tuesday morning.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You plan like you care. You don't follow through.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Your planner looks great. Your actual week looks different.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: your schedule isn't the problem.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Stop planning Sundays. Start planning like this instead.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your Sunday plan was perfect. Tuesday killed it.",
+        "reasoning": "This hook mirrors the exact lived experience of procrastinating college students\u2014that specific moment when midweek momentum collapses. The short, punchy sentences feel like a friend calling out the obvious truth, which matches the brand voice and triggers immediate recognition without feeling preachy."
+      },
+      "runner_up": {
+        "text": "90% of college plans fail before Wednesday. Here's why.",
+        "reasoning": "The specific statistic (90%, before Wednesday) adds credibility while the promise of 'here's why' creates a logical curiosity gap. It's slightly safer because it positions the content as explanatory rather than judgmental, appealing to students who want to understand their own failures."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n[ON-SCREEN TEXT: \"Your Sunday plan was perfect.\"]\n[PAUSE 1 sec]\n[ON-SCREEN TEXT: \"Tuesday killed it.\"]\n[CUT]\n\n[PROBLEM - 3-8 sec]\nYou know the feeling. You map out your whole week Sunday night. Perfect schedule. Perfect intentions.\n[PAUSE]\nThen Tuesday hits and you're stress-eating cereal at 2 AM wondering where it all went wrong.\n[CUT]\n\n[VALUE - 8-20 sec]\nHere's what actually works: Stop planning your whole week.\n[PAUSE]\nInstead, use the 24-hour block method. Pick ONE day ahead of time. Literally just plan tomorrow.\n[ON-SCREEN TEXT: \"24-hour blocks > 7-day plans\"]\nIt's specific enough to follow. It's short enough to actually stick to.\n[PAUSE]\nNo overwhelm. No collapse.\n[CUT]\n\n[CTA - 20-23 sec]\nWant the full system that actually fits how your brain actually works?\n[PAUSE]\nFollow for the full breakdown.",
+      "word_count": 142,
+      "viewer_takeaway": "Procrastinators learn that rigid weekly plans fail, but 24-hour planning blocks are manageable and actually work\u2014curiosity drives them to follow for the complete system."
+    },
+    "visual": {
+      "cover_options": [
+        "Split-screen: left side shows organized planner with checkmarks, right side shows person stressed eating cereal at 2 AM. Bold text overlay: 'Your Sunday plan was perfect. Tuesday killed it.'",
+        "Close-up of hand crossing out a weekly planner with frustrated expression. Text overlay in bright color: 'Stop planning your whole week' with a red X through a calendar."
+      ],
+      "frame_plan": [
+        {
+          "position": "0-1 sec (First Frame)",
+          "on_screen_text": "Your Sunday plan was perfect.",
+          "visual_direction": "Clean, minimalist shot of person writing in a planner on Sunday evening, natural lighting, organized desk setup, calm expression"
+        },
+        {
+          "position": "1-3 sec",
+          "on_screen_text": "Tuesday killed it.",
+          "visual_direction": "Quick cut to chaotic scene: same person looking disheveled, surrounded by mess, stressed facial expression, low lighting"
+        },
+        {
+          "position": "3-5 sec",
+          "on_screen_text": "",
+          "visual_direction": "Cut to person talking directly to camera, casual setting (bedroom/home), relatable hand gestures while speaking about mapping out the week"
+        },
+        {
+          "position": "5-8 sec",
+          "on_screen_text": "",
+          "visual_direction": "B-roll montage: person stress-eating cereal at desk, clock showing 2 AM, frustrated head in hands, quick cuts between different collapse moments"
+        },
+        {
+          "position": "8-10 sec",
+          "on_screen_text": "Stop planning your whole week.",
+          "visual_direction": "Person at desk, emphatically gesturing 'no' at a calendar, then pointing at camera with confident expression, bright background"
+        },
+        {
+          "position": "10-15 sec",
+          "on_screen_text": "24-hour blocks > 7-day plans",
+          "visual_direction": "Split-screen or animated graphic showing: left side = overwhelming 7-day calendar with red marks, right side = single highlighted day in green. Person nods approvingly"
+        },
+        {
+          "position": "15-18 sec",
+          "on_screen_text": "",
+          "visual_direction": "Close-up of person's face explaining benefits, natural gestures, pointing to self while saying 'your brain,' conversational tone"
+        },
+        {
+          "position": "18-20 sec",
+          "on_screen_text": "Specific enough to follow. Short enough to stick.",
+          "visual_direction": "Quick visual of tomorrow's date highlighted on phone/calendar, checkmark appearing, person looking relieved and calm"
+        },
+        {
+          "position": "20-22 sec (CTA - ON SCREEN)",
+          "on_screen_text": "Follow for the full breakdown",
+          "visual_direction": "Person looking directly at camera with friendly smile, hands open in welcoming gesture, call-to-action text appears bottom of screen in brand colors"
+        },
+        {
+          "position": "22-23 sec (Final Frame)",
+          "on_screen_text": "Follow @[brand]",
+          "visual_direction": "Quick end-card with brand handle, Instagram follow button graphic, slight zoom or bounce effect"
+        }
+      ],
+      "assets_needed": [
+        "Sunday evening setup: clean desk, planner, pen, natural window lighting",
+        "Tuesday chaos: messy desk, unmade bed, scattered papers, dim lighting",
+        "2 AM cereal eating: bowl of cereal, spoon, clock showing 2:00, person in sleep clothes",
+        "Calendar graphics: 7-day overwhelmed version (red, cluttered), 24-hour clean version (green, organized)",
+        "Phone/digital calendar showing tomorrow's date highlighted",
+        "Person on camera in casual setting (home environment preferred)",
+        "B-roll: stressed gestures, head in hands, frustrated facial expressions",
+        "Checkmark graphics/animations",
+        "Brand color overlays for text and CTA buttons",
+        "Instagram follow button graphic for end-card"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately with relatable contrast; 24-hour block method is explained in one clear sentence by second 8.",
+        "retention": "Stress-eating cereal at 2 AM is specific enough to hold attention, but the value proposition (24-hour blocks) could hit harder emotionally before the pivot.",
+        "save_potential": "Clear system with immediate takeaway makes this worth saving; viewers understand the core idea without following yet.",
+        "shareability": "Problem is universal but solution lacks novelty\u201424-hour planning isn't original enough to feel shareable as a 'hack' or revelation.",
+        "audience_fit": "Procrastinator pain points (Sunday optimism \u2192 Tuesday collapse, 2 AM stress) are precisely mapped to college student experience.",
+        "cta_strength": "Follow-for-full-system is clear and low-friction, but 'full breakdown' isn't specific enough to create urgency or curiosity gap."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA lacks specificity\u2014'full breakdown' is vague and doesn't create FOMO; followers don't know what they're actually getting.",
+          "fix": "Rewrite CTA to: 'Follow for the 3-part system that actually stops the Sunday-to-Tuesday collapse (plus a free planning template).'"
+        },
+        {
+          "issue": "Shareability is weak because 24-hour blocks feel like incremental advice, not a counterintuitive insight; framing misses the 'aha' moment.",
+          "fix": "Reframe at 8-sec mark to: 'Stop planning your whole week\u2014it kills motivation. Instead, plan only what you can control: tomorrow. That's it.' (Adds control/agency angle for virality.)"
+        },
+        {
+          "issue": "Script doesn't answer 'why 24-hour blocks work'\u2014just that they do; missing the psychological payoff that drives saves.",
+          "fix": "Add 1-2 sec after 'short enough to stick': 'Because your brain doesn't need 7 days of pressure. It needs 1 day of clarity.' (Reframes as brain science, not tactics.)"
+        }
+      ],
+      "captions": [
+        "Your Sunday plan was flawless. Tuesday had other plans. \ud83d\udcc5 The 24-hour block method cuts through the chaos\u2014follow for the full system that actually fits how your brain works (including a free planning template). \ud83e\udde0",
+        "Sunday night energy: 'I've got this.' Tuesday 2 AM energy: *stress eating cereal* \ud83e\udd63 Stop planning your whole week. Start planning tomorrow. Follow for the breakdown + a system that actually sticks. \ud83d\udd17"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong audience fit and clarity, but shareability and CTA specificity are leaving engagement on the table\u2014tighten the 'why' and replace vague 'full breakdown' with concrete value (template, system components) to lift saves and follows."
+    }
+  }
+}
