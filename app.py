@@ -7,7 +7,10 @@ all of that stays in src/agents/ and src/pipeline.py.
 
 import streamlit as st
 
+from src.logging_config import configure_logging
 from src.pipeline import run_pipeline
+
+configure_logging()
 
 PLATFORMS = ["Instagram", "YouTube", "LinkedIn", "X"]
 FORMATS = ["reel", "carousel", "post"]

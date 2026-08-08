@@ -36,6 +36,7 @@ scripts/benchmark_concurrency.py for the measured speedup.
 
 import asyncio
 import json
+import logging
 import uuid
 from collections.abc import Callable
 from dataclasses import asdict
@@ -50,6 +51,8 @@ from src.agents.research import ResearchAgent
 from src.agents.script import ScriptAgent
 from src.agents.visual import VisualAgent
 from src.models import GrowthReview, HookOutput, ResearchOutput, ScriptOutput, VisualOutput
+
+logger = logging.getLogger(__name__)
 
 EXAMPLES_DIR = Path(__file__).resolve().parent.parent / "examples"
 TOTAL_STEPS = 5
@@ -261,8 +264,11 @@ async def _run_step(
 ) -> T:
     """Run one pipeline step, parse its result, and report progress.
 
-    Prints a progress line unconditionally (CLI usage relies on this),
-    then also calls on_progress(step_num, TOTAL_STEPS, name) if given.
+    Prints a progress line unconditionally (CLI usage relies on this) —
+    that's user-facing UX, so it stays a print rather than a log call.
+    The failure path below is logged, though: it's the kind of thing
+    worth having in logs/contentforge.log even though the caller also
+    sees it via the raised RuntimeError.
 
     Raises:
         RuntimeError: If the API call or parsing fails, naming which
@@ -272,6 +278,7 @@ async def _run_step(
         data = await agent.run_parsed(inputs)
         result = output_cls.from_dict(data)
     except Exception as error:
+        logger.error("%s agent failed: %s", name, error)
         raise RuntimeError(f"{name} agent failed: {error}") from error
     print(f"[{step_num}/{TOTAL_STEPS}] {name} agent... done")
     if on_progress:
@@ -315,6 +322,10 @@ def _save_run(profile: dict[str, str], research_material: str, outputs: dict[str
 
 if __name__ == "__main__":
     import argparse
+
+    from src.logging_config import configure_logging
+
+    configure_logging()
 
     parser = argparse.ArgumentParser(description="Run the pipeline with sample data.")
     parser.add_argument(
