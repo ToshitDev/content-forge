@@ -12,6 +12,7 @@ the same time via asyncio.gather, instead of one run blocking the next.
 
 import asyncio
 import json
+import logging
 import os
 import re
 from pathlib import Path
@@ -21,8 +22,11 @@ import anthropic
 from dotenv import load_dotenv
 
 from src import cache
+from src.rate_limiter import TokenBucket
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "prompts"
 
@@ -46,6 +50,16 @@ NON_PLACEHOLDER_TOKENS = {"PAUSE", "CUT"}
 # Errors worth retrying: the request itself was fine, the API was just busy.
 RETRYABLE_ERRORS = (anthropic.RateLimitError, anthropic.InternalServerError)
 RETRY_DELAYS = (1, 2, 4)  # seconds, one entry per retry attempt
+
+# Shared across every agent instance — this paces the whole app's outbound
+# API calls, not each agent individually. 5 capacity / 2.0 per second is a
+# sensible starting point: a burst of up to 5 calls (e.g. kicking off a
+# 5-job concurrent batch) goes through immediately, then further calls are
+# paced to 2/sec. This is a proactive limit — it tries to avoid hitting a
+# real rate limit at all. _call_with_retry's backoff is still the reactive
+# safety net for whatever gets through anyway (a different process sharing
+# the same API key, a burst that exceeds what this bucket accounts for).
+RATE_LIMITER = TokenBucket(capacity=5, refill_rate=2.0)
 
 
 class BaseAgent:
@@ -103,10 +117,13 @@ class BaseAgent:
         if self.use_cache:
             cached = cache.get(key)
             if cached is not None:
-                print(f"[cache hit] {self.prompt_name}")
+                logger.info("[cache hit] %s", self.prompt_name)
                 return cached
+            logger.warning("[cache miss] %s — calling the API", self.prompt_name)
 
+        logger.info("Calling %s agent", self.prompt_name)
         result = await self._call_with_retry(prompt)
+        logger.info("%s agent call succeeded", self.prompt_name)
 
         if self.use_cache:
             cache.set(key, result)
@@ -206,8 +223,16 @@ class BaseAgent:
         """
         delays = (0,) + RETRY_DELAYS  # no delay before the first attempt
         last_error: Exception | None = None
-        for delay in delays:
+        for attempt, delay in enumerate(delays):
             if delay:
+                logger.warning(
+                    "%s agent: retrying after %s (attempt %d/%d), waiting %ss",
+                    self.prompt_name,
+                    type(last_error).__name__,
+                    attempt,
+                    len(delays) - 1,
+                    delay,
+                )
                 await asyncio.sleep(delay)
             try:
                 return await self._call_api(prompt)
@@ -219,10 +244,15 @@ class BaseAgent:
         # for both mypy (narrows Exception | None -> Exception) and anyone
         # reading this later, instead of leaving it as an implicit "trust me".
         assert last_error is not None
+        logger.error("%s agent failed after all retries: %s", self.prompt_name, last_error)
         raise last_error
 
     async def _call_api(self, prompt: str) -> str:
         """Send one request to the Anthropic API and return the text reply.
+
+        Waits for RATE_LIMITER before sending — this runs on every
+        attempt, including retries, since each is a genuine new request
+        that should be paced the same as the first.
 
         Raises:
             ValueError: If the response was cut off by hitting max_tokens.
@@ -230,12 +260,16 @@ class BaseAgent:
                 raised here with a clear cause instead of surfacing later
                 as a confusing json.JSONDecodeError.
         """
+        await RATE_LIMITER.acquire()
         response = await self.client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
             messages=[{"role": "user", "content": prompt}],
         )
         if response.stop_reason == "max_tokens":
+            logger.error(
+                "%s agent response truncated (max_tokens=%d)", self.prompt_name, self.max_tokens
+            )
             raise ValueError(
                 f"Response from '{self.prompt_name}' was truncated (hit "
                 f"max_tokens={self.max_tokens}). Increase max_tokens or "

@@ -16,5 +16,8 @@ venv/
 # Cached API responses (src/cache.py) — regenerable, not source
 cache/
 
+# Log output (src/logging_config.py)
+logs/
+
 # OS
 .DS_Store
