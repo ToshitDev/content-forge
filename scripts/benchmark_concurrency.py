@@ -8,7 +8,14 @@ Cache is disabled for both arms so the comparison reflects real API
 latency, not cache hits — this makes real API calls and costs money.
 """
 
+import sys
 import time
+from pathlib import Path
+
+# Lets this run as `python scripts/benchmark_concurrency.py` from anywhere,
+# without needing PYTHONPATH set manually — puts the repo root (this
+# file's parent's parent) on sys.path so `from src...` imports resolve.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.pipeline import run_pipeline, run_pipeline_batch
 
