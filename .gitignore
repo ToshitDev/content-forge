@@ -19,5 +19,8 @@ cache/
 # Log output (src/logging_config.py)
 logs/
 
+# Run history database (src/history.py) — generated data, not source
+history.db
+
 # OS
 .DS_Store

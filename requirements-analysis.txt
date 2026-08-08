@@ -1,0 +1,5 @@
+# Only needed for scripts/analyze_history.py — not the app itself, not
+# dev tooling, so it gets its own file rather than bloating either.
+-r requirements.txt
+pandas
+matplotlib
