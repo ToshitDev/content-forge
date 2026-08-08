@@ -24,6 +24,11 @@ One rule holds the whole thing together: the system never invents audience data.
 You paste real comments, DMs, or competitor posts, and every agent works from
 that. Human truth in, machine craft applied, human judgment at the end.
 
+If you're not sure what to paste, there's a "Suggest example comments" button
+that generates a few illustrative examples based on your niche, clearly
+labeled as AI-generated, not real data, to help you see the shape of a good
+input before you replace it with the real thing.
+
 ## The pipeline
 
 ```
