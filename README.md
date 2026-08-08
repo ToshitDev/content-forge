@@ -91,17 +91,37 @@ CTA strength 6.6. Average latency: 47.18s uncached vs 0.99s cached, about
 ## Project layout
 
 ```
-app.py               Streamlit UI
+app.py                    Streamlit UI
+Dockerfile, docker-compose.yml   Container build + run
 src/
-  agents/            One module per agent, all inheriting a shared BaseAgent
-  prompts/           Prompt templates as .txt files, never inlined in code
-  models.py          Dataclasses for each agent's output
-  pipeline.py        Chains the five agents, saves every run
-tests/               pytest suite (parsing + edge cases)
-examples/            Saved pipeline runs with full inputs and outputs
+  agents/                 One module per agent, all inheriting a shared BaseAgent
+  prompts/                Prompt templates as .txt files, never inlined in code
+  models.py               Dataclasses for each agent's output
+  pipeline.py             Chains the five agents, saves every run
+  cache.py                Content-addressed response cache
+  rate_limiter.py         Token-bucket rate limiter for API calls
+  logging_config.py       Console + rotating file log setup
+  history.py              SQLite run history (scores, latency, per run)
+scripts/
+  benchmark_concurrency.py   Sequential vs. concurrent timing
+  analyze_history.py         pandas/matplotlib analysis of history.db
+tests/                    pytest suite (parsing, pipeline, cache, history, ...)
+examples/                 Saved pipeline runs with full inputs and outputs
 ```
 
 ## Setup
+
+### Run with Docker
+
+```bash
+cp .env.example .env      # then add your real key
+docker compose up --build
+```
+
+Open http://localhost:8501. The API key comes in at container *start* time via
+`env_file` in `docker-compose.yml`, not baked into the image at build time.
+
+### Manual setup (for development)
 
 ```bash
 python -m venv venv && source venv/bin/activate
@@ -113,11 +133,14 @@ streamlit run app.py
 Config is read from `.env` via `python-dotenv`. `.env` is gitignored, so API keys
 are never hardcoded or committed.
 
+For linting/type-checking/tests, install `requirements-dev.txt` instead (it
+pulls in `requirements.txt` too); for `scripts/analyze_history.py`, install
+`requirements-analysis.txt`.
+
 ## Status
 
-Working end to end: five agents, full pipeline, Streamlit UI, CI, caching,
-concurrency, rate limiting, logging, and analytics. Only Docker and final
-polish remain before v1.0.0.
+Complete. Five agents, full pipeline, Streamlit UI, CI, caching, concurrency,
+rate limiting, logging, analytics, and a Docker setup for one-command runs.
 
 ## Full run
 
@@ -135,7 +158,7 @@ polish remain before v1.0.0.
 - [x] Phase 8: Parallelize independent stages, measure speedup
 - [x] Phase 9: Client-side rate limiting + proper logging
 - [x] Phase 10: SQLite run history + score analytics
-- [ ] Phase 11: Docker + final docs, then v1.0.0
+- [x] Phase 11: Docker + final docs, then v1.0.0
 
 Building this in phases and committing as I go, so the history shows how it
 actually came together. The plan grew mid-project once the basics worked. The
