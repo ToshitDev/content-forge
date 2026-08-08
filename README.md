@@ -56,6 +56,16 @@ It also has teeth. On its very first full run, the Growth agent scored the
 pipeline's own output and refused to approve it: final call REWORK, with specific
 notes on the CTA. The quality gate actually gates.
 
+## Concurrency
+
+The 5-agent chain within one run is sequential by nature, each stage needs
+the previous stage's output, so parallelizing it wouldn't help (Amdahl's
+law: you can't speed up work that has to happen in order).
+
+The real opportunity is running multiple independent pipeline runs at once.
+Benchmarked 3 separate jobs: 130.0s running one after another, 51.4s running
+concurrently with asyncio.gather. 2.53x speedup.
+
 ## Project layout
 
 ```
@@ -99,7 +109,7 @@ hardening it. CI, caching, and concurrency are next.
 - [x] Phase 5: Streamlit UI so it's usable without a terminal
 - [x] Phase 6: CI with tests, lint, and type checks on every push
 - [x] Phase 7: Response caching so repeat runs cost nothing
-- [ ] Phase 8: Parallelize independent stages, measure speedup
+- [x] Phase 8: Parallelize independent stages, measure speedup
 - [ ] Phase 9: Client-side rate limiting + proper logging
 - [ ] Phase 10: SQLite run history + score analytics
 - [ ] Phase 11: Docker + final docs, then v1.0.0
