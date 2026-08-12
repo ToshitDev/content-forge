@@ -1,0 +1,258 @@
+{
+  "timestamp": "20260812_112601",
+  "profile": {
+    "niche": "marketing my pre production-tool and audience are people who wants to use my tool",
+    "audience": "marketing my pre production-tool and audience are people who wants to use my tool",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more"
+  },
+  "research_material": "spend like 3 hours every week just organizing shot lists and storyboards in different folders, there's gotta be a better way to do this\nour team keeps sending files back and forth and half the time someone's working on an outdated version. need something that actually keeps everyone on the same page\ni'm pre-producing 5 different projects at once and i can't remember which locations were approved for which shoot\nconstantly switching between like 4 different apps to handle locations, talent, equipment, and timeline stuff. would be so nice to have one place for all of it\nspent 2 days recreating a shot list because the notes from my location scout got buried in slack messages",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Disorganized file management - spending hours organizing shot lists and storyboards across multiple folders",
+        "Version control chaos - team working on outdated files due to constant back-and-forth sharing",
+        "Information fragmentation across multiple projects - can't track which locations/details belong to which shoot",
+        "Tool overload - juggling 4+ apps to manage different production elements instead of one centralized space",
+        "Information loss in communication channels - critical production notes getting buried in Slack and scattered across platforms"
+      ],
+      "ideas": [
+        {
+          "idea": "Show a day-in-the-life reel of someone spending 3 hours organizing folders, then jump to the same person finding everything in seconds in one place",
+          "pain_point": "Disorganized file management - spending hours organizing shot lists and storyboards across multiple folders",
+          "unique_angle": "Angle nobody's covering: the emotional relief of reclaimed time, not just the feature demo"
+        },
+        {
+          "idea": "Create a before/after carousel showing a chaotic folder structure vs a clean, organized pre-production workspace",
+          "pain_point": "Disorganized file management - spending hours organizing shot lists and storyboards across multiple folders",
+          "unique_angle": "Angle nobody's covering: making the invisible work of organization visible and validating how much time it actually takes"
+        },
+        {
+          "idea": "Post a carousel about the 'version control nightmare' - show timestamps of conflicting file versions and how one source of truth prevents it",
+          "pain_point": "Version control chaos - team working on outdated files due to constant back-and-forth sharing",
+          "unique_angle": "Angle nobody's covering: the hidden cost of version confusion (re-work, miscommunication, team friction)"
+        },
+        {
+          "idea": "Create a short video showing someone finding out their team already solved a problem they're about to redo - then show how centralized tools prevent that",
+          "pain_point": "Version control chaos - team working on outdated files due to constant back-and-forth sharing",
+          "unique_angle": "Angle nobody's covering: the psychological toll of duplicated effort and not trusting what your team has already done"
+        },
+        {
+          "idea": "Make a grid post showing 5 different projects with mixed-up location tags, then show all 5 organized correctly with location approval status visible",
+          "pain_point": "Information fragmentation across multiple projects - can't track which locations/details belong to which shoot",
+          "unique_angle": "Angle nobody's covering: the specific anxiety of scaling to multiple simultaneous projects"
+        },
+        {
+          "idea": "Create a reels showing someone frantically scrolling through notes trying to remember which location was approved for which project, then showing instant clarity",
+          "pain_point": "Information fragmentation across multiple projects - can't track which locations/details belong to which shoot",
+          "unique_angle": "Angle nobody's covering: the decision fatigue when you can't trust your own memory under production pressure"
+        },
+        {
+          "idea": "Post a 'app graveyard' carousel - show the 4 different apps someone uses for pre-production, then show consolidation into one",
+          "pain_point": "Tool overload - juggling 4+ apps to manage different production elements instead of one centralized space",
+          "unique_angle": "Angle nobody's covering: the cognitive load and context-switching cost, not just the inconvenience"
+        },
+        {
+          "idea": "Create a side-by-side reel showing someone constantly context-switching between apps (visual chaos) vs working in one place (calm focus)",
+          "pain_point": "Tool overload - juggling 4+ apps to manage different production elements instead of one centralized space",
+          "unique_angle": "Angle nobody's covering: the mental exhaustion of tool fatigue is as real as the time waste"
+        },
+        {
+          "idea": "Make a carousel showing a Slack thread where critical location scout notes are buried among memes and off-topic messages - then show those same notes in an organized, searchable place",
+          "pain_point": "Information loss in communication channels - critical production notes getting buried in Slack and scattered across platforms",
+          "unique_angle": "Angle nobody's covering: the specific format of Slack-as-a-graveyard for production intel"
+        },
+        {
+          "idea": "Create a video showing someone recreating work because they couldn't find the original notes, then showing how search + organization prevents it",
+          "pain_point": "Information loss in communication channels - critical production notes getting buried in Slack and scattered across platforms",
+          "unique_angle": "Angle nobody's covering: the wasted human hours of redoing work that already exists somewhere"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Show a day-in-the-life reel of someone spending 3 hours organizing folders, then jump to the same person finding everything in seconds in one place",
+          "reason": "Most directly mirrors the exact pain point with relatable time investment. High emotional resonance + clear before/after. Strong engagement potential on Reels."
+        },
+        {
+          "idea": "Create a video showing someone recreating work because they couldn't find the original notes, then showing how search + organization prevents it",
+          "reason": "Taps into real frustration and wasted effort. The '2 days recreating a shot list' comment is visceral pain - this directly validates that specific experience."
+        },
+        {
+          "idea": "Make a grid post showing 5 different projects with mixed-up location tags, then show all 5 organized correctly with location approval status visible",
+          "reason": "Speaks to someone managing multiple projects (specific to the '5 different projects' mention). Visual, clear, solves a precise problem they named."
+        },
+        {
+          "idea": "Post a 'app graveyard' carousel - show the 4 different apps someone uses for pre-production, then show consolidation into one",
+          "reason": "The '4 different apps' complaint is explicit and relatable. Carousel format is strong for before/after comparisons on Instagram. Visual clutter to clarity narrative works."
+        },
+        {
+          "idea": "Create a short video showing someone finding out their team already solved a problem they're about to redo - then show how centralized tools prevent it",
+          "reason": "Addresses the deepest frustration: team friction and duplicated effort. Less obvious than individual pain points but deeply resonates with team leads and producers."
+        }
+      ],
+      "missing_info": [
+        "Team size/structure - are these solo creators or larger production teams? Pain points may vary significantly",
+        "Budget sensitivity - no indication of price expectations or competitor awareness",
+        "Technical comfort level - how tech-savvy is the audience? May affect messaging around adoption",
+        "Current tool stack details - which 4 apps specifically? (Adobe apps, Notion, Monday.com, etc.) Could inform more specific pain point language",
+        "Timeline pressure - how urgent is the need? Are they in active pre-production now or planning ahead?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "3 hours wasted. Watch what changed everything.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "She spent her whole morning here. Then this happened.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "You won't believe how fast she found it.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Stop losing 3 hours every single day to this.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your folder chaos is costing you real money.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Lost another file? Yeah, we've all been there.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "That moment when you can't find anything anymore.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Digging through folders instead of actually working today?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Organized chaos doesn't exist. Trust me, it doesn't.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Everyone organizes files wrong. Here's the proof.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Stop losing 3 hours every single day to this.",
+        "reasoning": "This hook directly quantifies the pain creators/marketers experience, making the problem impossible to ignore. It uses 'every single day' to emphasize the recurring nature of the problem, which resonates with pre-production tool users who are frustrated by lost productivity and want an immediate solution."
+      },
+      "runner_up": {
+        "text": "3 hours wasted. Watch what changed everything.",
+        "reasoning": "Safe but effective\u2014it mirrors the exact narrative of the reel while creating intrigue about the solution. Less confrontational than the winner, making it accessible to users not yet convinced they have a problem."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n[ON-SCREEN TEXT: Stop losing 3 hours every single day to this.]\n\n[PAUSE]\n\n[PROBLEM - 3-7 sec]\nYou're manually organizing shots, managing timelines, hunting for footage. Again.\n[CUT]\nIt's eating your entire pre-production day.\n\n[VALUE - 7-20 sec]\nOur tool cuts that down to 30 minutes.\n[ON-SCREEN TEXT: Shot lists \u2192 storyboards \u2192 shot references]\nOne place. Drag, drop, organize.\n[PAUSE]\nNo more scattered files. No more wasted time.\n\n[CUT]\n\n[CTA - 20-23 sec]\nFollow for more ways to actually get your day back.\n[ON-SCREEN TEXT: Follow for more]",
+      "word_count": 68,
+      "viewer_takeaway": "Pre-production tool saves 2.5+ hours daily by centralizing shot organization, storyboarding, and asset management in one intuitive interface."
+    },
+    "visual": {
+      "cover_options": [
+        "Close-up of frustrated creator staring at multiple open windows/tabs, clock visible showing 3 hours passing. Bold red text overlay: 'Stop losing 3 hours every single day to this.' High contrast, urgent energy.",
+        "Split-screen: left side shows chaotic desktop with scattered files/folders, right side shows clean organized interface. Text: 'Stop losing 3 hours every single day to this.' Clean vs. messy visual metaphor."
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "Close-up of creator looking stressed at cluttered workspace. Multiple windows open, files scattered. Use red accent color. Quick zoom or shake for emphasis. Pause for 1 sec after text appears.",
+          "on_screen_text": "Stop losing 3 hours every single day to this."
+        },
+        {
+          "position": "3-5 sec (PROBLEM pt 1)",
+          "visual_direction": "B-roll montage: hands dragging files between folders, timeline scrubbing back and forth, browser tabs multiplying. Fast cuts (0.5-1 sec each). Show frustration through frantic hand movements.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "5-7 sec (PROBLEM pt 2)",
+          "visual_direction": "Wide shot of creator at desk, head in hands. Clock or time-lapse showing hours passing. Overlay text in white, bold sans-serif. Cut to black for emphasis.",
+          "on_screen_text": "It's eating your entire pre-production day."
+        },
+        {
+          "position": "7-10 sec (VALUE pt 1)",
+          "visual_direction": "Demo shot: drag-and-drop interaction showing shot list being created. Smooth, satisfying motion. Use brand color. Text appears in bold, confident tone. Show speed/efficiency.",
+          "on_screen_text": "Our tool cuts that down to 30 minutes."
+        },
+        {
+          "position": "10-16 sec (VALUE pt 2 - main demo)",
+          "visual_direction": "Screen recording of tool in action: user dragging shots into storyboard layout, files consolidating into single organized interface. Show 2-3 quick transitions between features. Clean UI, minimal motion blur. Keep pace brisk but readable.",
+          "on_screen_text": "Shot lists \u2192 storyboards \u2192 shot references. One place. Drag, drop, organize."
+        },
+        {
+          "position": "16-20 sec (VALUE pt 3 - benefit)",
+          "visual_direction": "Before/after split-screen or transition: chaotic workspace (left/top) \u2192 organized, clean interface (right/bottom). Use motion wipe or fade. Show creator smiling/relieved. 1 sec pause on final clean state.",
+          "on_screen_text": "No more scattered files. No more wasted time."
+        },
+        {
+          "position": "20-23 sec (CTA)",
+          "visual_direction": "Creator looking at camera, nodding or pointing at camera with friendly energy. Text appears bottom-right or center. Bright, direct eye contact. End on creator's face or cursor hovering over Follow button. Hold for 1 sec.",
+          "on_screen_text": "Follow for more"
+        }
+      ],
+      "assets_needed": [
+        "Stressed creator headshot/video (close-up at desk)",
+        "Cluttered desktop/workspace b-roll (multiple windows, scattered files, browser tabs)",
+        "Hands dragging files between folders (macro or close-up)",
+        "Timeline scrubbing/editing footage (generic editing software)",
+        "Clock or time-lapse footage (showing 3 hours passing)",
+        "Creator with head in hands / fatigued pose",
+        "Screen recording of tool demo (shot list \u2192 storyboard \u2192 organization workflow)",
+        "Before/after workspace comparison (chaotic vs. organized)",
+        "Creator looking at camera, smiling/relieved (direct-to-camera final shot)",
+        "Brand color palette (for text overlays and accents)",
+        "Sans-serif bold font (white, for on-screen text)",
+        "Smooth transitions/wipes/fades (Premiere or After Effects)",
+        "Background music (upbeat, casual, 15-20 seconds)",
+        "Sound design: notification pings, whoosh effects for file movements, satisfying 'complete' sound for demo"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 5
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately with specific time loss (3 hours), problem is concrete (scattered files/timelines), solution is quantified (30 minutes)\u2014no ambiguity on what the tool does.",
+        "retention": "Problem-to-solution arc is tight, but demo section (10-16 sec) risks losing attention if screen recording feels too fast or UI isn't visually compelling enough to hold non-users.",
+        "save_potential": "Core structure is sound: relatable pain \u2192 specific solution \u2192 before/after proof\u2014easy to edit, rescope, or repurpose for different creator segments.",
+        "shareability": "Solves a real workflow problem, but lacks the wow factor or surprise twist that makes creators tag peers; feels functional rather than 'stop-scroll-and-send' viral.",
+        "audience_fit": "Directly targets video/film creators in pre-production phase\u2014exact pain points (organizing shots, managing timelines, file chaos) match researched workflow friction.",
+        "cta_strength": "Follow-only CTA is too passive and doesn't create urgency; no mention of early access, waitlist, discount, or next step\u2014leaves engaged viewers without a conversion lever."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA is vague and low-friction to a fault\u2014'Follow for more' doesn't capitalize on viewers already sold on the 30-minute time save.",
+          "fix": "Replace final CTA text with: 'Tap the link in bio to see it in action' or 'Follow \u2192 check our website for free trial.' Adds friction but directs high-intent users to signup/demo, not just follower growth."
+        },
+        {
+          "issue": "Demo section (10-16 sec) assumes viewers understand what 'shot list \u2192 storyboard \u2192 shot references' means visually; jargon-heavy for creators unfamiliar with the tool's UI.",
+          "fix": "Add brief labels during screen recording: 'Add shots here' (pointer/highlight), 'Auto-organize into storyboard' (drag animation), 'One searchable library' (folder icon close-up). Make each step obvious, not assumed."
+        },
+        {
+          "issue": "No social proof or differentiation\u2014viewers don't know if this is better than existing tools (Frame.io, Adobe, Notion templates); video relies purely on emotion.",
+          "fix": "Add 1-2 sec overlay at 18-20 sec: 'Built for creators, not editors' or 'Free forever' or 'Used by 500+ productions'\u2014gives reason to choose *this* tool over alternatives or DIY workarounds."
+        }
+      ],
+      "captions": [
+        "Spending 3+ hours organizing shots before you even press record? Our tool cuts pre-production setup to 30 minutes. Shot lists \u2192 storyboards \u2192 one organized space. No more tab chaos. Follow for the full walkthrough\u2014link in bio if you're ready to actually get your day back.",
+        "If you're manually organizing footage across 5 different apps, this is for you. Watch how we condensed the entire pre-production workflow into one drag-and-drop interface. Stop losing half your day to file management. Follow + DM 'TOOL' for early access."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Concept and audience fit are strong (8-9), but CTA is too soft and demo lacks visual clarity for conversion; fix the call-to-action to point to signup/trial and add UI labels to the tool demo before posting."
+    }
+  }
+}
