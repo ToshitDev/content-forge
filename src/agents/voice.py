@@ -51,6 +51,18 @@ ESTIMATED_COST_PER_CHARACTER = 0.00018
 # content can be checked against EMOTIONAL_TAG_WHITELIST below.
 BRACKETED_CONTENT_PATTERN = re.compile(r"\[([^\[\]]*)\]")
 
+# The Script Agent doesn't always bracket its section labels — it
+# sometimes writes "PROBLEM" or "VALUE" as a bare word alone on its own
+# line instead of "[PROBLEM]"/"[VALUE]". BRACKETED_CONTENT_PATTERN can't
+# catch that (there are no brackets to match), so this catches it
+# separately. Anchored to the WHOLE line (only optional horizontal
+# whitespace allowed around the word) so it only strips a line that is
+# nothing but the label — never "problem" or "value" used as an
+# ordinary word inside a real spoken sentence.
+BARE_SECTION_LABEL_PATTERN = re.compile(
+    r"^[ \t]*(?:HOOK|PROBLEM|VALUE|CTA|PAUSE|CUT)[ \t]*$", re.IGNORECASE | re.MULTILINE
+)
+
 # Explicit whitelist, not a heuristic: clean_script_for_voice() keeps a
 # bracketed span only if its content (case-insensitive) exactly matches
 # one of these. Everything else — HOOK/PROBLEM/VALUE/CTA section labels,
@@ -238,11 +250,13 @@ def clean_script_for_voice(script_text: str) -> str:
     ...]", "[PAUSE 1 sec]", "[CUT]", "[VALUE]", "[CTA]", "[PROBLEM]" are
     stage directions for whoever's filming/editing, not words to say.
     Read verbatim, ElevenLabs speaks the markers too, so those are
-    removed. But the script may also contain ElevenLabs v3 emotional
-    audio tags like "[excited]" or "[whispers]", which are meant to
-    reach ElevenLabs intact — those are kept (see EMOTIONAL_TAG_WHITELIST
-    for exactly which ones). Also collapses the blank lines/whitespace a
-    removed marker leaves behind.
+    removed — including the same labels when the model writes them as a
+    bare word on their own line instead of bracketing them (see
+    BARE_SECTION_LABEL_PATTERN). But the script may also contain
+    ElevenLabs v3 emotional audio tags like "[excited]" or "[whispers]",
+    which are meant to reach ElevenLabs intact — those are kept (see
+    EMOTIONAL_TAG_WHITELIST for exactly which ones). Also collapses the
+    blank lines/whitespace a removed marker leaves behind.
     """
 
     def keep_if_emotional_tag(match: re.Match[str]) -> str:
@@ -250,9 +264,10 @@ def clean_script_for_voice(script_text: str) -> str:
         return match.group(0) if content in EMOTIONAL_TAG_WHITELIST else ""
 
     without_production_markers = BRACKETED_CONTENT_PATTERN.sub(keep_if_emotional_tag, script_text)
+    without_bare_labels = BARE_SECTION_LABEL_PATTERN.sub("", without_production_markers)
     # Markers on their own line leave a blank line behind; markers inline
     # leave doubled-up spaces. Collapse both.
-    collapsed = re.sub(r"[ \t]+", " ", without_production_markers)
+    collapsed = re.sub(r"[ \t]+", " ", without_bare_labels)
     collapsed = re.sub(r"\n[ \t]*\n+", "\n\n", collapsed)
     return collapsed.strip()
 
