@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS runs (
     cta_strength INTEGER,
     final_call TEXT,
     latency_seconds REAL,
-    cached INTEGER
+    cached INTEGER,
+    voice_cost_estimate REAL
 )
 """
 
@@ -38,9 +39,11 @@ _INSERT_RUN = """
 INSERT INTO runs (
     timestamp, niche, audience, platform,
     clarity, retention, save_potential, shareability, audience_fit, cta_strength,
-    final_call, latency_seconds, cached
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    final_call, latency_seconds, cached, voice_cost_estimate
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 """
+
+_UPDATE_VOICE_COST = "UPDATE runs SET voice_cost_estimate = ? WHERE id = ?"
 
 
 def init_db(path: str | Path = DEFAULT_DB_PATH) -> None:
@@ -48,12 +51,41 @@ def init_db(path: str | Path = DEFAULT_DB_PATH) -> None:
 
     CREATE TABLE/INDEX IF NOT EXISTS makes this idempotent — safe to
     call every time, never errors or duplicates anything if the table
-    is already there.
+    is already there. Also backfills voice_cost_estimate onto a runs
+    table created before that column existed, via ALTER TABLE — CREATE
+    TABLE IF NOT EXISTS is a no-op on an existing table, so it alone
+    wouldn't add a new column to anyone's pre-Phase-13 history.db.
     """
     conn = sqlite3.connect(path)
     try:
         conn.execute(_CREATE_TABLE)
         conn.execute(_CREATE_INDEX)
+        _ensure_voice_cost_estimate_column(conn)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _ensure_voice_cost_estimate_column(conn: sqlite3.Connection) -> None:
+    """Add voice_cost_estimate to an existing "runs" table that predates it."""
+    columns = {row[1] for row in conn.execute("PRAGMA table_info(runs)")}
+    if "voice_cost_estimate" not in columns:
+        conn.execute("ALTER TABLE runs ADD COLUMN voice_cost_estimate REAL")
+
+
+def update_voice_cost(
+    run_id: int, voice_cost_estimate: float, path: str | Path = DEFAULT_DB_PATH
+) -> None:
+    """Attach a voiceover cost estimate to an already-logged run.
+
+    Voice generation happens later than the pipeline run itself (a
+    separate, optional UI action), so it can't be included in the
+    original log_run() insert — this updates that row in place instead
+    of writing a second one.
+    """
+    conn = sqlite3.connect(path)
+    try:
+        conn.execute(_UPDATE_VOICE_COST, (voice_cost_estimate, run_id))
         conn.commit()
     finally:
         conn.close()
@@ -64,7 +96,8 @@ def log_run(
     latency_seconds: float,
     cached: bool,
     path: str | Path = DEFAULT_DB_PATH,
-) -> None:
+    voice_cost_estimate: float | None = None,
+) -> int:
     """Insert one row summarizing a completed pipeline run.
 
     Calls init_db() first, so this works even if the caller never set
@@ -81,6 +114,14 @@ def log_run(
             steps was actually a cache hit rather than a real API call.
         path: SQLite database file. Defaults to history.db at the
             project root.
+        voice_cost_estimate: Almost always None here — voice generation
+            is a separate, later UI action, so most rows get this via
+            update_voice_cost() afterward rather than at insert time.
+            The parameter exists for a caller that already has the
+            figure up front.
+
+    Returns:
+        The inserted row's id, for a later update_voice_cost() call.
     """
     init_db(path)
 
@@ -90,7 +131,7 @@ def log_run(
 
     conn = sqlite3.connect(path)
     try:
-        conn.execute(
+        cursor = conn.execute(
             _INSERT_RUN,
             (
                 _now_iso(),
@@ -106,9 +147,14 @@ def log_run(
                 growth.final_call,
                 latency_seconds,
                 int(cached),
+                voice_cost_estimate,
             ),
         )
         conn.commit()
+        # lastrowid is only None for a statement that isn't an INSERT, or
+        # an INSERT into a WITHOUT ROWID table — neither applies here.
+        assert cursor.lastrowid is not None
+        return cursor.lastrowid
     finally:
         conn.close()
 
