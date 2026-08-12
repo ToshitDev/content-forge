@@ -18,6 +18,9 @@ venv/
 # Cached API responses (src/cache.py) — regenerable, not source
 cache/
 
+# Generated voiceover audio (src/agents/voice.py) — regenerable, not source
+audio/
+
 # Log output (src/logging_config.py)
 logs/
 
