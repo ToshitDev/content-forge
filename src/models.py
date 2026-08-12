@@ -253,3 +253,22 @@ class SuggestOutput:
         return cls(
             suggestions=_require(d, "suggestions", "SuggestOutput"),
         )
+
+
+@dataclass
+class StyleOutput:
+    """Parsed output of the Style Agent: a lightweight style kit."""
+
+    colors: list[str]
+    font_mood: str
+    layout_tendency: str
+    vibe: str
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "StyleOutput":
+        return cls(
+            colors=_require(d, "colors", "StyleOutput"),
+            font_mood=_require(d, "font_mood", "StyleOutput"),
+            layout_tendency=_require(d, "layout_tendency", "StyleOutput"),
+            vibe=_require(d, "vibe", "StyleOutput"),
+        )
