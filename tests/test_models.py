@@ -1,11 +1,12 @@
-"""Tests for src/models.py's dataclasses — FramePlanItem and SuggestOutput.
+"""Tests for src/models.py's dataclasses — FramePlanItem, SuggestOutput,
+and StyleOutput.
 
 Pure data-shape tests: no network access or API key needed.
 """
 
 import pytest
 
-from src.models import FramePlanItem, SuggestOutput
+from src.models import FramePlanItem, StyleOutput, SuggestOutput
 
 
 def test_frame_plan_item_missing_on_screen_text_defaults_to_empty_string():
@@ -72,3 +73,32 @@ def test_suggest_output_missing_suggestions_key_raises():
     to fall back to if the model didn't return any."""
     with pytest.raises(ValueError, match="suggestions"):
         SuggestOutput.from_dict({})
+
+
+def test_style_output_parses_valid_response():
+    """A well-formed style kit dict parses into matching fields."""
+    data = {
+        "colors": ["warm terracotta (#C97C5D)", "cream (#F4F1EA)"],
+        "font_mood": "clean and minimal",
+        "layout_tendency": "centered, lots of whitespace",
+        "vibe": "calm, editorial, unhurried",
+    }
+
+    result = StyleOutput.from_dict(data)
+
+    assert result.colors == ["warm terracotta (#C97C5D)", "cream (#F4F1EA)"]
+    assert result.font_mood == "clean and minimal"
+    assert result.layout_tendency == "centered, lots of whitespace"
+    assert result.vibe == "calm, editorial, unhurried"
+
+
+def test_style_output_missing_colors_key_raises():
+    """Each field is required — no defaults to silently fall back to."""
+    data = {
+        "font_mood": "clean and minimal",
+        "layout_tendency": "centered, lots of whitespace",
+        "vibe": "calm, editorial, unhurried",
+    }
+
+    with pytest.raises(ValueError, match="colors"):
+        StyleOutput.from_dict(data)
