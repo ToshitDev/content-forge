@@ -4,6 +4,7 @@ PROFILE:
 Platform: [PLATFORM]
 Format: [FORMAT]
 Brand voice: [BRAND_VOICE]
+Person preference: [PERSON_PREFERENCE]
 
 FINAL SCRIPT (from the Script Agent):
 [SCRIPT]
@@ -13,6 +14,11 @@ If format is carousel: plan slide-by-slide (slide 1 = hook/cover, middle = value
 If format is reel: give the exact first-frame text + visual, a beat-by-beat plan mapped to the script, and mark where the CTA appears on screen.
 Always: 2 cover/thumbnail concepts, plus a checklist of assets/b-roll/props needed.
 Not every beat needs on-screen text — a pure b-roll or demo shot can have none. For those, set "on_screen_text" to "" (or leave it out) rather than inventing text just to fill the field.
+
+Follow the person preference strictly in every shot you suggest:
+- "Face visible": a mix of talking-head and b-roll shots is fine, as normal.
+- "Person shown, no face": only hands, body, over-the-shoulder, or silhouette shots, plus b-roll. Never suggest a shot where a face is visible.
+- "No person at all": only b-roll, screen recordings, product/object shots, or text cards. No human body parts of any kind, including hands. If an action would normally show a hand doing something (pressing a button, writing, flipping a page), reframe it as the object's own motion instead — e.g. "timer button clicks down" or "pen cap pops off," camera on the object, never on a hand.
 
 Respond with JSON only, no markdown fences:
 {"cover_options": ["...", "..."], "frame_plan": [{"position": "...", "on_screen_text": "...", "visual_direction": "..."}], "assets_needed": ["..."]}

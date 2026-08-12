@@ -98,6 +98,7 @@ async def run_pipeline_async(
     Args:
         profile: Shared context used across agents. Must include "niche",
             "audience", "platform", "format", "brand_voice", and "cta".
+            "person_preference" is optional, defaulting to "Face visible".
         research_material: Raw audience material (comments, questions,
             notes) for the Research Agent to work from.
         on_progress: Optional callback invoked after each step completes,
@@ -170,6 +171,11 @@ async def run_pipeline_async(
             "platform": profile["platform"],
             "format": profile["format"],
             "brand_voice": profile["brand_voice"],
+            # .get(), not profile[...]: older callers (the CLI sample
+            # profile, existing tests) predate this field and shouldn't
+            # break — "Face visible" matches the unconstrained behavior
+            # this prompt always had before person preference existed.
+            "person_preference": profile.get("person_preference", "Face visible"),
             "script": script.script,
         },
         VisualOutput,
@@ -206,7 +212,10 @@ async def run_pipeline_async(
 
     latency_seconds = time.perf_counter() - start_time
     try:
-        log_run(outputs, latency_seconds, use_cache)
+        # Stashed so a later, separate action (e.g. generating a voiceover
+        # in the UI) can attach its own data to this same row instead of
+        # writing a whole new one — see history.update_voice_cost.
+        outputs["run_id"] = log_run(outputs, latency_seconds, use_cache)
     except sqlite3.Error as error:
         # History logging is analytics, not the actual deliverable — a
         # DB-level hiccup (locked file, disk full, etc.) shouldn't cost
@@ -216,6 +225,7 @@ async def run_pipeline_async(
         # extraction is broken, which is a real bug worth surfacing
         # loudly, not something to paper over.
         logger.error("Failed to log run to history.db: %s", error)
+        outputs["run_id"] = None
 
     return outputs
 
@@ -366,6 +376,7 @@ if __name__ == "__main__":
         "format": "reel",
         "brand_voice": "casual, direct, slightly funny",
         "cta": "follow for the full system",
+        "person_preference": "Face visible",
     }
     sample_research_material = (
         "I make a timetable every Sunday and quit by Tuesday\n"

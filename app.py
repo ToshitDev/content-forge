@@ -6,21 +6,29 @@ all of that stays in src/agents/ and src/pipeline.py.
 """
 
 import asyncio
+import logging
 import re
+import sqlite3
+from pathlib import Path
 
 import pymupdf
 import streamlit as st
 
+from src import history
 from src.agents.style import StyleAgent
 from src.agents.suggest import SuggestAgent
+from src.agents.voice import VoiceAgent, estimate_cost
 from src.logging_config import configure_logging
 from src.models import StyleOutput, SuggestOutput
 from src.pipeline import run_pipeline
 
 configure_logging()
+logger = logging.getLogger(__name__)
 
 PLATFORMS = ["Instagram", "YouTube", "LinkedIn", "X"]
 FORMATS = ["reel", "carousel", "post"]
+PERSON_PREFERENCES = ["Face visible", "Person shown, no face", "No person at all"]
+VOICE_MODES = ["Use generic voice", "Clone from a sample"]
 HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}")
 
 VERDICT_BANNERS = {"POST": st.success, "REWORK": st.warning, "SKIP": st.error}
@@ -157,6 +165,26 @@ def render_inputs() -> tuple[str, dict, bool]:
         content_format = st.selectbox("Format", FORMATS, index=0)
         brand_voice = st.text_input("Brand voice", value="casual and direct")
         cta = st.text_input("Call to action", value="follow for more")
+        person_preference = st.selectbox(
+            "Show a person in this video?", PERSON_PREFERENCES, index=0
+        )
+
+        st.write("**Voice**")
+        voice_mode = st.radio("Narration voice", VOICE_MODES, index=0)
+        # Not a widget key, so no instantiation-order constraint — this is
+        # just how render_voiceover() (called later, from render_results())
+        # finds out what voice setup the user picked.
+        if voice_mode == "Clone from a sample":
+            sample = st.file_uploader(
+                "Upload a short voice sample (10-30s, clear audio)",
+                type=["mp3", "wav", "m4a", "ogg"],
+            )
+            st.session_state["voice_sample"] = sample.getvalue() if sample else None
+            st.session_state["voice_sample_name"] = sample.name if sample else None
+        else:
+            st.session_state["voice_sample"] = None
+            st.session_state["voice_sample_name"] = None
+
         use_cache = st.checkbox(
             "Use cache",
             value=True,
@@ -174,6 +202,7 @@ def render_inputs() -> tuple[str, dict, bool]:
         "format": content_format,
         "brand_voice": brand_voice,
         "cta": cta,
+        "person_preference": person_preference,
     }
     return research_material, profile, use_cache
 
@@ -273,6 +302,50 @@ def render_visual(visual) -> None:
         st.checkbox(asset, value=False, key=f"asset_{i}")
 
 
+def render_voiceover(script_text: str) -> None:
+    """Let the user generate narration audio for the finished script.
+
+    Runs after the pipeline (and its Script step) has already produced
+    script_text — this can't happen any earlier. Picks up the voice
+    setup (generic vs. cloned-from-sample) that render_inputs() stashed
+    in st.session_state during this same rerun.
+    """
+    st.subheader("Voiceover")
+    if st.button("Generate voiceover"):
+        try:
+            agent = VoiceAgent()
+            sample_bytes = st.session_state.get("voice_sample")
+            if sample_bytes:
+                voice_id = agent.clone_voice(
+                    sample_bytes,
+                    st.session_state.get("voice_sample_name") or "sample.mp3",
+                    name="ContentForge cloned voice",
+                )
+                audio_path = agent.generate(script_text, voice_id=voice_id)
+            else:
+                audio_path = agent.generate(script_text)
+        except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
+            st.error(f"Couldn't generate voiceover: {error}")
+        else:
+            st.session_state["voiceover_path"] = str(audio_path)
+            run_id = st.session_state.get("outputs", {}).get("run_id")
+            if run_id is not None:
+                try:
+                    history.update_voice_cost(run_id, estimate_cost(script_text))
+                except sqlite3.Error as db_error:
+                    # Cost tracking is analytics, not the deliverable — the
+                    # audio file already exists and is already shown below,
+                    # so a DB hiccup here shouldn't read as a failure.
+                    logger.error("Failed to record voice cost estimate: %s", db_error)
+
+    if "voiceover_path" in st.session_state:
+        audio_bytes = Path(st.session_state["voiceover_path"]).read_bytes()
+        st.audio(audio_bytes, format="audio/mp3")
+        st.download_button(
+            "Download voiceover", audio_bytes, file_name="voiceover.mp3", mime="audio/mp3"
+        )
+
+
 def render_captions(growth) -> None:
     """Show both caption options, each in a one-click-copy code block."""
     st.subheader("Captions")
@@ -287,6 +360,7 @@ def render_results(outputs: dict) -> None:
     render_scores(outputs["growth"])
     render_hook(outputs["hook"])
     render_script(outputs["script"])
+    render_voiceover(outputs["script"].script)
     render_visual(outputs["visual"])
     render_captions(outputs["growth"])
     st.caption(f"Saved to {outputs['saved_path']}")
