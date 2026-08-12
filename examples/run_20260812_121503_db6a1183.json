@@ -1,0 +1,246 @@
+{
+  "timestamp": "20260812_121503",
+  "profile": {
+    "niche": "Recruiting volunteers for GMU's hardware hackathon, HackOverflow",
+    "audience": "Recruiting volunteers for GMU's hardware hackathon, HackOverflow",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more"
+  },
+  "research_material": "\"how do I even sign up to volunteer for this\"\n\"is there a linktree or just the website\"\n\"do volunteers get free food and swag too\"\n\"what time commitment is expected if I volunteer\"\n\"is this open to non-CS majors too\"",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Unclear signup process and where to find volunteer information",
+        "Confusion about logistics (links, platforms, access points)",
+        "Uncertainty about volunteer perks and compensation",
+        "Not knowing time commitment expectations upfront",
+        "Concern about eligibility (major/background requirements)"
+      ],
+      "ideas": [
+        {
+          "idea": "Carousel post: 'How to Volunteer at HackOverflow in 3 Steps' with clear CTAs pointing to signup",
+          "pain_point": "Unclear signup process and where to find volunteer information",
+          "unique_angle": "Most hackathon volunteer posts assume people know where to start\u2014this removes all friction immediately"
+        },
+        {
+          "idea": "Instagram Story series: 'FAQ Friday' answering 'Where do I sign up?' with direct links in bio",
+          "pain_point": "Unclear signup process and where to find volunteer information",
+          "unique_angle": "Ephemeral content creates urgency and keeps the most-asked question top-of-feed"
+        },
+        {
+          "idea": "Single-slide graphic: 'Find us here' listing all platforms (website, Linktree, link in bio) with icons",
+          "pain_point": "Confusion about logistics (links, platforms, access points)",
+          "unique_angle": "Consolidates scattered information into one shareable asset instead of making people hunt across multiple posts"
+        },
+        {
+          "idea": "Reel: 'Volunteer perks breakdown' showing food, swag, and networking benefits with quick cuts",
+          "pain_point": "Uncertainty about volunteer perks and compensation",
+          "unique_angle": "Video performs better on Instagram and makes swag/food feel tangible instead of just listed"
+        },
+        {
+          "idea": "Caption-focused post: Honest breakdown of time commitment (e.g., '4 hours day-of' or '2 hours planning') with real examples",
+          "pain_point": "Not knowing time commitment expectations upfront",
+          "unique_angle": "Specificity builds trust\u2014vague 'flexible hours' language is what's turning people away"
+        },
+        {
+          "idea": "Story poll: 'Worried about time? Here's what we need: [options]' to validate concerns and normalize the ask",
+          "pain_point": "Not knowing time commitment expectations upfront",
+          "unique_angle": "Interactive format makes the audience feel heard and gives you live feedback on what matters most"
+        },
+        {
+          "idea": "Post: 'You don't need to be a CS major to volunteer' with examples of non-CS volunteer roles (setup, check-in, logistics)",
+          "pain_point": "Concern about eligibility (major/background requirements)",
+          "unique_angle": "Directly counters the unspoken assumption that hackathons are only for CS people"
+        },
+        {
+          "idea": "Testimonial Reel: Quick clips of non-CS major volunteers sharing why they signed up and what they did",
+          "pain_point": "Concern about eligibility (major/background requirements)",
+          "unique_angle": "Social proof from peers removes self-doubt better than any admin message"
+        },
+        {
+          "idea": "Linktree-specific post: 'All links in bio' with visual hierarchy showing signup first, then FAQs, then perks",
+          "pain_point": "Confusion about logistics (links, platforms, access points)",
+          "unique_angle": "Assumes people will look in bio but gives them a roadmap of what to do once they're there"
+        },
+        {
+          "idea": "Weekly 'Volunteer Spotlight' post featuring one role (setup crew, registration, etc.) with time commitment and perks listed",
+          "pain_point": "Not knowing time commitment expectations upfront",
+          "unique_angle": "Breaks eligibility and logistics into digestible weekly content instead of overwhelming in one post"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Carousel post: 'How to Volunteer at HackOverflow in 3 Steps' with clear CTAs pointing to signup",
+          "reason": "Directly solves the #1 friction point (how do I sign up) and is easy to re-share and reference"
+        },
+        {
+          "idea": "Post: 'You don't need to be a CS major to volunteer' with examples of non-CS volunteer roles (setup, check-in, logistics)",
+          "reason": "Removes the biggest psychological barrier to signup and expands your volunteer pool immediately"
+        },
+        {
+          "idea": "Caption-focused post: Honest breakdown of time commitment (e.g., '4 hours day-of' or '2 hours planning') with real examples",
+          "reason": "Specificity converts hesitant people into committed volunteers; vagueness kills signups"
+        }
+      ],
+      "missing_info": [
+        "Actual volunteer signup link/process (needed to answer #1 question directly)",
+        "Specific volunteer perks list (food type, swag details, any other benefits)",
+        "Exact time commitments for different volunteer roles (not just 'flexible')",
+        "Whether non-CS majors are actively recruited or just technically allowed",
+        "Volunteer role breakdown (what roles need filling, which have most openings)"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Want to shape the future of hardware? See what happens next.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Volunteers who help at HackOverflow get something most students don't.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Ever wondered what goes on behind the scenes at a hackathon?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "HackOverflow needs you. Yes, you. Here's why it matters.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Volunteering at HackOverflow changes how you see engineering forever.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Bored of passive campus involvement? Try volunteering at HackOverflow.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Tired of sitting on the sidelines during cool tech events?",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Missing out on HackOverflow's energy? Volunteers see everything first.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Stop scrolling. HackOverflow volunteers get real experience. Apply now.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Plot twist: You don't need experience to volunteer at HackOverflow.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Volunteers at HackOverflow get something most students don't.",
+        "reasoning": "This curiosity gap hook directly appeals to GMU students' FOMO and desire for exclusive opportunities. It positions volunteering as access to insider status without revealing what that benefit is, forcing the scroll. The casual 'get something' language matches brand voice while keeping the mystery that drives engagement."
+      },
+      "runner_up": {
+        "text": "Plot twist: You don't need experience to volunteer at HackOverflow.",
+        "reasoning": "This pattern interrupt removes a major barrier (perceived lack of experience) that prevents students from applying. It's direct, reassuring, and matches the casual tone while addressing a real objection in the volunteer signup path."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\nVolunteers at HackOverflow get something most students don't.\n\n[PAUSE]\n\n[PROBLEM]\nYou're tired of just going to classes, doing assignments, watching other people build cool stuff.\n\n[CUT]\n\n[VALUE]\nAs a volunteer, you're running the show. You're mentoring hackers, solving real problems on the fly, building leadership skills that actually matter. Plus, you're part of GMU's biggest hardware hackathon\u2014front row seat to innovation.\n\n[ON-SCREEN TEXT: Network. Lead. Build.]\n\n[CTA]\nWant in? Follow for volunteer signup details coming soon.",
+      "word_count": 72,
+      "viewer_takeaway": "Volunteering at HackOverflow gives students hands-on leadership experience and insider access to a major tech event, not just passive participation."
+    },
+    "visual": {
+      "cover_options": [
+        "Close-up of hands soldering circuit board with bold white text overlay: 'Volunteers get something most students don't' \u2014 intense, workshop lighting, slightly blurred hackathon crowd in background",
+        "Wide shot of HackOverflow event floor (hardware stations, mentors leaning over projects) with semi-transparent dark overlay and centered text: 'You could be running this' \u2014 energetic, multi-colored tech lighting"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "Close-up hands soldering or assembling hardware; quick cut to volunteer confidently explaining concept to hacker; workshop/lab aesthetic with warm accent lighting",
+          "on_screen_text": "Volunteers get something most students don't"
+        },
+        {
+          "position": "3-5 sec (PAUSE + PROBLEM setup)",
+          "visual_direction": "B-roll: student alone at desk looking at screen (tired expression); quick montage of generic classroom/lecture clips (wide shots, muted feel) \u2014 no text, let visuals tell the 'stuck in classes' story",
+          "on_screen_text": ""
+        },
+        {
+          "position": "5-8 sec (PROBLEM continued)",
+          "visual_direction": "Cut to spectator-view footage (volunteer watching from sidelines, then stepping in); transition to dynamic mentor-hacker interaction \u2014 close-up of problem-solving in real time",
+          "on_screen_text": "Tired of just watching?"
+        },
+        {
+          "position": "8-12 sec (VALUE - mentoring)",
+          "visual_direction": "Volunteer confidently leading a group; hands-on demo of hardware; mentor explaining to 2-3 hackers around a workstation \u2014 energy, authority, teaching moment",
+          "on_screen_text": "You're running the show"
+        },
+        {
+          "position": "12-15 sec (VALUE - leadership & innovation)",
+          "visual_direction": "Quick cuts: volunteer high-fiving hacker (network), volunteer presenting/mentoring (lead), close-up of working prototype/LED lighting up (build) \u2014 fast-paced, celebratory",
+          "on_screen_text": "Network. Lead. Build."
+        },
+        {
+          "position": "15-18 sec (VALUE - scale/context)",
+          "visual_direction": "Wide overhead/drone shot of full HackOverflow venue floor with dozens of stations and people; energy and scale visible; volunteer in frame helping at a station",
+          "on_screen_text": "GMU's biggest hardware hackathon"
+        },
+        {
+          "position": "18-20 sec (CTA)",
+          "visual_direction": "Volunteer looking directly at camera with confident smile/nod; fade to GMU/HackOverflow logo or branded end-card; call-to-action text centered on screen",
+          "on_screen_text": "Want in? Follow for signup details"
+        }
+      ],
+      "assets_needed": [
+        "Close-up b-roll: soldering iron in action, circuit board assembly, LED components lighting up",
+        "Medium b-roll: volunteer mentoring 1\u20133 hackers at workstations, hands gesturing/explaining",
+        "Wide b-roll: overhead/drone footage of full HackOverflow venue (multiple stations, crowd energy)",
+        "Reaction b-roll: hacker's face lighting up (aha moment), high-fives, fist bumps",
+        "Contrast b-roll: tired student at desk (solo, muted), generic classroom lecture (for PROBLEM section)",
+        "Volunteer close-up: confident eye contact to camera, smile/nod (for CTA)",
+        "Logo/end-card: GMU + HackOverflow branding, volunteer signup call-to-action",
+        "Transitions: quick cuts, subtle fades, fast-paced editing rhythm",
+        "Color grade: warm workshop lighting for mentoring scenes; slightly desaturated for classroom/problem scenes; vibrant for innovation/celebration moments",
+        "Audio: upbeat, energetic track (no heavy bass); clear voiceover or on-screen text sync; subtle SFX (solder sizzle, LED beep optional)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 8,
+        "cta_strength": 6
+      },
+      "justifications": {
+        "clarity": "Hook lands immediately (0-3s); 'Volunteers get something most students don't' is specific enough to create curiosity without confusion.",
+        "retention": "Problem section builds tension but relies heavily on visuals; without seeing the tired student contrast, audio/text alone might not hold through seconds 3-5.",
+        "save_potential": "Strong value stack (mentoring, leadership, innovation, networking) gives viewers multiple reasons to save; visual variety keeps aesthetic fresh.",
+        "shareability": "Leadership/mentoring angle resonates with ambitious students, but 'volunteer for an event' is less inherently shareable than 'get free X' or 'learn Y skill'\u2014feels more niche.",
+        "audience_fit": "Directly targets pain points (bored in classes, watching others build, wanting real leadership experience); assumes audience already knows HackOverflow exists, which may not be universal.",
+        "cta_strength": "Follow-for-signup is low-friction but soft; 'signup details coming soon' delays action and requires audience to remember to check back."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA is deferred and passive\u2014'follow for details coming soon' asks viewers to return later instead of capturing intent now.",
+          "fix": "Rewrite CTA to: 'Want in? Link in bio to volunteer\u2014spots filling fast' or 'Interested? DM 'VOLUNTEER' to get on the list.' This creates immediate micro-action and captures warm leads."
+        },
+        {
+          "issue": "Shareability is weak because the post benefits the sharer (they get to volunteer) rather than the person who receives the share\u2014no built-in incentive to tag a friend.",
+          "fix": "Add a secondary hook in caption: 'Know someone who loves building? Tag them below\u2014we're looking for team players.' or embed in script: 'Bring a friend and both of you get priority mentoring slots.' This makes sharing mutually rewarding."
+        },
+        {
+          "issue": "Audience assumes baseline awareness of HackOverflow; new viewers may not understand what the event is before deciding if volunteering appeals to them.",
+          "fix": "Expand value section (8-12s) to include one context line: 'At HackOverflow, 200+ students bring hardware ideas to life in 24 hours\u2014and you're the one guiding them.' This anchors scale and legitimacy in one sentence."
+        }
+      ],
+      "captions": [
+        "Tired of just watching from the sidelines? \ud83d\udc40 Volunteers at HackOverflow get front-row access to GMU's biggest hardware hackathon\u2014mentor brilliant hackers, build real leadership skills, and be part of something that actually matters. Network. Lead. Build. \ud83d\udd27\u26a1 Spots filling up\u2014link in bio to sign up. #GMUVolunteer #HackOverflow #HardwareHackathon",
+        "Most students go to class. Volunteers at HackOverflow RUN the show. \ud83d\udd25 You'll mentor hackers solving real problems, develop leadership skills that actually stick, and join a community of builders. Know someone with the energy? Tag them. DM 'VOLUNTEER' to join the team. #HackOverflow #Volunteering"
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Core concept and visuals are strong, but CTA is too soft and shareability is underutilized; rewrite the call-to-action to drive immediate micro-conversions (DM/link) and add a peer-nomination angle to boost organic reach before posting."
+    }
+  }
+}
