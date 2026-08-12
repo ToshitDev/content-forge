@@ -124,6 +124,39 @@ def test_clean_script_for_voice_strips_production_markers():
     assert "\n\n\n" not in cleaned
 
 
+def test_clean_script_for_voice_strips_bare_unbracketed_section_labels():
+    """The Script Agent sometimes writes section headers as bare words on
+    their own line instead of bracketing them — "PROBLEM" and "VALUE"
+    with no brackets at all, as opposed to "[HOOK - 0-3 sec]". Those
+    bare labels must be stripped too, or they get read aloud literally
+    ("...PROBLEM...You fill it out...")."""
+    script = (
+        "[HOOK - 0-3 sec]\n"
+        "Your planner is lying to you.\n\n"
+        "PROBLEM\n"
+        "You fill it out like it's gospel. Then Wednesday hits and "
+        "you've done none of it. That's not a planning problem. "
+        "That's a you problem.\n\n"
+        "VALUE\n"
+        "Here's what actually works: plan for procrastination, not "
+        "perfection.\n\n"
+        "CTA\n"
+        "Follow for the full system."
+    )
+
+    cleaned = voice.clean_script_for_voice(script)
+    lines = cleaned.splitlines()
+
+    for bare_label in ("PROBLEM", "VALUE", "CTA", "HOOK"):
+        assert bare_label not in lines
+    assert "Your planner is lying to you." in cleaned
+    # "problem" as an ordinary word inside a real sentence must survive —
+    # only a line that's NOTHING BUT the bare label gets stripped.
+    assert "That's not a planning problem. That's a you problem." in cleaned
+    assert "Here's what actually works: plan for procrastination, not perfection." in cleaned
+    assert "Follow for the full system." in cleaned
+
+
 def test_clean_script_for_voice_keeps_emotional_tags_but_strips_markers():
     """Production markers (including PROBLEM, not covered by the other
     test) are stripped, but ElevenLabs v3 emotional audio tags survive
