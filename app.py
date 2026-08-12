@@ -6,18 +6,22 @@ all of that stays in src/agents/ and src/pipeline.py.
 """
 
 import asyncio
+import re
 
+import pymupdf
 import streamlit as st
 
+from src.agents.style import StyleAgent
 from src.agents.suggest import SuggestAgent
 from src.logging_config import configure_logging
-from src.models import SuggestOutput
+from src.models import StyleOutput, SuggestOutput
 from src.pipeline import run_pipeline
 
 configure_logging()
 
 PLATFORMS = ["Instagram", "YouTube", "LinkedIn", "X"]
 FORMATS = ["reel", "carousel", "post"]
+HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}")
 
 VERDICT_BANNERS = {"POST": st.success, "REWORK": st.warning, "SKIP": st.error}
 
@@ -26,6 +30,74 @@ def render_header() -> None:
     """Render the page title and subtitle."""
     st.title("ContentForge")
     st.caption("Real audience input in, reviewed content package out")
+
+
+def convert_pdf_page_to_image(pdf_bytes: bytes) -> bytes:
+    """Render a PDF's first page to PNG bytes, for the same vision flow
+    an uploaded image goes through."""
+    with pymupdf.open(stream=pdf_bytes, filetype="pdf") as doc:
+        pixmap = doc.load_page(0).get_pixmap()
+        return pixmap.tobytes("png")
+
+
+def extract_style_kit(image_bytes: bytes, media_type: str, theme: str) -> StyleOutput:
+    """Call the Style Agent and return the parsed style kit.
+
+    Bridges the agent's async call into Streamlit's synchronous script
+    execution, same pattern as fetch_suggested_comments.
+    """
+    agent = StyleAgent()
+    raw = asyncio.run(
+        agent.run_parsed({"theme": theme}, image_bytes=image_bytes, media_type=media_type)
+    )
+    return StyleOutput.from_dict(raw)
+
+
+def render_style_kit(style_kit: StyleOutput) -> None:
+    """Show the extracted style kit: color swatches, font mood, vibe."""
+    st.write("**Detected style kit**")
+    if style_kit.colors:
+        swatch_cols = st.columns(len(style_kit.colors))
+        for col, color in zip(swatch_cols, style_kit.colors, strict=True):
+            match = HEX_COLOR_PATTERN.search(color)
+            col.color_picker(color, value=match.group(0) if match else "#888888", disabled=True)
+    st.caption(f"Font mood: {style_kit.font_mood}")
+    st.caption(f"Vibe: {style_kit.vibe}")
+
+
+def render_style_reference() -> None:
+    """Render the optional reference upload/theme field.
+
+    On upload, extracts a style kit (image directly, or a PDF's first
+    page rendered to an image first) and stashes it in
+    st.session_state["style_kit"] for later phases (posters, visuals)
+    to reuse.
+    """
+    uploaded = st.file_uploader(
+        "Reference (image, PDF, or just describe a theme)",
+        type=["png", "jpg", "jpeg", "webp", "pdf"],
+    )
+    theme = st.text_input("Or describe a theme")
+
+    if uploaded is None:
+        return
+
+    file_bytes = uploaded.getvalue()
+    if uploaded.type == "application/pdf":
+        image_bytes = convert_pdf_page_to_image(file_bytes)
+        media_type = "image/png"
+    else:
+        image_bytes = file_bytes
+        media_type = uploaded.type or "image/png"
+
+    try:
+        style_kit = extract_style_kit(image_bytes, media_type, theme)
+    except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
+        st.error(f"Couldn't extract a style kit: {error}")
+        return
+
+    st.session_state["style_kit"] = style_kit
+    render_style_kit(style_kit)
 
 
 def fetch_suggested_comments(topic_audience: str) -> list[str]:
@@ -223,6 +295,7 @@ def render_results(outputs: dict) -> None:
 def main() -> None:
     """Wire up the page: header, inputs, run button, and persisted results."""
     render_header()
+    render_style_reference()
     research_material, profile, use_cache = render_inputs()
 
     if st.button("Run pipeline", type="primary") and validate_inputs(
