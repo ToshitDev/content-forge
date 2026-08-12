@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import TypeVar
 
 from dotenv import load_dotenv
+from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 from elevenlabs.core.api_error import ApiError
 
@@ -43,11 +44,59 @@ RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 # billing calculation.
 ESTIMATED_COST_PER_CHARACTER = 0.00018
 
-# Matches bracketed production markers in a Script Agent script — e.g.
-# "[HOOK - 0-3 sec]", "[ON-SCREEN TEXT: ...]", "[PAUSE 1 sec]", "[CUT]",
-# "[VALUE]", "[CTA]" — that are meant for whoever's filming, not for a
-# text-to-speech voice to read aloud.
-BRACKETED_MARKER_PATTERN = re.compile(r"\[[^\[\]]*\]")
+# Matches any [bracketed] span — both the Script Agent's production
+# markers ("[HOOK - 0-3 sec]", "[ON-SCREEN TEXT: ...]", "[PAUSE 1 sec]",
+# "[CUT]", "[VALUE]", "[CTA]", "[PROBLEM]") and ElevenLabs v3 emotional
+# audio tags ("[excited]", "[whispers]", ...). Capturing group so the
+# content can be checked against EMOTIONAL_TAG_WHITELIST below.
+BRACKETED_CONTENT_PATTERN = re.compile(r"\[([^\[\]]*)\]")
+
+# Explicit whitelist, not a heuristic: clean_script_for_voice() keeps a
+# bracketed span only if its content (case-insensitive) exactly matches
+# one of these. Everything else — HOOK/PROBLEM/VALUE/CTA section labels,
+# "[PAUSE 1 sec]", "[ON-SCREEN TEXT: ...]", "[CUT]" — is a production
+# marker and gets stripped. Guessing at "looks like a short lowercase
+# word" would also match things like a stray "[ok]" in dialogue; an
+# explicit list doesn't.
+EMOTIONAL_TAG_WHITELIST = frozenset(
+    {
+        "excited",
+        "whispers",
+        "sighs",
+        "laughs",
+        "curious",
+        "serious",
+        "pause",
+        "rushed",
+        "drawn out",
+    }
+)
+
+# ElevenLabs' own default settings read as flat and robotic for spoken
+# narration — stability around 0.5 leaves little room for natural pitch
+# and pace variation. Lower stability and a nonzero style push toward
+# more expressive, human-sounding delivery; only eleven_multilingual_v2
+# and other non-Flash/Turbo models actually use "style" (Flash/Turbo
+# mostly ignore it), which is exactly the model this agent uses.
+DEFAULT_STABILITY = 0.35
+DEFAULT_SIMILARITY_BOOST = 0.75
+DEFAULT_STYLE = 0.25
+
+V2_MODEL_ID = "eleven_multilingual_v2"
+# Inline audio tags like [excited] only work on v3 — v2 just reads them
+# as literal text ("bracket excited bracket"). v3 is picked automatically
+# in generate() when the cleaned text still contains a tag.
+V3_MODEL_ID = "eleven_v3"
+
+# ElevenLabs' docs describe three named stability "modes" for v3 —
+# Creative, Natural, Robust — but the API's voice_settings.stability
+# field only ever accepts a float: passing the string "Creative" raises
+# a pydantic ValidationError against the installed SDK (verified
+# directly, not assumed). This is that mode's numeric equivalent — the
+# low end of the 0-1 range. It matters specifically for v3: at high
+# stability v3 tends to smooth inline tags away to stay consistent,
+# so a request with real audio tags needs this to make them audible.
+V3_TAG_STABILITY = 0.0
 
 
 class VoiceAgent:
@@ -64,8 +113,29 @@ class VoiceAgent:
     clone_voice()) to generate(), or omit it to use DEFAULT_VOICE_ID.
     """
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        stability: float = DEFAULT_STABILITY,
+        similarity_boost: float = DEFAULT_SIMILARITY_BOOST,
+        style: float = DEFAULT_STYLE,
+    ) -> None:
+        """Create a VoiceAgent with the given delivery settings.
+
+        Args:
+            stability: 0-1. Lower means more expressive/varied delivery;
+                higher means flatter but more consistent. ElevenLabs'
+                own default (~0.5) reads as monotone for narration.
+            similarity_boost: 0-1. How closely to match the reference
+                voice's timbre.
+            style: 0-1. Exaggerates the voice's inherent style for more
+                expressive delivery. Only has an effect on models that
+                support it — eleven_multilingual_v2 (used below) does;
+                the Flash/Turbo models mostly ignore it. 0 disables it.
+        """
         self.client = ElevenLabs(api_key=_get_api_key())
+        self.voice_settings = VoiceSettings(
+            stability=stability, similarity_boost=similarity_boost, style=style
+        )
 
     def clone_voice(self, sample_bytes: bytes, sample_filename: str, name: str) -> str:
         """Upload a short voice sample and return the new cloned voice's id."""
@@ -94,12 +164,29 @@ class VoiceAgent:
         Returns the path to the saved MP3 file.
         """
         spoken_text = clean_script_for_voice(text)
+
+        # Anything still bracketed after cleaning is, by construction, a
+        # whitelisted emotional tag (clean_script_for_voice strips every
+        # other bracketed span) — so this alone tells us whether v3 is
+        # needed for this particular script.
+        if BRACKETED_CONTENT_PATTERN.search(spoken_text):
+            model_id = V3_MODEL_ID
+            voice_settings = VoiceSettings(
+                stability=V3_TAG_STABILITY,
+                similarity_boost=self.voice_settings.similarity_boost,
+                style=self.voice_settings.style,
+            )
+        else:
+            model_id = V2_MODEL_ID
+            voice_settings = self.voice_settings
+
         audio_chunks = self._call_with_retry(
             lambda: self.client.text_to_speech.convert(
                 voice_id=voice_id,
                 text=spoken_text,
-                model_id="eleven_multilingual_v2",
+                model_id=model_id,
                 output_format="mp3_44100_128",
+                voice_settings=voice_settings,
             )
         )
         AUDIO_DIR.mkdir(exist_ok=True)
@@ -144,19 +231,28 @@ class VoiceAgent:
 
 
 def clean_script_for_voice(script_text: str) -> str:
-    """Strip bracketed production markers, leaving only spoken narration.
+    """Strip bracketed production markers, but keep emotional audio tags.
 
-    A Script Agent script is a full production script, not a transcript
-    — markers like "[HOOK - 0-3 sec]", "[ON-SCREEN TEXT: ...]",
-    "[PAUSE 1 sec]", "[CUT]", "[VALUE]", "[CTA]" are stage directions
-    mixed in among the words actually meant to be said. Read verbatim,
-    ElevenLabs speaks the markers too; this removes them and cleans up
-    the blank lines/whitespace left behind.
+    A Script Agent script is a full production script, not a plain
+    transcript — markers like "[HOOK - 0-3 sec]", "[ON-SCREEN TEXT:
+    ...]", "[PAUSE 1 sec]", "[CUT]", "[VALUE]", "[CTA]", "[PROBLEM]" are
+    stage directions for whoever's filming/editing, not words to say.
+    Read verbatim, ElevenLabs speaks the markers too, so those are
+    removed. But the script may also contain ElevenLabs v3 emotional
+    audio tags like "[excited]" or "[whispers]", which are meant to
+    reach ElevenLabs intact — those are kept (see EMOTIONAL_TAG_WHITELIST
+    for exactly which ones). Also collapses the blank lines/whitespace a
+    removed marker leaves behind.
     """
-    without_markers = BRACKETED_MARKER_PATTERN.sub("", script_text)
+
+    def keep_if_emotional_tag(match: re.Match[str]) -> str:
+        content = match.group(1).strip().lower()
+        return match.group(0) if content in EMOTIONAL_TAG_WHITELIST else ""
+
+    without_production_markers = BRACKETED_CONTENT_PATTERN.sub(keep_if_emotional_tag, script_text)
     # Markers on their own line leave a blank line behind; markers inline
     # leave doubled-up spaces. Collapse both.
-    collapsed = re.sub(r"[ \t]+", " ", without_markers)
+    collapsed = re.sub(r"[ \t]+", " ", without_production_markers)
     collapsed = re.sub(r"\n[ \t]*\n+", "\n\n", collapsed)
     return collapsed.strip()
 
