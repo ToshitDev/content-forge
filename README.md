@@ -101,12 +101,12 @@ Dockerfile, docker-compose.yml   Container build + run
 src/
   agents/                 One module per agent, all inheriting a shared BaseAgent
   prompts/                Prompt templates as .txt files, never inlined in code
-  models.py               Dataclasses for each agent's output
-  pipeline.py             Chains the five agents, saves every run
-  cache.py                Content-addressed response cache
-  rate_limiter.py         Token-bucket rate limiter for API calls
-  logging_config.py       Console + rotating file log setup
-  history.py              SQLite run history (scores, latency, per run)
+  models.py                Dataclasses for each agent's output
+  pipeline.py               Chains the five agents, saves every run
+  cache.py                  Content-addressed response cache
+  rate_limiter.py           Token-bucket rate limiter for API calls
+  logging_config.py         Console + rotating file log setup
+  history.py                SQLite run history (scores, latency, per run)
 scripts/
   benchmark_concurrency.py   Sequential vs. concurrent timing
   analyze_history.py         pandas/matplotlib analysis of history.db
@@ -144,8 +144,8 @@ pulls in `requirements.txt` too); for `scripts/analyze_history.py`, install
 
 ## Status
 
-Complete. Five agents, full pipeline, Streamlit UI, CI, caching, concurrency,
-rate limiting, logging, analytics, and a Docker setup for one-command runs.
+v1.0.0 shipped and containerized. Actively extending into full production:
+style extraction, voiceover, posters, and video assembly are next.
 
 ## Full run
 
@@ -164,7 +164,15 @@ rate limiting, logging, analytics, and a Docker setup for one-command runs.
 - [x] Phase 9: Client-side rate limiting + proper logging
 - [x] Phase 10: SQLite run history + score analytics
 - [x] Phase 11: Docker + final docs, then v1.0.0
+- [ ] Phase 12: Style extraction from a reference image or PDF into a shared style kit
+- [ ] Phase 13: Face/no-face toggle + AI voiceover (cloned or generic voice)
+- [ ] Phase 14: Poster generator using the shared style kit
+- [ ] Phase 15: Video editor foundation, FFmpeg assembly with a background job queue
+- [ ] Phase 16: Video editor, real footage assembly synced to voice and timing
+- [ ] Phase 17: Quality gates for posters, voice, and video, then v2.0.0
 
 Building this in phases and committing as I go, so the history shows how it
 actually came together. The plan grew mid-project once the basics worked. The
-later phases harden it into something closer to production software.
+later phases harden it into something closer to production software. Phase 11
+shipped v1.0.0; phases 12 onward extend it from a content planning tool into a
+full production pipeline with style, voice, posters, and assembled video.
