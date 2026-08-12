@@ -1,0 +1,255 @@
+{
+  "timestamp": "20260812_165848",
+  "profile": {
+    "niche": "20 minute home workouts for people who work desk jobs and have no gym time",
+    "audience": "20 minute home workouts for people who work desk jobs and have no gym time",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more",
+    "person_preference": "Face visible"
+  },
+  "research_material": "\"I sit at a desk 8 hours a day, by the time I get home the gym feels impossible\"\n\"tried gym memberships, cancelled after month one every single time\"\n\"do bodyweight workouts actually build anything or is that just cardio\"\n\"20 minutes sounds nice but does it actually work\"\n\"no equipment, no excuses, is that even realistic\"",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Gym membership commitment feels impossible after long desk days",
+        "Skepticism about whether 20 minutes is actually enough time to see results",
+        "Uncertainty about bodyweight exercises building real muscle vs just cardio",
+        "Doubt that no-equipment workouts are realistic for busy desk workers",
+        "Mental barrier between exhaustion after work and motivation to exercise"
+      ],
+      "ideas": [
+        {
+          "idea": "Before/after series showing muscle definition gains from 20-min bodyweight-only workouts over 8-12 weeks",
+          "pain_point": "Skepticism about whether 20 minutes is actually enough time to see results",
+          "unique_angle": "Angle nobody's covering: real timelines from desk workers with zero gym access, not fitness influencers"
+        },
+        {
+          "idea": "Carousel post: 'Bodyweight vs Gym' breaking down which exercises build muscle and which are cardio, with science-backed explanations",
+          "pain_point": "Uncertainty about bodyweight exercises building real muscle vs just cardio",
+          "unique_angle": "Angle nobody's covering: honest distinction between muscle-building and cardio moves instead of claiming everything builds everything"
+        },
+        {
+          "idea": "Short-form video: '5-minute desk-to-couch workout' that bridges the mental gap between work exhaustion and exercise",
+          "pain_point": "Mental barrier between exhaustion after work and motivation to exercise",
+          "unique_angle": "Angle nobody's covering: acknowledging the real fatigue rather than using motivation platitudes"
+        },
+        {
+          "idea": "Post: 'Why I never joined a gym again' testimonial format, contrasting gym friction with 20-min home routine",
+          "pain_point": "Gym membership commitment feels impossible after long desk days",
+          "unique_angle": "Angle nobody's covering: positioning home workouts as a lifestyle choice, not a backup plan"
+        },
+        {
+          "idea": "Reel: actual 20-minute full workout filmed in real time (no cuts), showing it's genuinely possible",
+          "pain_point": "Doubt that no-equipment workouts are realistic for busy desk workers",
+          "unique_angle": "Angle nobody's covering: unedited, uncut proof instead of highlight reels that hide the actual time investment"
+        },
+        {
+          "idea": "Q&A post: 'Can you actually build muscle in 20 minutes?' with direct answers to the exact skepticism in audience questions",
+          "pain_point": "Skepticism about whether 20 minutes is actually enough time to see results",
+          "unique_angle": "Angle nobody's covering: addressing the 'does it actually work' doubt head-on instead of overselling results"
+        },
+        {
+          "idea": "Educational carousel: 'Bodyweight exercises ranked by muscle-building potential' so people know which moves matter most",
+          "pain_point": "Uncertainty about bodyweight exercises building real muscle vs just cardio",
+          "unique_angle": "Angle nobody's covering: ranking system based on effort-to-muscle ratio for time-constrained people"
+        },
+        {
+          "idea": "Story series: '20 minutes, no gym, week 1' tracking honest energy levels and motivation barriers throughout the week",
+          "pain_point": "Mental barrier between exhaustion after work and motivation to exercise",
+          "unique_angle": "Angle nobody's covering: normalizing low-motivation days instead of performing constant enthusiasm"
+        },
+        {
+          "idea": "Post: 'What I stopped paying for when I ditched my gym membership' (cost + time breakdown)",
+          "pain_point": "Gym membership commitment feels impossible after long desk days",
+          "unique_angle": "Angle nobody's covering: practical friction points desk workers face (commute time, shower logistics) not just membership cost"
+        },
+        {
+          "idea": "Reel: side-by-side comparison of the same person doing 20-min home routine vs gym routine, highlighting what's actually different",
+          "pain_point": "Doubt that no-equipment workouts are realistic for busy desk workers",
+          "unique_angle": "Angle nobody's covering: removing the mystery around what a 'real' workout actually means for desk workers"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Reel: actual 20-minute full workout filmed in real time (no cuts), showing it's genuinely possible",
+          "reason": "Directly answers the 'does it actually work' and 'is it realistic' doubts with uncut proof; highest barrier to belief in audience"
+        },
+        {
+          "idea": "Post: 'What I stopped paying for when I ditched my gym membership' (cost + time breakdown)",
+          "reason": "Validates the core friction (gym feels impossible) and gives permission to quit; resonates with the repeated 'cancelled after month one' pattern"
+        },
+        {
+          "idea": "Educational carousel: 'Bodyweight exercises ranked by muscle-building potential' so people know which moves matter most",
+          "reason": "Resolves the specific confusion ('is that just cardio?') that signals people don't trust their own workouts; builds confidence"
+        }
+      ],
+      "missing_info": [
+        "What specific desk job fatigue patterns are most common (mental vs physical exhaustion)",
+        "Previous workout experience level of this audience (complete beginners vs lapsed gym-goers)",
+        "What 'results' actually mean to them (muscle, weight loss, energy, physique change)",
+        "How long they've been stuck in the desk job + no-gym cycle",
+        "Whether they've tried home workouts before and what stopped them"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Watch me do a full workout without stopping once.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "What happens when you actually film 20 minutes uncut?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Nobody talks about this part of home workouts.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "20 minutes. No cuts. No BS. Watch it happen.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "This is what a real 20-minute workout actually looks like.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Your back hurts. Your neck's tight. This fixes both.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Sitting all day killed your energy. This brings it back.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "You don't have time for the gym. This proves it.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Stop. I'm about to waste 20 minutes of your life.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "I'm not going to edit this. At all.",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "20 minutes. No cuts. No BS. Watch it happen.",
+        "reasoning": "This hook directly addresses the skepticism desk workers feel about 'quick' home workouts by proving legitimacy through transparency. The no-cuts promise removes friction\u2014they know upfront they're getting real time, not fitness TikTok magic, which builds trust with an audience tired of edited-down miracle routines."
+      },
+      "runner_up": {
+        "text": "Your back hurts. Your neck's tight. This fixes both.",
+        "reasoning": "Instantly validates the desk worker experience with specific pain points before offering a solution. High relatability without requiring audience to imagine the problem themselves."
+      }
+    },
+    "script": {
+      "script": "[HOOK]\n20 minutes. No cuts. No BS. Watch it happen. [ON-SCREEN TEXT: FULL WORKOUT \u2014 NO EDITING]\n\n[PROBLEM]\n[PAUSE]\nYou're stuck at a desk all day. Your back's tight. Your energy's shot. And you've got zero time to drive somewhere and pretend to use a machine.\n\n[VALUE]\n[CUT]\nThis is a full-body workout you can do right now in your living room. No equipment. No experience needed. [excited] Just your bodyweight and 20 minutes.\n[PAUSE]\nYou'll hit every muscle group, get your heart pumping, and actually feel the difference by tomorrow.\n[ON-SCREEN TEXT: DESK JOB KILLER \u2014 20 MIN]\n\n[CTA]\n[serious] If you want workouts that fit your actual life, follow for more. [PAUSE] New routines drop every week.\n",
+      "word_count": 98,
+      "viewer_takeaway": "A quick, no-excuses workout exists for desk workers right now, and following means getting regular, equipment-free routines designed specifically for their constraints."
+    },
+    "visual": {
+      "cover_options": [
+        "Creator mid-burpee, sweat visible, living room background, bold text overlay: 'FULL WORKOUT \u2014 NO EDITING' with timer '20:00' in corner",
+        "Creator standing in athletic stance, intense expression, home gym setup visible behind, text: 'DESK JOB KILLER \u2014 20 MIN' with play-button graphic"
+      ],
+      "frame_plan": [
+        {
+          "position": "0:00\u20130:03",
+          "visual_direction": "Creator's face, direct to camera, living room setting, holds up phone or gestures to timer on wall. Energy: confident, no-nonsense.",
+          "on_screen_text": "FULL WORKOUT \u2014 NO EDITING"
+        },
+        {
+          "position": "0:03\u20130:08",
+          "visual_direction": "Wide shot of living room space. Creator walks through the frame, clears small area. B-roll of workspace (desk, chair) to establish 'desk job' context.",
+          "on_screen_text": "20 MINUTES. NO CUTS."
+        },
+        {
+          "position": "0:08\u20130:12",
+          "visual_direction": "Creator's face, close-up, speaks directly to camera about being stuck at desk. Pause moment\u2014show shoulders rolled back, stretching neck. Visual cue: tension in posture.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "0:12\u20130:15",
+          "visual_direction": "B-roll montage: creator at desk (tired expression), then cutting to same person standing in cleared living room space, ready to move. Quick transition.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "0:15\u20130:18",
+          "visual_direction": "Creator's face, excited energy. Points to self, then to empty space around them. Show open living room floor clearly.",
+          "on_screen_text": "NO EQUIPMENT. NO EXPERIENCE."
+        },
+        {
+          "position": "0:18\u20131:45",
+          "visual_direction": "Workout montage\u201420 minutes of continuous reps with no cuts. Creator's body in frame (face visible during demonstrations). Cycle through: warm-up dynamic stretches (0:18\u20130:25), then circuit: push-ups, squats, lunges, burpees, mountain climbers, jumping jacks, plank holds, high knees. Maintain steady camera angle (slightly wide to show full body). Overlay timer countdown in corner. Creator's face visible during talking points; body/form visible during exercise reps.",
+          "on_screen_text": "DESK JOB KILLER \u2014 20 MIN"
+        },
+        {
+          "position": "1:45\u20131:50",
+          "visual_direction": "Creator breathing heavily, wiping sweat, genuine expression of effort. Standing or in cool-down stretch. Close-up on face to show result/intensity.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "1:50\u20131:58",
+          "visual_direction": "Creator's face, serious but approachable tone. Direct eye contact with camera. Lean in slightly for emphasis.",
+          "on_screen_text": "FOLLOW FOR MORE"
+        },
+        {
+          "position": "1:58\u20132:00",
+          "visual_direction": "Creator's face. Slight nod or gesture. Transition to follow button graphic on screen or platform's native CTA prompt.",
+          "on_screen_text": "NEW ROUTINES EVERY WEEK"
+        }
+      ],
+      "assets_needed": [
+        "Timer (visible on phone, wall clock, or on-screen graphic overlay)",
+        "Living room space (clear floor, neutral background)",
+        "Desk and chair (for b-roll establishing shot)",
+        "Athletic clothing (comfortable, allows full movement visibility)",
+        "Phone or camera rig (stable, wide-angle lens preferred for full-body shots)",
+        "Lighting: natural window light or ring light (face must be well-lit for close-ups)",
+        "Optional: sweat towel (for authenticity during/after workout)",
+        "Editing software: timer graphic overlay, music bed (energetic, workout-style), jump cuts hidden by music beats during transitions"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 9,
+        "retention": 8,
+        "save_potential": 8,
+        "shareability": 7,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with 'no cuts, no BS' and problem-value-cta structure is transparent throughout.",
+        "retention": "Desk job pain point hits immediately, sweat/breathing visible in middle keeps viewer invested, but no surprise element or progression hook for mid-video dip.",
+        "save_potential": "Full uncut workout with timer is inherently saveable for future use; practical value is high, though lacks emotional hook for re-engagement.",
+        "shareability": "Relatable pain point (desk jobs, no gym time) drives shares, but no aspirational before/after or peer-challenge element limits tag-a-friend momentum.",
+        "audience_fit": "Directly addresses desk worker pain (tight back, low energy, time poverty); no equipment barrier and living room setting perfectly match stated niche.",
+        "cta_strength": "Follow prompt is clear but generic; 'new routines drop every week' adds incentive but doesn't create urgency or give reason to act *now* vs. later."
+      },
+      "weaknesses": [
+        {
+          "issue": "Mid-video retention cliff: 20-minute workout block (0:18\u20131:45) risks viewer drop-off around 45 seconds; no story beats, challenge framing, or anticipation hook to keep passive scrollers watching.",
+          "fix": "Insert 8-second cutaway at 0:50 mark: Creator pauses, faces camera, says 'Most people quit here. But here's the thing\u2014your desk doesn't want you to feel this good.' Then restart circuit. Breaks monotony, reframes effort as rebellion against desk job identity."
+        },
+        {
+          "issue": "CTA is soft and reactive: 'Follow for more' assumes viewer is already sold; no reason given to follow *today* vs. bookmark and scroll.",
+          "fix": "Rewrite CTA line (1:50\u20131:58): '[serious] Do this three times this week. Follow so you don't forget. First one's free\u2014every workout after lives here.' Creates commitment micro-promise and frames follow as enabler, not broadcast."
+        },
+        {
+          "issue": "Shareability gap: No peer-challenge, transformation proof, or 'tag someone' moment; relies entirely on individual utility rather than social proof or accountability loop.",
+          "fix": "Add 3-second moment at 1:45 (post-sweat close-up): Creator looks at camera, says 'Tag someone stuck at a desk. Show them what 20 minutes feels like.' On-screen text: 'TAG A DESK WARRIOR.' Converts solo consumption into social proof exchange."
+        }
+      ],
+      "captions": [
+        "20 minutes. No cuts. No equipment. No excuses. Your desk job isn't your life\u2014this is what your body can do when you give it 20 uninterrupted minutes. Hit play, follow, drop a comment when you're done. New routines every week.",
+        "Full-body workout for people with zero time. No gym. No experience needed. Just you, your living room, and 20 minutes you didn't know you had. Do this three times this week\u2014follow so you don't miss the next one. Tag someone stuck at a desk and show them what's possible."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Strong clarity and audience fit, but mid-video retention risk and soft CTA undermine shareability potential; insert retention beat at 50-second mark and reframe follow CTA as commitment device before posting."
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "timestamp": "20260812_153336",
+  "profile": {
+    "niche": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "audience": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more",
+    "person_preference": "Face visible"
+  },
+  "research_material": "i sit at a desk for 8 hours straight and by the time i get home i just want to collapse. how do people actually find energy to work out after that?\nmy apartment is tiny so i can't do anything that needs space or equipment. just looking for stuff i can do in like 20 mins between calls\ntried going to the gym for 2 weeks and the membership was so expensive plus the commute killed me. has to be something i can do at home before work\nmy back is always sore from my chair and i feel like i'm getting softer every year but i genuinely don't have time to drive anywhere. what actually works\nbeen telling myself i'll work out for months but by 6pm my brain is fried. need something simple that doesn't require me to think too hard about it",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Mental and physical exhaustion after 8 hours of desk work makes motivation nearly impossible",
+        "Lack of space and equipment at home limits workout options",
+        "Time constraints require workouts to fit into tiny windows (20 mins, before work)",
+        "Chronic back pain and postural issues from sitting all day",
+        "Decision fatigue and lack of mental energy to plan or think through workouts"
+      ],
+      "ideas": [
+        {
+          "idea": "3-minute desk break movement sequences you can do between calls (no space needed, no equipment, zero planning required)",
+          "pain_point": "Mental and physical exhaustion after 8 hours of desk work makes motivation nearly impossible",
+          "unique_angle": "Angle nobody's covering: positioning micro-workouts as mental breaks that actually reset energy instead of adding to fatigue"
+        },
+        {
+          "idea": "Pre-work 15-minute routines timed to fit before you sit down for 8 hours (the energy is fresh, no commute needed)",
+          "pain_point": "Mental and physical exhaustion after 8 hours of desk work makes motivation nearly impossible",
+          "unique_angle": "Angle nobody's covering: flipping the narrative from 'workout after work is hard' to 'working out before work prevents the crash'"
+        },
+        {
+          "idea": "Apartment-friendly bodyweight combos that work in a 4x4 ft space (living proof from followers with tiny homes)",
+          "pain_point": "Lack of space and equipment at home limits workout options",
+          "unique_angle": "Angle nobody's covering: celebrating small space as a feature, not a limitation (minimal distractions, no excuses about equipment)"
+        },
+        {
+          "idea": "20-minute workout blueprints designed specifically for the time between back-to-back calls (start/stop friendly, no flow required)",
+          "pain_point": "Time constraints require workouts to fit into tiny windows (20 mins, before work)",
+          "unique_angle": "Angle nobody's covering: designing for interruption instead of pretending office workers get unbroken gym blocks"
+        },
+        {
+          "idea": "Desk posture + back relief sequences that double as workouts (addressing the pain while building strength)",
+          "pain_point": "Chronic back pain and postural issues from sitting all day",
+          "unique_angle": "Angle nobody's covering: reframing back exercises as pain management first, fitness second (appeals to people who feel broken, not weak)"
+        },
+        {
+          "idea": "No-decision workout templates where you just press play and follow along (removes the cognitive load entirely)",
+          "pain_point": "Decision fatigue and lack of mental energy to plan or think through workouts",
+          "unique_angle": "Angle nobody's covering: explicitly acknowledging brain fatigue as the real barrier and solving for it instead of ignoring it"
+        },
+        {
+          "idea": "Tiny-space flow routines that use furniture (couch, chair, wall) as built-in equipment replacements",
+          "pain_point": "Lack of space and equipment at home limits workout options",
+          "unique_angle": "Angle nobody's covering: showing how apartment constraints actually create creative, functional solutions others haven't seen"
+        },
+        {
+          "idea": "5-minute energy reset sequences specifically designed to combat the 3pm and 6pm energy crashes office workers hit",
+          "pain_point": "Mental and physical exhaustion after 8 hours of desk work makes motivation nearly impossible",
+          "unique_angle": "Angle nobody's covering: treating energy crashes as predictable and preventable, not personal failures"
+        },
+        {
+          "idea": "Back-pain relief content that proves you don't need time or space (30-second stretches, chair exercises, posture hacks)",
+          "pain_point": "Chronic back pain and postural issues from sitting all day",
+          "unique_angle": "Angle nobody's covering: separating back relief from 'real workouts' so people with pain don't feel like they're cheating or not trying hard enough"
+        },
+        {
+          "idea": "Done-for-you weekly schedules that slot workouts into existing office rhythms (before standup, lunch break, after last meeting)",
+          "pain_point": "Decision fatigue and lack of mental energy to plan or think through workouts",
+          "unique_angle": "Angle nobody's covering: removing the weekly planning step entirely and tying workouts to existing calendar anchors"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "No-decision workout templates where you just press play and follow along (removes the cognitive load entirely)",
+          "reason": "Brain fatigue appears in 2 of 5 pain points and is the deepest emotional blocker. This directly removes friction."
+        },
+        {
+          "idea": "Pre-work 15-minute routines timed to fit before you sit down for 8 hours (the energy is fresh, no commute needed)",
+          "reason": "Solves the energy paradox by reframing when workouts happen. Multiple audience members mentioned morning preference and post-work collapse."
+        },
+        {
+          "idea": "Desk posture + back relief sequences that double as workouts (addressing the pain while building strength)",
+          "reason": "Addresses both the physical symptom (back pain) and the underlying barrier (time/energy). Makes fitness feel medically necessary, not aspirational."
+        }
+      ],
+      "missing_info": [
+        "What time do these office workers wake up? (crucial for pre-work content feasibility)",
+        "Do they have ANY equipment at home (resistance bands, dumbbells) or is it truly bodyweight only?",
+        "What does 'back pain' look like for them? (Lower back, upper back, all-day soreness?) \u2014 affects exercise focus",
+        "Have any of them tried working out before and quit? Why specifically did they stop?",
+        "Are there any 'success stories' in the audience (office workers who ARE finding time to work out at home)? What are they doing differently?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your brain's too tired to pick a workout. Here's the fix.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "What if your workout required zero decisions?",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "Press play. Follow along. Done in 20 minutes.",
+          "type": "pattern interrupt"
+        },
+        {
+          "text": "The fitness industry's been doing this backwards the whole time.",
+          "type": "bold claim"
+        },
+        {
+          "text": "Decision fatigue is why you skip workouts. Not laziness.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "This is the workout format gym bros won't tell you about.",
+          "type": "curiosity gap"
+        },
+        {
+          "text": "No planning. No options. Just results.",
+          "type": "pattern interrupt"
+        },
+        {
+          "text": "Most home workout fails happen before you even start moving.",
+          "type": "pain point call-out"
+        },
+        {
+          "text": "One question: why are you still thinking during workouts?",
+          "type": "bold claim"
+        },
+        {
+          "text": "The secret isn't harder work. It's fewer choices.",
+          "type": "curiosity gap"
+        }
+      ],
+      "winner": {
+        "text": "Press play. Follow along. Done in 20 minutes.",
+        "reasoning": "This hook speaks directly to the time-constrained office worker by making the entire process frictionless\u2014no research, no decisions, immediate action. For busy professionals drowning in choices all day, the simplicity itself becomes the primary benefit and removes the cognitive barrier that prevents workouts from happening."
+      },
+      "runner_up": {
+        "text": "Decision fatigue is why you skip workouts. Not laziness.",
+        "reasoning": "This hook names the specific pain point that resonates with office workers while reframing their struggle as a legitimate problem (not personal failure). It validates their experience and makes them feel understood before introducing the solution."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec]\n\"Press play. Follow along. Done in 20 minutes.\"\n[ON-SCREEN TEXT: 20-MIN DESK ESCAPE WORKOUT]\n\n[PROBLEM - 3-8 sec]\n\"You're stuck at your desk all day. No gym. No time. Your back's killing you.\"\n[PAUSE]\n\n[VALUE - 8-18 sec]\n\"Here's what we're doing: three moves. No equipment. Right here at home.\"\n[CUT]\n\"Move 1: Desk push-ups \u2014 hit your chest and arms.\"\n[CUT]\n\"Move 2: Chair dips \u2014 torch your triceps.\"\n[CUT]\n\"Move 3: Standing knee drives \u2014 blast your core and legs.\"\n[PAUSE]\n\"Do each for 45 seconds. Rest 15. Three rounds. You're done.\"\n\n[CTA - 18-20 sec]\n\"Follow for more quick wins that actually fit your life.\"\n[ON-SCREEN TEXT: FOLLOW FOR MORE]",
+      "word_count": 87,
+      "viewer_takeaway": "A busy office worker can complete an effective full-body workout in 20 minutes using zero equipment in their home."
+    },
+    "visual": {
+      "cover_options": [
+        "Presenter sitting at desk, smiling directly at camera, with '20-MIN DESK ESCAPE WORKOUT' text overlay in bold sans-serif. Background: home office setup. Casual athleisure wear.",
+        "Close-up of presenter's face with energetic expression, text '20 MINUTES \u2022 NO EQUIPMENT \u2022 AT HOME' stacked vertically. Bright, natural lighting. Minimal background blur."
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "Wide shot: presenter at desk, facing camera, relaxed posture. Leans forward with direct eye contact and slight smile as they speak 'Press play. Follow along. Done in 20 minutes.' Keep energy conversational, not overly produced.",
+          "on_screen_text": "20-MIN DESK ESCAPE WORKOUT"
+        },
+        {
+          "position": "3-8 sec (PROBLEM)",
+          "visual_direction": "Medium shot of presenter, still seated at desk. As they describe 'stuck at desk all day... no gym... your back's killing you,' show subtle gestures (hand to back, slight stretch). Relatable, empathetic facial expression. Pause beats = hold on face.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "8-10 sec (VALUE - Intro)",
+          "visual_direction": "Presenter stands up from desk. Quick cut to them standing in the same space, full-body in frame, confident posture. Speak directly to camera: 'Here's what we're doing: three moves. No equipment. Right here at home.'",
+          "on_screen_text": "THREE MOVES \u2022 NO EQUIPMENT"
+        },
+        {
+          "position": "10-12 sec (MOVE 1 - Desk Push-ups)",
+          "visual_direction": "Presenter performs desk push-up (hands on desk edge, body at angle). Show 2-3 reps in real-time or slightly sped up. Face visible, focused expression. Voiceover: 'Move 1: Desk push-ups \u2014 hit your chest and arms.'",
+          "on_screen_text": "MOVE 1: DESK PUSH-UPS"
+        },
+        {
+          "position": "12-14 sec (MOVE 2 - Chair Dips)",
+          "visual_direction": "Cut to presenter using chair (hands gripping seat edge behind them, legs extended or bent). Show 2-3 reps. Face visible in profile or 3/4 angle. Voiceover: 'Move 2: Chair dips \u2014 torch your triceps.'",
+          "on_screen_text": "MOVE 2: CHAIR DIPS"
+        },
+        {
+          "position": "14-16 sec (MOVE 3 - Standing Knee Drives)",
+          "visual_direction": "Cut to presenter standing, executing standing knee drives (drive knee up to chest, alternating sides). Show 3-4 reps at normal or slight speed. Face visible, energetic. Voiceover: 'Move 3: Standing knee drives \u2014 blast your core and legs.'",
+          "on_screen_text": "MOVE 3: KNEE DRIVES"
+        },
+        {
+          "position": "16-18 sec (STRUCTURE/TIMING)",
+          "visual_direction": "Montage or quick cuts: presenter cycling through all three moves in sequence (1-2 reps each, rapid cuts). Face visible throughout. Voiceover explains: 'Do each for 45 seconds. Rest 15. Three rounds. You're done.' End on presenter slightly out of breath, smiling at camera.",
+          "on_screen_text": "45 SEC WORK \u2022 15 SEC REST \u2022 3 ROUNDS"
+        },
+        {
+          "position": "18-20 sec (CTA)",
+          "visual_direction": "Presenter full-body or medium shot, standing, relaxed. Direct eye contact, friendly expression. Speak: 'Follow for more quick wins that actually fit your life.' Hold shot for 1-2 sec post-speech for CTAs to register.",
+          "on_screen_text": "FOLLOW FOR MORE"
+        }
+      ],
+      "assets_needed": [
+        "Desk (standard home office desk or table edge)",
+        "Chair (sturdy dining or office chair for dips)",
+        "Home office or bedroom interior (neutral, clean background)",
+        "Presenter: casual athleisure wear (t-shirt + joggers or similar)",
+        "Natural or soft indoor lighting setup",
+        "Timer graphic or on-screen countdown (optional, for 45/15 sec intervals)",
+        "Font: bold sans-serif for text overlays (e.g., Montserrat, Inter, or similar)",
+        "Background music: upbeat, energetic, 120+ BPM (royalty-free)",
+        "Color grade: warm, bright, slightly saturated (Instagram-friendly)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly with '20 minutes' \u2014 the primary constraint for busy office workers; problem statement (desk, no gym, back pain) mirrors audience reality by second 3.",
+        "retention": "Move demonstrations provide visual variety and tangible payoff (three distinct exercises), but lack urgency or emotional hook to compete with scrolling; no cliffhanger or surprising element.",
+        "save_potential": "Three practical, equipment-free moves at home office scale are immediately actionable; presenter energy and realistic pacing keep it watchable; no fluff or overly produced elements dilute the value.",
+        "shareability": "Niche appeal is strong (office workers) but relatability doesn't drive organic shares \u2014 content is functional, not surprising or emotionally resonant enough to prompt 'you need to see this' impulse.",
+        "audience_fit": "Directly addresses 'stuck at desk all day,' 'no gym,' 'no time,' and 'back pain' \u2014 all primary pain points for sedentary office workers; desk/chair props reinforce home-office setting.",
+        "cta_strength": "Follow ask is clear and low-friction, but 'quick wins that actually fit your life' is generic positioning language that doesn't reinforce why *this* account is different or worth subscribing for."
+      },
+      "weaknesses": [
+        {
+          "issue": "CTA lacks specificity \u2014 'quick wins that actually fit your life' is motivational filler that doesn't differentiate or promise a specific outcome tied to follow.",
+          "fix": "Replace CTA voiceover with: 'Follow for 20-minute office workouts you can sneak in between meetings \u2014 no sweat stains, no gym.' This ties follow action to a concrete, repeatable benefit specific to office workers."
+        },
+        {
+          "issue": "No hook payoff or curiosity gap \u2014 the structure solves the problem within the first 20 seconds, leaving no reason to engage past the CTA.",
+          "fix": "Revise hook (0-3 sec) to: 'Press play. Follow along. Done in 20 minutes. And your back will thank you.' The back pain callback creates an emotional endpoint that makes 'follow for more' feel like access to a solution, not just more content."
+        },
+        {
+          "issue": "Shareability is low because the value is functional but not remarkable \u2014 three desk exercises are predictable and don't trigger conversation or tag-a-friend energy.",
+          "fix": "Add one surprising element to the VALUE section (8-18 sec): After Move 3, insert: 'Bonus: these moves also help fix your posture from 8 hours of sitting.' This adds an unexpected benefit that feels like insider knowledge worth sharing."
+        }
+      ],
+      "captions": [
+        "Stuck at your desk all day? No gym. No problem. 20 minutes, three moves, zero equipment \u2014 desk push-ups, chair dips, knee drives. Do it now. Follow for more office-friendly workouts that actually stick to your schedule.",
+        "Your back's killing you and you haven't worked out in weeks? This is your sign. 20 minutes. At your desk. No excuses. Follow for more quick-win workouts built for people who live in their office chairs."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Content is audience-aligned and actionable but CTA is generic and hook lacks curiosity payoff \u2014 revise voiceover at 0-3 sec and 18-20 sec to create specificity and emotional anchor before publishing."
+    }
+  }
+}
