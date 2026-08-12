@@ -1,0 +1,252 @@
+{
+  "timestamp": "20260812_141638",
+  "profile": {
+    "niche": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "audience": "Home workouts for busy office workers who want to get fit but can't make it to a gym",
+    "platform": "Instagram",
+    "format": "reel",
+    "brand_voice": "casual and direct",
+    "cta": "follow for more",
+    "person_preference": "Face visible"
+  },
+  "research_material": "\"I sit 9 hours a day, my back is destroyed, where do I even start\"\n\"tried following gym youtubers but everything needs equipment I don't have\"\n\"I get home at 8pm, cooking + workout + sleep is impossible, something has to go\"\n\"do 10 minute workouts actually do anything or is that cope\"\n\"started monday, stopped thursday, every single month, why am I like this\"",
+  "outputs": {
+    "research": {
+      "pain_points": [
+        "Chronic back pain from prolonged sitting with no clear recovery starting point",
+        "Lack of equipment at home makes following existing fitness content feel inaccessible",
+        "Time scarcity: evening routine is already maxed out (cooking, workout, sleep conflict)",
+        "Skepticism about whether short workouts (10 min) actually produce results",
+        "Pattern of starting workouts Monday but quitting by Thursday, repeating monthly"
+      ],
+      "ideas": [
+        {
+          "idea": "Posture reset series: 3-minute desk-to-couch routines targeting the exact areas destroyed by 9-hour sits (lower back, hip flexors, shoulders)",
+          "pain_point": "Chronic back pain from prolonged sitting with no clear recovery starting point",
+          "unique_angle": "Angle nobody's covering: positioning it as pain relief first, fitness second\u2014recovery as the entry point instead of strength"
+        },
+        {
+          "idea": "Before-bed mobility flow (5 min) that counters sitting damage while doubling as wind-down, solving the evening time crunch by combining relaxation + recovery",
+          "pain_point": "Chronic back pain from prolonged sitting with no clear recovery starting point",
+          "unique_angle": "Angle nobody's covering: framing back recovery as sleep prep rather than a separate workout obligation"
+        },
+        {
+          "idea": "Equipment-free breakdowns: take one popular gym YouTube video and remake it with zero-equipment alternatives (bodyweight, furniture, gravity)",
+          "pain_point": "Lack of equipment at home makes following existing fitness content feel inaccessible",
+          "unique_angle": "Angle nobody's covering: directly calling out the equipment gap instead of ignoring it\u2014meet people where they actually are"
+        },
+        {
+          "idea": "\"What's actually in my home\" series: show how to use everyday objects (chairs, counters, stairs, walls) as workout tools, normalizing no-equipment workouts",
+          "pain_point": "Lack of equipment at home makes following existing fitness content feel inaccessible",
+          "unique_angle": "Angle nobody's covering: reframing 'no equipment' as an advantage (creative, accessible, already owned) instead of a limitation"
+        },
+        {
+          "idea": "Microworkout stacking: 3-4 minute bursts designed to layer into existing evening routines (one while coffee brews, one after dinner, one before bed) instead of carving out a separate block",
+          "pain_point": "Time scarcity: evening routine is already maxed out (cooking, workout, sleep conflict)",
+          "unique_angle": "Angle nobody's covering: breaking the 'workout as its own event' mindset\u2014integrate fitness into existing habits instead of competing with them"
+        },
+        {
+          "idea": "Realistic dinner-to-bed timeline: show what actually fits between 8pm arrival and reasonable sleep time, explicitly naming what doesn't work instead of pretending 1-hour routines fit",
+          "pain_point": "Time scarcity: evening routine is already maxed out (cooking, workout, sleep conflict)",
+          "unique_angle": "Angle nobody's covering: honesty about constraints rather than aspirational scheduling\u2014design around their real life, not fantasy life"
+        },
+        {
+          "idea": "\"10 minutes actually works if...\" breakdown: show the science-backed conditions that make short workouts effective (consistency over intensity, specific muscle focus, frequency) and when they don't",
+          "pain_point": "Skepticism about whether short workouts (10 min) actually produce results",
+          "unique_angle": "Angle nobody's covering: address the doubt directly instead of overselling\u2014validate the skepticism then explain what makes short sessions work"
+        },
+        {
+          "idea": "Before/after from people who did 10-min daily vs. inconsistent longer workouts, showing cumulative effect over weeks (not just one-off motivation posts)",
+          "pain_point": "Skepticism about whether short workouts (10 min) actually produce results",
+          "unique_angle": "Angle nobody's covering: use real user timelines instead of generic testimonials\u2014prove consistency beats intensity for this audience"
+        },
+        {
+          "idea": "The 4-day failure pattern breakdown: why Monday-Thursday happens and how to restructure (shorter commitment, different days, anchor to existing habits) to break the cycle",
+          "pain_point": "Pattern of starting workouts Monday but quitting by Thursday, repeating monthly",
+          "unique_angle": "Angle nobody's covering: diagnose the specific failure point instead of generic 'stay motivated' advice\u2014address why Thursday, not just that they quit"
+        },
+        {
+          "idea": "\"Restart without shame\" series: normalize that people quit and restart, then show how to re-enter after stopping (no guilt, no hero mode, just pick it back up)",
+          "pain_point": "Pattern of starting workouts Monday but quitting by Thursday, repeating monthly",
+          "unique_angle": "Angle nobody's covering: stop treating every restart like a failure\u2014reframe cycles as normal and design workflows that accommodate them"
+        }
+      ],
+      "top_picks": [
+        {
+          "idea": "Microworkout stacking: 3-4 minute bursts designed to layer into existing evening routines (one while coffee brews, one after dinner, one before bed) instead of carving out a separate block",
+          "reason": "Directly solves the stated time conflict (8pm arrival, cooking, sleep squeeze) using the audience's actual constraints. Highest conversion potential because it doesn't ask them to change their life, just their workout structure."
+        },
+        {
+          "idea": "The 4-day failure pattern breakdown: why Monday-Thursday happens and how to restructure (shorter commitment, different days, anchor to existing habits) to break the cycle",
+          "reason": "Addresses the recurring monthly failure pattern with diagnostic specificity. This is the highest-intent audience\u2014they've tried multiple times and are stuck. Solving why they quit Thursday hits deeper than generic motivation content."
+        },
+        {
+          "idea": "Posture reset series: 3-minute desk-to-couch routines targeting the exact areas destroyed by 9-hour sits (lower back, hip flexors, shoulders)",
+          "reason": "Immediate pain relief hook (back destroyed) overcomes the skepticism-to-action gap. Recovery-focused framing means people start before they're ready to 'work out,' lowering entry friction and building the habit before asking for intensity."
+        }
+      ],
+      "missing_info": [
+        "What specific time windows are actually available? (Post-work before cooking? During lunch? Early morning?)",
+        "Has anyone in this audience succeeded with a routine, and if so, what was different about it?",
+        "When they stop Thursday, is it physical fatigue, mental burnout, schedule conflict, or soreness?",
+        "What type of back pain\u2014lower, upper, middle\u2014and is it diagnosed or self-assessed?",
+        "Are they looking for weight loss, strength, energy, or primarily pain relief/mobility?"
+      ]
+    },
+    "hook": {
+      "hooks": [
+        {
+          "text": "Your coffee's brewing for 3 minutes. That's a workout.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "What if your commute home WAS the gym?",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "You already have 12 minutes scattered in your evening. Watch.",
+          "type": "curiosity_gap"
+        },
+        {
+          "text": "Skip the guilt. Stack these instead of one big workout.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Busy people don't have time to get fit. We fixed it.",
+          "type": "bold_claim"
+        },
+        {
+          "text": "Can't find 45 minutes? You're looking at this wrong.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "That 'I don't have time' excuse just expired.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Your evening routine is costing you your fitness goals.",
+          "type": "pain_point_callout"
+        },
+        {
+          "text": "Plot twist: the gym isn't between your couch and bed.",
+          "type": "pattern_interrupt"
+        },
+        {
+          "text": "Everyone says 'no time.' We're saying 'no excuse.'",
+          "type": "pattern_interrupt"
+        }
+      ],
+      "winner": {
+        "text": "Your coffee's brewing for 3 minutes. That's a workout.",
+        "reasoning": "This hook converts abstract concept into immediate, relatable action. Office workers recognize the exact scenario, creating instant mental buy-in. It demolishes the 'I need uninterrupted time' barrier this audience uses to procrastinate\u2014their own routine becomes the vessel."
+      },
+      "runner_up": {
+        "text": "Can't find 45 minutes? You're looking at this wrong.",
+        "reasoning": "Directly addresses the primary objection preventing this audience from starting fitness. Non-confrontational tone maintains casual brand voice while positioning the content as solution, not criticism. Safer because it validates struggle before pivoting."
+      }
+    },
+    "script": {
+      "script": "[HOOK - 0-3 sec] [ON-SCREEN TEXT: Your coffee's brewing for 3 minutes] That's a workout.\n\n[PAUSE 1 sec]\n\n[PROBLEM] You're stuck at your desk all day. No gym time. No energy left at night.\n\n[CUT]\n\n[VALUE] Three minutes. That's all you need between meetings or morning coffee. We're talking 15 squats, 10 push-ups, 20-second plank. Real moves. Real results.\n\n[ON-SCREEN TEXT: 3 MIN = Results]\n\n[PAUSE]\n\n[CUT]\n\nDo this every time your coffee brews. That's 3+ workouts built into your day. No excuses. No gym card needed.\n\n[CTA] Follow for more quick wins like this.",
+      "word_count": 72,
+      "viewer_takeaway": "Busy office workers can build fitness into existing daily routines using just 3-minute micro-workouts, making fitness actually achievable without gym access."
+    },
+    "visual": {
+      "cover_options": [
+        "Person mid-squat in casual office wear, coffee mug visible on desk behind them, bold text overlay: '3 MIN WORKOUT' with energy/urgency feel",
+        "Split-screen: coffee brewing on left, person doing push-up on right, text: 'Your Coffee Brews. You Get Fit.' casual, punchy design"
+      ],
+      "frame_plan": [
+        {
+          "position": "0-3 sec (HOOK)",
+          "visual_direction": "Close-up of coffee maker/mug, timer starts, or person holding mug looking at camera with knowing smirk. Face visible. Quick, snappy energy.",
+          "on_screen_text": "Your coffee's brewing for 3 minutes"
+        },
+        {
+          "position": "3-4 sec (PAUSE)",
+          "visual_direction": "B-roll: person at desk, laptop, looking tired/stuck. No dialogue needed, visual tells the story.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "4-7 sec (PROBLEM)",
+          "visual_direction": "Person speaking to camera (face visible, casual), laying out the problem: stuck at desk, no gym time, no energy. Keep tone conversational, direct.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "7-8 sec (CUT/TRANSITION)",
+          "visual_direction": "Quick cut, dynamic transition. Text pops on screen bold. Energy shift\u2014moving from problem to solution.",
+          "on_screen_text": "3 MIN = Results"
+        },
+        {
+          "position": "8-13 sec (VALUE - Demo)",
+          "visual_direction": "Person demonstrating moves: 15 squats (face visible, mid-shot or full body), cut to 10 push-ups (side angle, face visible), cut to 20-second plank (face visible or side angle). Fast-paced montage, minimal cuts between reps.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "13-14 sec (VALUE - Benefit)",
+          "visual_direction": "Person finishing plank, breathing, looking at camera with confidence. Face visible. Text overlay reinforces message.",
+          "on_screen_text": "No gym. No excuses."
+        },
+        {
+          "position": "14-16 sec (SOCIAL HABIT)",
+          "visual_direction": "B-roll: coffee brewing again, person doing quick squat/movement at desk, casual loop. Reinforce routine habit.",
+          "on_screen_text": ""
+        },
+        {
+          "position": "16-18 sec (CTA)",
+          "visual_direction": "Person looking at camera, pointing or gesturing toward camera (or direct eye contact). Face visible. Friendly, direct ask. End frame holds 1-2 sec.",
+          "on_screen_text": "Follow for more quick wins"
+        }
+      ],
+      "assets_needed": [
+        "Coffee maker or mug with brewing coffee (close-up)",
+        "Timer or clock prop (or on-screen timer graphic)",
+        "Desk/office setting (laptop visible, casual workspace)",
+        "Person in casual office wear (button-up, t-shirt, or similar)",
+        "Flat, clear floor space for squat/push-up/plank demo",
+        "Phone or tripod for steady camera angles during demo",
+        "B-roll: person sitting tired at desk, looking at screen, stretching",
+        "B-roll: quick cuts of coffee brewing, office background blur",
+        "Text graphics: '3 MIN = Results', 'No gym. No excuses.', 'Follow for more quick wins' (match brand casual style, bold sans-serif)",
+        "Transition stings or quick cuts (optional but recommended for energy)"
+      ]
+    },
+    "growth": {
+      "scores": {
+        "clarity": 8,
+        "retention": 7,
+        "save_potential": 8,
+        "shareability": 6,
+        "audience_fit": 9,
+        "cta_strength": 7
+      },
+      "justifications": {
+        "clarity": "Hook lands instantly ('coffee's brewing = workout'), problem stated clearly by 4-sec mark, solution explicit (15 squats, 10 push-ups, 20-sec plank).",
+        "retention": "Problem-to-solution structure holds attention, demo montage keeps pace, but lacks a surprising stat or pattern interrupt beyond the initial hook.",
+        "save_potential": "Actionable, repeatable routine tied to existing habit (coffee brewing); audience will bookmark for reference or quick morning inspo.",
+        "shareability": "Helpful and relatable, but lacks viral edge\u2014no humor, controversy, or unexpected twist that makes people tag a friend or comment; feels instructional rather than conversational.",
+        "audience_fit": "Directly addresses desk-bound office workers, time poverty, and gym friction; coffee-brewing trigger is a real morning behavior for target demographic.",
+        "cta_strength": "Clear and low-friction ('Follow for more quick wins'), but generic and passive; doesn't create urgency or give reason to follow *now* vs. later."
+      },
+      "weaknesses": [
+        {
+          "issue": "Shareability suffers from lack of pattern-interrupt or relatable humor\u2014feels like fitness instruction, not conversation starter.",
+          "fix": "Add self-deprecating angle in PROBLEM section: 'You're stuck at your desk. Your coffee's getting cold. Your gym membership is getting dusty.' or inject a micro-joke in the VALUE demo ('That's 3 squats per meeting\u2014and nobody asks questions if you're just standing')."
+        },
+        {
+          "issue": "CTA is passive and generic\u2014'Follow for more' doesn't explain why this specific follow matters or create FOMO.",
+          "fix": "Rewrite CTA to: 'Follow\u2014I drop one 3-min desk workout every day so you never have another excuse' or 'Follow for daily coffee-break workouts (no gym, no BS)' to position you as the solution, not just a content source."
+        },
+        {
+          "issue": "Missing quantifiable hook in copy\u2014no data or specific benefit claim that makes the 3-minute promise feel credible or compelling.",
+          "fix": "Add one line in VALUE section after demonstrating moves: 'Do this 3 times a day, that's 9 minutes of real movement\u2014same as a 30-minute gym session spread across your day' or 'Studies show 3 minutes of movement every 2 hours boosts focus by 23%' (verify stat before use)."
+        }
+      ],
+      "captions": [
+        "Your coffee's brewing for 3 minutes anyway. That's 15 squats, 10 push-ups, and a 20-second plank. Do this every morning (and between meetings) and you've logged more movement than most gym-goers. No commute. No excuses. Follow for daily desk workouts that actually fit your life.",
+        "Stuck at your desk? Your coffee doesn't have to be. 3 minutes = real results. Squat while it brews. Push-up while you wait. Plank while it cools. Build the habit, kill the gym guilt. Follow for quick wins designed for busy office workers who are tired of *trying* to get fit."
+      ],
+      "final_call": "REWORK",
+      "final_call_reason": "Core concept and audience fit are strong, but shareability and CTA urgency are weak; add humor or self-deprecation to the problem statement, strengthen CTA with a reason to follow *now*, and inject one credibility anchor (stat or benefit claim) to push this from instructional to scroll-stopping."
+    }
+  }
+}
