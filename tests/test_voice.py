@@ -124,6 +124,72 @@ def test_clean_script_for_voice_strips_production_markers():
     assert "\n\n\n" not in cleaned
 
 
+def test_clean_script_for_voice_keeps_emotional_tags_but_strips_markers():
+    """Production markers (including PROBLEM, not covered by the other
+    test) are stripped, but ElevenLabs v3 emotional audio tags survive
+    intact so they reach ElevenLabs."""
+    script = (
+        "[HOOK - 0-3 sec]\n"
+        "[excited] Ever notice how the best study sessions happen when "
+        "you stop trying to plan the perfect schedule?\n\n"
+        "[PROBLEM]\n"
+        "[sighs] We've all been there — [whispers] the planner guilt is real.\n\n"
+        "[VALUE]\n"
+        "Here's the trick: set a timer for 20 minutes, pick ONE task, "
+        "and go. [PAUSE 1 sec]\n"
+        "[laughs] No planner. No app. Just a timer and your notes.\n\n"
+        '[ON-SCREEN TEXT: "20 minutes. One task. Go."]\n\n'
+        "[CUT]\n\n"
+        "[CTA]\n"
+        "[serious] Follow for more no-nonsense study tips."
+    )
+
+    cleaned = voice.clean_script_for_voice(script)
+
+    for marker in (
+        "[HOOK",
+        "[PROBLEM]",
+        "[VALUE]",
+        "[PAUSE",
+        "[ON-SCREEN TEXT",
+        "[CUT]",
+        "[CTA]",
+    ):
+        assert marker not in cleaned
+    for tag in ("[excited]", "[sighs]", "[whispers]", "[laughs]", "[serious]"):
+        assert tag in cleaned
+    assert "Ever notice how the best study sessions" in cleaned
+    assert "Follow for more no-nonsense study tips." in cleaned
+
+
+def test_generate_uses_v3_and_low_stability_when_tags_present(tmp_path, monkeypatch):
+    """A script with a surviving emotional tag routes to eleven_v3 with
+    the low "Creative"-equivalent stability — v2 ignores tags entirely."""
+    monkeypatch.setattr(voice, "AUDIO_DIR", tmp_path)
+    agent = voice.VoiceAgent()
+    agent.client.text_to_speech.convert = MagicMock(return_value=iter([b"fake-mp3-bytes"]))
+
+    agent.generate("[excited] Set a timer and go.")
+
+    _, kwargs = agent.client.text_to_speech.convert.call_args
+    assert kwargs["model_id"] == voice.V3_MODEL_ID
+    assert kwargs["voice_settings"].stability == voice.V3_TAG_STABILITY
+
+
+def test_generate_uses_v2_when_no_tags_present(tmp_path, monkeypatch):
+    """A plain script (production markers only, no emotional tags left
+    after cleaning) stays on the cheaper, non-alpha v2 model."""
+    monkeypatch.setattr(voice, "AUDIO_DIR", tmp_path)
+    agent = voice.VoiceAgent()
+    agent.client.text_to_speech.convert = MagicMock(return_value=iter([b"fake-mp3-bytes"]))
+
+    agent.generate("[HOOK - 0-3 sec] Set a timer and go.")
+
+    _, kwargs = agent.client.text_to_speech.convert.call_args
+    assert kwargs["model_id"] == voice.V2_MODEL_ID
+    assert kwargs["voice_settings"] is agent.voice_settings
+
+
 def test_clone_voice_passes_a_valid_dict_for_labels():
     """labels must always be an actual dict — never omitted, None, or a
     string. The installed ElevenLabs SDK serializes an omitted `labels`
