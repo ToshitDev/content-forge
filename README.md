@@ -164,7 +164,7 @@ style extraction, voiceover, posters, and video assembly are next.
 - [x] Phase 9: Client-side rate limiting + proper logging
 - [x] Phase 10: SQLite run history + score analytics
 - [x] Phase 11: Docker + final docs, then v1.0.0
-- [ ] Phase 12: Style extraction from a reference image or PDF into a shared style kit
+- [x] Phase 12: Style extraction from a reference image or PDF into a shared style kit
 - [ ] Phase 13: Face/no-face toggle + AI voiceover (cloned or generic voice)
 - [ ] Phase 14: Poster generator using the shared style kit
 - [ ] Phase 15: Video editor foundation, FFmpeg assembly with a background job queue
