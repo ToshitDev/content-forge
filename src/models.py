@@ -272,3 +272,26 @@ class StyleOutput:
             layout_tendency=_require(d, "layout_tendency", "StyleOutput"),
             vibe=_require(d, "vibe", "StyleOutput"),
         )
+
+
+@dataclass
+class PosterOutput:
+    """Parsed output of the Poster Agent: poster text and color plan."""
+
+    headline: str
+    subtext: str
+    background_color: str
+    text_color: str
+    accent_color: str
+    layout: str
+
+    @classmethod
+    def from_dict(cls, d: dict[str, Any]) -> "PosterOutput":
+        return cls(
+            headline=_require(d, "headline", "PosterOutput"),
+            subtext=_require(d, "subtext", "PosterOutput"),
+            background_color=_require(d, "background_color", "PosterOutput"),
+            text_color=_require(d, "text_color", "PosterOutput"),
+            accent_color=_require(d, "accent_color", "PosterOutput"),
+            layout=_require(d, "layout", "PosterOutput"),
+        )
