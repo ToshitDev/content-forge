@@ -184,7 +184,10 @@ def render_poster_section() -> None:
                     event_details, style_kit, st.session_state.get("style_theme", "")
                 )
                 png_path, svg_path = render_poster(
-                    spec, str(POSTERS_DIR / f"{uuid.uuid4().hex}.png")
+                    spec,
+                    str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
+                    layout_tendency=style_kit.layout_tendency,
+                    vibe=style_kit.vibe,
                 )
             except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
                 st.error(f"Couldn't generate poster: {error}")
@@ -218,7 +221,10 @@ def render_poster_section() -> None:
             spec, headline=edited_headline, subtext=edited_subtext, layout=edited_layout
         )
         png_path, svg_path = render_poster(
-            edited_spec, str(POSTERS_DIR / f"{uuid.uuid4().hex}.png")
+            edited_spec,
+            str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
+            layout_tendency=style_kit.layout_tendency,
+            vibe=style_kit.vibe,
         )
         st.session_state["poster_spec"] = edited_spec
         st.session_state["poster_png_path"] = str(png_path)
