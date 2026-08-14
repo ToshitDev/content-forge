@@ -59,9 +59,30 @@ BLOCK_GAP_RATIO = 0.035
 DIVIDER_WIDTH_RATIO = 0.22  # divider line length, as a fraction of canvas width
 DIVIDER_THICKNESS = 4  # pixels — a hairline stays a hairline regardless of canvas size
 
+# Background texture — grid lines and/or corner brackets, chosen by
+# _texture_style() from the style kit's layout_tendency and scaled by
+# _texture_intensity() from its vibe, so two different style kits don't
+# produce the same-looking poster. All still pure Pillow shapes drawn at
+# low opacity, composited onto the gradient — no AI imagery.
+GRID_SPACING_RATIO = 0.07  # grid cell size, as a fraction of canvas width
+GRID_BASE_OPACITY = 0.12  # before the vibe-driven intensity multiplier
+CORNER_INSET_RATIO = 0.05  # corner bracket distance from the edge
+CORNER_ARM_RATIO = 0.05  # corner bracket arm length
+CORNER_THICKNESS = 3
+CORNER_BASE_OPACITY = 0.35  # brighter than the grid — there are only 8 short lines total
+
+# The whole-poster border frame (task-required, always drawn — separate
+# from the corner brackets above, which are a conditional texture choice).
+BORDER_INSET_RATIO = 0.025
+BORDER_THICKNESS = 3
+
 
 def render_poster(
-    spec: PosterOutput, output_path: str, size: tuple[int, int] = (1080, 1350)
+    spec: PosterOutput,
+    output_path: str,
+    size: tuple[int, int] = (1080, 1350),
+    layout_tendency: str = "",
+    vibe: str = "",
 ) -> tuple[Path, Path]:
     """Render `spec` to a PNG and a companion SVG.
 
@@ -74,6 +95,13 @@ def render_poster(
             and a free-text layout description.
         output_path: Where to save the PNG.
         size: Canvas size in pixels. Defaults to a 4:5 portrait poster.
+        layout_tendency: The Style Kit's layout_tendency (e.g. "dense,
+            edge-to-edge" vs "centered, lots of whitespace"). Optional —
+            picks the background texture style (see _texture_style).
+            Doesn't affect the headline/subtext/divider block above.
+        vibe: The Style Kit's vibe (e.g. "bold and energetic" vs "calm
+            and understated"). Optional — scales how visible that
+            texture is (see _texture_intensity).
 
     Returns:
         (png_path, svg_path)
@@ -82,7 +110,11 @@ def render_poster(
     text_hex = _extract_hex(spec.text_color)
     accent_hex = _extract_hex(spec.accent_color)
 
+    texture_style = _texture_style(layout_tendency)
+    intensity = _texture_intensity(vibe)
+
     image = _gradient_background(size, background_hex)
+    image = _apply_texture(image, size, accent_hex, texture_style, intensity)
     draw = ImageDraw.Draw(image)
 
     width, height = size
@@ -113,6 +145,7 @@ def render_poster(
     _draw_centered_lines(draw, headline_lines, headline_font, text_hex, width, headline_top)
     _draw_divider(draw, width, divider_y, accent_hex)
     _draw_centered_lines(draw, subtext_lines, subtext_font, accent_hex, width, subtext_top)
+    _draw_border(draw, size, accent_hex)
 
     png_path = Path(output_path)
     png_path.parent.mkdir(parents=True, exist_ok=True)
@@ -132,6 +165,8 @@ def render_poster(
             subtext_lines,
             subtext_top,
             subtext_size,
+            texture_style,
+            intensity,
         )
     )
 
@@ -168,6 +203,126 @@ def _gradient_background(size: tuple[int, int], base_hex: str) -> Image.Image:
         )
         draw.line([(0, y), (width, y)], fill=row_rgb)
     return image
+
+
+def _texture_style(layout_tendency: str) -> str:
+    """Decide the background texture motif from the Style Kit's
+    layout_tendency: "grid" (thin lines across the whole canvas) for a
+    structured/technical/dense tendency, "frame" (small corner brackets
+    only) for a soft/minimal/whitespace-heavy one, or "both" when the
+    wording doesn't clearly lean either way (including an empty string).
+    """
+    text = layout_tendency.lower()
+    structured_signals = ("grid", "dense", "edge-to-edge", "structured", "geometric", "modular")
+    soft_signals = ("whitespace", "minimal", "soft", "airy", "open", "centered", "organic")
+    structured_score = sum(1 for signal in structured_signals if signal in text)
+    soft_score = sum(1 for signal in soft_signals if signal in text)
+    if structured_score > soft_score:
+        return "grid"
+    if soft_score > structured_score:
+        return "frame"
+    return "both"
+
+
+def _texture_intensity(vibe: str) -> float:
+    """Scale how visible the background texture is from the Style Kit's
+    vibe — a bold/energetic vibe gets more visible texture, a calm/
+    understated one stays closer to invisible. This is the "parameterize
+    it, don't hardcode it" half of the texture system: _texture_style
+    picks WHAT gets drawn, this picks HOW STRONG it looks, so two style
+    kits with the same layout_tendency but different vibes still don't
+    render identical posters.
+    """
+    text = vibe.lower()
+    bold_signals = ("bold", "energetic", "vibrant", "loud", "dynamic", "playful")
+    calm_signals = ("calm", "understated", "quiet", "subtle", "minimal", "soft", "gentle")
+    bold_score = sum(1 for signal in bold_signals if signal in text)
+    calm_score = sum(1 for signal in calm_signals if signal in text)
+    if bold_score > calm_score:
+        return 1.5
+    if calm_score > bold_score:
+        return 0.6
+    return 1.0
+
+
+def _apply_texture(
+    image: Image.Image,
+    size: tuple[int, int],
+    accent_hex: str,
+    texture_style: str,
+    intensity: float,
+) -> Image.Image:
+    """Draw the chosen background texture onto `image` at low opacity.
+
+    Drawn on a separate RGBA overlay and alpha-composited onto the
+    gradient, rather than drawn directly — Pillow's plain ImageDraw
+    doesn't blend partial-opacity fills against whatever gradient color
+    is already at that pixel, an overlay does.
+    """
+    overlay = Image.new("RGBA", size, (0, 0, 0, 0))
+    overlay_draw = ImageDraw.Draw(overlay)
+    # getrgb()'s return type also covers RGBA (4-tuple) inputs; a #RRGGBB
+    # hex string is always 3 channels, but the declared type is broader.
+    r, g, b = ImageColor.getrgb(accent_hex)[:3]
+    accent_rgb = (r, g, b)
+
+    if texture_style in ("grid", "both"):
+        _draw_grid(overlay_draw, size, accent_rgb, intensity)
+    if texture_style in ("frame", "both"):
+        _draw_corner_brackets(overlay_draw, size, accent_rgb, intensity)
+
+    return Image.alpha_composite(image.convert("RGBA"), overlay).convert("RGB")
+
+
+def _draw_grid(
+    draw: ImageDraw.ImageDraw, size: tuple[int, int], accent_rgb: tuple[int, int, int], intensity: float
+) -> None:
+    """Thin, low-opacity grid lines across the whole canvas — a
+    "structured/technical" texture cue."""
+    width, height = size
+    spacing = max(20, int(width * GRID_SPACING_RATIO))
+    alpha = max(0, min(255, int(255 * GRID_BASE_OPACITY * intensity)))
+    color = (*accent_rgb, alpha)
+    for x in range(0, width, spacing):
+        draw.line([(x, 0), (x, height)], fill=color, width=1)
+    for y in range(0, height, spacing):
+        draw.line([(0, y), (width, y)], fill=color, width=1)
+
+
+def _draw_corner_brackets(
+    draw: ImageDraw.ImageDraw, size: tuple[int, int], accent_rgb: tuple[int, int, int], intensity: float
+) -> None:
+    """Small L-shaped marks at each of the 4 corners — a light "soft/
+    minimal" texture cue that doesn't fill the canvas the way a grid does.
+    """
+    width, height = size
+    alpha = max(0, min(255, int(255 * CORNER_BASE_OPACITY * intensity)))
+    color = (*accent_rgb, alpha)
+    inset = int(min(width, height) * CORNER_INSET_RATIO)
+    arm = int(min(width, height) * CORNER_ARM_RATIO)
+    # (x, y, horizontal arm direction, vertical arm direction) per corner.
+    corners = [
+        (inset, inset, 1, 1),
+        (width - inset, inset, -1, 1),
+        (inset, height - inset, 1, -1),
+        (width - inset, height - inset, -1, -1),
+    ]
+    for x, y, dx, dy in corners:
+        draw.line([(x, y), (x + arm * dx, y)], fill=color, width=CORNER_THICKNESS)
+        draw.line([(x, y), (x, y + arm * dy)], fill=color, width=CORNER_THICKNESS)
+
+
+def _draw_border(draw: ImageDraw.ImageDraw, size: tuple[int, int], accent_hex: str) -> None:
+    """A thin accent-colored rule just inside the poster's edge — a
+    simple frame around the whole piece. Always drawn (unlike the
+    texture above, this isn't conditional on the style kit)."""
+    width, height = size
+    inset = int(min(width, height) * BORDER_INSET_RATIO)
+    draw.rectangle(
+        [(inset, inset), (width - inset - 1, height - inset - 1)],
+        outline=accent_hex,
+        width=BORDER_THICKNESS,
+    )
 
 
 def _block_anchor(layout_text: str) -> str:
@@ -353,20 +508,26 @@ def _build_svg(
     subtext_lines: list[str],
     subtext_top: int,
     subtext_size: int,
+    texture_style: str,
+    intensity: float,
 ) -> str:
     """Render the same poster as a simple, hand-editable SVG.
 
-    Same content, colors, and approximate layout as the PNG, but text
-    stays real <text>/<tspan> elements rather than rasterized pixels —
-    still editable (font, color, wording) in any vector tool afterward.
+    Same content, colors, texture, and approximate layout as the PNG,
+    but text stays real <text>/<tspan> elements rather than rasterized
+    pixels — still editable (font, color, wording) in any vector tool
+    afterward.
     """
     width, height = size
     headline_tspans = _build_tspans(headline_lines, width / 2, headline_size)
     subtext_tspans = _build_tspans(subtext_lines, width / 2, subtext_size)
     divider_half_width = width * DIVIDER_WIDTH_RATIO / 2
+    texture_svg = _build_texture_svg(size, accent_hex, texture_style, intensity)
+    border_svg = _build_border_svg(size, accent_hex)
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
   <rect width="{width}" height="{height}" fill="{background_hex}" />
+  {texture_svg}
   <text x="{width / 2}" y="{headline_top + headline_size}" text-anchor="middle" \
 font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="{headline_size}" \
 fill="{text_hex}">{headline_tspans}</text>
@@ -375,6 +536,7 @@ y2="{divider_y}" stroke="{accent_hex}" stroke-width="{DIVIDER_THICKNESS}" />
   <text x="{width / 2}" y="{subtext_top + subtext_size}" text-anchor="middle" \
 font-family="DejaVu Sans, sans-serif" font-size="{subtext_size}" \
 fill="{accent_hex}">{subtext_tspans}</text>
+  {border_svg}
 </svg>
 """
 
@@ -384,4 +546,59 @@ def _build_tspans(lines: list[str], x: float, font_size: int) -> str:
     return "".join(
         f'<tspan x="{x}" dy="{0 if i == 0 else font_size * LINE_SPACING}">{_escape_xml(line)}</tspan>'
         for i, line in enumerate(lines)
+    )
+
+
+def _build_texture_svg(
+    size: tuple[int, int], accent_hex: str, texture_style: str, intensity: float
+) -> str:
+    """SVG markup for the same background texture _apply_texture draws
+    onto the PNG (grid lines and/or corner brackets), at matching
+    opacity — so the SVG isn't a stripped-down copy of the PNG."""
+    width, height = size
+    parts = []
+
+    if texture_style in ("grid", "both"):
+        spacing = max(20, int(width * GRID_SPACING_RATIO))
+        opacity = max(0.0, min(1.0, GRID_BASE_OPACITY * intensity))
+        grid_lines = [f'<line x1="{x}" y1="0" x2="{x}" y2="{height}" />' for x in range(0, width, spacing)]
+        grid_lines += [f'<line x1="0" y1="{y}" x2="{width}" y2="{y}" />' for y in range(0, height, spacing)]
+        parts.append(
+            f'<g stroke="{accent_hex}" stroke-width="1" stroke-opacity="{opacity:.3f}">'
+            + "".join(grid_lines)
+            + "</g>"
+        )
+
+    if texture_style in ("frame", "both"):
+        opacity = max(0.0, min(1.0, CORNER_BASE_OPACITY * intensity))
+        inset = int(min(width, height) * CORNER_INSET_RATIO)
+        arm = int(min(width, height) * CORNER_ARM_RATIO)
+        corners = [
+            (inset, inset, 1, 1),
+            (width - inset, inset, -1, 1),
+            (inset, height - inset, 1, -1),
+            (width - inset, height - inset, -1, -1),
+        ]
+        bracket_lines = []
+        for x, y, dx, dy in corners:
+            bracket_lines.append(f'<line x1="{x}" y1="{y}" x2="{x + arm * dx}" y2="{y}" />')
+            bracket_lines.append(f'<line x1="{x}" y1="{y}" x2="{x}" y2="{y + arm * dy}" />')
+        parts.append(
+            f'<g stroke="{accent_hex}" stroke-width="{CORNER_THICKNESS}" stroke-opacity="{opacity:.3f}">'
+            + "".join(bracket_lines)
+            + "</g>"
+        )
+
+    return "".join(parts)
+
+
+def _build_border_svg(size: tuple[int, int], accent_hex: str) -> str:
+    """SVG markup for the same whole-poster border _draw_border draws
+    onto the PNG."""
+    width, height = size
+    inset = int(min(width, height) * BORDER_INSET_RATIO)
+    return (
+        f'<rect x="{inset}" y="{inset}" width="{width - 2 * inset}" '
+        f'height="{height - 2 * inset}" fill="none" stroke="{accent_hex}" '
+        f'stroke-width="{BORDER_THICKNESS}" />'
     )
