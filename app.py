@@ -9,18 +9,22 @@ import asyncio
 import logging
 import re
 import sqlite3
+import uuid
+from dataclasses import replace
 from pathlib import Path
 
 import pymupdf
 import streamlit as st
 
 from src import history
+from src.agents.poster import PosterAgent
 from src.agents.style import StyleAgent
 from src.agents.suggest import SuggestAgent
 from src.agents.voice import VoiceAgent, estimate_cost
 from src.logging_config import configure_logging
-from src.models import StyleOutput, SuggestOutput
+from src.models import PosterOutput, StyleOutput, SuggestOutput
 from src.pipeline import run_pipeline
+from src.poster_render import render_poster
 
 configure_logging()
 logger = logging.getLogger(__name__)
@@ -29,7 +33,13 @@ PLATFORMS = ["Instagram", "YouTube", "LinkedIn", "X"]
 FORMATS = ["reel", "carousel", "post"]
 PERSON_PREFERENCES = ["Face visible", "Person shown, no face", "No person at all"]
 VOICE_MODES = ["Use generic voice", "Clone from a sample"]
+LAYOUT_OPTIONS = [
+    "headline top-center, details bottom-third",
+    "headline centered, subtext directly below",
+    "headline bottom-third, details top-center",
+]
 HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}")
+POSTERS_DIR = Path(__file__).resolve().parent / "posters"
 
 VERDICT_BANNERS = {"POST": st.success, "REWORK": st.warning, "SKIP": st.error}
 
@@ -86,6 +96,9 @@ def render_style_reference() -> None:
         type=["png", "jpg", "jpeg", "webp", "pdf"],
     )
     theme = st.text_input("Or describe a theme")
+    # Stashed so the Poster section (which also takes an optional theme)
+    # can reuse it without asking the user to type it twice.
+    st.session_state["style_theme"] = theme
 
     if uploaded is None:
         return
@@ -106,6 +119,117 @@ def render_style_reference() -> None:
 
     st.session_state["style_kit"] = style_kit
     render_style_kit(style_kit)
+
+
+def fetch_poster_spec(event_details: str, style_kit: StyleOutput, theme: str) -> PosterOutput:
+    """Call the Poster Agent and return its parsed plan.
+
+    Bridges the agent's async call into Streamlit's synchronous script
+    execution, same pattern as fetch_suggested_comments/extract_style_kit.
+    """
+    agent = PosterAgent()
+    raw = asyncio.run(
+        agent.run_parsed(
+            {
+                "event_details": event_details,
+                "colors": ", ".join(style_kit.colors),
+                "font_mood": style_kit.font_mood,
+                "layout_tendency": style_kit.layout_tendency,
+                "theme": theme,
+            }
+        )
+    )
+    return PosterOutput.from_dict(raw)
+
+
+def render_poster_section() -> None:
+    """Poster generator: plans a poster from the Style Kit above (if one
+    exists) plus real event details, then renders it locally.
+
+    Editing the headline/subtext/layout afterward and clicking
+    "Re-render" only re-runs the local drawing code (src/poster_render.py)
+    — no API call. See render_poster_section's "Re-render" handling
+    below for why that's safe: the colors and overall plan already came
+    from PosterAgent, so a text/layout tweak doesn't need Claude's
+    involvement again, only Pillow's.
+    """
+    st.subheader("Poster")
+    style_kit = st.session_state.get("style_kit")
+    if style_kit is None:
+        st.info(
+            "Add a reference image or theme above (in the Reference "
+            "section) to generate a poster from its style kit."
+        )
+        return
+
+    name = st.text_input("Event name", key="poster_event_name")
+    date = st.text_input("Date", key="poster_event_date")
+    event_time = st.text_input("Time", key="poster_event_time")
+    location = st.text_input("Location", key="poster_event_location")
+    cta = st.text_input("Call to action", key="poster_event_cta")
+
+    if st.button("Generate poster"):
+        if not all(field.strip() for field in (name, date, event_time, location, cta)):
+            st.warning("Fill in all five event details first.")
+        else:
+            event_details = (
+                f"Event name: {name}\n"
+                f"Date: {date}\n"
+                f"Time: {event_time}\n"
+                f"Location: {location}\n"
+                f"Call to action: {cta}"
+            )
+            try:
+                spec = fetch_poster_spec(
+                    event_details, style_kit, st.session_state.get("style_theme", "")
+                )
+                png_path, svg_path = render_poster(
+                    spec, str(POSTERS_DIR / f"{uuid.uuid4().hex}.png")
+                )
+            except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
+                st.error(f"Couldn't generate poster: {error}")
+            else:
+                st.session_state["poster_spec"] = spec
+                st.session_state["poster_png_path"] = str(png_path)
+                st.session_state["poster_svg_path"] = str(svg_path)
+                # Clear any previous poster's edits — these are widget
+                # keys, so this has to happen before they're instantiated
+                # below in this same run, same rule as research_material.
+                st.session_state.pop("poster_headline_edit", None)
+                st.session_state.pop("poster_subtext_edit", None)
+                st.session_state.pop("poster_layout_edit", None)
+
+    if "poster_spec" not in st.session_state:
+        return
+    spec = st.session_state["poster_spec"]
+
+    st.write("**Edit and re-render**")
+    edited_headline = st.text_input("Headline", value=spec.headline, key="poster_headline_edit")
+    edited_subtext = st.text_input("Subtext", value=spec.subtext, key="poster_subtext_edit")
+    edited_layout = st.selectbox(
+        "Layout",
+        LAYOUT_OPTIONS,
+        index=LAYOUT_OPTIONS.index(spec.layout) if spec.layout in LAYOUT_OPTIONS else 0,
+        key="poster_layout_edit",
+    )
+
+    if st.button("Re-render"):
+        edited_spec = replace(
+            spec, headline=edited_headline, subtext=edited_subtext, layout=edited_layout
+        )
+        png_path, svg_path = render_poster(
+            edited_spec, str(POSTERS_DIR / f"{uuid.uuid4().hex}.png")
+        )
+        st.session_state["poster_spec"] = edited_spec
+        st.session_state["poster_png_path"] = str(png_path)
+        st.session_state["poster_svg_path"] = str(svg_path)
+
+    st.image(st.session_state["poster_png_path"])
+    png_bytes = Path(st.session_state["poster_png_path"]).read_bytes()
+    svg_bytes = Path(st.session_state["poster_svg_path"]).read_bytes()
+    col1, col2 = st.columns(2)
+    col1.download_button("Download PNG", png_bytes, file_name="poster.png", mime="image/png")
+    col2.download_button("Download SVG", svg_bytes, file_name="poster.svg", mime="image/svg+xml")
 
 
 def fetch_suggested_comments(topic_audience: str) -> list[str]:
@@ -370,6 +494,7 @@ def main() -> None:
     """Wire up the page: header, inputs, run button, and persisted results."""
     render_header()
     render_style_reference()
+    render_poster_section()
     research_material, profile, use_cache = render_inputs()
 
     if st.button("Run pipeline", type="primary") and validate_inputs(
