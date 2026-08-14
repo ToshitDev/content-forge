@@ -21,6 +21,9 @@ cache/
 # Generated voiceover audio (src/agents/voice.py) — regenerable, not source
 audio/
 
+# Generated poster images (src/poster_render.py) — regenerable, not source
+posters/
+
 # Log output (src/logging_config.py)
 logs/
 
