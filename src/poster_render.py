@@ -19,13 +19,18 @@ the drawing code) if a future phase genuinely needs independent
 per-element placement.
 """
 
+import io
+import logging
 import re
 from pathlib import Path
 from xml.sax.saxutils import escape as _escape_xml
 
 from PIL import Image, ImageColor, ImageDraw, ImageFont
 
-from src.models import PosterOutput
+from src.models import PosterOutput, StyleOutput
+from src.poster_background import generate_ai_background
+
+logger = logging.getLogger(__name__)
 
 # Pillow's own type is a union: a bundled TTF loads as FreeTypeFont, but
 # the ultimate fallback (Pillow's built-in font) is the plainer
@@ -81,8 +86,8 @@ def render_poster(
     spec: PosterOutput,
     output_path: str,
     size: tuple[int, int] = (1080, 1350),
-    layout_tendency: str = "",
-    vibe: str = "",
+    style_kit: StyleOutput | None = None,
+    use_ai_background: bool = False,
 ) -> tuple[Path, Path]:
     """Render `spec` to a PNG and a companion SVG.
 
@@ -95,13 +100,21 @@ def render_poster(
             and a free-text layout description.
         output_path: Where to save the PNG.
         size: Canvas size in pixels. Defaults to a 4:5 portrait poster.
-        layout_tendency: The Style Kit's layout_tendency (e.g. "dense,
-            edge-to-edge" vs "centered, lots of whitespace"). Optional —
-            picks the background texture style (see _texture_style).
-            Doesn't affect the headline/subtext/divider block above.
-        vibe: The Style Kit's vibe (e.g. "bold and energetic" vs "calm
-            and understated"). Optional — scales how visible that
-            texture is (see _texture_intensity).
+        style_kit: The Style Kit used to generate `spec` (if any).
+            Optional — its layout_tendency and vibe pick the procedural
+            background texture style/intensity (see _texture_style /
+            _texture_intensity); its full contents also feed the AI
+            background prompt when use_ai_background is True. None
+            falls back to a neutral default texture and disables the AI
+            background regardless of use_ai_background (there's nothing
+            to build a prompt from).
+        use_ai_background: If True, generate the background via the
+            Black Forest Labs Flux API (src/poster_background.py)
+            instead of the procedural gradient + texture. Any failure —
+            missing key, timeout, moderation, network error — is caught
+            and logged, and rendering falls back to the procedural
+            background instead of ever crashing poster generation over
+            an optional, paid feature.
 
     Returns:
         (png_path, svg_path)
@@ -110,11 +123,14 @@ def render_poster(
     text_hex = _extract_hex(spec.text_color)
     accent_hex = _extract_hex(spec.accent_color)
 
+    layout_tendency = style_kit.layout_tendency if style_kit else ""
+    vibe = style_kit.vibe if style_kit else ""
     texture_style = _texture_style(layout_tendency)
     intensity = _texture_intensity(vibe)
 
-    image = _gradient_background(size, background_hex)
-    image = _apply_texture(image, size, accent_hex, texture_style, intensity)
+    image = _build_background(
+        size, background_hex, accent_hex, texture_style, intensity, style_kit, use_ai_background
+    )
     draw = ImageDraw.Draw(image)
 
     width, height = size
@@ -171,6 +187,39 @@ def render_poster(
     )
 
     return png_path, svg_path
+
+
+def _build_background(
+    size: tuple[int, int],
+    background_hex: str,
+    accent_hex: str,
+    texture_style: str,
+    intensity: float,
+    style_kit: StyleOutput | None,
+    use_ai_background: bool,
+) -> Image.Image:
+    """Build the poster's background image.
+
+    Tries the AI background first when requested (and a style kit is
+    available to build a prompt from); on ANY failure there — missing
+    key, timeout, moderation, network error, anything — logs a warning
+    and falls through to the procedural gradient + texture instead of
+    raising. That fallback is deliberately unconditional: this is an
+    optional, paid feature, and generating a poster should never depend
+    on a third-party API being up.
+    """
+    if use_ai_background and style_kit is not None:
+        try:
+            ai_bytes = generate_ai_background(style_kit, size)
+            return Image.open(io.BytesIO(ai_bytes)).convert("RGB").resize(size)
+        except Exception as error:  # noqa: BLE001 - optional feature, must always fall back
+            logger.warning(
+                "AI background generation failed, falling back to procedural background: %s",
+                error,
+            )
+
+    image = _gradient_background(size, background_hex)
+    return _apply_texture(image, size, accent_hex, texture_style, intensity)
 
 
 def _extract_hex(color_description: str) -> str:
