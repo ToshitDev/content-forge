@@ -1,12 +1,12 @@
 """Tests for src/models.py's dataclasses — FramePlanItem, SuggestOutput,
-and StyleOutput.
+StyleOutput, and PosterOutput.
 
 Pure data-shape tests: no network access or API key needed.
 """
 
 import pytest
 
-from src.models import FramePlanItem, StyleOutput, SuggestOutput
+from src.models import FramePlanItem, PosterOutput, StyleOutput, SuggestOutput
 
 
 def test_frame_plan_item_missing_on_screen_text_defaults_to_empty_string():
@@ -102,3 +102,38 @@ def test_style_output_missing_colors_key_raises():
 
     with pytest.raises(ValueError, match="colors"):
         StyleOutput.from_dict(data)
+
+
+def test_poster_output_parses_valid_response():
+    """A well-formed poster plan dict parses into matching fields."""
+    data = {
+        "headline": "Fall Career Fair 2026",
+        "subtext": "Oct 15, 6-9pm at the Student Union",
+        "background_color": "warm terracotta (#C97C5D)",
+        "text_color": "cream (#F5F1ED)",
+        "accent_color": "sage green (#7A9B8E)",
+        "layout": "headline top-center, details bottom-third",
+    }
+
+    result = PosterOutput.from_dict(data)
+
+    assert result.headline == "Fall Career Fair 2026"
+    assert result.subtext == "Oct 15, 6-9pm at the Student Union"
+    assert result.background_color == "warm terracotta (#C97C5D)"
+    assert result.text_color == "cream (#F5F1ED)"
+    assert result.accent_color == "sage green (#7A9B8E)"
+    assert result.layout == "headline top-center, details bottom-third"
+
+
+def test_poster_output_missing_headline_key_raises():
+    """Each field is required — no defaults to silently fall back to."""
+    data = {
+        "subtext": "Oct 15, 6-9pm at the Student Union",
+        "background_color": "warm terracotta (#C97C5D)",
+        "text_color": "cream (#F5F1ED)",
+        "accent_color": "sage green (#7A9B8E)",
+        "layout": "headline top-center, details bottom-third",
+    }
+
+    with pytest.raises(ValueError, match="headline"):
+        PosterOutput.from_dict(data)
