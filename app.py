@@ -167,6 +167,16 @@ def render_poster_section() -> None:
     event_time = st.text_input("Time", key="poster_event_time")
     location = st.text_input("Location", key="poster_event_location")
     cta = st.text_input("Call to action", key="poster_event_cta")
+    use_ai_background = st.checkbox(
+        "Use AI-generated background (~$0.02-0.06 per poster)",
+        value=False,
+        key="poster_use_ai_background",
+        help="Generates the background via the Black Forest Labs Flux "
+        "API instead of the built-in gradient — a small cost each time "
+        "an image is generated, including on Re-render if left checked. "
+        "Falls back to the built-in background automatically if "
+        "generation fails or BFL_API_KEY isn't set.",
+    )
 
     if st.button("Generate poster"):
         if not all(field.strip() for field in (name, date, event_time, location, cta)):
@@ -186,8 +196,8 @@ def render_poster_section() -> None:
                 png_path, svg_path = render_poster(
                     spec,
                     str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
-                    layout_tendency=style_kit.layout_tendency,
-                    vibe=style_kit.vibe,
+                    style_kit=style_kit,
+                    use_ai_background=use_ai_background,
                 )
             except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
                 st.error(f"Couldn't generate poster: {error}")
@@ -223,8 +233,8 @@ def render_poster_section() -> None:
         png_path, svg_path = render_poster(
             edited_spec,
             str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
-            layout_tendency=style_kit.layout_tendency,
-            vibe=style_kit.vibe,
+            style_kit=style_kit,
+            use_ai_background=use_ai_background,
         )
         st.session_state["poster_spec"] = edited_spec
         st.session_state["poster_png_path"] = str(png_path)
