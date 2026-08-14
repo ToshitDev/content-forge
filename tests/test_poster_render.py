@@ -5,9 +5,11 @@ than via PosterAgent, since this module only cares about turning an
 already-parsed plan into pixels.
 """
 
+from unittest.mock import patch
+
 from PIL import Image
 
-from src.models import PosterOutput
+from src.models import PosterOutput, StyleOutput
 from src.poster_render import _extract_hex, _wrap_text, render_poster
 
 SAMPLE_SPEC = PosterOutput(
@@ -70,3 +72,36 @@ def test_render_poster_writes_a_valid_png_and_svg(tmp_path):
     # separate <tspan>s, so check for a word rather than the full phrase.
     assert "Fall" in svg_text
     assert "#C97C5D" in svg_text
+
+
+def test_render_poster_falls_back_to_procedural_background_on_ai_failure(tmp_path):
+    """use_ai_background=True with a style kit, but the AI call raises —
+    render_poster must still succeed by falling back to the procedural
+    gradient+texture background, never crashing poster generation over
+    the optional AI feature (missing key, timeout, moderation, network
+    error — this covers "any exception" generically)."""
+    style_kit = StyleOutput(
+        colors=["warm terracotta (#C97C5D)"],
+        font_mood="bold",
+        layout_tendency="dense, edge-to-edge",
+        vibe="energetic",
+    )
+    output_path = tmp_path / "poster.png"
+
+    def always_fails(*args, **kwargs):
+        raise RuntimeError("simulated BFL failure")
+
+    with patch("src.poster_render.generate_ai_background", side_effect=always_fails):
+        png_path, svg_path = render_poster(
+            SAMPLE_SPEC,
+            str(output_path),
+            size=(400, 500),
+            style_kit=style_kit,
+            use_ai_background=True,
+        )
+
+    assert png_path.exists()
+    assert svg_path.exists()
+    with Image.open(png_path) as image:
+        image.verify()
+        assert Image.open(png_path).size == (400, 500)
