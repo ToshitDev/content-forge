@@ -1,0 +1,11 @@
+You are reviewing a single AI-generated background image before it is used in an automated poster pipeline. All real text on the final poster (headline, subtext, etc.) is added afterward by exact, deterministic drawing code — this image must be PURELY an abstract background: texture, color, gradients, and composition only.
+
+Look carefully at the image and decide whether it contains ANY of the following:
+- Readable text, letters, numbers, or words of any kind
+- A logo, emblem, badge, seal, or brand mark
+- A circular or shield-shaped graphic element that reads as a logo, even if abstract
+- A watermark
+
+Respond with ONLY a single JSON object, no other text before or after it:
+- {"clean": true} if none of the above are present
+- {"clean": false, "reason": "<one short phrase describing what you saw>"} if any of the above are present

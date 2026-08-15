@@ -24,7 +24,21 @@ from src.agents.voice import VoiceAgent, estimate_cost
 from src.logging_config import configure_logging
 from src.models import PosterOutput, StyleOutput, SuggestOutput
 from src.pipeline import run_pipeline
-from src.poster_render import render_poster
+from src.poster_render import (
+    ANTON_FONT_PATH,
+    BALOO2_FONT_PATH,
+    BEBAS_NEUE_FONT_PATH,
+    INTER_FONT_PATH,
+    MONTSERRAT_FONT_PATH,
+    ORBITRON_FONT_PATH,
+    OSWALD_FONT_PATH,
+    PLAYFAIR_FONT_PATH,
+    PosterAssets,
+    PosterVariant,
+    _extract_hex,
+    render_poster,
+    render_poster_variants,
+)
 
 configure_logging()
 logger = logging.getLogger(__name__)
@@ -38,6 +52,29 @@ LAYOUT_OPTIONS = [
     "headline centered, subtext directly below",
     "headline bottom-third, details top-center",
 ]
+# Font selector options for the poster's "Edit and re-render" section.
+# None means "auto" — render_poster falls back to select_font(font_mood)
+# from the style kit, same as when no font override is given at all.
+FONT_CHOICES: dict[str, Path | None] = {
+    "Auto (from style kit mood)": None,
+    "Anton (bold, technical)": ANTON_FONT_PATH,
+    "Inter (clean, minimal)": INTER_FONT_PATH,
+    "Baloo 2 (playful, rounded)": BALOO2_FONT_PATH,
+    "Playfair Display (elegant, classic)": PLAYFAIR_FONT_PATH,
+    "Bebas Neue (tall, condensed)": BEBAS_NEUE_FONT_PATH,
+    "Orbitron (futuristic, sci-fi)": ORBITRON_FONT_PATH,
+    "Oswald (modern, condensed)": OSWALD_FONT_PATH,
+    "Montserrat (clean, professional)": MONTSERRAT_FONT_PATH,
+}
+# Reverse lookup — used when a poster variant is selected (see
+# _activate_poster_variant) to pre-select the font dropdown to match
+# whatever font that variant actually used, rather than leaving it on
+# "Auto", which would silently re-resolve via select_font() and could
+# land on a DIFFERENT font than the one the user just saw and chose
+# (variants 2 and 3 deliberately use a different font than "Auto" would).
+FONT_PATH_TO_LABEL: dict[Path, str] = {
+    path: label for label, path in FONT_CHOICES.items() if path is not None
+}
 HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}")
 POSTERS_DIR = Path(__file__).resolve().parent / "posters"
 
@@ -89,7 +126,11 @@ def render_style_reference() -> None:
     On upload, extracts a style kit (image directly, or a PDF's first
     page rendered to an image first) and stashes it in
     st.session_state["style_kit"] for later phases (posters, visuals)
-    to reuse.
+    to reuse. Also stashes the raw image bytes themselves (not just the
+    text-derived style kit) in st.session_state["style_reference_image"]
+    — the Poster section's AI background can pass this straight to
+    Flux 2 as an input_image for real style transfer, not just a
+    paraphrased text description of it.
     """
     uploaded = st.file_uploader(
         "Reference (image, PDF, or just describe a theme)",
@@ -101,6 +142,10 @@ def render_style_reference() -> None:
     st.session_state["style_theme"] = theme
 
     if uploaded is None:
+        # No upload (yet, or anymore — e.g. the user cleared it): nothing
+        # to pass as an input_image, and a stale image from an earlier
+        # upload this session would be actively wrong to reuse.
+        st.session_state["style_reference_image"] = None
         return
 
     file_bytes = uploaded.getvalue()
@@ -118,6 +163,7 @@ def render_style_reference() -> None:
         return
 
     st.session_state["style_kit"] = style_kit
+    st.session_state["style_reference_image"] = image_bytes
     render_style_kit(style_kit)
 
 
@@ -142,40 +188,42 @@ def fetch_poster_spec(event_details: str, style_kit: StyleOutput, theme: str) ->
     return PosterOutput.from_dict(raw)
 
 
-def render_poster_section() -> None:
-    """Poster generator: plans a poster from the Style Kit above (if one
-    exists) plus real event details, then renders it locally.
-
-    Editing the headline/subtext/layout afterward and clicking
-    "Re-render" only re-runs the local drawing code (src/poster_render.py)
-    — no API call. See render_poster_section's "Re-render" handling
-    below for why that's safe: the colors and overall plan already came
-    from PosterAgent, so a text/layout tweak doesn't need Claude's
-    involvement again, only Pillow's.
+def render_poster_generation(style_kit: StyleOutput) -> None:
+    """Collect event details + the two AI toggles, then generate 3
+    poster variants (render_poster_variants — src/poster_render.py) over
+    ONE shared background and stash them for render_poster_variant_picker
+    to display. The AI toggle checkboxes are widgets keyed into
+    session_state ("poster_use_ai_background"/"poster_use_accent_elements"),
+    so render_poster_editor further down can read the same values back
+    without needing them passed around as parameters.
     """
-    st.subheader("Poster")
-    style_kit = st.session_state.get("style_kit")
-    if style_kit is None:
-        st.info(
-            "Add a reference image or theme above (in the Reference "
-            "section) to generate a poster from its style kit."
-        )
-        return
-
     name = st.text_input("Event name", key="poster_event_name")
     date = st.text_input("Date", key="poster_event_date")
     event_time = st.text_input("Time", key="poster_event_time")
     location = st.text_input("Location", key="poster_event_location")
     cta = st.text_input("Call to action", key="poster_event_cta")
+
     use_ai_background = st.checkbox(
         "Use AI-generated background (~$0.02-0.06 per poster)",
         value=False,
         key="poster_use_ai_background",
         help="Generates the background via the Black Forest Labs Flux "
-        "API instead of the built-in gradient — a small cost each time "
-        "an image is generated, including on Re-render if left checked. "
-        "Falls back to the built-in background automatically if "
-        "generation fails or BFL_API_KEY isn't set.",
+        "API instead of the built-in gradient. If a reference image was "
+        "uploaded above, it's used directly for style transfer instead "
+        "of just a text description of it. Falls back to the built-in "
+        "background automatically if generation fails or BFL_API_KEY "
+        "isn't set. Generated ONCE and shared by all 3 variants below — "
+        "never billed 3 times.",
+    )
+    use_accent_elements = st.checkbox(
+        "Add AI-generated decorative accents (~$0.01-0.03 per element, 1-2 elements)",
+        value=False,
+        key="poster_use_accent_elements",
+        help="Generates 1-2 small decorative graphics (badge, icon, "
+        "corner flourish, or geometric shape, picked from the style "
+        "kit's vibe) and composites them into opposite corners. Billed "
+        "separately from the background above; also shared by all 3 "
+        "variants rather than regenerated per variant.",
     )
 
     if st.button("Generate poster"):
@@ -193,28 +241,105 @@ def render_poster_section() -> None:
                 spec = fetch_poster_spec(
                     event_details, style_kit, st.session_state.get("style_theme", "")
                 )
-                png_path, svg_path = render_poster(
+                variants = render_poster_variants(
                     spec,
-                    str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
+                    str(POSTERS_DIR),
                     style_kit=style_kit,
                     use_ai_background=use_ai_background,
+                    reference_image_bytes=st.session_state.get("style_reference_image"),
+                    use_accent_elements=use_accent_elements,
                 )
             except Exception as error:  # noqa: BLE001 - surfaced to the user, not swallowed
                 st.error(f"Couldn't generate poster: {error}")
             else:
-                st.session_state["poster_spec"] = spec
-                st.session_state["poster_png_path"] = str(png_path)
-                st.session_state["poster_svg_path"] = str(svg_path)
-                # Clear any previous poster's edits — these are widget
-                # keys, so this has to happen before they're instantiated
-                # below in this same run, same rule as research_material.
-                st.session_state.pop("poster_headline_edit", None)
-                st.session_state.pop("poster_subtext_edit", None)
-                st.session_state.pop("poster_layout_edit", None)
+                st.session_state["poster_variants"] = variants
+                # Default to the first ("Bold") variant so there's
+                # always an active poster to edit right away — the user
+                # can switch to a different one below without regenerating.
+                _activate_poster_variant(variants[0])
 
+
+def _activate_poster_variant(variant: PosterVariant) -> None:
+    """Make `variant` the active poster feeding into render_poster_editor
+    below — the same session_state fields a plain render_poster() call
+    populates, plus resetting every edit-widget key so the editor's
+    inputs (headline/subtext/layout/colors/font) repopulate from THIS
+    variant's spec instead of stale values left over from whichever
+    variant (or previous poster) was active before — same "pop before
+    the widget is re-instantiated" rule the original single-poster flow
+    already followed for a fresh "Generate poster" click.
+    """
+    st.session_state["poster_spec"] = variant.spec
+    st.session_state["poster_png_path"] = str(variant.result.png_path)
+    st.session_state["poster_svg_path"] = str(variant.result.svg_path)
+    st.session_state["poster_assets"] = variant.result.assets
+    st.session_state["poster_contrast_warning"] = variant.result.contrast_warning
+    st.session_state["active_variant_label"] = variant.label
+    st.session_state.pop("poster_headline_edit", None)
+    st.session_state.pop("poster_subtext_edit", None)
+    st.session_state.pop("poster_layout_edit", None)
+    st.session_state.pop("poster_bg_color_edit", None)
+    st.session_state.pop("poster_text_color_edit", None)
+    st.session_state.pop("poster_accent_color_edit", None)
+    # Pre-select the font dropdown to match this variant's ACTUAL font —
+    # leaving it on "Auto" would silently re-resolve via select_font()
+    # and could land on a different font than the one the user just saw
+    # and picked (see FONT_PATH_TO_LABEL's docstring comment above).
+    st.session_state["poster_font_edit"] = FONT_PATH_TO_LABEL.get(
+        variant.font_path, "Auto (from style kit mood)"
+    )
+
+
+def render_poster_variant_picker() -> None:
+    """Show the 3 generated variants side by side (st.columns), each
+    with a "Use this one" button — whichever is clicked becomes the
+    active poster via _activate_poster_variant, which the editor below
+    immediately reflects since both run in the same Streamlit script
+    pass. Renders nothing if no variants have been generated yet.
+    """
+    variants: list[PosterVariant] = st.session_state.get("poster_variants", [])
+    if not variants:
+        return
+
+    st.write("**Pick a treatment**")
+    active_label = st.session_state.get("active_variant_label")
+    columns = st.columns(len(variants))
+    for column, variant in zip(columns, variants, strict=True):
+        with column:
+            st.image(str(variant.result.png_path))
+            is_active = variant.label == active_label
+            st.caption(f"{variant.label}{' (active)' if is_active else ''}")
+            if st.button(
+                "Use this one",
+                key=f"use_variant_{variant.label}",
+                disabled=is_active,
+            ):
+                _activate_poster_variant(variant)
+
+
+def render_poster_editor(style_kit: StyleOutput) -> None:
+    """Edit/re-render/download controls for whichever poster is
+    currently active in st.session_state["poster_spec"] — populated
+    either by render_poster_variant_picker's "Use this one" or by a
+    previous edit here. Renders nothing until a variant has been picked.
+
+    ASSET CACHING (why most edits are free): the resolved background and
+    accent images from the active poster are stashed in
+    st.session_state["poster_assets"] as a PosterAssets. "Re-render"
+    always passes that cache back into render_poster(), so editing
+    headline/subtext/layout/colors/font and clicking it only re-runs the
+    local drawing code (src/poster_render.py) — no API call. Only the
+    two explicit "Regenerate background" / "Regenerate accents" buttons
+    below clear their half of the cache and pay for a fresh BFL call.
+    """
     if "poster_spec" not in st.session_state:
         return
     spec = st.session_state["poster_spec"]
+    assets: PosterAssets = st.session_state["poster_assets"]
+    # Written by the checkboxes in render_poster_generation, which
+    # always runs earlier in the same script pass.
+    use_ai_background = st.session_state.get("poster_use_ai_background", False)
+    use_accent_elements = st.session_state.get("poster_use_accent_elements", False)
 
     st.write("**Edit and re-render**")
     edited_headline = st.text_input("Headline", value=spec.headline, key="poster_headline_edit")
@@ -226,19 +351,73 @@ def render_poster_section() -> None:
         key="poster_layout_edit",
     )
 
-    if st.button("Re-render"):
+    color1, color2, color3 = st.columns(3)
+    edited_bg_color = color1.color_picker(
+        "Background", value=_extract_hex(spec.background_color), key="poster_bg_color_edit"
+    )
+    edited_text_color = color2.color_picker(
+        "Text", value=_extract_hex(spec.text_color), key="poster_text_color_edit"
+    )
+    edited_accent_color = color3.color_picker(
+        "Accent", value=_extract_hex(spec.accent_color), key="poster_accent_color_edit"
+    )
+    font_choice = st.selectbox(
+        "Headline font", list(FONT_CHOICES.keys()), key="poster_font_edit"
+    )
+
+    def _do_render(assets_for_render: PosterAssets | None) -> None:
+        """Shared by "Re-render" and the two "Regenerate" buttons below —
+        only which half of `assets_for_render` is populated differs."""
         edited_spec = replace(
-            spec, headline=edited_headline, subtext=edited_subtext, layout=edited_layout
+            spec,
+            headline=edited_headline,
+            subtext=edited_subtext,
+            layout=edited_layout,
+            background_color=edited_bg_color,
+            text_color=edited_text_color,
+            accent_color=edited_accent_color,
         )
-        png_path, svg_path = render_poster(
+        result = render_poster(
             edited_spec,
             str(POSTERS_DIR / f"{uuid.uuid4().hex}.png"),
             style_kit=style_kit,
             use_ai_background=use_ai_background,
+            reference_image_bytes=st.session_state.get("style_reference_image"),
+            use_accent_elements=use_accent_elements,
+            assets=assets_for_render,
+            headline_font_path=FONT_CHOICES[font_choice],
+            # Colors above are now always coming from the pickers (manual
+            # controls, pre-filled with the AI's originals) — so contrast
+            # auto-correction should flag rather than silently override
+            # them from here on, same rule as a manual UI edit anywhere
+            # else in this app.
+            lock_colors=True,
         )
         st.session_state["poster_spec"] = edited_spec
-        st.session_state["poster_png_path"] = str(png_path)
-        st.session_state["poster_svg_path"] = str(svg_path)
+        st.session_state["poster_png_path"] = str(result.png_path)
+        st.session_state["poster_svg_path"] = str(result.svg_path)
+        st.session_state["poster_assets"] = result.assets
+        st.session_state["poster_contrast_warning"] = result.contrast_warning
+
+    render_col, bg_col, accent_col = st.columns(3)
+    if render_col.button("Re-render", help="Free — reuses the existing background/accents."):
+        _do_render(assets)
+    if bg_col.button(
+        "Regenerate background",
+        disabled=not use_ai_background,
+        help="Costs a new BFL API call. Enable the AI background checkbox above first.",
+    ):
+        _do_render(PosterAssets(background_image=None, accent_images=assets.accent_images))
+    if accent_col.button(
+        "Regenerate accents",
+        disabled=not use_accent_elements,
+        help="Costs a new BFL API call per element. Enable the accents checkbox above first.",
+    ):
+        _do_render(PosterAssets(background_image=assets.background_image, accent_images=[]))
+
+    contrast_warning = st.session_state.get("poster_contrast_warning")
+    if contrast_warning:
+        st.warning(contrast_warning)
 
     st.image(st.session_state["poster_png_path"])
     png_bytes = Path(st.session_state["poster_png_path"]).read_bytes()
@@ -506,11 +685,11 @@ def render_results(outputs: dict) -> None:
     st.caption(f"Saved to {outputs['saved_path']}")
 
 
-def main() -> None:
-    """Wire up the page: header, inputs, run button, and persisted results."""
-    render_header()
-    render_style_reference()
-    render_poster_section()
+def render_content_pipeline_tab() -> None:
+    """The existing 5-agent Research -> Growth pipeline, plus voiceover —
+    unchanged in behavior from before the tab split, just lifted out of
+    main() so each tab is a single self-contained call.
+    """
     research_material, profile, use_cache = render_inputs()
 
     if st.button("Run pipeline", type="primary") and validate_inputs(
@@ -526,6 +705,55 @@ def main() -> None:
 
     if "outputs" in st.session_state:
         render_results(st.session_state["outputs"])
+
+
+def render_poster_studio_tab() -> None:
+    """Style Kit extraction, poster generation, the 3-variant picker,
+    and all poster editing controls — everything poster-related lives
+    in this one tab, separate from the content pipeline.
+
+    st.session_state["style_kit"] / ["style_reference_image"] are
+    intentionally NOT scoped to just this tab: they're written here by
+    render_style_reference() but are plain, unprefixed session_state
+    keys so a future phase (e.g. the Visual step in the content
+    pipeline) could read the same extracted style kit without
+    duplicating the extraction call. Everything else poster-specific
+    (poster_spec, poster_variants, the edit-widget keys, ...) stays
+    scoped to this tab in practice simply because nothing outside
+    Poster Studio ever reads it.
+    """
+    render_style_reference()
+    st.subheader("Poster")
+    style_kit = st.session_state.get("style_kit")
+    if style_kit is None:
+        st.info(
+            "Add a reference image or theme above (in the Reference "
+            "section) to generate a poster from its style kit."
+        )
+        return
+
+    render_poster_generation(style_kit)
+    render_poster_variant_picker()
+    render_poster_editor(style_kit)
+
+
+def main() -> None:
+    """Wire up the page: header, then the two focused tools as separate
+    tabs — Content Pipeline (the 5-agent Research->Growth flow plus
+    voiceover) and Poster Studio (Style Kit + poster generation/editing).
+    Splitting into st.tabs() keeps each tool's controls from crowding
+    the other's on one long page, while both still share the page's one
+    st.session_state (e.g. the Style Kit, if a future phase wants it in
+    the pipeline tab too — see render_poster_studio_tab's docstring).
+    """
+    render_header()
+    content_tab, poster_tab = st.tabs(["Content Pipeline", "Poster Studio"])
+
+    with content_tab:
+        render_content_pipeline_tab()
+
+    with poster_tab:
+        render_poster_studio_tab()
 
 
 if __name__ == "__main__":
