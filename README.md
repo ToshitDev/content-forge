@@ -138,6 +138,10 @@ streamlit run app.py
 Config is read from `.env` via `python-dotenv`. `.env` is gitignored, so API keys
 are never hardcoded or committed.
 
+`ANTHROPIC_API_KEY` is required. `ELEVENLABS_API_KEY` (voiceover) and
+`BFL_API_KEY` (optional AI-generated poster backgrounds) are both
+optional — those features fall back gracefully without them.
+
 For linting/type-checking/tests, install `requirements-dev.txt` instead (it
 pulls in `requirements.txt` too); for `scripts/analyze_history.py`, install
 `requirements-analysis.txt`.
