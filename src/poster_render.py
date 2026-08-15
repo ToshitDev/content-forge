@@ -23,7 +23,8 @@ import base64
 import io
 import logging
 import re
-from dataclasses import dataclass, field
+import uuid
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from xml.sax.saxutils import escape as _escape_xml
 
@@ -42,15 +43,35 @@ Font = ImageFont.FreeTypeFont | ImageFont.ImageFont
 FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 
 # Headline font family, picked per-poster by select_font() below from
-# the Style Kit's font_mood — see MOOD_FONT_RULES. Inter and Playfair
-# Display and Baloo 2 are variable fonts (one file, a weight axis) with
-# a "Bold" named instance; Anton is a single static weight and is
-# already heavy/blocky by design, so it needs no variation selection —
-# see _load_font's `bold` handling for how that split is handled.
+# the Style Kit's font_mood — see MOOD_FONT_RULES. Inter, Playfair
+# Display, Baloo 2, Orbitron, Oswald, and Montserrat are all variable
+# fonts (one file, a weight axis) with a "Bold" named instance; Anton
+# and Bebas Neue are single static weights and are already heavy/tall
+# by design, so they need no variation selection — see _load_font's
+# `bold` handling for how that split is handled.
 ANTON_FONT_PATH = FONTS_DIR / "Anton-Regular.ttf"
 INTER_FONT_PATH = FONTS_DIR / "Inter-Variable.ttf"
 BALOO2_FONT_PATH = FONTS_DIR / "Baloo2-Variable.ttf"
 PLAYFAIR_FONT_PATH = FONTS_DIR / "PlayfairDisplay-Variable.ttf"
+BEBAS_NEUE_FONT_PATH = FONTS_DIR / "BebasNeue-Regular.ttf"
+ORBITRON_FONT_PATH = FONTS_DIR / "Orbitron-Variable.ttf"
+OSWALD_FONT_PATH = FONTS_DIR / "Oswald-Variable.ttf"
+MONTSERRAT_FONT_PATH = FONTS_DIR / "Montserrat-Variable.ttf"
+
+# Every bundled font, in a stable order — used by _select_variant_font_paths
+# to pick 3 DISTINCT fonts for the poster-variant feature (see
+# render_poster_variants), not by select_font() itself (that only ever
+# needs MOOD_FONT_RULES below).
+ALL_FONT_PATHS: tuple[Path, ...] = (
+    INTER_FONT_PATH,
+    ANTON_FONT_PATH,
+    BALOO2_FONT_PATH,
+    PLAYFAIR_FONT_PATH,
+    BEBAS_NEUE_FONT_PATH,
+    ORBITRON_FONT_PATH,
+    OSWALD_FONT_PATH,
+    MONTSERRAT_FONT_PATH,
+)
 
 # (font path, keywords) pairs, checked in order — first match wins.
 # Simple substring keyword matching, NOT exhaustive: this only covers
@@ -59,8 +80,20 @@ PLAYFAIR_FONT_PATH = FONTS_DIR / "PlayfairDisplay-Variable.ttf"
 # "clean and minimal"). Expand this list with more (path, keywords)
 # entries as new moods turn up in real Style Kit output, rather than
 # trying to enumerate every possible adjective up front.
+#
+# Ordering note: Orbitron's sci-fi keywords are checked first because
+# they're narrow/specific — a mood like "bold, futuristic, cyberpunk"
+# should read as sci-fi first, not get swallowed by Anton's much more
+# generic "bold". Deliberately "cyber"/"sci-fi", never bare "tech" —
+# "tech" is a substring of Anton's own "technical" keyword and would
+# otherwise steal that existing match (see
+# test_select_font_matches_real_style_kit_phrasing).
 MOOD_FONT_RULES: list[tuple[Path, tuple[str, ...]]] = [
+    (ORBITRON_FONT_PATH, ("futuristic", "sci-fi", "scifi", "cyberpunk", "cyber")),
     (ANTON_FONT_PATH, ("bold", "technical", "industrial", "blocky")),
+    (BEBAS_NEUE_FONT_PATH, ("condensed", "tall")),
+    (OSWALD_FONT_PATH, ("modern",)),
+    (MONTSERRAT_FONT_PATH, ("professional", "corporate")),
     (BALOO2_FONT_PATH, ("playful", "rounded", "fun")),
     (PLAYFAIR_FONT_PATH, ("elegant", "serif", "classic")),
 ]
@@ -159,12 +192,15 @@ class PosterRenderResult:
 
 
 def select_font(font_mood: str) -> Path:
-    """Pick a headline font family from the Style Kit's font_mood.
+    """Pick a font family from the Style Kit's font_mood — used for
+    BOTH the headline and the subtext (render_poster passes this same
+    resolved path to both _wrap_and_fit calls), so a mood never produces
+    a poster with two different-feeling font families on it.
 
     Simple substring keyword matching against MOOD_FONT_RULES, not
     exhaustive — see that list's docstring for how to extend it. Falls
-    back to Inter (clean/minimal/modern, and anything that doesn't hit
-    a more specific mood) when nothing matches.
+    back to Inter (clean/minimal, and anything that doesn't hit a more
+    specific mood) when nothing matches.
     """
     text = font_mood.lower()
     # "sans-serif"/"sans serif" contains "serif" as a substring but
@@ -356,6 +392,204 @@ def render_poster(
         assets=PosterAssets(background_image=background_for_result, accent_images=accent_images),
         contrast_warning=contrast_warning,
     )
+
+
+# ---------------------------------------------------------------------------
+# POSTER VARIANTS — 3 distinct text treatments over ONE shared background.
+#
+# The cost-sensitive part of this feature is the background/accents: those
+# come from a paid Flux API call (see poster_background.py) when AI-generated,
+# so render_poster_variants() resolves them exactly ONCE (via
+# _resolve_shared_background_assets, using the exact same _resolve_background/
+# _resolve_accents helpers a single render_poster() call uses) and then
+# reuses that one PosterAssets for all 3 variants — each variant call below
+# passes it back in via render_poster's existing `assets=` cache-reuse
+# parameter, the same mechanism that already makes a free "Re-render" free.
+# Only the text treatment (font, block position, accent color usage) differs
+# per variant; none of that costs an API call, it's the same local Pillow
+# drawing code render_poster() always runs.
+# ---------------------------------------------------------------------------
+
+# Short, human-readable names for the 3 variants, shown in the UI.
+VARIANT_LABELS: tuple[str, str, str] = ("Bold", "Classic", "Minimal")
+
+# One layout position per variant, in the same order as VARIANT_LABELS.
+# Each string is deliberately just the single word _block_anchor's keyword
+# matching looks for (see that function) — no need for a fuller phrase like
+# spec.layout's own free-text description.
+VARIANT_LAYOUTS: tuple[str, str, str] = ("top", "center", "bottom")
+
+
+@dataclass
+class PosterVariant:
+    """One of the 3 text treatments render_poster_variants() produces,
+    all sharing the same background/accents.
+
+    `spec` is the exact PosterOutput this variant was rendered with
+    (font/layout already reflected in `font_path`/spec.layout, colors
+    already reflected in spec.text_color/spec.accent_color) — selecting
+    a variant in the UI just means feeding `spec`, `font_path`, and
+    `result.assets` back into the normal render_poster() edit flow, no
+    extra bookkeeping needed to reconstruct what made this variant
+    distinct.
+    """
+
+    label: str
+    spec: PosterOutput
+    font_path: Path
+    result: PosterRenderResult
+
+
+def _select_variant_font_paths(font_mood: str) -> list[Path]:
+    """Pick 3 DISTINCT font paths for the 3 variants: the mood's own
+    primary match (exactly what select_font() would return) plus two
+    more drawn from the full font library, so a font is never repeated
+    across variants regardless of which mood matched.
+
+    Deterministic, not random — the two extras are just the next two
+    entries in ALL_FONT_PATHS after removing the primary — so variant
+    generation is reproducible and testable rather than surprising the
+    user with a different pairing on every click.
+    """
+    primary = select_font(font_mood)
+    others = [path for path in ALL_FONT_PATHS if path != primary]
+    return [primary, others[0], others[1]]
+
+
+def _variant_color_treatment(text_hex: str, accent_hex: str, variant_index: int) -> tuple[str, str]:
+    """Return (text_hex, accent_hex) for variant `variant_index`'s color
+    treatment — varies HOW the accent color gets used across the 3
+    variants, not just the font/layout:
+
+    - variant 0 ("Bold"): the original split — text_hex for the
+      headline, accent_hex for the divider/subtext/border, same as a
+      normal single-poster render.
+    - variant 1 ("Classic"): swapped — the headline pops in what was
+      the accent color, the divider/subtext/border settle into what was
+      the text color.
+    - variant 2 ("Minimal"): accent_hex collapses to text_hex — a
+      quieter, near-monochrome treatment where the accent doesn't
+      stand out from the rest of the text.
+
+    Contrast safety is untouched by this: render_poster() still runs
+    _resolve_text_color against whichever colors come back here, same
+    as any other spec (see render_poster_variants' lock_colors note).
+    """
+    if variant_index == 1:
+        return accent_hex, text_hex
+    if variant_index == 2:
+        return text_hex, text_hex
+    return text_hex, accent_hex
+
+
+def _resolve_shared_background_assets(
+    spec: PosterOutput,
+    size: tuple[int, int],
+    style_kit: StyleOutput | None,
+    use_ai_background: bool,
+    reference_image_bytes: bytes | None,
+    use_accent_elements: bool,
+    assets: PosterAssets | None,
+) -> PosterAssets:
+    """Resolve the background (and accents) exactly ONCE for
+    render_poster_variants() to share across all 3 variants — reuses
+    `assets` if it already has a cached background (e.g. regenerating
+    variants for an already-existing poster), otherwise builds/fetches
+    fresh via the same _resolve_background/_resolve_accents helpers
+    render_poster() itself calls for a single poster. This is the ONLY
+    place variant generation is allowed to pay for a Flux call; every
+    per-variant render_poster() call below passes the result back in via
+    `assets=` instead, which resolves for free (see that parameter's
+    own docstring on render_poster).
+    """
+    background_hex = _extract_hex(spec.background_color)
+    accent_hex = _extract_hex(spec.accent_color)
+    layout_tendency = style_kit.layout_tendency if style_kit else ""
+    vibe = style_kit.vibe if style_kit else ""
+    texture_style = _texture_style(layout_tendency)
+    intensity = _texture_intensity(vibe)
+
+    background_image = _resolve_background(
+        size, background_hex, accent_hex, texture_style, intensity, style_kit,
+        use_ai_background, reference_image_bytes, assets,
+    )
+    accent_images = _resolve_accents(style_kit, use_accent_elements, assets)
+    return PosterAssets(background_image=background_image, accent_images=accent_images)
+
+
+def render_poster_variants(
+    spec: PosterOutput,
+    output_dir: str,
+    size: tuple[int, int] = (1080, 1350),
+    style_kit: StyleOutput | None = None,
+    use_ai_background: bool = False,
+    reference_image_bytes: bytes | None = None,
+    use_accent_elements: bool = False,
+    assets: PosterAssets | None = None,
+) -> list[PosterVariant]:
+    """Render 3 distinct text treatments of `spec` over ONE shared
+    background/accent set — see the module section header above for the
+    cost guarantee this relies on.
+
+    Each of the 3 PosterVariant returned differs in:
+      - font (see _select_variant_font_paths — never the same font twice)
+      - block layout position (VARIANT_LAYOUTS: top/center/bottom)
+      - accent color usage (see _variant_color_treatment)
+    headline/subtext copy and the shared background/accents stay
+    identical across all 3 — only the text TREATMENT varies.
+
+    lock_colors is deliberately left at render_poster()'s own default
+    (False): each variant's colors are algorithmically chosen here, not
+    manually picked by the user, so the same contrast-auto-correction
+    safety net that protects a normal AI-planned poster should still be
+    free to swap a variant's color for pure black/white if it fails
+    WCAG contrast against the shared background — never silently
+    rendering illegible text just because it came from a variant recipe
+    instead of the Poster Agent.
+
+    Args: same as render_poster()'s corresponding parameters — see
+        there for what each controls. `output_dir` replaces
+        `output_path`: each variant gets its own generated filename
+        inside this directory (mirroring how callers already build
+        per-poster filenames for a single render_poster() call).
+
+    Returns:
+        Exactly 3 PosterVariant, in VARIANT_LABELS order (Bold, Classic,
+        Minimal).
+    """
+    font_mood = style_kit.font_mood if style_kit else ""
+    font_paths = _select_variant_font_paths(font_mood)
+    text_hex = _extract_hex(spec.text_color)
+    accent_hex = _extract_hex(spec.accent_color)
+
+    shared_assets = _resolve_shared_background_assets(
+        spec, size, style_kit, use_ai_background, reference_image_bytes,
+        use_accent_elements, assets,
+    )
+
+    variants = []
+    for index, (label, layout, font_path) in enumerate(
+        zip(VARIANT_LABELS, VARIANT_LAYOUTS, font_paths, strict=True)
+    ):
+        variant_text_hex, variant_accent_hex = _variant_color_treatment(text_hex, accent_hex, index)
+        variant_spec = replace(
+            spec, layout=layout, text_color=variant_text_hex, accent_color=variant_accent_hex,
+        )
+        result = render_poster(
+            variant_spec,
+            str(Path(output_dir) / f"{uuid.uuid4().hex}.png"),
+            size=size,
+            style_kit=style_kit,
+            use_ai_background=use_ai_background,
+            reference_image_bytes=reference_image_bytes,
+            use_accent_elements=use_accent_elements,
+            assets=shared_assets,
+            headline_font_path=font_path,
+        )
+        variants.append(
+            PosterVariant(label=label, spec=variant_spec, font_path=font_path, result=result)
+        )
+    return variants
 
 
 def _resolve_background(
