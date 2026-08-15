@@ -19,16 +19,18 @@ the drawing code) if a future phase genuinely needs independent
 per-element placement.
 """
 
+import base64
 import io
 import logging
 import re
+from dataclasses import dataclass, field
 from pathlib import Path
 from xml.sax.saxutils import escape as _escape_xml
 
 from PIL import Image, ImageColor, ImageDraw, ImageFont
 
 from src.models import PosterOutput, StyleOutput
-from src.poster_background import generate_ai_background
+from src.poster_background import generate_accent_element, generate_ai_background
 
 logger = logging.getLogger(__name__)
 
@@ -38,8 +40,30 @@ logger = logging.getLogger(__name__)
 Font = ImageFont.FreeTypeFont | ImageFont.ImageFont
 
 FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
-HEADLINE_FONT_PATH = FONTS_DIR / "DejaVuSans-Bold.ttf"
-SUBTEXT_FONT_PATH = FONTS_DIR / "DejaVuSans.ttf"
+
+# Headline font family, picked per-poster by select_font() below from
+# the Style Kit's font_mood — see MOOD_FONT_RULES. Inter and Playfair
+# Display and Baloo 2 are variable fonts (one file, a weight axis) with
+# a "Bold" named instance; Anton is a single static weight and is
+# already heavy/blocky by design, so it needs no variation selection —
+# see _load_font's `bold` handling for how that split is handled.
+ANTON_FONT_PATH = FONTS_DIR / "Anton-Regular.ttf"
+INTER_FONT_PATH = FONTS_DIR / "Inter-Variable.ttf"
+BALOO2_FONT_PATH = FONTS_DIR / "Baloo2-Variable.ttf"
+PLAYFAIR_FONT_PATH = FONTS_DIR / "PlayfairDisplay-Variable.ttf"
+
+# (font path, keywords) pairs, checked in order — first match wins.
+# Simple substring keyword matching, NOT exhaustive: this only covers
+# the handful of moods the Style Agent actually tends to describe (e.g.
+# "bold and technical, sans-serif industrial", "playful and rounded",
+# "clean and minimal"). Expand this list with more (path, keywords)
+# entries as new moods turn up in real Style Kit output, rather than
+# trying to enumerate every possible adjective up front.
+MOOD_FONT_RULES: list[tuple[Path, tuple[str, ...]]] = [
+    (ANTON_FONT_PATH, ("bold", "technical", "industrial", "blocky")),
+    (BALOO2_FONT_PATH, ("playful", "rounded", "fun")),
+    (PLAYFAIR_FONT_PATH, ("elegant", "serif", "classic")),
+]
 
 HEX_COLOR_PATTERN = re.compile(r"#[0-9A-Fa-f]{6}")
 FALLBACK_COLOR = "#333333"
@@ -81,6 +105,78 @@ CORNER_BASE_OPACITY = 0.35  # brighter than the grid — there are only 8 short 
 BORDER_INSET_RATIO = 0.025
 BORDER_THICKNESS = 3
 
+# Decorative AI-generated accent elements (badge/icon/corner flourish/
+# geometric shape) — a separate, optional, separately-toggled layer from
+# the AI background. Sized and inset so they land in the canvas corners,
+# which the horizontally-centered headline/subtext block never reaches
+# regardless of whether it's anchored top/center/bottom.
+ACCENT_SIZE_RATIO = 0.22  # each element's size, as a fraction of the shorter canvas dimension
+ACCENT_INSET_RATIO = 0.06
+ACCENT_CORNER_ANCHORS = ("top-right", "bottom-left")  # up to 2 elements, opposite corners
+
+# (element type, keywords) pairs, checked in order — same simple,
+# expandable keyword-matching spirit as MOOD_FONT_RULES/_texture_style.
+ACCENT_TYPE_RULES: list[tuple[str, tuple[str, ...]]] = [
+    ("badge", ("bold", "energetic", "vibrant", "loud", "dynamic")),
+    ("icon", ("playful", "fun", "whimsical", "rounded")),
+    ("corner flourish", ("elegant", "classic", "refined", "sophisticated", "serif")),
+    ("geometric accent shape", ("calm", "minimal", "understated", "clean", "modern")),
+]
+
+# WCAG 2.x contrast ratio (1:1 to 21:1). 4.5 is the standard AA
+# threshold for normal text; applied uniformly to both headline and
+# subtext here rather than branching on WCAG's large-vs-normal-text
+# split, since poster type sizes vary a lot and a single conservative
+# threshold is simpler to reason about than picking the "right" one per
+# font size.
+MIN_CONTRAST_RATIO = 4.5
+
+
+@dataclass
+class PosterAssets:
+    """Already-fetched AI images (background and/or accent elements),
+    so a text/color/font-only edit can be re-rendered by reusing these
+    instead of hitting the paid BFL APIs again. Round-trips through
+    PosterRenderResult.assets -> caller stores it (e.g. in Streamlit
+    session_state) -> passed back in as render_poster's `assets` arg on
+    the next call.
+    """
+
+    background_image: Image.Image | None = None
+    accent_images: list[Image.Image] = field(default_factory=list)
+
+
+@dataclass
+class PosterRenderResult:
+    """Everything render_poster() produces: the two saved files, the
+    resolved image objects (for the caller to cache via PosterAssets),
+    and whether text contrast needed a warning."""
+
+    png_path: Path
+    svg_path: Path
+    assets: PosterAssets
+    contrast_warning: str | None
+
+
+def select_font(font_mood: str) -> Path:
+    """Pick a headline font family from the Style Kit's font_mood.
+
+    Simple substring keyword matching against MOOD_FONT_RULES, not
+    exhaustive — see that list's docstring for how to extend it. Falls
+    back to Inter (clean/minimal/modern, and anything that doesn't hit
+    a more specific mood) when nothing matches.
+    """
+    text = font_mood.lower()
+    # "sans-serif"/"sans serif" contains "serif" as a substring but
+    # means the opposite — strip it out first so a mood description
+    # like "clean, sans-serif, minimal" doesn't misfire into the
+    # serif/elegant rule below.
+    text = text.replace("sans-serif", "").replace("sans serif", "")
+    for path, keywords in MOOD_FONT_RULES:
+        if any(keyword in text for keyword in keywords):
+            return path
+    return INTER_FONT_PATH
+
 
 def render_poster(
     spec: PosterOutput,
@@ -88,12 +184,27 @@ def render_poster(
     size: tuple[int, int] = (1080, 1350),
     style_kit: StyleOutput | None = None,
     use_ai_background: bool = False,
-) -> tuple[Path, Path]:
+    reference_image_bytes: bytes | None = None,
+    use_accent_elements: bool = False,
+    assets: PosterAssets | None = None,
+    headline_font_path: Path | None = None,
+    lock_colors: bool = False,
+) -> PosterRenderResult:
     """Render `spec` to a PNG and a companion SVG.
 
     The PNG is written to `output_path`; the SVG is saved alongside it
     with the same stem and a ".svg" extension, so a caller that wants
     both just needs to pick one path.
+
+    ASSET REUSE (why a text/color/font edit doesn't cost a new API
+    call): `assets`, when given, is used as-is for the background
+    and/or accent elements instead of building or fetching them again —
+    only text layout, colors, and the font are recomputed. Pass back the
+    `assets` field of a previous PosterRenderResult to get this. Without
+    it, the background is built fresh (AI if `use_ai_background`, else
+    procedural) and accent elements are fetched fresh if
+    `use_accent_elements` — each independently, so e.g. `assets` with
+    only a background image still fetches fresh accents if requested.
 
     Args:
         spec: The Poster Agent's plan — headline, subtext, three colors,
@@ -103,21 +214,49 @@ def render_poster(
         style_kit: The Style Kit used to generate `spec` (if any).
             Optional — its layout_tendency and vibe pick the procedural
             background texture style/intensity (see _texture_style /
-            _texture_intensity); its full contents also feed the AI
-            background prompt when use_ai_background is True. None
-            falls back to a neutral default texture and disables the AI
-            background regardless of use_ai_background (there's nothing
-            to build a prompt from).
-        use_ai_background: If True, generate the background via the
-            Black Forest Labs Flux API (src/poster_background.py)
-            instead of the procedural gradient + texture. Any failure —
-            missing key, timeout, moderation, network error — is caught
-            and logged, and rendering falls back to the procedural
-            background instead of ever crashing poster generation over
-            an optional, paid feature.
+            _texture_intensity) and the accent element type(s) (see
+            _select_accent_element_types), its font_mood picks the
+            default headline font (see select_font, overridden by
+            `headline_font_path` if given), and its full contents also
+            feed the AI background/accent prompts. None falls back to a
+            neutral default texture, the default headline font, and
+            disables both AI features (there's nothing to build a
+            prompt from).
+        use_ai_background: If True (and no background in `assets`),
+            generate the background via the Black Forest Labs Flux API
+            (src/poster_background.py) instead of the procedural
+            gradient + texture. Any failure — missing key, timeout,
+            moderation, network error — is caught and logged, and
+            rendering falls back to the procedural background instead
+            of ever crashing poster generation over an optional, paid
+            feature.
+        reference_image_bytes: Raw bytes of a reference image (if the
+            user uploaded one in the Reference section) to pass to Flux
+            2 for real image-based style transfer. Only used when
+            `use_ai_background` is True and there's no cached background
+            in `assets`; None falls back to the text-only AI background
+            path.
+        use_accent_elements: If True (and no accents in `assets`),
+            generate 1-2 small decorative graphics and composite them
+            into opposite corners. Separately toggled from the
+            background — an additional cost per element — and just as
+            failure-tolerant: any generation failure is caught, logged,
+            and simply means fewer (or zero) accents, never a crash.
+        assets: Already-fetched background/accent images to reuse — see
+            "ASSET REUSE" above.
+        headline_font_path: Overrides select_font(style_kit.font_mood)
+            when the user has picked a specific font explicitly (e.g.
+            via a font selector in the UI) rather than leaving it to the
+            mood-based default.
+        lock_colors: True once the user has manually picked text/accent
+            colors (e.g. via color pickers in the UI) rather than using
+            the Poster Agent's originals — see _resolve_text_color for
+            what this changes about contrast auto-correction.
 
     Returns:
-        (png_path, svg_path)
+        A PosterRenderResult — png_path, svg_path, the resolved assets
+        (cache these for a free re-render), and contrast_warning (None
+        if headline/subtext both read clearly against their background).
     """
     background_hex = _extract_hex(spec.background_color)
     text_hex = _extract_hex(spec.text_color)
@@ -125,12 +264,19 @@ def render_poster(
 
     layout_tendency = style_kit.layout_tendency if style_kit else ""
     vibe = style_kit.vibe if style_kit else ""
+    font_mood = style_kit.font_mood if style_kit else ""
     texture_style = _texture_style(layout_tendency)
     intensity = _texture_intensity(vibe)
+    resolved_headline_font_path = headline_font_path or select_font(font_mood)
 
-    image = _build_background(
-        size, background_hex, accent_hex, texture_style, intensity, style_kit, use_ai_background
+    image = _resolve_background(
+        size, background_hex, accent_hex, texture_style, intensity, style_kit,
+        use_ai_background, reference_image_bytes, assets,
     )
+    background_for_result = image.copy()
+
+    accent_images = _resolve_accents(style_kit, use_accent_elements, assets)
+    image = _composite_accents(image, accent_images, size)
     draw = ImageDraw.Draw(image)
 
     width, height = size
@@ -139,11 +285,11 @@ def render_poster(
     gap = int(height * BLOCK_GAP_RATIO)
 
     headline_font, headline_lines, headline_size = _wrap_and_fit(
-        draw, spec.headline, HEADLINE_FONT_PATH, max_text_width, HEADLINE_START_SIZE,
-        HEADLINE_MIN_SIZE,
+        draw, spec.headline, resolved_headline_font_path, max_text_width, HEADLINE_START_SIZE,
+        HEADLINE_MIN_SIZE, bold=True,
     )
     subtext_font, subtext_lines, subtext_size = _wrap_and_fit(
-        draw, spec.subtext, SUBTEXT_FONT_PATH, max_text_width, SUBTEXT_START_SIZE,
+        draw, spec.subtext, resolved_headline_font_path, max_text_width, SUBTEXT_START_SIZE,
         SUBTEXT_MIN_SIZE,
     )
 
@@ -158,9 +304,19 @@ def render_poster(
     divider_y = headline_top + headline_block_height + gap
     subtext_top = divider_y + DIVIDER_THICKNESS + gap
 
+    # Contrast is checked (and, if unlocked, auto-corrected) against
+    # each region's actual background pixels BEFORE that text is drawn —
+    # sampling after would just measure the text ink itself.
+    headline_box = (0, headline_top, width, headline_top + max(headline_block_height, 1))
+    text_hex, headline_warning = _resolve_text_color(image, headline_box, text_hex, lock_colors)
     _draw_centered_lines(draw, headline_lines, headline_font, text_hex, width, headline_top)
+
     _draw_divider(draw, width, divider_y, accent_hex)
+
+    subtext_box = (0, subtext_top, width, subtext_top + max(subtext_block_height, 1))
+    accent_hex, subtext_warning = _resolve_text_color(image, subtext_box, accent_hex, lock_colors)
     _draw_centered_lines(draw, subtext_lines, subtext_font, accent_hex, width, subtext_top)
+
     _draw_border(draw, size, accent_hex)
 
     png_path = Path(output_path)
@@ -183,10 +339,48 @@ def render_poster(
             subtext_size,
             texture_style,
             intensity,
+            accent_images,
         )
     )
 
-    return png_path, svg_path
+    contrast_warning = None
+    if headline_warning or subtext_warning:
+        contrast_warning = (
+            "Text may be hard to read against the background — consider a "
+            "different text/accent color or background."
+        )
+
+    return PosterRenderResult(
+        png_path=png_path,
+        svg_path=svg_path,
+        assets=PosterAssets(background_image=background_for_result, accent_images=accent_images),
+        contrast_warning=contrast_warning,
+    )
+
+
+def _resolve_background(
+    size: tuple[int, int],
+    background_hex: str,
+    accent_hex: str,
+    texture_style: str,
+    intensity: float,
+    style_kit: StyleOutput | None,
+    use_ai_background: bool,
+    reference_image_bytes: bytes | None,
+    assets: PosterAssets | None,
+) -> Image.Image:
+    """Get the poster's background image: reuse a cached one from
+    `assets` if given, otherwise build fresh (AI or procedural).
+
+    A cached image is resized to `size` in case it was generated (or
+    re-fetched) at a different canvas size than this render is using.
+    """
+    if assets is not None and assets.background_image is not None:
+        return assets.background_image.convert("RGB").resize(size)
+    return _build_background(
+        size, background_hex, accent_hex, texture_style, intensity, style_kit,
+        use_ai_background, reference_image_bytes,
+    )
 
 
 def _build_background(
@@ -197,20 +391,23 @@ def _build_background(
     intensity: float,
     style_kit: StyleOutput | None,
     use_ai_background: bool,
+    reference_image_bytes: bytes | None,
 ) -> Image.Image:
-    """Build the poster's background image.
+    """Build a fresh background image (not reused from cached assets).
 
     Tries the AI background first when requested (and a style kit is
-    available to build a prompt from); on ANY failure there — missing
-    key, timeout, moderation, network error, anything — logs a warning
-    and falls through to the procedural gradient + texture instead of
-    raising. That fallback is deliberately unconditional: this is an
-    optional, paid feature, and generating a poster should never depend
-    on a third-party API being up.
+    available to build a prompt from) — with the reference image for
+    real style transfer if one was given, otherwise the text-only path.
+    On ANY failure there — missing key, timeout, moderation, network
+    error, anything — logs a warning and falls through to the
+    procedural gradient + texture instead of raising. That fallback is
+    deliberately unconditional: this is an optional, paid feature, and
+    generating a poster should never depend on a third-party API being
+    up.
     """
     if use_ai_background and style_kit is not None:
         try:
-            ai_bytes = generate_ai_background(style_kit, size)
+            ai_bytes = generate_ai_background(style_kit, size, reference_image_bytes)
             return Image.open(io.BytesIO(ai_bytes)).convert("RGB").resize(size)
         except Exception as error:  # noqa: BLE001 - optional feature, must always fall back
             logger.warning(
@@ -220,6 +417,152 @@ def _build_background(
 
     image = _gradient_background(size, background_hex)
     return _apply_texture(image, size, accent_hex, texture_style, intensity)
+
+
+def _select_accent_element_types(vibe: str) -> list[str]:
+    """Pick 1-2 accent element types ("badge", "icon", "corner
+    flourish", "geometric accent shape") from the style kit's vibe.
+
+    Simple keyword matching against ACCENT_TYPE_RULES, not exhaustive —
+    same spirit as _texture_style/select_font. The first rule whose
+    keywords appear sets the primary type; a second, different type
+    rounds out the pair for a touch of contrast between the two accents
+    rather than the identical graphic in both corners.
+    """
+    text = vibe.lower()
+    matched = [
+        element_type
+        for element_type, keywords in ACCENT_TYPE_RULES
+        if any(keyword in text for keyword in keywords)
+    ]
+    if not matched:
+        matched = ["geometric accent shape"]
+    primary = matched[0]
+    secondary = next((t for t, _ in ACCENT_TYPE_RULES if t != primary), primary)
+    return [primary, secondary]
+
+
+def _resolve_accents(
+    style_kit: StyleOutput | None, use_accent_elements: bool, assets: PosterAssets | None
+) -> list[Image.Image]:
+    """Get the poster's accent images: reuse cached ones from `assets`
+    if given, otherwise fetch fresh ones if requested, otherwise none."""
+    if assets is not None and assets.accent_images:
+        return assets.accent_images
+    if use_accent_elements and style_kit is not None:
+        return _fetch_accent_elements(style_kit)
+    return []
+
+
+def _fetch_accent_elements(style_kit: StyleOutput) -> list[Image.Image]:
+    """Generate 1-2 accent images via the BFL API (never reused from
+    cache — see _resolve_accents for that).
+
+    Never raises — a generation failure here just means fewer (or zero)
+    accents, the same "optional feature never crashes generation"
+    contract as the background.
+    """
+    accent_images: list[Image.Image] = []
+    for element_type in _select_accent_element_types(style_kit.vibe):
+        try:
+            element_bytes = generate_accent_element(style_kit, element_type)
+            accent_images.append(Image.open(io.BytesIO(element_bytes)).convert("RGBA"))
+        except Exception as error:  # noqa: BLE001 - optional feature, must always degrade gracefully
+            logger.warning("Accent element generation failed, skipping: %s", error)
+    return accent_images
+
+
+def _composite_accents(
+    image: Image.Image, accent_images: list[Image.Image], size: tuple[int, int]
+) -> Image.Image:
+    """Paste up to 2 accent images into opposite corners of the canvas
+    (see ACCENT_CORNER_ANCHORS), sized and inset so they never reach the
+    horizontally-centered headline/subtext block in the middle."""
+    if not accent_images:
+        return image
+    image = image.convert("RGBA")
+    width, height = size
+    accent_size = int(min(width, height) * ACCENT_SIZE_RATIO)
+    inset = int(min(width, height) * ACCENT_INSET_RATIO)
+
+    for accent_image, corner in zip(accent_images[:2], ACCENT_CORNER_ANCHORS, strict=False):
+        resized = accent_image.convert("RGBA").resize((accent_size, accent_size))
+        if corner == "top-right":
+            position = (width - inset - accent_size, inset)
+        else:  # bottom-left
+            position = (inset, height - inset - accent_size)
+        image.paste(resized, position, resized)
+
+    return image.convert("RGB")
+
+
+def _relative_luminance(rgb: tuple[int, int, int]) -> float:
+    """WCAG relative luminance of an sRGB color, in [0, 1]."""
+
+    def channel(value: int) -> float:
+        normalized = value / 255
+        return normalized / 12.92 if normalized <= 0.03928 else ((normalized + 0.055) / 1.055) ** 2.4
+
+    r, g, b = rgb
+    return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
+
+
+def _contrast_ratio(rgb1: tuple[int, int, int], rgb2: tuple[int, int, int]) -> float:
+    """WCAG contrast ratio between two sRGB colors: 1.0 (identical) to
+    21.0 (pure black against pure white)."""
+    luminance1 = _relative_luminance(rgb1)
+    luminance2 = _relative_luminance(rgb2)
+    lighter, darker = max(luminance1, luminance2), min(luminance1, luminance2)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+def _sample_average_color(image: Image.Image, box: tuple[int, int, int, int]) -> tuple[int, int, int]:
+    """Average RGB color of `image` within `box` — a cheap stand-in for
+    "the actual pixels behind the text", since the background can be a
+    gradient, procedural texture, or AI image, not a flat color.
+    Resizing the cropped region down to a single pixel with box-filter
+    resampling computes that average using Pillow's own (fast, C-level)
+    resampling rather than a manual per-pixel loop.
+    """
+    region = image.convert("RGB").crop(box)
+    pixel = region.resize((1, 1), Image.Resampling.BOX).getpixel((0, 0))
+    return pixel  # type: ignore[return-value]
+
+
+def _resolve_text_color(
+    image: Image.Image, box: tuple[int, int, int, int], color_hex: str, locked: bool
+) -> tuple[str, bool]:
+    """Check `color_hex`'s WCAG contrast against the pixels actually
+    behind `box`, in the poster as rendered so far (background + any
+    accents, but not yet this text) — not just against the flat
+    background_color/accent_color from the Poster Agent's plan, which
+    may not reflect a busy AI background or texture at all.
+
+    If it fails and `locked` is False (the color still came from the
+    Poster Agent, not a manual color-picker edit), tries switching to
+    pure white or pure black — whichever contrasts better — and uses
+    that if it clears the threshold. A manually-picked color (`locked`)
+    is never overridden, only flagged.
+
+    Returns (final_color_hex, warning_triggered) — warning_triggered is
+    True when contrast is still below MIN_CONTRAST_RATIO after this
+    (whether because the color is locked, or because even the
+    auto-correction didn't clear the bar).
+    """
+    background_rgb = _sample_average_color(image, box)
+    text_rgb = ImageColor.getrgb(color_hex)[:3]
+    ratio = _contrast_ratio(text_rgb, background_rgb)
+    if ratio >= MIN_CONTRAST_RATIO:
+        return color_hex, False
+    if locked:
+        return color_hex, True
+
+    white_ratio = _contrast_ratio((255, 255, 255), background_rgb)
+    black_ratio = _contrast_ratio((0, 0, 0), background_rgb)
+    corrected_hex, corrected_ratio = (
+        ("#FFFFFF", white_ratio) if white_ratio >= black_ratio else ("#000000", black_ratio)
+    )
+    return corrected_hex, corrected_ratio < MIN_CONTRAST_RATIO
 
 
 def _extract_hex(color_description: str) -> str:
@@ -423,13 +766,31 @@ def _draw_divider(draw: ImageDraw.ImageDraw, canvas_width: int, y: int, color_he
     draw.line([(x_start, y_center), (x_end, y_center)], fill=color_hex, width=DIVIDER_THICKNESS)
 
 
-def _load_font(path: Path, size: int) -> Font:
+def _load_font(path: Path, size: int, bold: bool = False) -> Font:
     """Load a bundled TTF at `size`, falling back to Pillow's built-in
-    default font if the file is missing or unreadable."""
+    default font if the file is missing or unreadable.
+
+    When `bold` is set and the font is a variable font with a "Bold"
+    named instance — Inter, Baloo 2, and Playfair Display are all
+    shipped this way, one file covering every weight via a weight axis
+    — that instance is selected. Anton has no variation axes (it's a
+    single static weight, already heavy/blocky by design) and
+    get_variation_names() raises OSError for it, same as for any other
+    static font; that's expected, not an error worth logging.
+    """
     try:
-        return ImageFont.truetype(str(path), size)
+        font = ImageFont.truetype(str(path), size)
     except OSError:
         return ImageFont.load_default(size=size)
+
+    if bold and isinstance(font, ImageFont.FreeTypeFont):
+        try:
+            variation_names = font.get_variation_names()
+        except OSError:
+            variation_names = []  # static font — no weight axis to select
+        if b"Bold" in variation_names:
+            font.set_variation_by_name("Bold")
+    return font
 
 
 def _text_width(draw: ImageDraw.ImageDraw, text: str, font: Font) -> int:
@@ -487,6 +848,49 @@ def _wrap_text(draw: ImageDraw.ImageDraw, text: str, font: Font, max_width: int)
     return best
 
 
+def _split_overflowing_lines(
+    draw: ImageDraw.ImageDraw, lines: list[str], font: Font, max_width: int
+) -> list[str]:
+    """Last-resort safety net used by _wrap_and_fit once its font-shrink
+    loop has already tried every size down to min_size: word-wrapping
+    can only break on spaces, so a single word with no space to break on
+    (a long URL, a run-on string) that's still wider than max_width even
+    at min_size comes out of _wrap_text as its own overflowing line.
+    Re-measures each line's ACTUAL rendered width for the active font
+    (never assumed from character count) and hard-wraps any line that's
+    still too wide character by character, so headline text never
+    silently overflows or gets cut off at the canvas edge regardless of
+    which font is selected.
+    """
+    result: list[str] = []
+    for line in lines:
+        if _text_width(draw, line, font) <= max_width:
+            result.append(line)
+        else:
+            result.extend(_split_long_word(draw, line, font, max_width))
+    return result
+
+
+def _split_long_word(draw: ImageDraw.ImageDraw, word: str, font: Font, max_width: int) -> list[str]:
+    """Hard-wrap `word` character by character into chunks that each fit
+    within max_width. Only reached when a whole word is wider than the
+    canvas even alone — always makes forward progress (each chunk gets
+    at least one character), so this terminates even if a single
+    character's rendered width exceeds max_width."""
+    chunks: list[str] = []
+    current = ""
+    for char in word:
+        candidate = current + char
+        if current and _text_width(draw, candidate, font) > max_width:
+            chunks.append(current)
+            current = char
+        else:
+            current = candidate
+    if current:
+        chunks.append(current)
+    return chunks
+
+
 def _wrap_and_fit(
     draw: ImageDraw.ImageDraw,
     text: str,
@@ -494,24 +898,38 @@ def _wrap_and_fit(
     max_width: int,
     start_size: int,
     min_size: int,
+    bold: bool = False,
 ) -> tuple[Font, list[str], int]:
     """Find the largest font size (within [min_size, start_size], step 2)
-    at which `text` word-wraps into lines that all fit within max_width.
+    at which `text` word-wraps into lines that all fit within max_width,
+    checked by re-measuring each candidate line's ACTUAL rendered width
+    for the font actually being tried (never assumed from character
+    count) — so this stays correct across every headline font the style
+    kit or a manual picker can select, not just whichever font happened
+    to be in place when this was first written.
 
     Falls back to min_size if even that doesn't fit cleanly (e.g. one
-    very long word) — Pillow just draws past the margin rather than
-    raising, which is an acceptable edge case for a best-effort layout.
+    very long word wider than max_width even alone) — and even then,
+    hard-wraps that word character by character via
+    _split_overflowing_lines rather than letting it silently overflow
+    past the canvas margin, so long headline text is never cut off
+    regardless of font.
+
     Returns the chosen size alongside the font object (rather than
     reading it back off the font later) since Pillow's fallback
-    ImageFont type doesn't expose a `.size` attribute.
+    ImageFont type doesn't expose a `.size` attribute. `bold` is passed
+    straight through to _load_font — see there for what it does.
     """
     for size in range(start_size, min_size - 1, -2):
-        font = _load_font(font_path, size)
+        font = _load_font(font_path, size, bold=bold)
         lines = _wrap_text(draw, text, font, max_width)
         if all(_text_width(draw, line, font) <= max_width for line in lines):
             return font, lines, size
-    font = _load_font(font_path, min_size)
-    return font, _wrap_text(draw, text, font, max_width), min_size
+    font = _load_font(font_path, min_size, bold=bold)
+    lines = _split_overflowing_lines(
+        draw, _wrap_text(draw, text, font, max_width), font, max_width
+    )
+    return font, lines, min_size
 
 
 def _measure_lines_height(draw: ImageDraw.ImageDraw, lines: list[str], font: Font) -> int:
@@ -559,13 +977,20 @@ def _build_svg(
     subtext_size: int,
     texture_style: str,
     intensity: float,
+    accent_images: list[Image.Image],
 ) -> str:
     """Render the same poster as a simple, hand-editable SVG.
 
     Same content, colors, texture, and approximate layout as the PNG,
     but text stays real <text>/<tspan> elements rather than rasterized
     pixels — still editable (font, color, wording) in any vector tool
-    afterward.
+    afterward. Deliberate exception: an AI-generated background is
+    fundamentally a raster photo, not something a "simple template" SVG
+    can represent — the SVG background stays a flat background_hex rect
+    for that case, same as when there's no AI background at all. Accent
+    elements ARE embedded (base64 data-URI <image>s) since they're small
+    and keeping them out would leave the SVG visibly incomplete next to
+    the PNG.
     """
     width, height = size
     headline_tspans = _build_tspans(headline_lines, width / 2, headline_size)
@@ -573,10 +998,12 @@ def _build_svg(
     divider_half_width = width * DIVIDER_WIDTH_RATIO / 2
     texture_svg = _build_texture_svg(size, accent_hex, texture_style, intensity)
     border_svg = _build_border_svg(size, accent_hex)
+    accents_svg = _build_accents_svg(size, accent_images)
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
   <rect width="{width}" height="{height}" fill="{background_hex}" />
   {texture_svg}
+  {accents_svg}
   <text x="{width / 2}" y="{headline_top + headline_size}" text-anchor="middle" \
 font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="{headline_size}" \
 fill="{text_hex}">{headline_tspans}</text>
@@ -588,6 +1015,33 @@ fill="{accent_hex}">{subtext_tspans}</text>
   {border_svg}
 </svg>
 """
+
+
+def _build_accents_svg(size: tuple[int, int], accent_images: list[Image.Image]) -> str:
+    """SVG markup for the same accent elements _composite_accents draws
+    onto the PNG, embedded as base64 data-URI <image> elements — small
+    enough to embed directly, unlike a full AI background photo (see
+    _build_svg's docstring)."""
+    if not accent_images:
+        return ""
+    width, height = size
+    accent_size = int(min(width, height) * ACCENT_SIZE_RATIO)
+    inset = int(min(width, height) * ACCENT_INSET_RATIO)
+    parts = []
+    for accent_image, corner in zip(accent_images[:2], ACCENT_CORNER_ANCHORS, strict=False):
+        x, y = (
+            (width - inset - accent_size, inset)
+            if corner == "top-right"
+            else (inset, height - inset - accent_size)
+        )
+        buffer = io.BytesIO()
+        accent_image.convert("RGBA").resize((accent_size, accent_size)).save(buffer, format="PNG")
+        data_uri = base64.b64encode(buffer.getvalue()).decode("ascii")
+        parts.append(
+            f'<image x="{x}" y="{y}" width="{accent_size}" height="{accent_size}" '
+            f'href="data:image/png;base64,{data_uri}" />'
+        )
+    return "".join(parts)
 
 
 def _build_tspans(lines: list[str], x: float, font_size: int) -> str:
