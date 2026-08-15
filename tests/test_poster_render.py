@@ -5,6 +5,7 @@ than via PosterAgent, since this module only cares about turning an
 already-parsed plan into pixels.
 """
 
+from dataclasses import replace
 from unittest.mock import patch
 
 from PIL import Image
@@ -14,15 +15,21 @@ from src.models import PosterOutput, StyleOutput
 from src.poster_render import (
     ANTON_FONT_PATH,
     BALOO2_FONT_PATH,
+    BEBAS_NEUE_FONT_PATH,
     INTER_FONT_PATH,
     MIN_CONTRAST_RATIO,
+    MONTSERRAT_FONT_PATH,
+    ORBITRON_FONT_PATH,
+    OSWALD_FONT_PATH,
     PLAYFAIR_FONT_PATH,
+    VARIANT_LABELS,
     _contrast_ratio,
     _extract_hex,
     _resolve_text_color,
     _split_long_word,
     _wrap_text,
     render_poster,
+    render_poster_variants,
     select_font,
 )
 
@@ -60,6 +67,31 @@ def test_select_font_does_not_misfire_on_sans_serif():
     opposite — a mood naming it without any other elegant/serif/classic
     wording must NOT resolve to Playfair Display."""
     assert select_font("clean, sans-serif, minimal") == INTER_FONT_PATH
+
+
+def test_select_font_matches_futuristic_moods_to_orbitron():
+    assert select_font("futuristic, sci-fi energy") == ORBITRON_FONT_PATH
+    assert select_font("cyberpunk neon vibe") == ORBITRON_FONT_PATH
+
+
+def test_select_font_does_not_misfire_orbitron_on_technical():
+    """Orbitron's sci-fi keywords must never match on the substring
+    "tech" inside Anton's own "technical" keyword — otherwise every
+    "technical" mood would silently steal Anton's match (see
+    test_select_font_matches_real_style_kit_phrasing)."""
+    assert select_font("bold and technical, sans-serif industrial") == ANTON_FONT_PATH
+
+
+def test_select_font_matches_condensed_moods_to_bebas_neue():
+    assert select_font("tall, condensed, poster-ready") == BEBAS_NEUE_FONT_PATH
+
+
+def test_select_font_matches_modern_mood_to_oswald():
+    assert select_font("modern and versatile") == OSWALD_FONT_PATH
+
+
+def test_select_font_matches_professional_moods_to_montserrat():
+    assert select_font("professional and corporate") == MONTSERRAT_FONT_PATH
 
 
 def test_extract_hex_pulls_hex_out_of_a_description():
@@ -298,3 +330,122 @@ def test_render_poster_composites_accent_elements_when_requested(tmp_path):
 
     assert result.png_path.exists()
     assert len(result.assets.accent_images) == 2
+
+
+def test_render_poster_variants_produces_three_genuinely_different_treatments(tmp_path):
+    """The 3 variants must differ in font, layout position, AND accent
+    color usage — not 3 identical renders of the same choices with
+    different filenames."""
+    style_kit = StyleOutput(
+        colors=["warm terracotta (#C97C5D)"],
+        font_mood="bold and technical",
+        layout_tendency="dense, edge-to-edge",
+        vibe="energetic",
+    )
+
+    variants = render_poster_variants(SAMPLE_SPEC, str(tmp_path), size=(400, 500), style_kit=style_kit)
+
+    assert [v.label for v in variants] == list(VARIANT_LABELS)
+    assert len(variants) == 3
+
+    font_paths = [v.font_path for v in variants]
+    assert len(set(font_paths)) == 3, "all 3 variants must use a different font"
+
+    layouts = [v.spec.layout for v in variants]
+    assert len(set(layouts)) == 3, "all 3 variants must use a different layout position"
+
+    color_pairs = [(v.spec.text_color, v.spec.accent_color) for v in variants]
+    assert len(set(color_pairs)) == 3, "all 3 variants must use accent color differently"
+
+    for variant in variants:
+        assert variant.result.png_path.exists()
+        with Image.open(variant.result.png_path) as image:
+            image.verify()
+
+
+def test_render_poster_variants_reuses_the_same_background_across_all_three(tmp_path):
+    """The 3 variants must share one background — resolved once and
+    passed back into each per-variant render via `assets=`, never
+    rebuilt from scratch per variant (that would defeat the whole
+    point of the single-background cost guarantee, even for the free
+    procedural background)."""
+    style_kit = StyleOutput(
+        colors=["warm terracotta (#C97C5D)"],
+        font_mood="clean and minimal",
+        layout_tendency="centered",
+        vibe="calm",
+    )
+
+    with patch(
+        "src.poster_render._gradient_background", wraps=poster_render._gradient_background
+    ) as mock_gradient:
+        render_poster_variants(SAMPLE_SPEC, str(tmp_path), size=(400, 500), style_kit=style_kit)
+
+    assert mock_gradient.call_count == 1
+
+
+def test_render_poster_variants_makes_exactly_one_ai_background_call(tmp_path):
+    """The whole point of PART 2: 3 variants must never triple the paid
+    Flux API cost by generating 3 separate AI backgrounds — exactly one
+    generate_ai_background call, reused by all 3 variants."""
+    style_kit = StyleOutput(
+        colors=["warm terracotta (#C97C5D)"],
+        font_mood="bold",
+        layout_tendency="dense, edge-to-edge",
+        vibe="energetic",
+    )
+
+    def fake_ai_background(*args, **kwargs):
+        import io as _io
+
+        buffer = _io.BytesIO()
+        Image.new("RGB", (64, 64), (200, 100, 50)).save(buffer, format="PNG")
+        return buffer.getvalue()
+
+    with patch(
+        "src.poster_render.generate_ai_background", side_effect=fake_ai_background
+    ) as mock_generate:
+        variants = render_poster_variants(
+            SAMPLE_SPEC,
+            str(tmp_path),
+            size=(400, 500),
+            style_kit=style_kit,
+            use_ai_background=True,
+        )
+
+    assert mock_generate.call_count == 1
+    assert len(variants) == 3
+    for variant in variants:
+        assert variant.result.png_path.exists()
+
+
+def test_render_poster_variants_respects_contrast_safety_check(tmp_path):
+    """PART 4 carryover check: the "Minimal" variant deliberately
+    collapses text_color and accent_color to the same value (see
+    _variant_color_treatment) — if that collapsed color fails WCAG
+    contrast against the shared background, the existing
+    auto-correction safety net must still kick in exactly like it does
+    for a normal single-poster render, not get silently bypassed by the
+    variant machinery."""
+    # A near-white text/accent color against a near-white background
+    # fails contrast — same setup as
+    # test_resolve_text_color_auto_corrects_an_unlocked_low_contrast_color,
+    # but exercised end-to-end through render_poster_variants this time.
+    spec = replace(
+        SAMPLE_SPEC,
+        background_color="#F5F5F5",
+        text_color="#F0F0F0",
+        accent_color="#EDEDED",
+    )
+    style_kit = StyleOutput(
+        colors=["#F5F5F5"], font_mood="clean and minimal", layout_tendency="centered", vibe="calm"
+    )
+
+    variants = render_poster_variants(spec, str(tmp_path), size=(400, 500), style_kit=style_kit)
+
+    minimal_variant = variants[VARIANT_LABELS.index("Minimal")]
+    # Every variant is unlocked (lock_colors defaults to False), so the
+    # near-white/near-white pairing above must have been auto-corrected
+    # to pure black/white — same guarantee _resolve_text_color already
+    # gives a normal single-poster render — leaving no contrast warning.
+    assert minimal_variant.result.contrast_warning is None
